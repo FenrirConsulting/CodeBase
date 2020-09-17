@@ -1,0 +1,95 @@
+
+
+html {
+    height : 100vh;
+    width : 100vw;
+    margin: 0;
+    padding : 0;
+}
+
+body {
+    background-color: rgb(33,37,43);
+    color: #fff;
+    height : 100vh;
+    width : 100vw;
+    margin: 0;
+    padding : 0;
+    display:grid;
+    grid-template-rows: 10% 90%;
+}
+
+header{
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-row-start : 1;
+    font-size: 1.5vw;
+    font-weight: bold;
+    font-family: Helvetica;
+    color: rgb(241,75,53);
+    text-shadow: 0 0 3px #000;
+    -moz-text-shadow: 0 0 3px #000;
+    -webkit-text-shadow: 0 0 3px #000;
+}
+
+span {
+
+    color: #f0f8ff;
+}
+
+
+.list {
+    grid-row :2;
+    padding-left: 5em;
+    display: inline-block;
+    font-size: 1.4vw;
+    height : 80vh;
+    width : 90vw;
+    font-weight: bold;
+    font-family: Helvetica;
+    color: rgb(241,75,53);
+    text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
+        0px -5px 35px rgba(255, 255, 255, 0.3);
+  }
+
+  .odd{
+
+    border-color: lighten(rgb(7, 10, 14), 10%);
+    background-color: rgb(46, 91, 136);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  .even{
+
+    border-color: lighten(rgb(5, 8, 10), 40%);
+    background-color: #34495E;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+
+.title, .date {
+    align-self: center;
+    text-align: center;
+}
+
+.logo{
+
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.draggable {
+    -webkit-app-region: drag;
+}
