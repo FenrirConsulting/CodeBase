@@ -1,0 +1,20 @@
+{
+  "name": "ticketmonitor",
+  "version": "1.0.0",
+  "description": "IT Ticket Monitor",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "Christopher Olson",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^10.1.2"
+  },
+  "dependencies": {
+    "custom-electron-titlebar": "^3.2.4"
+  }
+}
