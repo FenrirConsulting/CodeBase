@@ -1,0 +1,15 @@
+51,58,66 - Trim
+40,44,52 - Panel Main
+33,37,43 - Panel Accent
+11,12,13 - Buttons
+
+
+241,75,53   - Orange
+132,154,156 - Silver 
+
+
+
+rgb(33,37,43);  - Background Color
+
+rgb(241,75,53); - Orange Font
+#f0f8ff; - White Font
