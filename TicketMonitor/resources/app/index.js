@@ -16,6 +16,11 @@ const path = require('path');
 const username = os.userInfo().username;
 let mainWindow; 
 
+const nativeImage = require('electron').nativeImage;
+    var image = nativeImage.createFromPath(__dirname + '/build/icon/icon.ico'); 
+ // where public folder on the root dir
+ image.setTemplateImage(true);
+
 
 app.disableHardwareAcceleration();
 
@@ -36,6 +41,7 @@ app.on('ready', () => {
             frame: true,
             devTools: true,
             maximize : true,
+            icon: image
         });
         mainWindow.loadFile(fileName);
         mainWindow.maximize();

@@ -1,0 +1,4 @@
+c:\users\c067460\documents\visual studio 2010\Projects\Startup\Startup\bin\Debug\Startup.exe
+c:\users\c067460\documents\visual studio 2010\Projects\Startup\Startup\bin\Debug\Startup.pdb
+c:\users\c067460\documents\visual studio 2010\Projects\Startup\Startup\obj\x86\Debug\Startup.exe
+c:\users\c067460\documents\visual studio 2010\Projects\Startup\Startup\obj\x86\Debug\Startup.pdb

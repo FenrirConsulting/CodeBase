@@ -1,20 +1,34 @@
 {
-  "name": "ticketmonitor",
-  "version": "1.0.0",
+  
+
+"name": "ticketmonitor",
+  
+"version": "1.0.0",
   "description": "IT Ticket Monitor",
-  "main": "index.js",
-  "scripts": {
-    "start": "electron ."
-  },
-  "keywords": [
+  
+"main": "index.js",
+  
+"scripts": {
+    "start": "electron .", 
+    "build": "electron-packager . --out=TicketMonitor --platform=win32 --arch=x64 --icon=build/icon.ico" 
+},
+  
+"keywords": [
     "electron"
   ],
-  "author": "Christopher Olson",
-  "license": "MIT",
-  "devDependencies": {
+  
+"author": "Christopher Olson",
+  
+"license": "MIT",
+  
+"devDependencies": {
     "electron": "^4.0.4"
   },
-  "dependencies": {
+  
+"dependencies": {
     "custom-electron-titlebar": "^3.2.4"
   }
+  
+
+
 }

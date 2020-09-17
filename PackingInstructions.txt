@@ -1,0 +1,22 @@
+Install Node.js , open Node Command Prompt
+
+Install Electron globally with:
+npm install electron -g
+
+Install Electron-Packagher globally with:
+npm install electron-packager -g
+
+To load the PackingFolder with Electron 4.0.4 modules, from the Packing Folder Directory:
+npm install --save-dev electron@4.0.4
+
+Using Electron-Packager, can manually enter commands with::
+electron-packager SourceDirectory OutDirectory --platform(win32) --arch(x64) --icon=build/icon.ico
+
+Can also copy the above line into the package.json file , using this line in the file :
+
+"scripts": {
+    "start": "electron .", 
+    "build": "electron-packager . --platform=win32 --arch=x64 --icon=build/icon.ico" 
+}
+
+Can then rename the outputted folder to whatever, inside is the application binary.
