@@ -1,0 +1,39 @@
+
+body {
+  background-color: rgb(33,37,43);
+  color: #f0f8ff;
+  text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
+      0px -5px 35px rgba(255, 255, 255, 0.3);
+      height: 100%;
+}
+
+html {
+
+  height: 100%;
+  background-color: rgb(36, 51, 66);
+  overflow-y : hidden;
+  overflow-x : hidden;
+}
+
+iframe {
+  display:block;
+}
+
+
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.notDraggable{
+
+  -webkit-app-region: no-drag
+}
+
+
+
