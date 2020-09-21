@@ -104,7 +104,7 @@ app.on('ready', () => {
             //windowLauncher(mod2bHTML);
             //windowLauncher(mod3AHTML);
             //windowLauncher(mod3BHTML);
-            windowLauncher(news1HTML);
+            //windowLauncher(news1HTML);
             //windowLauncher(news2HTML);
             //windowLauncher(dashHTML);
             //windowLauncher(chart2HTML);
@@ -112,7 +112,7 @@ app.on('ready', () => {
             //windowLauncher(tempHTML);
             //windowLauncher(jsonHTML);
             //windowLauncher(dashHTML);
-            //dashLauncher(dashHTML); 
+            dashLauncher(dashHTML); 
             break;
 
         default:
