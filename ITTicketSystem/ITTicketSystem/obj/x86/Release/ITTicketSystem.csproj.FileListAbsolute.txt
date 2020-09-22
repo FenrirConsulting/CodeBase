@@ -23,3 +23,6 @@ C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSy
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.csproj.GenerateResource.Cache
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.exe
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.pdb
+C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\bin\Release\System.Data.SQLite.dll
+C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\bin\Release\System.Data.SQLite.xml
+C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.csprojResolveAssemblyReference.cache

@@ -172,3 +172,35 @@
 [6289] addDownloadable "SqlEnterpriseFormatter.7z"
 [6289] addDownloadable "SqlFormatterSimple.7z"
 [6289] addDownloadable "XmlExport.7z"
+************************************* Invoked: Tue Sep 22 14:40:57 2020
+[0] Operations sanity check succeeded.
+[42210] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?193364310': Connection timed out.
+[42211] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Tue Sep 22 15:13:25 2020
+[0] Operations sanity check succeeded.
+[42071] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?714429836': Connection timed out.
+[42072] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Tue Sep 22 15:21:12 2020
+[0] Operations sanity check succeeded.
+[42069] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?372020816': Connection timed out.
+[42070] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Tue Sep 22 15:22:45 2020
+[0] Operations sanity check succeeded.
+[42061] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?233410992': Connection timed out.
+[42062] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Tue Sep 22 15:32:25 2020
+[0] Operations sanity check succeeded.
+[42052] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?402847872': Connection timed out.
+[42053] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Tue Sep 22 15:56:25 2020
+[0] Operations sanity check succeeded.
+[43029] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?176723910': Connection timed out.
+[43030] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Tue Sep 22 15:57:47 2020
+[0] Operations sanity check succeeded.
+[42075] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?108027290': Connection timed out.
+[42076] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Tue Sep 22 15:59:29 2020
+[0] Operations sanity check succeeded.
+[42069] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?395005000': Connection timed out.
+[42070] Cannot retrieve remote tree No package sources set for this application..
