@@ -14,6 +14,7 @@ namespace ITTicketSystem
 {
     public partial class MainForm : Form
     {
+        public sqlLiteMethods SQConn = new sqlLiteMethods();
 
         public MainForm()
         {
@@ -156,6 +157,8 @@ namespace ITTicketSystem
             openChildFormInPanel(new Settings());
             hideSubMenu();
         }
+
+        
 
     }
 }

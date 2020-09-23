@@ -119,6 +119,7 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="sqlLiteMethods.cs" />
     <Compile Include="UpdateTicket.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +155,9 @@
       <DependentUpon>UpdateTicket.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="localDatabase.sqlite">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="LocalDatabaseDataSet.xsc">
       <DependentUpon>LocalDatabaseDataSet.xsd</DependentUpon>
     </None>

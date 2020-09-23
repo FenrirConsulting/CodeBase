@@ -14,7 +14,7 @@ namespace ITTicketSystem
 {
     public partial class OpenTicket : Form
     {
-        public DBConnection DBConn = new DBConnection();
+        public sqlLiteMethods DBConn = new sqlLiteMethods();
         DataTable ticketTable = new DataTable();
         DataTable userTable = new DataTable();
         string today = DateTime.Today.ToString("MM'/'dd'/'yyyy");

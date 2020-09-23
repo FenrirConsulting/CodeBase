@@ -14,7 +14,7 @@ namespace ITTicketSystem
 {
     public partial class ClosedTickets : Form
     {
-        public DBConnection DBConn = new DBConnection();
+        public sqlLiteMethods DBConn = new sqlLiteMethods();
         DataTable ticketTable = new DataTable();
         DataTable userTable = new DataTable();
 

@@ -16,7 +16,7 @@ namespace ITTicketSystem
     public partial class CreateTicket : Form
     {
 
-        public DBConnection DBConn = new DBConnection();
+        public sqlLiteMethods DBConn = new sqlLiteMethods();
         string today = DateTime.Today.ToString("MM'/'dd'/'yyyy");
         string boxUsername = "";
         string boxPassword = "";

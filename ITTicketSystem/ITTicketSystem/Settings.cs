@@ -12,7 +12,7 @@ namespace ITTicketSystem
     public partial class Settings : Form
     {
 
-        public DBConnection DBConn = new DBConnection();
+        public sqlLiteMethods DBConn = new sqlLiteMethods();
         string selectedRecordId = "";
 
         public Settings()
