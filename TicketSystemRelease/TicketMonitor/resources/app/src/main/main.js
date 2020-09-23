@@ -4,54 +4,56 @@
   const sqlite3 = require('sqlite3').verbose();
   var file = '../../../../../localDatabase.sqlite';
   var resolvedPath = path.resolve(__dirname, file);
-  var ticketList = [];
   var tempString = "";
+  var builtList = [];
 
-  window.onload = function () {
+  buildPage();
+
+  function buildPage () {
+
+    fetchData();
+    buildTable();
+
+  }
+
+  function fetchData() {
 
     let db = new sqlite3.Database(resolvedPath, (err) => {
       if (err) {
         console.error(err.message);
       }
-      console.log('Connected to the chinook database.');
-      fetchData(db);
     });
 
+    builtList = [];
 
-    function fetchData(db) {
+    db.serialize(() => {
+      db.each(`SELECT TicketID as id,
+                  Requestor as requestor,
+                  Category as category, 
+                  Created as created,
+                  Modified as modified,
+                  Request as request,
+                  Status as status
+                 FROM Tickets 
+                WHERE Status LIKE '%Open%'  `, (err, row) => {
+        if (err) {
+          console.error(err.message);
+        }
 
-      db.serialize(() => {
-        db.each(`SELECT TicketID as id,
-                    Requestor as requestor,
-                    Category as category, 
-                    Created as created,
-                    Modified as modified,
-                    Request as request,
-                    Status as status
-                   FROM Tickets 
-                  WHERE Status LIKE '%Open%'  `, (err, row) => {
-          if (err) {
-            console.error(err.message);
-          }
+        tempString =
+          row.id + "," +
+          row.requestor + "," +
+          row.category + "," +
+          row.created + "," +
+          row.modified + "," +
+          row.request;
 
-          tempString =
-            row.id + "," +
-            row.requestor + "," +
-            row.category + "," +
-            row.created + "," +
-            row.modified + "," +
-            row.request;
-
-          ticketList.push(tempString);
-
-        });
-
-        buildTable(ticketList);
+        builtList.push(tempString);
 
       });
 
-    }
 
+    });
 
 
     db.close((err) => {
@@ -61,19 +63,34 @@
       console.log('Close the database connection.');
     });
 
-  };
-
-  function buildTable(ticketList) {
-
-    console.log(ticketList);
+  }
 
 
 
+  function buildTable() {
+
+    console.log(builtList);
+    console.log(builtList.length);
 
 
+    for (i = 0; i < builtList.length; i++) {
 
+      var storedRow = builtList[i].trim().split(",");
+      var docTable = document.getElementById("DataStream");
+      var newRow = document.createElement('tr');
+      var newCell = [];
 
-    
+      for (n = 0; n < storedRow.length; n++) {
+        newCell[n] = document.createElement('td');
+        newCell[n].innerHTML = storedRow[n];
+        newRow.appendChild(newCell[n]);
+      }
+
+      console.log(newRow);
+      docTable.appendChild(newRow);
+
+    };
+
   }
 
 
