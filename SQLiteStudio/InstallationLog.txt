@@ -204,3 +204,26 @@
 [0] Operations sanity check succeeded.
 [42069] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?395005000': Connection timed out.
 [42070] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Wed Sep 23 12:59:16 2020
+[0] Operations sanity check succeeded.
+[6098] addDownloadable "DbSqliteSystemData.7z"
+[6099] addDownloadable "DbSqliteCipher.7z"
+[6099] addDownloadable "CsvExport.7z"
+[6099] addDownloadable "JsonExport.7z"
+[6099] addDownloadable "HtmlExport.7z"
+[6099] addDownloadable "Printing.7z"
+[6099] addDownloadable "PdfExport.7z"
+[6100] addDownloadable "RegExpImport.7z"
+[6100] addDownloadable "ConfigMigration.7z"
+[6100] addDownloadable "qt.7z"
+[6100] addDownloadable "DbAndroid.7z"
+[6101] addDownloadable "CsvImport.7z"
+[6101] addDownloadable "MultiEditorImage.7z"
+[6101] addDownloadable "SqlExport.7z"
+[6101] addDownloadable "SqlEnterpriseFormatter.7z"
+[6101] addDownloadable "XmlExport.7z"
+[6102] addDownloadable "DbSqliteWx.7z"
+[6102] addDownloadable "DbSqlite2.7z"
+[6102] addDownloadable "ScriptingTcl.7z"
+[6102] addDownloadable "SqlFormatterSimple.7z"
+[6102] addDownloadable "sqlitestudio.7z"

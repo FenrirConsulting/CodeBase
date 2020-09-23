@@ -13,7 +13,6 @@ const {
 const electron = require('electron');
 const os = require('os');
 const path = require('path');
-const sql = require('mssql');
 const username = os.userInfo().username;
 let mainWindow; 
 

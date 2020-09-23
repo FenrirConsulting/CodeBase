@@ -3,6 +3,15 @@
   const customTitlebar = require('custom-electron-titlebar');
   var file = '../../../../localDatabase.sdf';
   var resolvedPath = path.resolve(__dirname,file);
+ 
+ 
+
+
+  window.onload = function() {
+    
+    
+
+  };
 
   
 
