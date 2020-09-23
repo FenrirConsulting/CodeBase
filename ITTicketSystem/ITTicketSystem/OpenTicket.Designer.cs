@@ -54,6 +54,7 @@
             this.formTitle = new System.Windows.Forms.Label();
             this.creationDateBox = new System.Windows.Forms.TextBox();
             this.creationDateLabel = new System.Windows.Forms.Label();
+            this.ticketMonitorButton = new System.Windows.Forms.Button();
             this.bodyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +62,7 @@
             // bodyPanel
             // 
             this.bodyPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(43)))));
+            this.bodyPanel.Controls.Add(this.ticketMonitorButton);
             this.bodyPanel.Controls.Add(this.categoryBox);
             this.bodyPanel.Controls.Add(this.label2);
             this.bodyPanel.Controls.Add(this.updatorBox);
@@ -365,6 +367,20 @@
             this.creationDateLabel.TabIndex = 5;
             this.creationDateLabel.Text = "Creation Date";
             // 
+            // ticketMonitorButton
+            // 
+            this.ticketMonitorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.ticketMonitorButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ticketMonitorButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ticketMonitorButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.ticketMonitorButton.Location = new System.Drawing.Point(1005, 11);
+            this.ticketMonitorButton.Name = "ticketMonitorButton";
+            this.ticketMonitorButton.Size = new System.Drawing.Size(121, 28);
+            this.ticketMonitorButton.TabIndex = 41;
+            this.ticketMonitorButton.Text = "Ticket Monitor";
+            this.ticketMonitorButton.UseVisualStyleBackColor = false;
+            this.ticketMonitorButton.Click += new System.EventHandler(this.ticketMonitorButton_Click);
+            // 
             // OpenTicket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,6 +426,7 @@
         private System.Windows.Forms.Label updatorLabel;
         private System.Windows.Forms.TextBox categoryBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button ticketMonitorButton;
 
     }
 }

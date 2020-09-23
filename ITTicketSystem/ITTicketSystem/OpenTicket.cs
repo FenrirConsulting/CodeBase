@@ -21,11 +21,14 @@ namespace ITTicketSystem
         string boxUsername = "";
         string boxPassword = "";
         string selectedRecordId = "";
+        string folder = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
+        string monitorPath = "";
 
         public OpenTicket()
         {
             InitializeComponent();
             rebuildTable();
+            monitorPath = folder + "\\TicketMonitor\\ticketmonitor.exe";
         }
 
         public void rebuildTable()
@@ -34,7 +37,6 @@ namespace ITTicketSystem
             ticketTable = DBConn.getOpenTicketsTable("Tickets");
             userTable = DBConn.getTable("Users");
             dataGridView.DataSource = ticketTable;
-
             updatorBox.DataSource = userTable;
             updatorBox.DisplayMember = "Name";
 
@@ -155,6 +157,11 @@ namespace ITTicketSystem
             requestTextBox.Text = "";
             commentsTextBox.Text = "";
             updateBox.Text = "";
+        }
+
+        private void ticketMonitorButton_Click(object sender, EventArgs e)
+        {
+            Process.Start(monitorPath);
         }
 
     }

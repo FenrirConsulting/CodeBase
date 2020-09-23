@@ -1,4 +1,3 @@
-C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\bin\Release\localDatabase.sdf
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\bin\Release\sqlceca35.dll
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\bin\Release\sqlcecompact35.dll
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\bin\Release\sqlceer35EN.dll
@@ -26,3 +25,4 @@ C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSy
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\bin\Release\System.Data.SQLite.dll
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\bin\Release\System.Data.SQLite.xml
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\bin\Release\localDatabase.sqlite
+C:\Users\c067460\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.csprojResolveAssemblyReference.cache
