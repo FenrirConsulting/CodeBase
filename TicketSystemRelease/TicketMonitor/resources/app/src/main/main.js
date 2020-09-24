@@ -7,9 +7,12 @@
   var tempString = "";
   var builtList = [];
 
-  buildPage();
+  setInterval(function() {buildPage();}, 10000);
 
   function buildPage () {
+
+    const emptyTable = document.getElementById("DataStream");
+    emptyTable.innerHTML = '';
 
     fetchData();
     setTimeout(function(){buildTable()},2000)
@@ -41,11 +44,11 @@
         }
 
         tempString =
-          row.id + "," +
-          row.requestor + "," +
-          row.category + "," +
-          row.created + "," +
-          row.modified + "," +
+          row.id + "|" +
+          row.requestor + "|" +
+          row.category + "|" +
+          row.created + "|" +
+          row.modified + "|" +
           row.request;
 
         builtList.push(tempString);
@@ -73,7 +76,7 @@
 
     for (i = 0; i < builtList.length; i++) {
 
-      var storedRow = builtList[i].trim().split(",");
+      var storedRow = builtList[i].trim().split("|");
       var docTable = document.getElementById("DataStream");
       var newRow = document.createElement('tr');
       var newCell = [];

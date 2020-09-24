@@ -14,7 +14,6 @@ const electron = require('electron');
 const os = require('os');
 const path = require('path');
 const username = os.userInfo().username;
-let mainWindow; 
 
 app.disableHardwareAcceleration();
 

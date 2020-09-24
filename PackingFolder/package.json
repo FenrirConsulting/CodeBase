@@ -13,7 +13,7 @@
   "author": "Christopher Olson",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^4.0.4"
+    "electron": "^4.2.12"
   },
   "dependencies": {
     "custom-electron-titlebar": "^3.2.4",
