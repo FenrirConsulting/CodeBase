@@ -3,8 +3,6 @@ body {
   background-color: rgb(33,37,43);
   color: #f0f8ff;
   height: 100%;
-  text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
-      0px -5px 35px rgba(132,154,156, 0.2);
       
 }
 
@@ -41,16 +39,14 @@ html {
   font-weight: bold;
   font-family: Helvetica;
   color:rgb(241,75,53);
-  text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
-      0px -5px 35px rgba(255, 255, 255, 0.3);
 }
 
 
 #tbl_wrapper {
-  display: grid;
-  grid-row-start: auto;
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
   width: 100%;
-  height: 100%;
   text-align: center;
   table-layout: fixed;
 }
@@ -58,7 +54,6 @@ html {
 #tbl thead {
   display: table;
   width: 100%;
-  font-size: 1.4vw;
   table-layout: fixed;
   text-align: center;
   background: #34495E;
@@ -70,14 +65,31 @@ html {
   display: block;
   overflow: auto;
   overflow-x: hidden;
+  font-weight: bold;
+  font-size: 1.4vw;
+  font-family: Georgia;
   width: 100%;
-  height: 100%;
+  height: 55em;
+  
+}
+
+tbody tr {
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+  margin-bottom:2px;
+
 }
 
 th {
   vertical-align: middle;
   height: 3ch;
   margin: 0px;
+  font-size: 1.4vw;
+  color: rgb(132,154,156);
   padding-left: 10px;
 }
 
@@ -88,23 +100,15 @@ td {
   font-size: 1.4vw;
   font-family: Georgia;
   padding: 4px;
-  text-align: center;
+  text-align: left;
 }
 
-#tbl tbody tr:nth-child(even) {
-  border-color: lighten(#34495E, 10%);
-  color: #fff;
-  padding-top: .5em;
-  background: #34495E;
-
+td2 {
+  column-span: 5;
+  color:rgb(241,75,53);
+  height: 3ch;
 }
 
-#tbl tbody tr:nth-child(odd) {
-  border-color: lighten(#34495E, 10%);
-  color: #fff;
-  padding-bottom: .5em;
-  background: rgb(36, 51, 66);
-}
 
 ::-webkit-scrollbar {
   width: 0px;
