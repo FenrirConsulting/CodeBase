@@ -14,7 +14,8 @@ const electron = require('electron');
 const os = require('os');
 const path = require('path');
 const username = os.userInfo().username;
-
+app.commandLine.appendSwitch('auto-detect', 'false');
+app.commandLine.appendSwitch('no-proxy-server')
 app.disableHardwareAcceleration();
 
 app.on('ready', () => {

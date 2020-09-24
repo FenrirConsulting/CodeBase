@@ -7,7 +7,7 @@
   var tempString = "";
   var builtList = [];
 
-  setInterval(function() {buildPage();}, 10000);
+  setInterval(function() {buildPage();}, 20000);
 
   function buildPage () {
 
