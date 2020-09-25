@@ -23,12 +23,12 @@ app.on('ready', () => {
     const mainHTML = ('./src/main/main.html');
 
     windowLauncher(mainHTML); 
+
     function windowLauncher(fileName){
 
         mainWindow = new BrowserWindow({
             webPreferences: {
-                nodeIntegration: true, 
-                enableRemoteModule: true
+                nodeIntegration: true
             },
             autoHideMenuBar: true,
             fullscreen: false,
@@ -40,6 +40,7 @@ app.on('ready', () => {
         mainWindow.maximize();
         
     }
+
 })
 
 
