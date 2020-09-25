@@ -7,7 +7,7 @@
   var tempString = "";
   var builtList = [];
 
-  setInterval(function() {buildPage();}, 20000);
+  setInterval(function() {buildPage();}, 10000);
 
   function buildPage () {
 
@@ -55,9 +55,7 @@
 
       });
 
-
     });
-
 
     db.close((err) => {
       if (err) {
@@ -65,14 +63,11 @@
       }
       console.log('Close the database connection.');
     });
-
   }
 
   function buildTable() {
 
     console.log(builtList);
-    console.log(builtList.length);
-
 
     for (i = 0; i < builtList.length; i++) {
 
@@ -90,12 +85,10 @@
 
       newCell[5] = document.createElement('td2');
       newCell[5].innerHTML = storedRow[5];
-      //var requestRow = document.createElement('tr2');
-      //requestRow.appendChild(newCell[5]);
-
-
       docTable.appendChild(newRow);
       docTable.appendChild(newCell[5]);
+      lineBreak = document.createElement('hr');
+      docTable.appendChild(lineBreak);
 
     };
 

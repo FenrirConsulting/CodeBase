@@ -109,6 +109,11 @@ td2 {
   height: 3ch;
 }
 
+hr {
+
+  width : 95%;
+  border: 1px solid rgb(132,154,156);
+}
 
 ::-webkit-scrollbar {
   width: 0px;
