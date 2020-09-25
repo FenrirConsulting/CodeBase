@@ -208,13 +208,13 @@ namespace ITTicketSystem
             }
         }
 
-        public int ticketTableUpdate(string iD, string table, string modified, string finished, string category, string status, string comments, string closedBy)
+        public int ticketTableUpdate(string iD, string table, string modified, string request, string finished, string category, string status, string comments, string closedBy)
         {
 
             try
             {
                 ConnectToDatabase();
-                string strCommand = "Update " + table + " Set Modified=@Modified, Finished=@Finished, Category=@Category, Status=@Status, Comments=@Comments, ClosedBy=@ClosedBy  WHERE ID=" + iD;
+                string strCommand = "Update " + table + " Set Modified=@Modified, Request=@Request, Finished=@Finished, Category=@Category, Status=@Status, Comments=@Comments, ClosedBy=@ClosedBy  WHERE ID=" + iD;
                 SQLiteCommand cmdUpdate = new SQLiteCommand();
                 cmdUpdate.Connection = conn;
                 cmdUpdate.CommandType = CommandType.Text;
@@ -222,6 +222,7 @@ namespace ITTicketSystem
                 cmdUpdate.Parameters.AddWithValue("@ID", iD);
                 cmdUpdate.Parameters.AddWithValue("@Modified", modified);
                 cmdUpdate.Parameters.AddWithValue("@Finished", finished);
+                cmdUpdate.Parameters.AddWithValue("@Request", request);
                 cmdUpdate.Parameters.AddWithValue("@Category", category);
                 cmdUpdate.Parameters.AddWithValue("@Status", status);
                 cmdUpdate.Parameters.AddWithValue("@Comments", comments);

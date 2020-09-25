@@ -121,10 +121,11 @@ namespace ITTicketSystem
             {
 
                 string modified = DateTime.Today.ToString("MM'/'dd'/'yyyy");
-                string updatedText = Environment.NewLine + Environment.NewLine + requestorBox.Text + " - " + modified + " : " + Environment.NewLine + updateBox.Text;
+                string updatedText = Environment.NewLine + Environment.NewLine + updatorBox.Text + " - " + modified + " : " + Environment.NewLine + updateBox.Text;
                 string id = selectedRecordId;
                 string table = "Tickets";
                 string category = categoryBox.Text;
+                string request = requestTextBox.Text;
                 string finished = "Unfinished";
                 string status = "Open";
                 string comments = commentsTextBox.Text + updatedText;
@@ -132,7 +133,7 @@ namespace ITTicketSystem
 
                 try
                 {
-                    DBConn.ticketTableUpdate(id, table, modified, finished, category, status, comments, closedBy);
+                    DBConn.ticketTableUpdate(id, table, modified, request, finished, category, status, comments, closedBy);
 
                     MessageBox.Show("Ticket Updated");
                     rebuildTable();
