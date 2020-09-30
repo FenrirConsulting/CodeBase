@@ -93,17 +93,7 @@
     };
 
   }
-
-
-
-
-
-
-
-
-
-
-
+  
   new customTitlebar.Titlebar({
     backgroundColor: customTitlebar.Color.fromHex('#000'),
     icon: '../../build/icon.ico'
