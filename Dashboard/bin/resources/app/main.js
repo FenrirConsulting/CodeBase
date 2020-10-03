@@ -107,12 +107,13 @@ app.on('ready', () => {
             //windowLauncher(news1HTML);
             //windowLauncher(news2HTML);
             //windowLauncher(dashHTML);
-            //windowLauncher(chart2HTML);
+            //windowLauncher(chart1HTML);
+            windowLauncher(chart2HTML);
             //windowLauncher(testHTML);
             //windowLauncher(tempHTML);
             //windowLauncher(jsonHTML);
             //windowLauncher(dashHTML);
-            dashLauncher(dashHTML); 
+            //dashLauncher(dashHTML); 
             break;
 
         default:
