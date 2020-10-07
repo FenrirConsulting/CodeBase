@@ -3,22 +3,22 @@
 	"dashboard": {
 
 	
-	"pageOne": "../mod1/mod1A.html",
+	"pageOne": "../news/news2.html",
 
 	
-	"pageTwo": "../mod1/mod1B.html",
+	"pageTwo": "../news/news2.html",
 
 	
-	"pageThree": "../mod2/mod2A.html",
+	"pageThree": "../news/news2.html",
 
 	
-	"pageFour": "../mod2/mod2B.html",
+	"pageFour": "../news/news2.html",
 
 	
-	"pageFive": "../mod3/mod3A.html",
+	"pageFive": "../news/news2.html",
 
 	
-	"pageSix": "../mod3/mod3B.html",
+	"pageSix": "../news/news2.html",
 
 	
 	"pageSeven": "../news/news1.html",

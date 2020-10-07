@@ -49,13 +49,13 @@
             Dashboard</a>
           <ul class="nav-pills nav-stacked" style="list-style-type:none;">
             <li><a href="#"><span class="fa-stack fa-lg pull-left notDraggable"><i
-              class="fa fa-tachometer fa-stack-1x "></i></span>
-          <div id="recapFormButton"><span id="morningRecap" class="notDraggable">Morning Recap</span></div>
-        </a></li>
-          <li><a href="#"><span class="fa-stack fa-lg pull-left notDraggable"><i
-          class="fa fa-tachometer fa-stack-1x "></i></span>
-          <div id="updateFormButton"><span id="updateForm" class="notDraggable">Update Form</span></div>
-    </a></li>
+                    class="fa fa-tachometer fa-stack-1x "></i></span>
+                <div id="recapFormButton"><span id="morningRecap" class="notDraggable">Empty Function</span></div>
+              </a></li>
+            <li><a href="#"><span class="fa-stack fa-lg pull-left notDraggable"><i
+                    class="fa fa-tachometer fa-stack-1x "></i></span>
+                <div id="updateFormButton"><span id="updateForm" class="notDraggable">Update Form</span></div>
+              </a></li>
           </ul>
         </li>
 
@@ -142,6 +142,44 @@
         </li>
 
         <li>
+          <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-bomb fa-stack-1x "></i></span>Reset
+            Clients</a>
+          <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+
+            <li><a href="#"><span class="fa-stack fa-lg pull-left notDraggable"><i
+                    class="fa fa-bomb fa-stack-1x "></i></span>
+                <div id="dpsBoardAButton"><span id="dpsBoardAButton">DPS Board A</span></div>
+              </a></li>
+
+            <li><a href="#"><span class="fa-stack fa-lg pull-left notDraggable"><i
+                    class="fa fa-bomb fa-stack-1x "></i></span>
+                <div id="dpsBoardBButton"><span id="dpsBoardBButton">DPS Board B</span></div>
+              </a></li>
+
+            <li><a href="#"><span class="fa-stack fa-lg pull-left notDraggable"><i
+                    class="fa fa-bomb fa-stack-1x "></i></span>
+                <div id="repackBoardAButton"><span id="repackBoardAButton">Repack Board A</span></div>
+              </a></li>
+
+            <li><a href="#"><span class="fa-stack fa-lg pull-left notDraggable"><i
+                    class="fa fa-bomb fa-stack-1x "></i></span>
+                <div id="repackBoardBButton"><span id="repackBoardBButton">Repack Board B</span></div>
+              </a></li>
+
+            <li><a href="#"><span class="fa-stack fa-lg pull-left notDraggable"><i
+                    class="fa fa-bomb fa-stack-1x "></i></span>
+                <div id="casesBoardAButton"><span id="casesBoardAButton">Cases Board A</span></div>
+              </a></li>
+
+            <li><a href="#"><span class="fa-stack fa-lg pull-left notDraggable"><i
+                    class="fa fa-bomb fa-stack-1x "></i></span>
+                <div id="casesBoardBButton"><span id="casesBoardBButton">Cases Board B</span></div>
+              </a></li>
+
+          </ul>
+        </li>
+
+        <li>
           <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-close fa-stack-1x "></i></span><button
               id="closeButton" class="btn btn-danger notDraggable"><span style="font-size: 16; display:inline;">Close
                 Window</span></button></a>
@@ -155,18 +193,19 @@
 
       <div id="conditionalContent" ">
 
-        <div class="pageFrame" style="display:none; " id="htmlDiv">
-          <div style="height:100%">
-            <webview class="" src="" id="webviewFrame" " nodeintegration></webview>
+        <div class=" pageFrame" style="display:none; " id="htmlDiv">
+        <div style="height:100%">
+          <webview class="" src="" id="webviewFrame" " nodeintegration></webview>
           </div>
         </div>
 
-        <div class="notDraggable" id="hiddenEditor" style="display:none; height:100%; width:100%;">
+        <div class=" notDraggable" id="hiddenEditor" style="display:none; height:100%; width:100%;">
 
-          <a href="#"></i></span><button
-            id="saveJSON" class="btn btn-primary notDraggable"><span style="font-size: 16; display:inline; font-weight: bold;"><i class="fa fa-save "></i>  Save JSON</span></button></a>
+            <a href="#"></i></span><button id="saveJSON" class="btn btn-primary notDraggable"><span
+                  style="font-size: 16; display:inline; font-weight: bold;"><i class="fa fa-save "></i> Save
+                  JSON</span></button></a>
 
-          <div id="jsoneditor"></div>
+            <div id="jsoneditor"></div>
         </div>
 
       </div>

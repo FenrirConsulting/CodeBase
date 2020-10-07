@@ -5,6 +5,12 @@
   var child = require('child_process').execFile;
   var updateFormExecutablePath = path.resolve(__dirname, '../../../../../UpdateForm.exe');
   var recapFormExecutablePath = path.resolve(__dirname, '../../../../../MorningRecap/MorningRecap.exe')
+  var dpsBoardAShutdownPath = path.resolve(__dirname, '../resources/DPSPERFBOARDSHUTDOWN.BAT')
+  var dpsBoardBShutdownPath = path.resolve(__dirname, '../resources/DPSBOARDBSHUTDOWN.BAT')
+  var repackBoardAShutdownPath = path.resolve(__dirname, '../resources/REPACKPERFBOARDSHUTDOWN.BAT')
+  var repackBoardBShutdownPath = path.resolve(__dirname, '../resources/REPACKBOARDBSHUTDOWN.BAT')
+  var casesBoardAShutdownPath = path.resolve(__dirname, '../resources/CASESPERFBOARDSHUTDOWN.BAT')
+  var casesBoardBShutdownPath = path.resolve(__dirname, '../resources/CASESBOARDBSHUTDOWN.BAT')
 
   new customTitlebar.Titlebar({
     backgroundColor: customTitlebar.Color.fromHex('#000')
@@ -163,7 +169,7 @@
       document.getElementById("button10"),
       document.getElementById("button11"),
       document.getElementById("button12"),
-      document.getElementById("button13"),
+      document.getElementById("button13")
     ]
 
 
@@ -233,6 +239,90 @@
       hiddenEditor();
     });
 
+    dpsBoardAButton = document.getElementById("dpsBoardAButton");
+    dpsBoardAButton.addEventListener('click', () => {
+
+      child(dpsBoardAShutdownPath, function(err, data) {
+        if(err){
+           console.error(err);
+           return;
+        }
+     
+        console.log(data.toString());
+        });
+
+    })
+
+    dpsBoardBButton = document.getElementById("dpsBoardBButton");
+    dpsBoardBButton.addEventListener('click', () => {
+
+      child(dpsBoardBShutdownPath, function(err, data) {
+        if(err){
+           console.error(err);
+           return;
+        }
+     
+        console.log(data.toString());
+        });
+
+    })
+
+    repackBoardAButton = document.getElementById("repackBoardAButton");
+    repackBoardAButton.addEventListener('click', () => {
+
+      child(repackBoardAShutdownPath, function(err, data) {
+        if(err){
+           console.error(err);
+           return;
+        }
+     
+        console.log(data.toString());
+        });
+
+    })
+
+    repackBoardBButton = document.getElementById("repackBoardBButton");
+    repackBoardBButton.addEventListener('click', () => {
+
+      child(repackBoardBShutdownPath, function(err, data) {
+        if(err){
+           console.error(err);
+           return;
+        }
+     
+        console.log(data.toString());
+        });
+
+    })
+
+    casesBoardAButton = document.getElementById("casesBoardAButton");
+    casesBoardAButton.addEventListener('click', () => {
+
+      child(casesBoardAShutdownPath, function(err, data) {
+        if(err){
+           console.error(err);
+           return;
+        }
+     
+        console.log(data.toString());
+        });
+
+    })
+
+    casesBoardBButton = document.getElementById("casesBoardBButton");
+    casesBoardBButton.addEventListener('click', () => {
+
+      child(casesBoardBShutdownPath, function(err, data) {
+        if(err){
+           console.error(err);
+           return;
+        }
+     
+        console.log(data.toString());
+        });
+
+    })
+
     closeButton = document.getElementById("closeButton");
     closeButton.addEventListener('click', () => {
 
@@ -259,6 +349,7 @@
 
     });
 
+    /*
     recapFormButton = document.getElementById("recapFormButton");
     recapFormButton.addEventListener('click', () => {
 
@@ -272,6 +363,7 @@
         });
 
     });
+  */
 
     return (buttons);
   }

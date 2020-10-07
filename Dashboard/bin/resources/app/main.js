@@ -65,7 +65,7 @@ app.on('ready', () => {
     };
 
     
-    if (username == "c067460") {
+    if (username == "c067460" || username =="rfl6wmsdom\\c067460") {
         userCheck = 7
     };
 
@@ -108,16 +108,16 @@ app.on('ready', () => {
             //windowLauncher(news2HTML);
             //windowLauncher(dashHTML);
             //windowLauncher(chart1HTML);
-            windowLauncher(chart2HTML);
+            //windowLauncher(chart2HTML);
             //windowLauncher(testHTML);
             //windowLauncher(tempHTML);
             //windowLauncher(jsonHTML);
             //windowLauncher(dashHTML);
-            //dashLauncher(dashHTML); 
+            dashLauncher(dashHTML); 
             break;
 
         default:
-            windowLauncher(news1HTML);
+            dashLauncher(dashHTML); 
     }
 
     function dashLauncher(fileName){
