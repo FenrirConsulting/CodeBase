@@ -11,10 +11,12 @@ var mainTitle = config.chart2.mainTitle;
 document.title = mainTitle;
 document.getElementById("Title").innerHTML = title;
 
-var parentPath = '../../../../../DisplayScreens/';//It goes three folders or directories back from given __dirname.
+var parentPath = '../../../../../ReportGenerator/Reports/';//It goes three folders or directories back from given __dirname.
 var fileName = config.chart1.fileOne;
 
 var doc = path.join(parentPath,fileName)
+
+console.log(doc);
 
 d3.text(doc).then(function(text){
     var fixedData = d3.csvParse(text.split('\n').slice(1).join('\n'));
@@ -24,7 +26,10 @@ d3.text(doc).then(function(text){
 function makeChart(data) {
 
 
-    data = data.splice(0, data.length - 1);
+    data = data.splice(0, data.length - 1), del = 1;
+
+    data.splice(0,1);
+   
     
     const newArray = data.map(data => ({
         date: data["Date"].split(" ")[0],
