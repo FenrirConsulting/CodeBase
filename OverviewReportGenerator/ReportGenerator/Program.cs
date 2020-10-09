@@ -38,6 +38,7 @@ namespace ReportGenerator
           
             string clientPath = "X:\\abl\\runtime\\bin\\";
             string serverPath = "R:\\abl\\runtime\\bin\\";
+            string absolutePath = "\\\\rfl6dpspw2c\\CVS-CLIENT-RT\\abl\\runtime\\bin\\";
             string bmisFile = "BMIS_start.bat";
             string savedFile = "Overview.csv";
            
@@ -46,17 +47,23 @@ namespace ReportGenerator
             {
                 pathSelection = clientPath + bmisFile;
             }
-            if (Directory.Exists(serverPath))
+            else if (Directory.Exists(serverPath))
             {
                 pathSelection = serverPath + bmisFile;
             }
+            else 
+            {
+                pathSelection = absolutePath + bmisFile;
+            }
+
 
             Console.WriteLine("Opening BMIS");
             Process.Start(pathSelection);
+            Thread.Sleep(3000);
             programMethods.loginMethod(automation, programMethods);
             Thread.Sleep(3000);
             programMethods.grabReport(automation, programMethods);
-            Thread.Sleep(10000);
+            Thread.Sleep(15000);
             programMethods.exportFile(automation, programMethods, reportPath, savedFile);
             programMethods.closeBMIS();
         }
@@ -74,6 +81,8 @@ namespace ReportGenerator
             string username = "20031";
             string password = "1337";
             loginFormElement = automation.setParentElement("Log on BMIS");
+
+
             loginUserElement = automation.setChildElementById(loginFormElement, "4", true);
             loginPassElement = automation.setChildElementById(loginFormElement, "5", true);
             loginOkButton = automation.setChildElementById(loginFormElement, "8", true);
@@ -106,7 +115,17 @@ namespace ReportGenerator
             string selectedReport = "WR002: System Performance Overview";
 
             mainFormElement = automation.setParentElement("BMIS V3.4.7");
-            sampleReportElement = automation.setChildElementByName(mainFormElement, selectedReport, true);
+
+            int loopCount = 0;
+            do
+            {
+                sampleReportElement = automation.setChildElementByName(mainFormElement, selectedReport, true);
+                loopCount++;
+                Thread.Sleep(1000);
+            } while (sampleReportElement == null && loopCount < 5);
+          
+
+
             statisticsButtonElement = automation.setChildElementByName(mainFormElement, "F2 Statistics", true);
             automation.selectItem(sampleReportElement);
             Thread.Sleep(1000);
@@ -123,11 +142,30 @@ namespace ReportGenerator
                 okButton;
 
             mainFormElement = automation.setParentElement("BMIS V3.4.7");
-            exportButton = automation.setChildElementByName(mainFormElement, "Export", true);
+
+            int count = 0;
+            do
+            {
+                exportButton = automation.setChildElementByName(mainFormElement, "Export", true);
+                count++;
+                Thread.Sleep(1000);
+
+            } while (exportButton == null & count < 10);
+
             automation.invokeButtonPress(exportButton);
 
             Thread.Sleep(500);
-            exportAsComboBox = automation.setChildElementByName(mainFormElement, "Export as", true);
+
+            count = 0;
+            do
+            {
+                exportAsComboBox = automation.setChildElementByName(mainFormElement, "Export as", true);
+                count++;
+                Thread.Sleep(1000);
+
+            } while (exportAsComboBox == null & count < 10);
+
+            
             if (exportAsComboBox != null) {
                 SendKeys.SendWait("{DOWN}");
                 okButton = automation.setChildElementByName(mainFormElement, "F2 Ok", true);

@@ -35,9 +35,9 @@ namespace ReportGenerator
                 Thread.Sleep(100);
 
             }
-            while (elementParent == null && ct < 20);
+            while (elementParent == null && ct < 70);
 
-            if (elementParent == null && ct == 20)
+            if (elementParent == null && ct == 70)
             {
                 MessageBox.Show("EmptyElement");
             }

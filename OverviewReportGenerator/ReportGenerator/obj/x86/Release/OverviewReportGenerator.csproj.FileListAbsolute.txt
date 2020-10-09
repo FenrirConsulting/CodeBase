@@ -18,4 +18,3 @@ C:\Users\c067460\Documents\Visual Studio 2010\Projects\OverviewReportGenerator\R
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\OverviewReportGenerator\ReportGenerator\bin\Release\TestApiCore.xml
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\OverviewReportGenerator\ReportGenerator\bin\Release\TestApiWpf.pdb
 C:\Users\c067460\Documents\Visual Studio 2010\Projects\OverviewReportGenerator\ReportGenerator\bin\Release\TestApiWpf.xml
-C:\Users\c067460\Documents\Visual Studio 2010\Projects\OverviewReportGenerator\ReportGenerator\obj\x86\Release\OverviewReportGenerator.csprojResolveAssemblyReference.cache
