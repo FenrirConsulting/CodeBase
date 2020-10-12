@@ -59,7 +59,6 @@
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.textBox15 = new System.Windows.Forms.TextBox();
-            this.boardsButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label54 = new System.Windows.Forms.Label();
@@ -104,7 +103,6 @@
             this.textBox36 = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.textBox35 = new System.Windows.Forms.TextBox();
-            this.boardsButton2 = new System.Windows.Forms.Button();
             this.updateButton2 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.textBox18 = new System.Windows.Forms.TextBox();
@@ -146,6 +144,16 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.dpsTotalBox = new System.Windows.Forms.TextBox();
+            this.mpsTotalBox = new System.Windows.Forms.TextBox();
+            this.cpsTotalBox = new System.Windows.Forms.TextBox();
+            this.repackTotalBox = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.hoursBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -487,21 +495,6 @@
             this.textBox15.Size = new System.Drawing.Size(419, 50);
             this.textBox15.TabIndex = 14;
             // 
-            // boardsButton
-            // 
-            this.boardsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
-            this.boardsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.boardsButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boardsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.boardsButton.Location = new System.Drawing.Point(516, 6);
-            this.boardsButton.Name = "boardsButton";
-            this.boardsButton.Size = new System.Drawing.Size(113, 51);
-            this.boardsButton.TabIndex = 18;
-            this.boardsButton.Text = "Boards Window";
-            this.boardsButton.UseCompatibleTextRendering = true;
-            this.boardsButton.UseVisualStyleBackColor = false;
-            this.boardsButton.Click += new System.EventHandler(this.boardsButton_Click);
-            // 
             // tabControl1
             // 
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
@@ -528,7 +521,6 @@
             this.tabPage1.Controls.Add(this.label20);
             this.tabPage1.Controls.Add(this.textBox6);
             this.tabPage1.Controls.Add(this.label13);
-            this.tabPage1.Controls.Add(this.boardsButton);
             this.tabPage1.Controls.Add(this.textBox13);
             this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Controls.Add(this.label14);
@@ -646,6 +638,16 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.tabPage2.Controls.Add(this.hoursBox);
+            this.tabPage2.Controls.Add(this.label60);
+            this.tabPage2.Controls.Add(this.repackTotalBox);
+            this.tabPage2.Controls.Add(this.cpsTotalBox);
+            this.tabPage2.Controls.Add(this.mpsTotalBox);
+            this.tabPage2.Controls.Add(this.dpsTotalBox);
+            this.tabPage2.Controls.Add(this.label59);
+            this.tabPage2.Controls.Add(this.label58);
+            this.tabPage2.Controls.Add(this.label57);
+            this.tabPage2.Controls.Add(this.label56);
             this.tabPage2.Controls.Add(this.label55);
             this.tabPage2.Controls.Add(this.label53);
             this.tabPage2.Controls.Add(this.textBox50);
@@ -680,7 +682,6 @@
             this.tabPage2.Controls.Add(this.textBox36);
             this.tabPage2.Controls.Add(this.label37);
             this.tabPage2.Controls.Add(this.textBox35);
-            this.tabPage2.Controls.Add(this.boardsButton2);
             this.tabPage2.Controls.Add(this.updateButton2);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.textBox18);
@@ -1070,21 +1071,6 @@
             this.textBox35.Size = new System.Drawing.Size(80, 27);
             this.textBox35.TabIndex = 20;
             // 
-            // boardsButton2
-            // 
-            this.boardsButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
-            this.boardsButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.boardsButton2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boardsButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.boardsButton2.Location = new System.Drawing.Point(516, 6);
-            this.boardsButton2.Name = "boardsButton2";
-            this.boardsButton2.Size = new System.Drawing.Size(113, 51);
-            this.boardsButton2.TabIndex = 2;
-            this.boardsButton2.Text = "Boards Window";
-            this.boardsButton2.UseCompatibleTextRendering = true;
-            this.boardsButton2.UseVisualStyleBackColor = false;
-            this.boardsButton2.Click += new System.EventHandler(this.boardsButton2_Click_1);
-            // 
             // updateButton2
             // 
             this.updateButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
@@ -1117,7 +1103,7 @@
             // 
             this.textBox18.Location = new System.Drawing.Point(141, 77);
             this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(419, 27);
+            this.textBox18.Size = new System.Drawing.Size(179, 27);
             this.textBox18.TabIndex = 3;
             // 
             // label19
@@ -1508,6 +1494,106 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label56.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label56.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label56.Location = new System.Drawing.Point(800, 199);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(74, 19);
+            this.label56.TabIndex = 109;
+            this.label56.Text = "DPS Total";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label57.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label57.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label57.Location = new System.Drawing.Point(800, 237);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(78, 19);
+            this.label57.TabIndex = 110;
+            this.label57.Text = "MPS Total";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label58.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label58.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label58.Location = new System.Drawing.Point(800, 276);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(72, 19);
+            this.label58.TabIndex = 111;
+            this.label58.Text = "CPS Total";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label59.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label59.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label59.Location = new System.Drawing.Point(800, 318);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(96, 19);
+            this.label59.TabIndex = 112;
+            this.label59.Text = "Repack Total";
+            // 
+            // dpsTotalBox
+            // 
+            this.dpsTotalBox.Location = new System.Drawing.Point(935, 196);
+            this.dpsTotalBox.Name = "dpsTotalBox";
+            this.dpsTotalBox.Size = new System.Drawing.Size(140, 27);
+            this.dpsTotalBox.TabIndex = 113;
+            // 
+            // mpsTotalBox
+            // 
+            this.mpsTotalBox.Location = new System.Drawing.Point(935, 237);
+            this.mpsTotalBox.Name = "mpsTotalBox";
+            this.mpsTotalBox.Size = new System.Drawing.Size(140, 27);
+            this.mpsTotalBox.TabIndex = 114;
+            // 
+            // cpsTotalBox
+            // 
+            this.cpsTotalBox.Location = new System.Drawing.Point(935, 276);
+            this.cpsTotalBox.Name = "cpsTotalBox";
+            this.cpsTotalBox.Size = new System.Drawing.Size(140, 27);
+            this.cpsTotalBox.TabIndex = 115;
+            // 
+            // repackTotalBox
+            // 
+            this.repackTotalBox.Location = new System.Drawing.Point(935, 318);
+            this.repackTotalBox.Name = "repackTotalBox";
+            this.repackTotalBox.Size = new System.Drawing.Size(140, 27);
+            this.repackTotalBox.TabIndex = 116;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label60.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label60.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label60.Location = new System.Drawing.Point(800, 373);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(129, 19);
+            this.label60.TabIndex = 117;
+            this.label60.Text = "Production Hours";
+            // 
+            // hoursBox
+            // 
+            this.hoursBox.Location = new System.Drawing.Point(935, 365);
+            this.hoursBox.Name = "hoursBox";
+            this.hoursBox.Size = new System.Drawing.Size(61, 27);
+            this.hoursBox.TabIndex = 118;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1518,6 +1604,7 @@
             this.Controls.Add(this.titlePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "mainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CVS Update Form";
             this.Load += new System.EventHandler(this.mainForm_Load);
             this.tabControl1.ResumeLayout(false);
@@ -1569,7 +1656,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button boardsButton;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -1614,7 +1700,6 @@
         private System.Windows.Forms.TextBox textBox33;
         private System.Windows.Forms.TextBox textBox34;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Button boardsButton2;
         private System.Windows.Forms.Button updateButton2;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox textBox35;
@@ -1655,6 +1740,16 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.TextBox hoursBox;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.TextBox repackTotalBox;
+        private System.Windows.Forms.TextBox cpsTotalBox;
+        private System.Windows.Forms.TextBox mpsTotalBox;
+        private System.Windows.Forms.TextBox dpsTotalBox;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label57;
     }
 }
 

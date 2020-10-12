@@ -79,7 +79,8 @@ namespace UpdateForm
                                             textBox29, textBox30, textBox31, textBox32, textBox33, textBox34,
                                             textBox35, textBox36, textBox37, textBox38, textBox39, textBox40,
                                             textBox41, textBox42, textBox43, textBox44, textBox45, textBox46,
-                                            textBox47, textBox48, textBox49, textBox50};
+                                            textBox47, textBox48, textBox49, textBox50, dpsTotalBox, cpsTotalBox, 
+                                            mpsTotalBox, repackTotalBox, hoursBox};
 
             for (int i = 1; i < tbx.Length; i++) {
 
@@ -130,7 +131,8 @@ namespace UpdateForm
                                             textBox29, textBox30, textBox31, textBox32, textBox33, textBox34,
                                             textBox35, textBox36, textBox37, textBox38, textBox39, textBox40, 
                                             textBox41, textBox42, textBox43, textBox44, textBox45, textBox46,
-                                            textBox47, textBox48, textBox49, textBox50};
+                                            textBox47, textBox48, textBox49, textBox50, dpsTotalBox, cpsTotalBox,
+                                            mpsTotalBox, repackTotalBox, hoursBox};
 
             for (int i = 1; i < tbx2.Length; i++)
             {
@@ -145,21 +147,6 @@ namespace UpdateForm
 
             MessageBox.Show("File Updated");
 
-        }
-
-
-        // Eitehr of these will open the Board Launch Window
-        private void boardsButton_Click(object sender, EventArgs e)
-        {
-            boardForm board = new boardForm();
-            board.Show();
-        }
-
-
-        private void boardsButton2_Click_1(object sender, EventArgs e)
-        {
-            boardForm board2 = new boardForm();
-            board2.Show();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)

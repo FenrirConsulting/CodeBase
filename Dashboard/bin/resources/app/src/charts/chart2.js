@@ -72,8 +72,8 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data1,
-                    backgroundColor: ["#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0",
-                                      "#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0"] ,
+                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222"] ,
                     fontColor: "#fff"
                 }
             ]
@@ -131,8 +131,8 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data2,
-                    backgroundColor: ["#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0",
-                    "#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0"] ,
+                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222"] ,
                     fontColor: "#fff"
                 }
             ]
@@ -188,8 +188,8 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data3,
-                    backgroundColor: ["#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0",
-                                      "#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0"] ,
+                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222"] ,
                     fontColor: "#fff"
                 }
             ]
@@ -245,8 +245,8 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data4,
-                    backgroundColor: ["#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0",
-                                      "#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0","#cc2222", "#e7ecf0"] ,
+                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222"] ,
                     fontColor: "#fff"
                 }
             ]

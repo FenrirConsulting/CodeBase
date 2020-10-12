@@ -16,8 +16,6 @@
     backgroundColor: customTitlebar.Color.fromHex('#000')
   });
 
-
-
   // Loads in the config.JSON file to the editor
   let rawData = fs.readFileSync(path.resolve(__dirname, '../resources/config.json'));
   let parseJSON = JSON.parse(rawData);

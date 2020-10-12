@@ -69,6 +69,10 @@ app.on('ready', () => {
         userCheck = 7
     };
 
+    if (hostname == "IBMM715MJ0622BP"){
+        userCheck = 8;
+    };
+
     switch (userCheck) {
 
         case 1:
@@ -115,6 +119,10 @@ app.on('ready', () => {
             //windowLauncher(dashHTML);
             dashLauncher(dashHTML); 
             break;
+
+        case 8 :
+            windowLauncher(chart1HTML);
+            break; 
 
         default:
             dashLauncher(dashHTML); 
@@ -163,8 +171,7 @@ app.on('ready', () => {
             if (displays[i].bounds.x != 0 || displays[i].bounds.y != 0) {
                 externalDisplay = displays[i];
 
-                if (fileName == mod1AHTML || fileName == mod2AHTML || fileName == mod3AHTML
-                    || fileName == chart1HTML){
+                if (fileName == mod1AHTML || fileName == mod2AHTML || fileName == mod3AHTML){
 
                     secondWindow = new BrowserWindow({
                         webPreferences: {
