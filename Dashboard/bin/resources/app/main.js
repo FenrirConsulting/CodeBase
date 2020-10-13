@@ -121,7 +121,7 @@ app.on('ready', () => {
             break;
 
         case 8 :
-            windowLauncher(chart1HTML);
+            windowLauncher(chart2HTML);
             break; 
 
         default:

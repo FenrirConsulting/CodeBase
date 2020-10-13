@@ -230,13 +230,13 @@
 	"chart1": {
 
 	
-	"mainTitle": "Production Statistics",
+	"mainTitle": "Dashboard",
 
 	
-	"titleOne": "Production Statistics",
+	"titleOne": "Dashboard",
 
 	
-	"titleTwo": "Production Statistics",
+	"titleTwo": "Dashboard",
 
 	
 	"fileOne": "Overview.csv",
@@ -249,13 +249,13 @@
 	"chart2": {
 
 	
-	"mainTitle": "Production Statistics 2",
+	"mainTitle": "Dashboard",
 
 	
-	"titleOne": "Production Statistics 2",
+	"titleOne": "Dashboard",
 
 	
-	"titleTwo": "Production Statistics 2",
+	"titleTwo": "Dashboard",
 
 	
 	"fileOne": "Overview.csv",
