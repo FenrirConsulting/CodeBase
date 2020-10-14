@@ -37,7 +37,7 @@ var repackToGoal = 0;
 function fetchTotals(){
 
     fs.readFile((path.resolve(__dirname, fPath)), function (error, data) {
-        console.log("runData");
+        
     
         if (error) {
             throw error;
@@ -65,64 +65,49 @@ function fetchTotals(){
         mpsToGoal = mpsTotal - mpsRunningTotal; 
         cpsToGoal = cpsTotal - cpsRunningTotal; 
         repackToGoal = repackTotal - repackRunningTotal; 
-    
-        var valueCheck = 0;
+        dpsHalfValue = dpsTotal *.5;
+        mpsHalfValue = mpsTotal *.5;
+        cpsHalfValue = cpsTotal *.5;
+        repackHalfValue = repackTotal *.5;
      
         document.getElementById("dpsTotal").innerHTML = "Goal : " + dpsTotal; 
         document.getElementById("dpsRunningTotal").innerHTML = "Current Total : " + dpsRunningTotal;
         document.getElementById("dpsHourlyGoal").innerHTML = "Hourly Goal : " + dpsHourlyGoal;
-        document.getElementById("dpsToGoal").innerHTML = "To Goal : " + dpsToGoal; 
-        if (dpsToGoal < 0) { document.getElementById("dpsToGoal").innerHTML = "Past Goal : " + (dpsToGoal* -1);  };
+        var dpsToGoalHTML = document.getElementById("dpsToGoal");
+        dpsToGoalHTML.innerHTML = "To Goal : " + dpsToGoal;
+        if (dpsToGoal < 0) {  dpsToGoalHTML.innerHTML = "Past Goal : " + (dpsToGoal* -1); dpsToGoalHTML.classList.add('pass');};
+        if (dpsRunningTotal < dpsHalfValue) { dpsToGoalHTML.innerHTML = "To Goal : " + dpsToGoal; dpsToGoalHTML.classList.add('fail');};
 
         document.getElementById("mpsTotal").innerHTML = "Goal : " + mpsTotal;
         document.getElementById("mpsRunningTotal").innerHTML = "Current Total : " + mpsRunningTotal;
         document.getElementById("mpsHourlyGoal").innerHTML = "Hourly Goal : " + mpsHourlyGoal;
-        document.getElementById("mpsToGoal").innerHTML = "To Goal : " + mpsToGoal;
-        if (mpsToGoal < 0) { document.getElementById("mpsToGoal").innerHTML = "Past Goal : " + (mpsToGoal* -1); };
+        var mpsToGoalHTML = document.getElementById("mpsToGoal");
+        mpsToGoalHTML.innerHTML = "To Goal : " + mpsToGoal;
+        if (mpsToGoal < 0) {  mpsToGoalHTML.innerHTML = "Past Goal : " + (mpsToGoal* -1); mpsToGoalHTML.classList.add('pass');};
+        if (mpsRunningTotal < mpsHalfValue) { mpsToGoalHTML.innerHTML = "To Goal : " + mpsToGoal; mpsToGoalHTML.classList.add('fail');};
 
         document.getElementById("cpsTotal").innerHTML = "Goal : " + cpsTotal;
         document.getElementById("cpsRunningTotal").innerHTML = "Current Total : " + cpsRunningTotal;
         document.getElementById("cpsHourlyGoal").innerHTML = "Hourly Goal : " + cpsHourlyGoal;
-        var cpsGoalHTML = document.getElementById("cpsToGoal").innerHTML = "To Goal : " + cpsToGoal;
-        if (cpsToGoal < 0) { cpsGoalHTML= "Past Goal : " + (cpsToGoal* -1); };
+        var cpsToGoalHTML = document.getElementById("cpsToGoal");
+        cpsToGoalHTML.innerHTML = "To Goal : " + cpsToGoal;
+        if (cpsToGoal < 0) {  cpsToGoalHTML.innerHTML = "Past Goal : " + (cpsToGoal* -1); cpsToGoalHTML.classList.add('pass');};
+        if (cpsRunningTotal < cpsHalfValue) { cpsToGoalHTML.innerHTML = "To Goal : " + cpsToGoal; cpsToGoalHTML.classList.add('fail');};
 
         document.getElementById("repackTotal").innerHTML = "Goal : " + repackTotal;
         document.getElementById("repackRunningTotal").innerHTML = "Current Total : " + repackRunningTotal;
         document.getElementById("repackHourlyGoal").innerHTML = "Hourly Goal : " + repackHourlyGoal;
-        document.getElementById("repackToGoal").innerHTML = "To Goal : " + repackToGoal;
-        if (repackToGoal < 0) { document.getElementById("dpsToGoal").innerHTML = "Past Goal : " + (repackToGoal* -1); };
+        var repackToGoalHTML = document.getElementById("repackToGoal");
+        repackToGoalHTML.innerHTML = "To Goal : " + repackToGoal;
+        if (repackToGoal < 0) { repackToGoalHTML.innerHTML = "Past Goal : " + (repackToGoal* -1); repackToGoalHTML.classList.add('pass');};
+        if (repackRunningTotal < repackHalfValue) { repackToGoalHTML.innerHTML = "To Goal : " + repackToGoal; repackToGoalHTML.classList.add('fail');};
 
-        
-
-
-        console.log(dpsRunningTotal);
-        console.log(mpsRunningTotal);
-        console.log(cpsRunningTotal);
-        console.log(repackRunningTotal);
-
-        console.log(dpsTotal);
-        console.log(cpsTotal);
-        console.log(mpsTotal);
-        console.log(repackTotal);
-
-        console.log(dpsToGoal);
-        console.log(mpsToGoal);
-        console.log(cpsToGoal);
-        console.log(repackToGoal);
-
-        console.log(dpsHourlyGoal);
-        console.log(mpsHourlyGoal);
-        console.log(cpsHourlyGoal);
-        console.log(repackHourlyGoal);
-
-        console.log(productionHours);
         
     });
 
 }
 
-var doc = path.join(parentPath,fileName)
-console.log(doc);
+var doc = path.join(parentPath,fileName);
 
 d3.text(doc).then(function(text){
     var fixedData = d3.csvParse(text.split('\n').slice(1).join('\n'));
@@ -175,16 +160,11 @@ function makeChart(data) {
     for( var i = 0; i < data1.length; i++ ){
         repackRunningTotal += parseInt( data4[i], 10 ); //don't forget to add the base
     }
-
-
-    console.log(data1);
-    console.log(data2);
-    console.log(data3);
-    console.log(data4);    
+  
 
     var Chart1 = new Chart('chart', {
 
-        type: 'horizontalBar',
+        type: 'bar',
 
         fontColor: "#FFFFFF",
 
@@ -194,8 +174,10 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data1,
-                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222"] ,
+                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",] ,
                     fontColor: "#fff"
                 }
             ]
@@ -203,6 +185,8 @@ function makeChart(data) {
 
         options: {
 
+            maintainAspectRatio: false,
+            
             title: {
                 display: true,
                 text: "DPS Hourly Pick",
@@ -243,7 +227,7 @@ function makeChart(data) {
 
     var Chart2 = new Chart('chart2', {
 
-        type: 'horizontalBar',
+        type: 'bar',
 
         fontColor: "#FFFFFF",
 
@@ -253,14 +237,18 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data2,
-                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222"] ,
+                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",] ,
                     fontColor: "#fff"
                 }
             ]
         },
 
         options: {
+
+            maintainAspectRatio: false,
 
             title: {
                 display: true,
@@ -300,7 +288,7 @@ function makeChart(data) {
     
     var Chart3 = new Chart('chart3', {
 
-        type: 'horizontalBar',
+        type: 'bar',
 
         fontColor: "#FFFFFF",
 
@@ -310,14 +298,18 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data3,
-                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222"] ,
+                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",] ,
                     fontColor: "#fff"
                 }
             ]
         },
 
         options: {
+
+            maintainAspectRatio: false,
 
             title: {
                 display: true,
@@ -357,7 +349,7 @@ function makeChart(data) {
 
     var Chart4 = new Chart('chart4', {
 
-        type: 'horizontalBar',
+        type: 'bar',
 
         fontColor: "#FFFFFF",
 
@@ -367,14 +359,18 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data4,
-                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222"] ,
+                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
+                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",] ,
                     fontColor: "#fff"
                 }
             ]
         },
 
         options: {
+
+            maintainAspectRatio: false,
 
             title: {
                 display: true,

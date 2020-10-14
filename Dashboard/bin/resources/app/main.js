@@ -69,7 +69,7 @@ app.on('ready', () => {
         userCheck = 7
     };
 
-    if (hostname == "IBMM715MJ0622BP"){
+    if (hostname == "IBMM715MJ0622BP" || hostname == "PCITREPORT" || hostname =="ITTEST"){
         userCheck = 8;
     };
 
@@ -121,7 +121,7 @@ app.on('ready', () => {
             break;
 
         case 8 :
-            windowLauncher(chart2HTML);
+            windowLauncher(chart1HTML);
             break; 
 
         default:
