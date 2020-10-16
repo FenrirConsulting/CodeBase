@@ -117,7 +117,7 @@ app.on('ready', () => {
             //windowLauncher(tempHTML);
             //windowLauncher(jsonHTML);
             //windowLauncher(dashHTML);
-            dashLauncher(dashHTML); 
+            dashLauncher(chart1HTML); 
             break;
 
         case 8 :

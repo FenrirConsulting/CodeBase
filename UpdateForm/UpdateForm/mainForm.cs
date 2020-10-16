@@ -80,7 +80,9 @@ namespace UpdateForm
                                             textBox35, textBox36, textBox37, textBox38, textBox39, textBox40,
                                             textBox41, textBox42, textBox43, textBox44, textBox45, textBox46,
                                             textBox47, textBox48, textBox49, textBox50, dpsTotalBox, cpsTotalBox, 
-                                            mpsTotalBox, repackTotalBox, hoursBox};
+                                            mpsTotalBox, repackTotalBox, hoursBox, dpsEmployeesBox, mpsEmplyoeesBox,
+                                            cpsEmployeesBox, repackEmployeesBox, dpsHours, mpsHours, cpsHours, 
+                                            repackHours};
 
             for (int i = 1; i < tbx.Length; i++) {
 
@@ -132,7 +134,10 @@ namespace UpdateForm
                                             textBox35, textBox36, textBox37, textBox38, textBox39, textBox40, 
                                             textBox41, textBox42, textBox43, textBox44, textBox45, textBox46,
                                             textBox47, textBox48, textBox49, textBox50, dpsTotalBox, cpsTotalBox,
-                                            mpsTotalBox, repackTotalBox, hoursBox};
+                                            mpsTotalBox, repackTotalBox, hoursBox, dpsEmployeesBox, mpsEmplyoeesBox,
+                                            cpsEmployeesBox, repackEmployeesBox, dpsHours, mpsHours, cpsHours, 
+                                            repackHours};
+
 
             for (int i = 1; i < tbx2.Length; i++)
             {
@@ -177,6 +182,7 @@ namespace UpdateForm
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+
 
 
     }

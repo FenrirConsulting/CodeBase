@@ -90,9 +90,7 @@ var doc = path.join(parentPath,fileName)
 
         options: {
 
-            responsive : true,
             maintainAspectRatio : false,
-            aspectRatio : 1,
 
 
             layout: { 

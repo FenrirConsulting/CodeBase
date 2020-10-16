@@ -32,6 +32,11 @@ var mpsToGoal = 0 ;
 var cpsToGoal = 0;
 var repackToGoal = 0;
 
+var Chart1;
+var Chart2;
+var Chart3;
+var Chart4;
+
 
 
 function fetchTotals(){
@@ -58,17 +63,15 @@ function fetchTotals(){
         mpsHourlyGoal = mpsTotal / productionHours; mpsHourlyGoal = Math.round(mpsHourlyGoal);
         cpsHourlyGoal = cpsTotal / productionHours; cpsHourlyGoal = Math.round(cpsHourlyGoal);
         repackHourlyGoal = repackTotal / productionHours; repackHourlyGoal = Math.round(repackHourlyGoal);
-
-        
     
         dpsToGoal = dpsTotal - dpsRunningTotal;
         mpsToGoal = mpsTotal - mpsRunningTotal; 
         cpsToGoal = cpsTotal - cpsRunningTotal; 
         repackToGoal = repackTotal - repackRunningTotal; 
-        dpsHalfValue = dpsTotal *.5;
-        mpsHalfValue = mpsTotal *.5;
-        cpsHalfValue = cpsTotal *.5;
-        repackHalfValue = repackTotal *.5;
+        dpsHalfValue = dpsTotal *.3;
+        mpsHalfValue = mpsTotal *.3;
+        cpsHalfValue = cpsTotal *.3;
+        repackHalfValue = repackTotal *.3;
      
         document.getElementById("dpsTotal").innerHTML = "Goal : " + dpsTotal; 
         document.getElementById("dpsRunningTotal").innerHTML = "Current Total : " + dpsRunningTotal;
@@ -102,17 +105,39 @@ function fetchTotals(){
         if (repackToGoal < 0) { repackToGoalHTML.innerHTML = "Past Goal : " + (repackToGoal* -1); repackToGoalHTML.classList.add('pass');};
         if (repackRunningTotal < repackHalfValue) { repackToGoalHTML.innerHTML = "To Goal : " + repackToGoal; repackToGoalHTML.classList.add('fail');};
 
-        
+        hourlyValueCheck(Chart1, dpsHourlyGoal);
+        hourlyValueCheck(Chart2, mpsHourlyGoal);
+        hourlyValueCheck(Chart3, cpsHourlyGoal);
+        hourlyValueCheck(Chart4, repackHourlyGoal);
     });
 
 }
 
 var doc = path.join(parentPath,fileName);
 
+function hourlyValueCheck (myChart, goalCheck){
+
+    var chartColors = {
+        red: 'rgb(255, 99, 132)',
+        blue: 'rgb(54, 162, 235)',
+        yellow : 'rgb(255,255,0)'
+      };
+
+    var dataset = myChart.data.datasets[0];
+    for (var i = 0; i < dataset.data.length; i++) {
+    if (dataset.data[i] < goalCheck) {
+    dataset.backgroundColor[i] = chartColors.yellow;
+    }
+
+    
+}
+myChart.update();
+}
+
 d3.text(doc).then(function(text){
     var fixedData = d3.csvParse(text.split('\n').slice(1).join('\n'));
     fetchTotals();
-    makeChart(fixedData);
+    makeChart(fixedData)
 })
 
 function makeChart(data) {
@@ -121,10 +146,14 @@ function makeChart(data) {
     data = data.splice(0, data.length - 1);
 
     data.splice(0,1);
+
+    var str = ":00:00";
     
     const newArray = data.map(data => ({
         date: data["Date"].split(" ")[0],
+
         time: data["Date"].match(/^(\S+)\s(.*)/).slice(2),
+
         
         data1: data["DPS Pick EA *"].replace(/,/g, ''),
         data2: data["MPS Pick Case *"].replace(/,/g, ''),
@@ -135,6 +164,14 @@ function makeChart(data) {
     
     var dateLabel = newArray.map(function(newArray){return newArray.date});
     var timeLabel = newArray.map(function(newArray){return newArray.time});
+
+    for (var i = 0; i < timeLabel.length; i++) {
+        var str = ":00:00";
+        var tempString = timeLabel[i].toString().replace(str, "");
+        timeLabel[i][0] = tempString;
+    }
+
+    
 
     var data1 = newArray.map(function(newArray) {return +newArray.data1});
     var data2 = newArray.map(function(newArray) {return +newArray.data2});
@@ -161,8 +198,7 @@ function makeChart(data) {
         repackRunningTotal += parseInt( data4[i], 10 ); //don't forget to add the base
     }
   
-
-    var Chart1 = new Chart('chart', {
+    Chart1 = new Chart('chart', {
 
         type: 'bar',
 
@@ -224,8 +260,7 @@ function makeChart(data) {
     });
 
 
-
-    var Chart2 = new Chart('chart2', {
+    Chart2 = new Chart('chart2', {
 
         type: 'bar',
 
@@ -286,7 +321,7 @@ function makeChart(data) {
 
 
     
-    var Chart3 = new Chart('chart3', {
+    Chart3 = new Chart('chart3', {
 
         type: 'bar',
 
@@ -347,7 +382,7 @@ function makeChart(data) {
 
 
 
-    var Chart4 = new Chart('chart4', {
+    Chart4 = new Chart('chart4', {
 
         type: 'bar',
 
