@@ -13,3 +13,9 @@ rgb(33,37,43);  - Background Color
 
 rgb(241,75,53); - Orange Font
 #f0f8ff; - White Font
+
+
+
+Bar Colors :
+
+Green - 2A8B53

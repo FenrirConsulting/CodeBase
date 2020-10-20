@@ -141,10 +141,22 @@ namespace UpdateForm
 
             for (int i = 1; i < tbx2.Length; i++)
             {
-
-                workloadLines[i] = tbx2[i].Text.Replace(Environment.NewLine, @" ");
+                tbx2[i].Text.Replace(",", "");
+                tbx2[i].Text.Replace(Environment.NewLine, @" ");
+                workloadLines[i] = tbx2[i].Text;
 
             }
+
+
+
+            int dpsHourly = Int32.Parse(dpsTotalBox.Text.Replace(",", "")) / Int32.Parse(dpsHours.Text.Replace(",", ""));
+            int mpsHourly = Int32.Parse(mpsTotalBox.Text.Replace(",", "")) / Int32.Parse(mpsHours.Text.Replace(",", ""));
+            int cpsHourly = Int32.Parse(cpsTotalBox.Text.Replace(",", "")) / Int32.Parse(cpsHours.Text.Replace(",", ""));
+            int repackHourly = Int32.Parse(repackTotalBox.Text.Replace(",", "")) / Int32.Parse(repackHours.Text.Replace(",", ""));
+            workloadLines[47] = dpsHourly.ToString();
+            workloadLines[48] = mpsHourly.ToString();
+            workloadLines[49] = cpsHourly.ToString();
+            workloadLines[50] = repackHourly.ToString();
 
             workloadLines[0] = lines[0] = label55.Text;
 

@@ -1,7 +1,7 @@
 window.$ = window.jQuery = require('../resources/chart.js');
 window.$ = window.jQuery = require('../resources/d3.js');
 window.$ = window.jQuery = require('../resources/canvasJS.js'); 
-setTimeout(function(){location.href="../news/news1.html";},20 * 1000);
+//setTimeout(function(){location.href="../news/news1.html";},20 * 1000);
 const path = require('path');
 const fs = require('fs');
 const config = require('../resources/config.json');
@@ -60,10 +60,10 @@ function fetchTotals(){
         mpsTotal = parseInt(lines[36].replace(',', ''));
         repackTotal = parseInt(lines[37].replace(',', '')); 
         productionHours = parseInt(lines[38].replace(',', ''));
-        dpsHourlyGoal = dpsTotal / productionHours; dpsHourlyGoal = Math.round(dpsHourlyGoal);
-        mpsHourlyGoal = mpsTotal / productionHours; mpsHourlyGoal = Math.round(mpsHourlyGoal);
-        cpsHourlyGoal = cpsTotal / productionHours; cpsHourlyGoal = Math.round(cpsHourlyGoal);
-        repackHourlyGoal = repackTotal / productionHours; repackHourlyGoal = Math.round(repackHourlyGoal);
+        dpsHourlyGoal = parseInt(lines[47].replace(',', ''));
+        mpsHourlyGoal = parseInt(lines[48].replace(',', ''));
+        cpsHourlyGoal = parseInt(lines[49].replace(',', ''));
+        repackHourlyGoal = parseInt(lines[50].replace(',', ''));
     
         dpsToGoal = dpsTotal - dpsRunningTotal;
         mpsToGoal = mpsTotal - mpsRunningTotal; 
@@ -74,37 +74,37 @@ function fetchTotals(){
         cpsHalfValue = cpsTotal *.3;
         repackHalfValue = repackTotal *.3;
      
-        document.getElementById("dpsTotal").innerHTML = "Goal : " + dpsTotal; 
-        document.getElementById("dpsRunningTotal").innerHTML = "Current Total : " + dpsRunningTotal;
-        document.getElementById("dpsHourlyGoal").innerHTML = "Hourly Goal : " + dpsHourlyGoal;
+        document.getElementById("dpsTotal").innerHTML = dpsTotal; 
+        document.getElementById("dpsRunningTotal").innerHTML = dpsRunningTotal;
+        document.getElementById("dpsHourlyGoal").innerHTML = dpsHourlyGoal;
         var dpsToGoalHTML = document.getElementById("dpsToGoal");
-        dpsToGoalHTML.innerHTML = "To Goal : " + dpsToGoal;
-        if (dpsToGoal < 0) {  dpsToGoalHTML.innerHTML = "Past Goal : " + (dpsToGoal* -1); dpsToGoalHTML.classList.add('pass');};
-        if (dpsRunningTotal < dpsHalfValue) { dpsToGoalHTML.innerHTML = "To Goal : " + dpsToGoal; dpsToGoalHTML.classList.add('fail');};
+        dpsToGoalHTML.innerHTML = dpsToGoal;
+        if (dpsToGoal < 0) {  dpsToGoalHTML.innerHTML = (dpsToGoal* -1) + " Past Goal"; dpsToGoalHTML.classList.add('pass');};
+        if (dpsRunningTotal < dpsHalfValue) { dpsToGoalHTML.innerHTML = dpsToGoal; dpsToGoalHTML.classList.add('fail');};
 
-        document.getElementById("mpsTotal").innerHTML = "Goal : " + mpsTotal;
-        document.getElementById("mpsRunningTotal").innerHTML = "Current Total : " + mpsRunningTotal;
-        document.getElementById("mpsHourlyGoal").innerHTML = "Hourly Goal : " + mpsHourlyGoal;
+        document.getElementById("mpsTotal").innerHTML = mpsTotal;
+        document.getElementById("mpsRunningTotal").innerHTML = mpsRunningTotal;
+        document.getElementById("mpsHourlyGoal").innerHTML = mpsHourlyGoal;
         var mpsToGoalHTML = document.getElementById("mpsToGoal");
-        mpsToGoalHTML.innerHTML = "To Goal : " + mpsToGoal;
-        if (mpsToGoal < 0) {  mpsToGoalHTML.innerHTML = "Past Goal : " + (mpsToGoal* -1); mpsToGoalHTML.classList.add('pass');};
-        if (mpsRunningTotal < mpsHalfValue) { mpsToGoalHTML.innerHTML = "To Goal : " + mpsToGoal; mpsToGoalHTML.classList.add('fail');};
+        mpsToGoalHTML.innerHTML =  mpsToGoal;
+        if (mpsToGoal < 0) {  mpsToGoalHTML.innerHTML = (mpsToGoal* -1) + " Past Goal"; mpsToGoalHTML.classList.add('pass');};
+        if (mpsRunningTotal < mpsHalfValue) { mpsToGoalHTML.innerHTML = mpsToGoal; mpsToGoalHTML.classList.add('fail');};
 
-        document.getElementById("cpsTotal").innerHTML = "Goal : " + cpsTotal;
-        document.getElementById("cpsRunningTotal").innerHTML = "Current Total : " + cpsRunningTotal;
-        document.getElementById("cpsHourlyGoal").innerHTML = "Hourly Goal : " + cpsHourlyGoal;
+        document.getElementById("cpsTotal").innerHTML = cpsTotal;
+        document.getElementById("cpsRunningTotal").innerHTML = cpsRunningTotal;
+        document.getElementById("cpsHourlyGoal").innerHTML = cpsHourlyGoal;
         var cpsToGoalHTML = document.getElementById("cpsToGoal");
-        cpsToGoalHTML.innerHTML = "To Goal : " + cpsToGoal;
-        if (cpsToGoal < 0) {  cpsToGoalHTML.innerHTML = "Past Goal : " + (cpsToGoal* -1); cpsToGoalHTML.classList.add('pass');};
-        if (cpsRunningTotal < cpsHalfValue) { cpsToGoalHTML.innerHTML = "To Goal : " + cpsToGoal; cpsToGoalHTML.classList.add('fail');};
+        cpsToGoalHTML.innerHTML = cpsToGoal;
+        if (cpsToGoal < 0) {  cpsToGoalHTML.innerHTML = (cpsToGoal* -1) + " Past Goal"; cpsToGoalHTML.classList.add('pass');};
+        if (cpsRunningTotal < cpsHalfValue) { cpsToGoalHTML.innerHTML = cpsToGoal; cpsToGoalHTML.classList.add('fail');};
 
-        document.getElementById("repackTotal").innerHTML = "Goal : " + repackTotal;
-        document.getElementById("repackRunningTotal").innerHTML = "Current Total : " + repackRunningTotal;
-        document.getElementById("repackHourlyGoal").innerHTML = "Hourly Goal : " + repackHourlyGoal;
+        document.getElementById("repackTotal").innerHTML = repackTotal;
+        document.getElementById("repackRunningTotal").innerHTML = repackRunningTotal;
+        document.getElementById("repackHourlyGoal").innerHTML = repackHourlyGoal;
         var repackToGoalHTML = document.getElementById("repackToGoal");
-        repackToGoalHTML.innerHTML = "To Goal : " + repackToGoal;
-        if (repackToGoal < 0) { repackToGoalHTML.innerHTML = "Past Goal : " + (repackToGoal* -1); repackToGoalHTML.classList.add('pass');};
-        if (repackRunningTotal < repackHalfValue) { repackToGoalHTML.innerHTML = "To Goal : " + repackToGoal; repackToGoalHTML.classList.add('fail');};
+        repackToGoalHTML.innerHTML = repackToGoal;
+        if (repackToGoal < 0) { repackToGoalHTML.innerHTML = (repackToGoal* -1) + " Past Goal"; repackToGoalHTML.classList.add('pass');};
+        if (repackRunningTotal < repackHalfValue) { repackToGoalHTML.innerHTML = repackToGoal; repackToGoalHTML.classList.add('fail');};
 
         hourlyValueCheck(Chart1, dpsHourlyGoal);
         hourlyValueCheck(Chart2, mpsHourlyGoal);
@@ -119,7 +119,7 @@ var doc = path.join(parentPath,fileName);
 function hourlyValueCheck (myChart, goalCheck){
 
     var chartColors = {
-        red: 'rgb(255, 99, 132)',
+        red: '#e41a1c',
         blue: 'rgb(54, 162, 235)',
         yellow : 'rgb(255,255,0)'
       };
@@ -127,7 +127,7 @@ function hourlyValueCheck (myChart, goalCheck){
     var dataset = myChart.data.datasets[0];
     for (var i = 0; i < dataset.data.length; i++) {
     if (dataset.data[i] < goalCheck) {
-    dataset.backgroundColor[i] = chartColors.yellow;
+    dataset.backgroundColor[i] = chartColors.red;
     }
 
     
@@ -211,11 +211,16 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data1,
-                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",] ,
-                    fontColor: "#fff"
+                    backgroundColor: ["#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",] ,
+                    fontColor: "#fff",
+                    trendlineLinear: {
+                        style: "#377eb8",
+                        lineStyle: "solid",
+                        width: 4
+                    }                             
                 }
             ]
         },
@@ -256,7 +261,24 @@ function makeChart(data) {
                     fontSize: 14
                     }
                 }]
-            }
+            },
+        
+            animation: {
+                duration: 0,
+                onComplete: function () {
+                    // render the value of the chart above the bar
+                    var ctx = this.chart.ctx;
+                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+                    ctx.fillStyle = "white";
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    this.data.datasets.forEach(function (dataset) {
+                        for (var i = 0; i < dataset.data.length; i++) {
+                            var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                            ctx.fillText(dataset.data[i], model.x, model.y - 5);
+                        }
+                    });
+            }}   
         }
     });
 
@@ -273,11 +295,16 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data2,
-                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",] ,
-                    fontColor: "#fff"
+                    backgroundColor: ["#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",] ,
+                    fontColor: "#fff",
+                    trendlineLinear: {
+                        style: "#377eb8",
+                        lineStyle: "solid",
+                        width: 4
+                    }             
                 }
             ]
         },
@@ -316,7 +343,24 @@ function makeChart(data) {
                     fontSize: 14
                     }
                 }]
-            }
+            },
+        
+            animation: {
+                duration: 0,
+                onComplete: function () {
+                    // render the value of the chart above the bar
+                    var ctx = this.chart.ctx;
+                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+                    ctx.fillStyle = "white";
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    this.data.datasets.forEach(function (dataset) {
+                        for (var i = 0; i < dataset.data.length; i++) {
+                            var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                            ctx.fillText(dataset.data[i], model.x, model.y - 5);
+                        }
+                    });
+            }}   
         }
     });
 
@@ -334,11 +378,16 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data3,
-                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",] ,
-                    fontColor: "#fff"
+                    backgroundColor: ["#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",] ,
+                    fontColor: "#fff",
+                    trendlineLinear: {
+                        style: "#377eb8",
+                        lineStyle: "solid",
+                        width: 4
+                    }            
                 }
             ]
         },
@@ -377,7 +426,24 @@ function makeChart(data) {
                     fontSize: 14
                     }
                 }]
-            }
+            },
+        
+            animation: {
+                duration: 0,
+                onComplete: function () {
+                    // render the value of the chart above the bar
+                    var ctx = this.chart.ctx;
+                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+                    ctx.fillStyle = "white";
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    this.data.datasets.forEach(function (dataset) {
+                        for (var i = 0; i < dataset.data.length; i++) {
+                            var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                            ctx.fillText(dataset.data[i], model.x, model.y - 5);
+                        }
+                    });
+            }}   
         }
     });
 
@@ -395,11 +461,16 @@ function makeChart(data) {
             datasets: [
                 {
                     data: data4,
-                    backgroundColor: ["#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",
-                                      "#cc2222", "#cc2222","#cc2222", "#cc2222","#cc2222", "#cc2222",] ,
-                    fontColor: "#fff"
+                    backgroundColor: ["#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",
+                                      "#4daf4a", "#4daf4a","#4daf4a", "#4daf4a","#4daf4a", "#4daf4a",] ,
+                    fontColor: "#fff",
+                    trendlineLinear: {
+                        style: "#377eb8",
+                        lineStyle: "solid",
+                        width: 4
+                    }         
                 }
             ]
         },
@@ -438,7 +509,24 @@ function makeChart(data) {
                     fontSize: 14
                     }
                 }]
-            }
+            },
+        
+            animation: {
+                duration: 0,
+                onComplete: function () {
+                    // render the value of the chart above the bar
+                    var ctx = this.chart.ctx;
+                    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+                    ctx.fillStyle = "white";
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'bottom';
+                    this.data.datasets.forEach(function (dataset) {
+                        for (var i = 0; i < dataset.data.length; i++) {
+                            var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+                            ctx.fillText(dataset.data[i], model.x, model.y - 5);
+                        }
+                    });
+            }}   
         }
     });
 

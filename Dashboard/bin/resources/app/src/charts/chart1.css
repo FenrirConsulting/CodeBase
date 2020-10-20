@@ -54,7 +54,14 @@ html, body {
     display:grid;
     grid-template-rows: 25% 25% 25% 25%;
     margin:auto;
+    color : rgb(241,75,53);
+}
+
+.results_label{
+
+    display : inline-block;
     color : yellow;
+
 }
 
 .categoryLabel {

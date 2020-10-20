@@ -23,40 +23,40 @@
                 <div class="chart_wrapper">
                     <div class= "canvas_wrapper"><canvas id="chart" ></canvas></div>
                     <div class="results_wrapper" >
-                        <div id="dpsTotal" class ="categoryLabel">100</div>
-                        <div id="dpsRunningTotal" class ="categoryLabel">200</div>
-                        <div id="dpsHourlyGoal" class ="categoryLabel">400</div>
-                        <div id="dpsToGoal" class ="categoryLabel">300</div>
+                        <div class ="categoryLabel">Goal : <div id="dpsTotal" class ="results_label">100</div></div>
+                        <div class ="categoryLabel">Current Total : <div id="dpsRunningTotal" class ="results_label">200</div></div>
+                        <div class ="categoryLabel">Hourly Goal : <div id="dpsHourlyGoal" class ="results_label">400</div></div>
+                        <div class ="categoryLabel">To Goal : <div id="dpsToGoal" class ="results_label">300</div></div>
                     </div>
                 </div>
     
                 <div class="chart_wrapper2">
                     <div class= "canvas_wrapper"><canvas id="chart2" ></canvas></div>
                     <div class="results_wrapper">
-                        <div id="mpsTotal" class ="categoryLabel">100</div>
-                        <div id="mpsRunningTotal" class ="categoryLabel">200</div>
-                        <div id="mpsHourlyGoal" class ="categoryLabel">400</div>
-                        <div id="mpsToGoal" class ="categoryLabel">300</div>
+                        <div class ="categoryLabel">Goal : <div id="mpsTotal" class ="results_label">100</div></div>
+                        <div class ="categoryLabel">Current Total : <div id="mpsRunningTotal" class ="results_label">200</div></div>
+                        <div class ="categoryLabel">Hourly Goal : <div id="mpsHourlyGoal" class ="results_label">400</div></div>
+                        <div class ="categoryLabel">To Goal : <div id="mpsToGoal" class ="results_label">300</div></div>
                     </div>
                 </div>
     
                 <div class="chart_wrapper3">
                     <div class= "canvas_wrapper"><canvas id="chart3" ></canvas></div>
                     <div class="results_wrapper">
-                        <div id="cpsTotal" class ="categoryLabel">100</div>
-                        <div id="cpsRunningTotal" class ="categoryLabel">200</div>
-                        <div id="cpsHourlyGoal" class ="categoryLabel">400</div>
-                        <div id="cpsToGoal" class ="categoryLabel">300</div>
+                        <div class ="categoryLabel">Goal : <div id="cpsTotal" class ="results_label">100</div></div>
+                        <div class ="categoryLabel">Current Total : <div id="cpsRunningTotal" class ="results_label">200</div></div>
+                        <div class ="categoryLabel">Hourly Goal : <div id="cpsHourlyGoal" class ="results_label">400</div></div>
+                        <div class ="categoryLabel">To Goal : <div id="cpsToGoal" class ="results_label">300</div></div>
                     </div>
                 </div>
     
                 <div class="chart_wrapper4">
                     <div class= "canvas_wrapper"><canvas id="chart4" ></canvas></div>
                     <div class="results_wrapper">
-                        <div id="repackTotal" class ="categoryLabel">100</div>
-                        <div id="repackRunningTotal" class ="categoryLabel">200</div>
-                        <div id="repackHourlyGoal" class ="categoryLabel">400</div>
-                        <div id="repackToGoal" class ="categoryLabel">300</div>
+                        <div class ="categoryLabel">Goal : <div id="repackTotal" class ="results_label">100</div></div>
+                        <div class ="categoryLabel">Current Total : <div id="repackRunningTotal" class ="results_label">200</div></div>
+                        <div class ="categoryLabel">Hourly Goal : <div id="repackHourlyGoal" class ="results_label">400</div></div>
+                        <div class ="categoryLabel">To Goal : <div id="repackToGoal" class ="results_label">300</div></div>
                     </div>
                 </div>
 
@@ -69,6 +69,8 @@
     
     <script src="../resources/d3.js"></script>
     <script src="chart1.js"></script>
+    <script src="../resources/chartjs-plugin-trendline.min.js"></script>
+    <scirpt src="../resources/chartjs-plugin-datalabels.js"></scirpt>
     <script src="../resources/chart.js"></script>
     <script>
         window.$ = window.jQuery = require('../resources/jquery-3.4.1.min.js');
