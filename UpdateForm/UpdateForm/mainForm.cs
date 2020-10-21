@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace UpdateForm
 {
@@ -60,6 +61,7 @@ namespace UpdateForm
             lines = File.ReadAllLines(warehouseUpdate);
             workloadLines = File.ReadAllLines(dailyWorkload);
 
+
         }
 
 
@@ -82,7 +84,7 @@ namespace UpdateForm
                                             textBox47, textBox48, textBox49, textBox50, dpsTotalBox, cpsTotalBox, 
                                             mpsTotalBox, repackTotalBox, hoursBox, dpsEmployeesBox, mpsEmplyoeesBox,
                                             cpsEmployeesBox, repackEmployeesBox, dpsHours, mpsHours, cpsHours, 
-                                            repackHours};
+                                            repackHours, dpsHourlyGoalBox, mpsHourlyGoalBox, cpsHourlyGoalBox, repackHourlyGoalBox};
 
             for (int i = 1; i < tbx.Length; i++) {
 
@@ -136,7 +138,7 @@ namespace UpdateForm
                                             textBox47, textBox48, textBox49, textBox50, dpsTotalBox, cpsTotalBox,
                                             mpsTotalBox, repackTotalBox, hoursBox, dpsEmployeesBox, mpsEmplyoeesBox,
                                             cpsEmployeesBox, repackEmployeesBox, dpsHours, mpsHours, cpsHours, 
-                                            repackHours};
+                                            repackHours, dpsHourlyGoalBox, mpsHourlyGoalBox, cpsHourlyGoalBox, repackHourlyGoalBox};
 
 
             for (int i = 1; i < tbx2.Length; i++)
@@ -146,17 +148,6 @@ namespace UpdateForm
                 workloadLines[i] = tbx2[i].Text;
 
             }
-
-
-
-            int dpsHourly = Int32.Parse(dpsTotalBox.Text.Replace(",", "")) / Int32.Parse(dpsHours.Text.Replace(",", ""));
-            int mpsHourly = Int32.Parse(mpsTotalBox.Text.Replace(",", "")) / Int32.Parse(mpsHours.Text.Replace(",", ""));
-            int cpsHourly = Int32.Parse(cpsTotalBox.Text.Replace(",", "")) / Int32.Parse(cpsHours.Text.Replace(",", ""));
-            int repackHourly = Int32.Parse(repackTotalBox.Text.Replace(",", "")) / Int32.Parse(repackHours.Text.Replace(",", ""));
-            workloadLines[47] = dpsHourly.ToString();
-            workloadLines[48] = mpsHourly.ToString();
-            workloadLines[49] = cpsHourly.ToString();
-            workloadLines[50] = repackHourly.ToString();
 
             workloadLines[0] = lines[0] = label55.Text;
 
@@ -195,7 +186,102 @@ namespace UpdateForm
             }
         }
 
+        private void dpsEmployeesBox_TextChanged(object sender, EventArgs e)
+        {
+            int total = convertToInt(dpsTotalBox.Text);
+            int employees = convertToInt(dpsEmployeesBox.Text);
+            int hours = convertToInt(dpsHours.Text);
+            int hourlyGoal = 0;
+            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            dpsHourlyGoalBox.Text = hourlyGoal.ToString();
+        }
 
+        private void dpsHours_TextChanged(object sender, EventArgs e)
+        {
+            int total = convertToInt(dpsTotalBox.Text);
+            int employees = convertToInt(dpsEmployeesBox.Text);
+            int hours = convertToInt(dpsHours.Text);
+            int hourlyGoal = 0;
+            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            dpsHourlyGoalBox.Text = hourlyGoal.ToString();
+        }
+
+        private void mpsEmplyoeesBox_TextChanged(object sender, EventArgs e)
+        {
+            int total = convertToInt(mpsTotalBox.Text);
+            int employees = convertToInt(mpsEmplyoeesBox.Text);
+            int hours = convertToInt(mpsHours.Text);
+            int hourlyGoal = 0;
+            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            mpsHourlyGoalBox.Text = hourlyGoal.ToString();
+        }
+
+        private void mpsHours_TextChanged(object sender, EventArgs e)
+        {
+            int total = convertToInt(mpsTotalBox.Text);
+            int employees = convertToInt(mpsEmplyoeesBox.Text);
+            int hours = convertToInt(mpsHours.Text);
+            int hourlyGoal = 0;
+            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            mpsHourlyGoalBox.Text = hourlyGoal.ToString();
+        }
+
+        private void cpsEmployeesBox_TextChanged(object sender, EventArgs e)
+        {
+            int total = convertToInt(cpsTotalBox.Text);
+            int employees = convertToInt(cpsEmployeesBox.Text);
+            int hours = convertToInt(cpsHours.Text);
+            int hourlyGoal = 0;
+            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            cpsHourlyGoalBox.Text = hourlyGoal.ToString();
+        }
+
+        private void cpsHours_TextChanged(object sender, EventArgs e)
+        {
+            int total = convertToInt(cpsTotalBox.Text);
+            int employees = convertToInt(cpsEmployeesBox.Text);
+            int hours = convertToInt(cpsHours.Text);
+            int hourlyGoal = 0;
+            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            cpsHourlyGoalBox.Text = hourlyGoal.ToString();
+        }
+
+        private void repackEmployeesBox_TextChanged(object sender, EventArgs e)
+        {
+            int total = convertToInt(repackTotalBox.Text);
+            int employees = convertToInt(repackEmployeesBox.Text);
+            int hours = convertToInt(repackHours.Text);
+            int hourlyGoal = 0;
+            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            repackHourlyGoalBox.Text = hourlyGoal.ToString();
+        }
+
+        private void repackHours_TextChanged(object sender, EventArgs e)
+        {
+            int total = convertToInt(repackTotalBox.Text);
+            int employees = convertToInt(repackEmployeesBox.Text);
+            int hours = convertToInt(repackHours.Text);
+            int hourlyGoal = 0;
+            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            repackHourlyGoalBox.Text = hourlyGoal.ToString();
+        }
+
+        public static int convertToInt(String input)
+            {
+                // Replace everything that is no a digit.
+                String inputCleaned = Regex.Replace(input, "[^0-9]", "");
+
+                int value = 0;
+
+                // Tries to parse the int, returns false on failure.
+                if (int.TryParse(inputCleaned, out value))
+                {
+                    // The result from parsing can be safely returned.
+                    return value;
+                }
+
+                return 0; // Or any other default value.
+            }
 
     }
 }

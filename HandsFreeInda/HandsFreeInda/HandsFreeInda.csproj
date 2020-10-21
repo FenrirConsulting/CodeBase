@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Piano.jpg" />
+    <Content Include="Pumpkin.png" />
     <None Include="exit.png" />
     <None Include="greyBackLogo.png" />
     <Content Include="logo.ico" />
