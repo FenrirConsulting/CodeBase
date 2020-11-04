@@ -55,6 +55,7 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.clockLabel = new System.Windows.Forms.Label();
             this.mainPanelBox = new System.Windows.Forms.Panel();
+            this.mapDrivesBUtton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainPanelBox.SuspendLayout();
@@ -324,6 +325,7 @@
             // 
             this.mainPanelBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mainPanelBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mainPanelBox.Controls.Add(this.mapDrivesBUtton);
             this.mainPanelBox.Controls.Add(this.pictureBox2);
             this.mainPanelBox.Controls.Add(this.dateLabel);
             this.mainPanelBox.Controls.Add(this.manualINDA);
@@ -351,11 +353,25 @@
             this.mainPanelBox.Size = new System.Drawing.Size(933, 480);
             this.mainPanelBox.TabIndex = 28;
             // 
+            // mapDrivesBUtton
+            // 
+            this.mapDrivesBUtton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.mapDrivesBUtton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mapDrivesBUtton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.mapDrivesBUtton.Location = new System.Drawing.Point(788, 425);
+            this.mapDrivesBUtton.Name = "mapDrivesBUtton";
+            this.mapDrivesBUtton.Size = new System.Drawing.Size(140, 32);
+            this.mapDrivesBUtton.TabIndex = 28;
+            this.mapDrivesBUtton.Text = "Map Net Drives";
+            this.mapDrivesBUtton.UseVisualStyleBackColor = false;
+            this.mapDrivesBUtton.Click += new System.EventHandler(this.mapDrivesBUtton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(43)))));
+            this.BackgroundImage = global::HandsFreeInda.Properties.Resources.Turkey;
             this.ClientSize = new System.Drawing.Size(957, 505);
             this.Controls.Add(this.mainPanelBox);
             this.Controls.Add(this.bottomBorder);
@@ -405,6 +421,7 @@
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label clockLabel;
         private System.Windows.Forms.Panel mainPanelBox;
+        public System.Windows.Forms.Button mapDrivesBUtton;
     }
 }
 

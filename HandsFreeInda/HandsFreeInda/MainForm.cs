@@ -1095,5 +1095,18 @@ namespace HandsFreeInda
             indaExitFocus();
         }
 
+        private void mapDrivesBUtton_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists("C:\\Witron\\Pco\\"))
+            {
+                Process.Start("C:\\Witron\\Pco\\MapNetDrives.cmd");
+            }
+
+            else {
+                MessageBox.Show("Net Drives Not Found");
+            }
+
+        }
+
     }
 }
