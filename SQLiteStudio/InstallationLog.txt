@@ -204,95 +204,49 @@
 [0] Operations sanity check succeeded.
 [42069] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?395005000': Connection timed out.
 [42070] Cannot retrieve remote tree No package sources set for this application..
-************************************* Invoked: Wed Sep 23 12:59:16 2020
+************************************* Invoked: Wed Sep 23 11:16:34 2020
 [0] Operations sanity check succeeded.
-[6098] addDownloadable "DbSqliteSystemData.7z"
-[6099] addDownloadable "DbSqliteCipher.7z"
-[6099] addDownloadable "CsvExport.7z"
-[6099] addDownloadable "JsonExport.7z"
-[6099] addDownloadable "HtmlExport.7z"
-[6099] addDownloadable "Printing.7z"
-[6099] addDownloadable "PdfExport.7z"
-[6100] addDownloadable "RegExpImport.7z"
-[6100] addDownloadable "ConfigMigration.7z"
-[6100] addDownloadable "qt.7z"
-[6100] addDownloadable "DbAndroid.7z"
-[6101] addDownloadable "CsvImport.7z"
-[6101] addDownloadable "MultiEditorImage.7z"
-[6101] addDownloadable "SqlExport.7z"
-[6101] addDownloadable "SqlEnterpriseFormatter.7z"
-[6101] addDownloadable "XmlExport.7z"
-[6102] addDownloadable "DbSqliteWx.7z"
-[6102] addDownloadable "DbSqlite2.7z"
-[6102] addDownloadable "ScriptingTcl.7z"
-[6102] addDownloadable "SqlFormatterSimple.7z"
-[6102] addDownloadable "sqlitestudio.7z"
-************************************* Invoked: Wed Sep 23 13:20:56 2020
+[42342] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?321375840': Connection timed out.
+[42356] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Wed Sep 23 11:38:54 2020
 [0] Operations sanity check succeeded.
-[5809] addDownloadable "qt.7z"
-[5809] addDownloadable "HtmlExport.7z"
-[5809] addDownloadable "DbSqliteCipher.7z"
-[5809] addDownloadable "ScriptingTcl.7z"
-[5809] addDownloadable "XmlExport.7z"
-[5809] addDownloadable "SqlEnterpriseFormatter.7z"
-[5810] addDownloadable "SqlExport.7z"
-[5810] addDownloadable "RegExpImport.7z"
-[5810] addDownloadable "CsvImport.7z"
-[5810] addDownloadable "Printing.7z"
-[5810] addDownloadable "SqlFormatterSimple.7z"
-[5810] addDownloadable "DbAndroid.7z"
-[5810] addDownloadable "CsvExport.7z"
-[5810] addDownloadable "JsonExport.7z"
-[5810] addDownloadable "ConfigMigration.7z"
-[5810] addDownloadable "DbSqliteWx.7z"
-[5810] addDownloadable "DbSqliteSystemData.7z"
-[5811] addDownloadable "sqlitestudio.7z"
-[5811] addDownloadable "DbSqlite2.7z"
-[5811] addDownloadable "PdfExport.7z"
-[5811] addDownloadable "MultiEditorImage.7z"
-************************************* Invoked: Thu Sep 24 16:14:50 2020
+[42075] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?29345760': Connection timed out.
+[42076] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Fri Oct 23 12:29:02 2020
 [0] Operations sanity check succeeded.
-[6228] addDownloadable "XmlExport.7z"
-[6228] addDownloadable "SqlFormatterSimple.7z"
-[6228] addDownloadable "SqlExport.7z"
-[6228] addDownloadable "Printing.7z"
-[6228] addDownloadable "qt.7z"
-[6228] addDownloadable "DbSqliteWx.7z"
-[6229] addDownloadable "ScriptingTcl.7z"
-[6229] addDownloadable "CsvImport.7z"
-[6229] addDownloadable "PdfExport.7z"
-[6229] addDownloadable "RegExpImport.7z"
-[6229] addDownloadable "SqlEnterpriseFormatter.7z"
-[6229] addDownloadable "sqlitestudio.7z"
-[6229] addDownloadable "JsonExport.7z"
-[6229] addDownloadable "DbAndroid.7z"
-[6229] addDownloadable "DbSqlite2.7z"
-[6229] addDownloadable "DbSqliteCipher.7z"
-[6230] addDownloadable "MultiEditorImage.7z"
-[6230] addDownloadable "ConfigMigration.7z"
-[6230] addDownloadable "CsvExport.7z"
-[6230] addDownloadable "HtmlExport.7z"
-[6230] addDownloadable "DbSqliteSystemData.7z"
-************************************* Invoked: Mon Nov 2 19:57:56 2020
+[42365] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?35402304': Connection timed out.
+[42373] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Fri Oct 23 12:30:00 2020
 [0] Operations sanity check succeeded.
-[7951] addDownloadable "SqlExport.7z"
-[7952] addDownloadable "DbSqliteCipher.7z"
-[7952] addDownloadable "SqlEnterpriseFormatter.7z"
-[7952] addDownloadable "SqlFormatterSimple.7z"
-[7952] addDownloadable "RegExpImport.7z"
-[7952] addDownloadable "sqlitestudio.7z"
-[7952] addDownloadable "MultiEditorImage.7z"
-[7952] addDownloadable "DbAndroid.7z"
-[7952] addDownloadable "DbSqlite2.7z"
-[7952] addDownloadable "Printing.7z"
-[7952] addDownloadable "DbSqliteWx.7z"
-[7953] addDownloadable "CsvImport.7z"
-[7953] addDownloadable "qt.7z"
-[7953] addDownloadable "JsonExport.7z"
-[7953] addDownloadable "HtmlExport.7z"
-[7953] addDownloadable "CsvExport.7z"
-[7953] addDownloadable "ConfigMigration.7z"
-[7953] addDownloadable "DbSqliteSystemData.7z"
-[7953] addDownloadable "ScriptingTcl.7z"
-[7953] addDownloadable "PdfExport.7z"
-[7954] addDownloadable "XmlExport.7z"
+[42076] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?59620968': Connection timed out.
+[42077] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Fri Oct 23 12:35:41 2020
+[0] Operations sanity check succeeded.
+[42055] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?76719240': Connection timed out.
+[42056] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Fri Oct 30 08:38:16 2020
+[0] Warning: Cannot create lock file "C:\Users\c067460\AppData\Local\Temp\3\UpdateSQLiteStudio15021976.lock": The process cannot access the file because it is being used by another process.
+ (0x00000020)
+[27] Operations sanity check succeeded.
+[42079] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?73896900': Connection timed out.
+[42081] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Fri Oct 30 09:18:21 2020
+[0] Operations sanity check succeeded.
+[42052] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?249290393': Connection timed out.
+[42053] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Fri Oct 30 09:55:11 2020
+[0] Operations sanity check succeeded.
+[42198] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?142572628': Connection timed out.
+[42199] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Fri Oct 30 12:06:36 2020
+[0] Operations sanity check succeeded.
+[42204] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?729699738': Connection timed out.
+[42206] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Fri Oct 30 13:16:10 2020
+[0] Operations sanity check succeeded.
+[42396] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?742199674': Connection timed out.
+[42397] Cannot retrieve remote tree No package sources set for this application..
+************************************* Invoked: Sat Nov 7 13:56:16 2020
+[0] Operations sanity check succeeded.
+[42506] Network error while downloading 'http://sqlitestudio.pl/update-repo/windows//Updates.xml?180757872': Connection timed out.
+[42517] Cannot retrieve remote tree No package sources set for this application..
