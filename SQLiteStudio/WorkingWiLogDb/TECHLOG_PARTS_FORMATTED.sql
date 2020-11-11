@@ -57,7 +57,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 262
 , 1
 , 'WKS-8848'
-, ''||chr ( 9 )||'02-023-03-R'
+, '02-023-03-R'
 , 'dps picklight'
 )
 ;
@@ -256,7 +256,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1019245'
 , '02-013-02-R'
-, ''||chr ( 9 )||'PHOTOEYE '||chr ( 9 )||'WL34-B430 photoelectric reflex switch'
+, 'PHOTOEYE WL34-B430 photoelectric reflex switch'
 )
 ;
 
@@ -454,7 +454,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 2
 , '109022'
 , '01 -031-02-L'
-, ''||chr ( 9 )||'140 GUIDE WHEEL140 TRACK WHEEL With Shaft Ecc'
+, '140 GUIDE WHEEL140 TRACK WHEEL With Shaft Ecc'
 )
 ;
 
@@ -476,7 +476,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '243585'
 , '01-032-01-L'
-, ''||chr ( 9 )||'MPS Magnus Lift Motor MCA21X35-RSOF2-B38R-KS5F15N-ROSV'
+, 'MPS Magnus Lift Motor MCA21X35-RSOF2-B38R-KS5F15N-ROSV'
 )
 ;
 
@@ -564,7 +564,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -586,7 +586,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -694,7 +694,7 @@ INSERT INTO ZZTECHLOG_PARTS
   7382
 , 627
 , 1
-, ''||chr ( 9 )||'212115'
+, '212115'
 , 'shop'
 , 'ch drive wheel'
 )
@@ -784,7 +784,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -828,7 +828,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 12
 , '154440'
 , '01-031-03-R'
-, ''||chr ( 9 )||'CARBON BRUSH (PHASE)'
+, 'CARBON BRUSH (PHASE)'
 )
 ;
 
@@ -850,7 +850,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 2
 , '154453'
 , '01-031-03-R'
-, ''||chr ( 9 )||'CARBON BRUSH (GROUND'
+, 'CARBON BRUSH (GROUND'
 )
 ;
 
@@ -870,7 +870,7 @@ INSERT INTO ZZTECHLOG_PARTS
   7390
 , 678
 , 1
-, ''||chr ( 9 )||'20060001'
+, '20060001'
 , 'shop'
 , 'zoc'
 )
@@ -1136,7 +1136,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -1554,7 +1554,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '74639'
 , '02-011-04-L'
-, ''||chr ( 9 )||'Round Belt 5MM RT 100'
+, 'Round Belt 5MM RT 100'
 )
 ;
 
@@ -2199,13 +2199,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 100 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -2221,7 +2219,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -2243,7 +2241,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -2374,7 +2372,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 524
 , 1
 , '111357'
-, ''||chr ( 9 )||'01 -031-02-L'
+, '01 -031-02-L'
 , '180 eccentric guidewheel'
 )
 ;
@@ -2485,7 +2483,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -2551,7 +2549,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -3187,7 +3185,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8327
 , 1365
 , 1
-, ''||chr ( 9 )||'153811'
+, '153811'
 , 'shop'
 , 'cc end  left'
 )
@@ -3255,7 +3253,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -3277,7 +3275,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -3429,7 +3427,7 @@ INSERT INTO ZZTECHLOG_PARTS
   9112
 , 1587
 , 2
-, ''||chr ( 9 )||'164757'
+, '164757'
 , 'shop'
 , 'pusher arm'
 )
@@ -3451,7 +3449,7 @@ INSERT INTO ZZTECHLOG_PARTS
   9113
 , 1587
 , 1
-, ''||chr ( 9 )||'79866 77092'
+, '79866 77092'
 , 'shop'
 , 'prox  nbn4-12gm60-a2v1'
 )
@@ -3629,7 +3627,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , 'MON-001'
 , '01-041-04-L'
-, ''||chr ( 9 )||'MONSTER Circle Lift Push Arm (only)'
+, 'MONSTER Circle Lift Push Arm (only)'
 )
 ;
 
@@ -3649,7 +3647,7 @@ INSERT INTO ZZTECHLOG_PARTS
   10394
 , 1926
 , 1
-, ''||chr ( 9 )||'20060009'
+, '20060009'
 , '02-023-03-R'
 , 'dps pick light'
 )
@@ -4223,7 +4221,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -4355,7 +4353,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -4406,13 +4404,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 200 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -4428,7 +4424,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -4911,7 +4907,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 4383
 , 1
 , '133197'
-, ''||chr ( 9 )||'01-042-02-R'
+, '01-042-02-R'
 , 'White belt 4220'
 )
 ;
@@ -4933,7 +4929,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 4383
 , 1
 , '76930'
-, ''||chr ( 9 )||'01-043-02-R'
+, '01-043-02-R'
 , 'Speed roller chain'
 )
 ;
@@ -5044,7 +5040,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -5066,7 +5062,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -5086,7 +5082,7 @@ INSERT INTO ZZTECHLOG_PARTS
   17741
 , 4496
 , 1
-, ''||chr ( 9 )||'TC-20EF'
+, 'TC-20EF'
 , 'aisle two'
 , '4200'
 )
@@ -5988,7 +5984,7 @@ INSERT INTO ZZTECHLOG_PARTS
   7492
 , 1059
 , 1
-, ''||chr ( 9 )||'320555'
+, '320555'
 , 'shop'
 , '620 cbu'
 )
@@ -6010,7 +6006,7 @@ INSERT INTO ZZTECHLOG_PARTS
   7493
 , 1059
 , 1
-, ''||chr ( 9 )||'420924'
+, '420924'
 , 'shop'
 , 'board'
 )
@@ -6186,7 +6182,7 @@ INSERT INTO ZZTECHLOG_PARTS
   7502
 , 1199
 , 1
-, ''||chr ( 9 )||'88935'
+, '88935'
 , 'shop'
 , '100nm'
 )
@@ -6613,13 +6609,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 300 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -6943,7 +6937,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -7009,7 +7003,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 2
 , 'TOER G 02 4'
 , '02-041-03-R'
-, ''||chr ( 9 )||'Spring 1.4 x 13.1 x 77=winding'
+, 'Spring 1.4 x 13.1 x 77=winding'
 )
 ;
 
@@ -7361,7 +7355,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '74639'
 , '02-011-04-L'
-, ''||chr ( 9 )||'Round Belt 5MM RT 100'
+, 'Round Belt 5MM RT 100'
 )
 ;
 
@@ -7777,7 +7771,7 @@ INSERT INTO ZZTECHLOG_PARTS
   7574
 , 1200
 , 1
-, ''||chr ( 9 )||'74297'
+, '74297'
 , 'shop'
 , '500nm gas shock'
 )
@@ -8703,7 +8697,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '212115'
 , '01-011-02-R'
-, ''||chr ( 9 )||'270X110 DRIVE WHEEL'
+, '270X110 DRIVE WHEEL'
 )
 ;
 
@@ -8725,7 +8719,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 11
 , '103717'
 , '01-011-02-R'
-, ''||chr ( 9 )||'M8 x 25 bolt '||chr ( 9 )||''
+, 'M8 x 25 bolt '
 )
 ;
 
@@ -8747,7 +8741,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -8820,13 +8814,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 400 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -9524,7 +9516,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -9632,7 +9624,7 @@ INSERT INTO ZZTECHLOG_PARTS
   7658
 , 856
 , 1
-, ''||chr ( 9 )||'74583'
+, '74583'
 , '03-013-02-R'
 , 'tote conveyor guiderail flexible coupler'
 )
@@ -9721,7 +9713,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 862
 , 1
 , '420924'
-, ''||chr ( 9 )||'01-012-03-R'
+, '01-012-03-R'
 , 'sensor module'
 )
 ;
@@ -10140,7 +10132,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -10294,7 +10286,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-011-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -10316,7 +10308,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-011-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -10426,7 +10418,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -10446,7 +10438,7 @@ INSERT INTO ZZTECHLOG_PARTS
   7695
 , 1060
 , 1
-, ''||chr ( 9 )||'420924'
+, '420924'
 , 'shop'
 , 'board'
 )
@@ -11027,13 +11019,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 500 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -11203,7 +11193,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '73732'
 , '02-011-04-L'
-, ''||chr ( 9 )||'ROUND BELT'
+, 'ROUND BELT'
 )
 ;
 
@@ -11313,7 +11303,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -11335,7 +11325,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -11905,7 +11895,7 @@ INSERT INTO ZZTECHLOG_PARTS
   7761
 , 1163
 , 1
-, ''||chr ( 9 )||'314716'
+, '314716'
 , 'shop'
 , '420 cbu'
 )
@@ -11927,7 +11917,7 @@ INSERT INTO ZZTECHLOG_PARTS
   7762
 , 1164
 , 1
-, ''||chr ( 9 )||'74297'
+, '74297'
 , 'shop'
 , '500nm shock'
 )
@@ -12125,7 +12115,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8052
 , 1288
 , 2
-, ''||chr ( 9 )||'212115'
+, '212115'
 , 'shop'
 , 'drive wheel'
 )
@@ -12259,7 +12249,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -12281,7 +12271,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -12677,7 +12667,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -13117,7 +13107,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320555'
 , '01-011-03-R'
-, ''||chr ( 9 )||'CBU 620 With Rubber'
+, 'CBU 620 With Rubber'
 )
 ;
 
@@ -13234,13 +13224,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 600 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -13936,7 +13924,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8316
 , 1361
 , 4
-, ''||chr ( 9 )||'0152273/00'
+, '0152273/00'
 , 'shop'
 , 'phase arm'
 )
@@ -13958,7 +13946,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8317
 , 1361
 , 1
-, ''||chr ( 9 )||'152276'
+, '152276'
 , 'shop'
 , 'grnd arm'
 )
@@ -13980,7 +13968,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8318
 , 1361
 , 6
-, ''||chr ( 9 )||'154440'
+, '154440'
 , 'shop'
 , 'phase coll.'
 )
@@ -14090,7 +14078,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8837
 , 1512
 , 6
-, ''||chr ( 9 )||'154440'
+, '154440'
 , 'shop'
 , 'phase coll.'
 )
@@ -14136,7 +14124,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -14510,7 +14498,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , 'MP969'
 , '04-011-04-L'
-, ''||chr ( 9 )||'MPS PICK LIGHT non sap'
+, 'MPS PICK LIGHT non sap'
 )
 ;
 
@@ -14598,7 +14586,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '55203'
 , '03-011-02-R'
-, ''||chr ( 9 )||'Plug For Resolvers'
+, 'Plug For Resolvers'
 )
 ;
 
@@ -15278,7 +15266,7 @@ INSERT INTO ZZTECHLOG_PARTS
   13196
 , 3403
 , 2
-, ''||chr ( 9 )||'96182'
+, '96182'
 , 'shop'
 , 'running wheels'
 )
@@ -15434,20 +15422,18 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1049066'
 , '02-013-02-R'
-, ''||chr ( 9 )||'Sensor WL9-3P3430'
+, 'Sensor WL9-3P3430'
 )
 ;
 
 
 
 
-commit
-;
 
 
 
 
-prompt 700 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -16387,7 +16373,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '3882/4009 G 14 L'
 , '02-041-03-R'
-, ''||chr ( 9 )||'SNAPPER ARM/ KOOK LEVER (LEFT SIDE)'
+, 'SNAPPER ARM/ KOOK LEVER (LEFT SIDE)'
 )
 ;
 
@@ -16409,7 +16395,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 2
 , '32908'
 , '02-041-03-R'
-, ''||chr ( 9 )||'Thrust Washer for Snapper Arm'
+, 'Thrust Washer for Snapper Arm'
 )
 ;
 
@@ -16430,8 +16416,8 @@ INSERT INTO ZZTECHLOG_PARTS
 , 3686
 , 2
 , '1012 DU'
-, ''||chr ( 9 )||'02-041-03-R'
-, ''||chr ( 9 )||'Bushing Ø10/12x12, Type: 1012 DU'
+, '02-041-03-R'
+, 'Bushing Ø10/12x12, Type: 1012 DU'
 )
 ;
 
@@ -16475,7 +16461,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , 'TOER G 02 4'
 , '02-041-03-R'
-, ''||chr ( 9 )||'Spring 1.4 x 13.1 x 77=winding'
+, 'Spring 1.4 x 13.1 x 77=winding'
 )
 ;
 
@@ -16495,7 +16481,7 @@ INSERT INTO ZZTECHLOG_PARTS
   14232
 , 3697
 , 1
-, ''||chr ( 9 )||'52024'
+, '52024'
 , 'shop'
 , 'prox'
 )
@@ -16915,7 +16901,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -16937,7 +16923,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -17421,7 +17407,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -17595,7 +17581,7 @@ INSERT INTO ZZTECHLOG_PARTS
   15702
 , 4022
 , 1
-, ''||chr ( 9 )||'314716'
+, '314716'
 , 'shop'
 , '420 cbu'
 )
@@ -17648,13 +17634,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 800 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -17954,7 +17938,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8775
 , 1498
 , 500
-, ''||chr ( 9 )||'TC-20EF'
+, 'TC-20EF'
 , 'shop'
 , 'green belt 500 mm'
 )
@@ -18550,7 +18534,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -18616,7 +18600,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320555'
 , '01-011-03-R'
-, ''||chr ( 9 )||'CBU 620 With Rubber'
+, 'CBU 620 With Rubber'
 )
 ;
 
@@ -18704,7 +18688,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1049066'
 , '02-013-02-R'
-, ''||chr ( 9 )||'Sensor WL9-3P3430'
+, 'Sensor WL9-3P3430'
 )
 ;
 
@@ -19076,7 +19060,7 @@ INSERT INTO ZZTECHLOG_PARTS
   15347
 , 3946
 , 1
-, ''||chr ( 9 )||'314716'
+, '314716'
 , 'shop'
 , '420 cbu'
 )
@@ -19232,7 +19216,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -19254,7 +19238,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -19342,7 +19326,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -19562,7 +19546,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 4
 , '141722'
 , 'aisle 4'
-, ''||chr ( 9 )||'Slide Attachment VAS 10-T/S'
+, 'Slide Attachment VAS 10-T/S'
 )
 ;
 
@@ -19692,7 +19676,7 @@ INSERT INTO ZZTECHLOG_PARTS
   16549
 , 4210
 , 1
-, ''||chr ( 9 )||'297786'
+, '297786'
 , 'AISLE 1'
 , 'I-7'
 )
@@ -19855,13 +19839,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 900 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -20601,7 +20583,7 @@ INSERT INTO ZZTECHLOG_PARTS
   15060
 , 3887
 , 1
-, ''||chr ( 9 )||'1019272'
+, '1019272'
 , 'shop'
 , 'sensor'
 )
@@ -20867,7 +20849,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 2
 , '1029081'
 , '02-013-02-R'
-, ''||chr ( 9 )||'WL27-3P3431 light barrier'
+, 'WL27-3P3431 light barrier'
 )
 ;
 
@@ -20975,7 +20957,7 @@ INSERT INTO ZZTECHLOG_PARTS
   16604
 , 4221
 , 1
-, ''||chr ( 9 )||'73732'
+, '73732'
 , 'shop'
 , '75 green band'
 )
@@ -20999,7 +20981,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '56937'
 , '01-031-03-R'
-, ''||chr ( 9 )||'Bracket For Collector'
+, 'Bracket For Collector'
 )
 ;
 
@@ -21130,7 +21112,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 4249
 , 1
 , '58176'
-, ''||chr ( 9 )||'02-041-02-L'
+, '02-041-02-L'
 , 'Aprox 35M of toothed belt for lift'
 )
 ;
@@ -21635,7 +21617,7 @@ INSERT INTO ZZTECHLOG_PARTS
   17475
 , 4432
 , 1
-, ''||chr ( 9 )||'231957'
+, '231957'
 , 'aisle 1'
 , 'Omega Roller'
 )
@@ -22011,7 +21993,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320555'
 , '01-011-03-R'
-, ''||chr ( 9 )||'CBU 620 With Rubber'
+, 'CBU 620 With Rubber'
 )
 ;
 
@@ -22031,7 +22013,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8840
 , 1513
 , 6
-, ''||chr ( 9 )||'154440'
+, '154440'
 , 'shop'
 , 'phase collectors'
 )
@@ -22062,13 +22044,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 1000 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -22150,7 +22130,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1049066'
 , '02-013-02-R'
-, ''||chr ( 9 )||'Sensor WL9-3P3430'
+, 'Sensor WL9-3P3430'
 )
 ;
 
@@ -22172,7 +22152,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -22194,7 +22174,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -22348,7 +22328,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -22370,7 +22350,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -22436,7 +22416,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-011-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -23338,7 +23318,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -24086,7 +24066,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -24130,7 +24110,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White'
+, 'DPS PICK LIGHT (Red/White'
 )
 ;
 
@@ -24174,7 +24154,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-011-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -24269,13 +24249,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 1100 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -24313,7 +24291,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320555'
 , '01-011-03-R'
-, ''||chr ( 9 )||'CBU 620 With Rubber'
+, 'CBU 620 With Rubber'
 )
 ;
 
@@ -24731,7 +24709,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '3882G15'
 , '02-041-03-R'
-, ''||chr ( 9 )||'Snapper Arm stopper/bracket '||chr ( 9 )||''
+, 'Snapper Arm stopper/bracket '
 )
 ;
 
@@ -24753,7 +24731,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 2
 , '32908'
 , '02-041-03-R'
-, ''||chr ( 9 )||'Thrust Washer for Snapper Arm'
+, 'Thrust Washer for Snapper Arm'
 )
 ;
 
@@ -24907,7 +24885,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -25544,7 +25522,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 228
 , 1
 , '320554'
-, ''||chr ( 9 )||'01-011-03-R'
+, '01-011-03-R'
 , '420 CBU'
 )
 ;
@@ -25763,7 +25741,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8433
 , 1393
 , 1
-, ''||chr ( 9 )||'75220'
+, '75220'
 , '03-023-02-R'
 , 'Reflector Support w/ reflector'
 )
@@ -25853,7 +25831,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -26476,13 +26454,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 1200 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -27114,7 +27090,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '335-00190-0000'
 , '02-031-02-R'
-, ''||chr ( 9 )||'LOGOPAK Labeller Print Engine CVS CAP EX'
+, 'LOGOPAK Labeller Print Engine CVS CAP EX'
 )
 ;
 
@@ -27618,7 +27594,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8333
 , 1366
 , 1
-, ''||chr ( 9 )||'153812'
+, '153812'
 , 'shop'
 , 'cc end right'
 )
@@ -28388,7 +28364,7 @@ INSERT INTO ZZTECHLOG_PARTS
   11253
 , 2150
 , 2
-, ''||chr ( 9 )||'13585'
+, '13585'
 , 'shop'
 , 'stop washers'
 )
@@ -28588,7 +28564,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -28632,7 +28608,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1049051'
 , '02-013-02-R'
-, ''||chr ( 9 )||'WTB9-3P3461 Reflex switch'
+, 'WTB9-3P3461 Reflex switch'
 )
 ;
 
@@ -28683,13 +28659,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 1300 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -28749,7 +28723,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -28771,7 +28745,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420922'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS LI C PW-V11'
+, 'Sensormodul LS LI C PW-V11'
 )
 ;
 
@@ -29649,7 +29623,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8187
 , 1324
 , 1
-, ''||chr ( 9 )||'119021'
+, '119021'
 , 'shop'
 , 'chassis drive frame'
 )
@@ -30047,7 +30021,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 10
 , '154440'
 , '01-031-03-R'
-, ''||chr ( 9 )||'CARBON BRUSH (PHASE)'
+, 'CARBON BRUSH (PHASE)'
 )
 ;
 
@@ -30091,7 +30065,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '152273'
 , '01-031-03-R'
-, ''||chr ( 9 )||'Collector Arm Complete Phase'
+, 'Collector Arm Complete Phase'
 )
 ;
 
@@ -30113,7 +30087,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '111357'
 , '01 -031-02-L'
-, ''||chr ( 9 )||'180 Eccentric Guide Wheel Magnus Crane Mustang Crane'
+, '180 Eccentric Guide Wheel Magnus Crane Mustang Crane'
 )
 ;
 
@@ -30179,7 +30153,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -30837,7 +30811,7 @@ INSERT INTO ZZTECHLOG_PARTS
   12044
 , 2987
 , 4
-, ''||chr ( 9 )||'32908'
+, '32908'
 , 'shop'
 , 'thrust washer'
 )
@@ -30890,13 +30864,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 1400 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -31372,7 +31344,7 @@ INSERT INTO ZZTECHLOG_PARTS
   15008
 , 3876
 , 1
-, ''||chr ( 9 )||'287782'
+, '287782'
 , 'shop'
 , 'slave hub'
 )
@@ -31614,7 +31586,7 @@ INSERT INTO ZZTECHLOG_PARTS
   8786
 , 1501
 , 3
-, ''||chr ( 9 )||'1049066'
+, '1049066'
 , 'shop'
 , 'sensor  wl9 3p3430'
 )
@@ -31836,7 +31808,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -31858,7 +31830,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -32012,7 +31984,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '124989'
 , '01-022-03-L'
-, ''||chr ( 9 )||'DPS Crane Blocking Device Motor'
+, 'DPS Crane Blocking Device Motor'
 )
 ;
 
@@ -32650,7 +32622,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , 'MON-001'
 , '01-041-04-L'
-, ''||chr ( 9 )||'MONSTER Circle Lift Push Arm (only)'
+, 'MONSTER Circle Lift Push Arm (only)'
 )
 ;
 
@@ -33097,13 +33069,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 1500 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -34527,7 +34497,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -34591,7 +34561,7 @@ INSERT INTO ZZTECHLOG_PARTS
   14830
 , 3843
 , 1
-, ''||chr ( 9 )||'109022'
+, '109022'
 , 'shop'
 , '140 wheel'
 )
@@ -34657,7 +34627,7 @@ INSERT INTO ZZTECHLOG_PARTS
   14833
 , 3843
 , 1
-, ''||chr ( 9 )||'60146'
+, '60146'
 , 'shop'
 , 'spider rotex wheel red part'
 )
@@ -35304,13 +35274,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 1600 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -35390,7 +35358,7 @@ INSERT INTO ZZTECHLOG_PARTS
   17438
 , 4422
 , 1
-, ''||chr ( 9 )||'291990'
+, '291990'
 , 'shop'
 , 'lift pulley'
 )
@@ -35722,7 +35690,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320555'
 , '01-011-03-R'
-, ''||chr ( 9 )||'CBU 620 With Rubber'
+, 'CBU 620 With Rubber'
 )
 ;
 
@@ -35766,7 +35734,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -35788,7 +35756,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -36008,7 +35976,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1019272'
 , 'shop'
-, ''||chr ( 9 )||'WTB9-3P3461'
+, 'WTB9-3P3461'
 )
 ;
 
@@ -37327,7 +37295,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 4483
 , 1
 , '420924'
-, ''||chr ( 9 )||'01-012-03-R'
+, '01-012-03-R'
 , 'Sensormodule'
 )
 ;
@@ -37511,13 +37479,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 1700 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -37533,7 +37499,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '172566'
 , '02-031-02-L'
-, ''||chr ( 9 )||'Pallet Stacker Clamp Lift Bushing'
+, 'Pallet Stacker Clamp Lift Bushing'
 )
 ;
 
@@ -37577,7 +37543,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '157844'
 , '02-042-03-L'
-, ''||chr ( 9 )||'Diagonal Chain Pusher Block (Orange Cover, no mount)'
+, 'Diagonal Chain Pusher Block (Orange Cover, no mount)'
 )
 ;
 
@@ -37597,7 +37563,7 @@ INSERT INTO ZZTECHLOG_PARTS
   17827
 , 4528
 , 1
-, ''||chr ( 9 )||'135016'
+, '135016'
 , '1-023-03-R'
 , 'Blocking device  motor'
 )
@@ -38411,9 +38377,9 @@ INSERT INTO ZZTECHLOG_PARTS
   13482
 , 3471
 , 1
-, 'TOER-G22 1+2'||chr ( 9 )||''
+, 'TOER-G22 1+2'
 , '02-041-03-R'
-, ''||chr ( 9 )||'Prox Clamp for Tote Erector snapper.'
+, 'Prox Clamp for Tote Erector snapper.'
 )
 ;
 
@@ -38435,7 +38401,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '52024'
 , '02-012-03-L'
-, 'NBN3-6,5M25-E2-V3 Proximity Switch '||chr ( 9 )||''
+, 'NBN3-6,5M25-E2-V3 Proximity Switch '
 )
 ;
 
@@ -39314,7 +39280,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 4383
 , 1
 , '75870'
-, ''||chr ( 9 )||'03-021-03-R'
+, '03-021-03-R'
 , 'Speed Roller'
 )
 ;
@@ -39718,13 +39684,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 1800 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -39848,7 +39812,7 @@ INSERT INTO ZZTECHLOG_PARTS
   18477
 , 4662
 , 1
-, ''||chr ( 9 )||'154440'
+, '154440'
 , 'shop'
 , 'phace collector'
 )
@@ -41080,7 +41044,7 @@ INSERT INTO ZZTECHLOG_PARTS
   21715
 , 5531
 , 1
-, ''||chr ( 9 )||'314716'
+, '314716'
 , '1-12-3-R'
 , 'CBU 420'
 )
@@ -41102,7 +41066,7 @@ INSERT INTO ZZTECHLOG_PARTS
   21716
 , 5531
 , 1
-, ''||chr ( 9 )||'420924'||chr ( 9 )||''
+, '420924'
 , '1-12-3-R'
 , 'Sensor module'
 )
@@ -41191,7 +41155,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 5685
 , 1
 , '48093'
-, ''||chr ( 9 )||'03-032-03-L'
+, '03-032-03-L'
 , 'sprocket tensioner'
 )
 ;
@@ -41806,7 +41770,7 @@ INSERT INTO ZZTECHLOG_PARTS
   18754
 , 4741
 , 1
-, '1016361'||chr ( 9 )||''
+, '1016361'
 , 'aisle 02 R'
 , 'DS60 photocell'
 )
@@ -41925,13 +41889,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 1900 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -42057,7 +42019,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320555'
 , '01-011-03-R'
-, ''||chr ( 9 )||'CBU 620 With Rubber'
+, 'CBU 620 With Rubber'
 )
 ;
 
@@ -43991,7 +43953,7 @@ INSERT INTO ZZTECHLOG_PARTS
   18629
 , 4702
 , 1
-, '20060009'||chr ( 9 )||''
+, '20060009'
 , '02-023-03-R'
 , 'DPS PICK LIGHT (Red/White)'
 )
@@ -44132,13 +44094,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 2000 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -44154,7 +44114,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 2
 , '152273'
 , '01-031-03-R'
-, ''||chr ( 9 )||'Collector Arm Complete Phase'
+, 'Collector Arm Complete Phase'
 )
 ;
 
@@ -44308,7 +44268,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -44506,7 +44466,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , 'E82ZAFIC010'
 , '02-011-03-R'
-, ''||chr ( 9 )||'IBS-INTERFACE'
+, 'IBS-INTERFACE'
 )
 ;
 
@@ -44946,7 +44906,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1049066'
 , '02-013-02-R'
-, ''||chr ( 9 )||'Sensor WL9-3P3430'
+, 'Sensor WL9-3P3430'
 )
 ;
 
@@ -45208,7 +45168,7 @@ INSERT INTO ZZTECHLOG_PARTS
   22504
 , 5762
 , 2
-, ''||chr ( 9 )||'154453'
+, '154453'
 , '01-031-03-R'
 , 'Ground Brush'
 )
@@ -45606,7 +45566,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1049066'
 , '02-013-02-R'
-, ''||chr ( 9 )||'Sensor WL9-3P3430'
+, 'Sensor WL9-3P3430'
 )
 ;
 
@@ -45736,7 +45696,7 @@ INSERT INTO ZZTECHLOG_PARTS
   18673
 , 4711
 , 1
-, ''||chr ( 9 )||'314716'
+, '314716'
 , 'SHOP'
 , 'CBU'
 )
@@ -45782,7 +45742,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -45804,7 +45764,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -46339,13 +46299,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 2100 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -47505,7 +47463,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -48274,7 +48232,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 5101
 , 6
 , '154440'
-, ''||chr ( 9 )||'01-031-03-R'
+, '01-031-03-R'
 , 'phase collectors'
 )
 ;
@@ -48546,13 +48504,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 2200 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -50217,7 +50173,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 5253
 , 3
 , '10042'
-, ''||chr ( 9 )||'03-011-02-L'
+, '03-011-02-L'
 , 'DIL ER-22-G'
 )
 ;
@@ -50568,7 +50524,7 @@ INSERT INTO ZZTECHLOG_PARTS
   21748
 , 5540
 , 1
-, ''||chr ( 9 )||'420924'
+, '420924'
 , '1-11-3-L'
 , 'Sensormodule'
 )
@@ -50753,13 +50709,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 2300 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -50929,7 +50883,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '63306'
 , '01-Cab1-Left-Small'
-, ''||chr ( 9 )||'M6-1.0 Black Neoprene Well Nut/ QTY. 25 Per Package'
+, 'M6-1.0 Black Neoprene Well Nut/ QTY. 25 Per Package'
 )
 ;
 
@@ -52269,7 +52223,7 @@ INSERT INTO ZZTECHLOG_PARTS
   19659
 , 4975
 , 1
-, ''||chr ( 9 )||'56937'
+, '56937'
 , '01-031-03-R'
 , 'COLLECTOR ARM BRACKET'
 )
@@ -52402,7 +52356,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 5100
 , 1
 , '294938'
-, ''||chr ( 9 )||'01-013-02-R'
+, '01-013-02-R'
 , 'Spring washer assy A.P.'
 )
 ;
@@ -52424,7 +52378,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 5100
 , 1
 , '294934'
-, ''||chr ( 9 )||'01-013-02-R'
+, '01-013-02-R'
 , '"   "      "    "    "  "  Chassis'
 )
 ;
@@ -52643,7 +52597,7 @@ INSERT INTO ZZTECHLOG_PARTS
   20418
 , 5210
 , 1
-, ''||chr ( 9 )||'774735'
+, '774735'
 , '02-22-02-R'
 , 'Safety Relay'
 )
@@ -52667,7 +52621,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '10343'
 , '03-011-02-L'
-, ''||chr ( 9 )||'CONTACTOR'
+, 'CONTACTOR'
 )
 ;
 
@@ -52711,7 +52665,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1049051'
 , '02-013-02-R'
-, ''||chr ( 9 )||'WTB9-3P3461 Reflex switch'
+, 'WTB9-3P3461 Reflex switch'
 )
 ;
 
@@ -52953,20 +52907,18 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '74639'
 , '02-011-04-L'
-, ''||chr ( 9 )||'Round Belt 5MM RT 100'
+, 'Round Belt 5MM RT 100'
 )
 ;
 
 
 
 
-commit
-;
 
 
 
 
-prompt 2400 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -53068,7 +53020,7 @@ INSERT INTO ZZTECHLOG_PARTS
   21755
 , 5541
 , 1
-, ''||chr ( 9 )||'420924'
+, '420924'
 , '1-11-3-R'
 , 'Sensormodule'
 )
@@ -53310,7 +53262,7 @@ INSERT INTO ZZTECHLOG_PARTS
   22265
 , 5702
 , 1
-, ''||chr ( 9 )||'314716'
+, '314716'
 , 'shop'
 , 'cbu'
 )
@@ -53730,7 +53682,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '164757'
 , '01-041-04-L'
-, ''||chr ( 9 )||'CIRCLE LIFT PUSH-ARM (Arm ONLY)'
+, 'CIRCLE LIFT PUSH-ARM (Arm ONLY)'
 )
 ;
 
@@ -55026,7 +54978,7 @@ INSERT INTO ZZTECHLOG_PARTS
   22353
 , 5722
 , 1
-, ''||chr ( 9 )||'74297'
+, '74297'
 , '03-21-3-l'
 , '500nm shock'
 )
@@ -55167,13 +55119,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 2500 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -55871,7 +55821,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1028731'
 , '02-011-02-R'
-, ''||chr ( 9 )||'SCANNER CLV422-1010 S02'
+, 'SCANNER CLV422-1010 S02'
 )
 ;
 
@@ -56265,7 +56215,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25419
 , 6487
 , 2
-, ''||chr ( 9 )||'84789'
+, '84789'
 , '03-21-04-L'
 , 'Flapper assy'
 )
@@ -56287,7 +56237,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25424
 , 6489
 , 2
-, ''||chr ( 9 )||'320555'
+, '320555'
 , '01-11-03-R'
 , '620 CBU'
 )
@@ -56309,7 +56259,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25425
 , 6489
 , 3
-, ''||chr ( 9 )||'420924'
+, '420924'
 , '01-11-03-R'
 , 'Sensor module'
 )
@@ -56377,7 +56327,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 3
 , '13585'
 , '01-Cab1-Right-Small'
-, ''||chr ( 9 )||'Stop washer 6 mm'
+, 'Stop washer 6 mm'
 )
 ;
 
@@ -56421,7 +56371,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 580
 , '0510_18900'
 , 'Roco'
-, ''||chr ( 9 )||'FLAT BELT WHITE TCF-50H'
+, 'FLAT BELT WHITE TCF-50H'
 )
 ;
 
@@ -56837,7 +56787,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25986
 , 6628
 , 1
-, ''||chr ( 9 )||'74297'
+, '74297'
 , 'shop'
 , '500N shock'
 )
@@ -57374,13 +57324,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 2600 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -57614,7 +57562,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28133
 , 7196
 , 1
-, ''||chr ( 9 )||'102234'
+, '102234'
 , 'Aisle 1'
 , '270x60 wheel'
 )
@@ -58010,7 +57958,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25137
 , 6423
 , 3
-, ''||chr ( 9 )||'233681'
+, '233681'
 , '01-011-04-R'
 , 'Assembly group cup. Rocker assembly'
 )
@@ -58032,7 +57980,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25181
 , 6440
 , 1
-, ''||chr ( 9 )||'170394'
+, '170394'
 , 'aisle 1'
 , 'gearbox'
 )
@@ -58054,7 +58002,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25182
 , 6440
 , 1
-, ''||chr ( 9 )||'102137'
+, '102137'
 , 'aisle 1'
 , 'wheel 270 x 110'
 )
@@ -58098,7 +58046,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25313
 , 6470
 , 1
-, '1049066'||chr ( 9 )||''
+, '1049066'
 , '02-013-02-R'
 , 'WL9-3P3430'
 )
@@ -58164,7 +58112,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25421
 , 6488
 , 1
-, ''||chr ( 9 )||'314716'
+, '314716'
 , '01-11-03-R'
 , 'CBU 420'
 )
@@ -58186,7 +58134,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25422
 , 6488
 , 1
-, ''||chr ( 9 )||'420924'
+, '420924'
 , '01-11-03-R'
 , 'Sensormodule'
 )
@@ -58208,7 +58156,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25433
 , 6492
 , 9
-, ''||chr ( 9 )||'154440'
+, '154440'
 , '01-32-03-R'
 , 'Phase Brush'
 )
@@ -58230,7 +58178,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25434
 , 6492
 , 1
-, ''||chr ( 9 )||'154453'
+, '154453'
 , '01-32-03-R'
 , 'Ground Brush'
 )
@@ -58296,7 +58244,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25704
 , 6555
 , 1
-, ''||chr ( 9 )||'41779'
+, '41779'
 , 'aisle 2'
 , 'telescopic spring'
 )
@@ -58408,7 +58356,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -58606,7 +58554,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '15788'
 , '03-023-02-R'
-, ''||chr ( 9 )||'REFLECTOR'
+, 'REFLECTOR'
 )
 ;
 
@@ -59002,7 +58950,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -59581,13 +59529,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 2700 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -59623,7 +59569,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28275
 , 7228
 , 1
-, ''||chr ( 9 )||'102136'
+, '102136'
 , 'Aisle 1'
 , '140 ecentric'
 )
@@ -59645,7 +59591,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28276
 , 7228
 , 2
-, ''||chr ( 9 )||'102135'
+, '102135'
 , 'Aisle 1'
 , '180 ecentric'
 )
@@ -59667,7 +59613,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28277
 , 7228
 , 1
-, ''||chr ( 9 )||'287782'
+, '287782'
 , 'Aisle 1'
 , 'Slave hub'
 )
@@ -59777,7 +59723,7 @@ INSERT INTO ZZTECHLOG_PARTS
   24558
 , 6275
 , 1
-, ''||chr ( 9 )||'3883 D 01-2'
+, '3883 D 01-2'
 , '02-042-03-R'
 , 'Pedastel Bearing'
 )
@@ -59799,7 +59745,7 @@ INSERT INTO ZZTECHLOG_PARTS
   24559
 , 6275
 , 1
-, ''||chr ( 9 )||'3883 D 01-6'
+, '3883 D 01-6'
 , '02-42-03-R'
 , 'Pulleys'
 )
@@ -59953,7 +59899,7 @@ INSERT INTO ZZTECHLOG_PARTS
   24780
 , 6324
 , 12
-, ''||chr ( 9 )||'154440'
+, '154440'
 , 'aisle 1'
 , 'carbon brush, phase'
 )
@@ -59975,7 +59921,7 @@ INSERT INTO ZZTECHLOG_PARTS
   24781
 , 6324
 , 1
-, ''||chr ( 9 )||'154453'
+, '154453'
 , 'aisle 1'
 , 'carbon brush, ground'
 )
@@ -60527,7 +60473,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -61141,7 +61087,7 @@ INSERT INTO ZZTECHLOG_PARTS
   26742
 , 6825
 , 1
-, '276705'||chr ( 9 )||''
+, '276705'
 , '03-011-02-L'
 , 'DILM9-10(24VDC) load contactor'
 )
@@ -61207,7 +61153,7 @@ INSERT INTO ZZTECHLOG_PARTS
   26803
 , 6847
 , 1
-, ''||chr ( 9 )||'58708'
+, '58708'
 , 'aisle 3'
 , 'threaded bolt'
 )
@@ -61405,7 +61351,7 @@ INSERT INTO ZZTECHLOG_PARTS
   27258
 , 6974
 , 2
-, ''||chr ( 9 )||'96182'
+, '96182'
 , 'Aisle 1'
 , 'Running wheel 350'
 )
@@ -61691,7 +61637,7 @@ INSERT INTO ZZTECHLOG_PARTS
   24285
 , 6217
 , 7
-, ''||chr ( 9 )||'168151'
+, '168151'
 , 'aisle 1'
 , 'current collector'
 )
@@ -61788,13 +61734,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 2800 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -61830,7 +61774,7 @@ INSERT INTO ZZTECHLOG_PARTS
   24291
 , 6217
 , 3
-, ''||chr ( 9 )||'94855'
+, '94855'
 , 'aisle 2'
 , 'track wheel 80'
 )
@@ -61962,7 +61906,7 @@ INSERT INTO ZZTECHLOG_PARTS
   24629
 , 6288
 , 1
-, ''||chr ( 9 )||'60146'
+, '60146'
 , '02-22-03-L'
 , 'Rotex'
 )
@@ -62270,7 +62214,7 @@ INSERT INTO ZZTECHLOG_PARTS
   24926
 , 6369
 , 1
-, ''||chr ( 9 )||'60146'
+, '60146'
 , '02-21-03-L'
 , 'Rotex'
 )
@@ -62358,7 +62302,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25223
 , 6455
 , 1
-, ''||chr ( 9 )||'420924'
+, '420924'
 , '01-012-03-R'
 , 'sensormodul'
 )
@@ -62558,7 +62502,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320555'
 , '01-011-03-R'
-, ''||chr ( 9 )||'CBU 620 With Rubber'
+, 'CBU 620 With Rubber'
 )
 ;
 
@@ -62820,7 +62764,7 @@ INSERT INTO ZZTECHLOG_PARTS
   26354
 , 6725
 , 1
-, ''||chr ( 9 )||'20060009'
+, '20060009'
 , '02-023-03-R'
 , 'dps pickdisplay'
 )
@@ -63348,7 +63292,7 @@ INSERT INTO ZZTECHLOG_PARTS
   27748
 , 7097
 , 3
-, ''||chr ( 9 )||'102136'
+, '102136'
 , 'Aisle 1'
 , '140 eccentric'
 )
@@ -63370,7 +63314,7 @@ INSERT INTO ZZTECHLOG_PARTS
   27749
 , 7097
 , 1
-, ''||chr ( 9 )||'102234'
+, '102234'
 , 'Aisle 1'
 , 'AP drive wheel'
 )
@@ -63995,13 +63939,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 2900 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -65599,7 +65541,7 @@ INSERT INTO ZZTECHLOG_PARTS
   27046
 , 6912
 , 1
-, ''||chr ( 9 )||'15788'
+, '15788'
 , '03-023-02-R'
 , 'Reflector 31 X 46'
 )
@@ -65623,7 +65565,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '74623'
 , '03-023-02-R'
-, ''||chr ( 9 )||'Reflector 20 X 40'
+, 'Reflector 20 X 40'
 )
 ;
 
@@ -65643,7 +65585,7 @@ INSERT INTO ZZTECHLOG_PARTS
   27051
 , 6912
 , 1
-, ''||chr ( 9 )||'75220'
+, '75220'
 , '03-023-02-R'
 , 'Reflector soport w/reflector'
 )
@@ -65687,7 +65629,7 @@ INSERT INTO ZZTECHLOG_PARTS
   24350
 , 6235
 , 1
-, ''||chr ( 9 )||'1049066'
+, '1049066'
 , '02-013-02-R'
 , 'WL 9-3P3430'
 )
@@ -65755,7 +65697,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 2
 , '166666'
 , '04-023-03-L'
-, ''||chr ( 9 )||'Isolating Clip ISL 10 Bus rail spacer'
+, 'Isolating Clip ISL 10 Bus rail spacer'
 )
 ;
 
@@ -66083,7 +66025,7 @@ INSERT INTO ZZTECHLOG_PARTS
   25185
 , 6440
 , 1
-, ''||chr ( 9 )||'60144'
+, '60144'
 , 'aisle 2'
 , 'rotex'
 )
@@ -66172,7 +66114,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 6491
 , 1
 , '800737'
-, ''||chr ( 9 )||'02-012-03-L'
+, '02-012-03-L'
 , 'Proximity switch'
 )
 ;
@@ -66202,13 +66144,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 3000 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -67146,7 +67086,7 @@ INSERT INTO ZZTECHLOG_PARTS
   27155
 , 6942
 , 3
-, ''||chr ( 9 )||'314716'
+, '314716'
 , 'Aisle 1'
 , 'CBU 420'
 )
@@ -67168,7 +67108,7 @@ INSERT INTO ZZTECHLOG_PARTS
   27156
 , 6942
 , 2
-, ''||chr ( 9 )||'420924'
+, '420924'
 , 'Aisle 1'
 , 'Sensormodule'
 )
@@ -67456,7 +67396,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '100233'
 , '01-023-03-R'
-, ''||chr ( 9 )||'Rubber accentric adjust. for Blocking Device.'
+, 'Rubber accentric adjust. for Blocking Device.'
 )
 ;
 
@@ -68409,13 +68349,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 3100 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -69025,7 +68963,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 2
 , '32908'
 , '02-041-03-R'
-, ''||chr ( 9 )||'Thrust Washer for Snapper Arm'
+, 'Thrust Washer for Snapper Arm'
 )
 ;
 
@@ -69047,7 +68985,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , 'TOER G 02 4'
 , '02-041-03-R'
-, ''||chr ( 9 )||'Spring 1.4 x 13.1 x 77=winding'
+, 'Spring 1.4 x 13.1 x 77=winding'
 )
 ;
 
@@ -69069,7 +69007,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 2
 , '52024'
 , '02-012-03-L'
-, ''||chr ( 9 )||'NBN3-6,5M25-E2-V3 Proximity Switch'
+, 'NBN3-6,5M25-E2-V3 Proximity Switch'
 )
 ;
 
@@ -69113,7 +69051,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '3882/4009 G 14 L'
 , '02-041-03-R'
-, ''||chr ( 9 )||'SNAPPER ARM/ KOOK LEVER (LEFT SIDE)'
+, 'SNAPPER ARM/ KOOK LEVER (LEFT SIDE)'
 )
 ;
 
@@ -69485,7 +69423,7 @@ INSERT INTO ZZTECHLOG_PARTS
   27972
 , 7148
 , 1
-, ''||chr ( 9 )||'76930'
+, '76930'
 , 'aisle 1'
 , 'speed roller drive chain'
 )
@@ -70081,7 +70019,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-011-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -70616,13 +70554,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 3200 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -70770,7 +70706,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -70792,7 +70728,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -70814,7 +70750,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -71626,7 +71562,7 @@ INSERT INTO ZZTECHLOG_PARTS
   32828
 , 8603
 , 1
-, ''||chr ( 9 )||'287782'
+, '287782'
 , 'Aisle 1'
 , 'Slave gear'
 )
@@ -71824,7 +71760,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28563
 , 7299
 , 2
-, ''||chr ( 9 )||'164757'
+, '164757'
 , 'Aisle 1'
 , 'Pusher Arms'
 )
@@ -72618,7 +72554,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '75220'
 , '03-023-02-R'
-, ''||chr ( 9 )||'Reflector Support w/ reflector'
+, 'Reflector Support w/ reflector'
 )
 ;
 
@@ -72823,13 +72759,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 3300 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -73284,8 +73218,8 @@ INSERT INTO ZZTECHLOG_PARTS
 , 8081
 , 4
 , '800737'
-, ''||chr ( 9 )||'02-012-03-L'
-, ''||chr ( 9 )||'NBB4-12GM50-E3-V1 Induktiver Sensor'
+, '02-012-03-L'
+, 'NBB4-12GM50-E3-V1 Induktiver Sensor'
 )
 ;
 
@@ -73461,7 +73395,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -73525,7 +73459,7 @@ INSERT INTO ZZTECHLOG_PARTS
   31549
 , 8224
 , 1
-, ''||chr ( 9 )||'100421'
+, '100421'
 , 'Aisle 1'
 , 'Drive belt'
 )
@@ -73547,7 +73481,7 @@ INSERT INTO ZZTECHLOG_PARTS
   31721
 , 8292
 , 1
-, ''||chr ( 9 )||'294924'
+, '294924'
 , 'aisle 1'
 , 'red spring'
 )
@@ -73989,7 +73923,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -74011,7 +73945,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -74033,7 +73967,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -74515,7 +74449,7 @@ INSERT INTO ZZTECHLOG_PARTS
   30087
 , 7722
 , 1
-, ''||chr ( 9 )||'269318'
+, '269318'
 , 'Aisle 1'
 , 'Lifting shaft mustang'
 )
@@ -75030,13 +74964,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 3400 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -75534,7 +75466,7 @@ INSERT INTO ZZTECHLOG_PARTS
   32260
 , 8448
 , 1
-, ''||chr ( 9 )||'EMF2113IB'
+, 'EMF2113IB'
 , 'aisle 2'
 , 'interbus'
 )
@@ -75646,7 +75578,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '89415'
 , '02-011-04-L'
-, ''||chr ( 9 )||'Roundstrap 5 MM L=418 Polycord'
+, 'Roundstrap 5 MM L=418 Polycord'
 )
 ;
 
@@ -75690,7 +75622,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -75776,7 +75708,7 @@ INSERT INTO ZZTECHLOG_PARTS
   32492
 , 8494
 , 1
-, ''||chr ( 9 )||'152276'
+, '152276'
 , 'aisle 1'
 , 'ground arm'
 )
@@ -75842,7 +75774,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28287
 , 7233
 , 1
-, ''||chr ( 9 )||'EVS9330-ES'
+, 'EVS9330-ES'
 , 'Aisle 4'
 , '9330 Controller'
 )
@@ -75886,7 +75818,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28345
 , 7253
 , 1
-, ''||chr ( 9 )||'102135'
+, '102135'
 , 'Aisle 1'
 , '180 eccentric'
 )
@@ -75908,7 +75840,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28346
 , 7253
 , 1
-, ''||chr ( 9 )||'102234'
+, '102234'
 , 'Aisle 1'
 , 'A.P. drive-wheel'
 )
@@ -75930,7 +75862,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28347
 , 7253
 , 1
-, ''||chr ( 9 )||'297786'
+, '297786'
 , 'Aisle 1'
 , 'i=7 gearbox'
 )
@@ -75996,7 +75928,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28606
 , 7310
 , 1
-, ''||chr ( 9 )||'294938'
+, '294938'
 , 'Aisle 1'
 , 'Spring washer assy'
 )
@@ -76790,7 +76722,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1019326'
 , '02-012-02-R'
-, ''||chr ( 9 )||'Sensor WL9-2P130S01'
+, 'Sensor WL9-2P130S01'
 )
 ;
 
@@ -76812,7 +76744,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1049066'
 , '02-013-02-R'
-, ''||chr ( 9 )||'Sensor WL9-3P3430'
+, 'Sensor WL9-3P3430'
 )
 ;
 
@@ -77237,13 +77169,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 3500 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -77303,7 +77233,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '63306'
 , '01-Cab1-Left-Small'
-, ''||chr ( 9 )||'M6-1.0 Black Neoprene Well Nut/ QTY. 25 Per Package'
+, 'M6-1.0 Black Neoprene Well Nut/ QTY. 25 Per Package'
 )
 ;
 
@@ -77435,7 +77365,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -77743,7 +77673,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -77807,7 +77737,7 @@ INSERT INTO ZZTECHLOG_PARTS
   32572
 , 8533
 , 1
-, ''||chr ( 9 )||'320555'
+, '320555'
 , 'shop'
 , '620 cbu'
 )
@@ -77829,7 +77759,7 @@ INSERT INTO ZZTECHLOG_PARTS
   32573
 , 8533
 , 1
-, ''||chr ( 9 )||'420924'
+, '420924'
 , 'shop'
 , 'sensor module'
 )
@@ -78051,7 +77981,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -78445,7 +78375,7 @@ INSERT INTO ZZTECHLOG_PARTS
   29021
 , 7426
 , 1
-, ''||chr ( 9 )||'164953'
+, '164953'
 , 'Aisle 1'
 , 'Lifting shaft'
 )
@@ -78577,7 +78507,7 @@ INSERT INTO ZZTECHLOG_PARTS
   29336
 , 7512
 , 2
-, ''||chr ( 9 )||'119021'
+, '119021'
 , 'Aisle 4'
 , 'Drive frame'
 )
@@ -78645,7 +78575,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1049066'
 , '02-013-02-R'
-, ''||chr ( 9 )||'Sensor WL9-3P3430'
+, 'Sensor WL9-3P3430'
 )
 ;
 
@@ -78687,7 +78617,7 @@ INSERT INTO ZZTECHLOG_PARTS
   29473
 , 7559
 , 1
-, ''||chr ( 9 )||'96182'
+, '96182'
 , 'aisle 1'
 , '350 wheel'
 )
@@ -78753,7 +78683,7 @@ INSERT INTO ZZTECHLOG_PARTS
   29567
 , 7580
 , 1
-, ''||chr ( 9 )||'243585'
+, '243585'
 , 'aisle 1'
 , 'motor'
 )
@@ -78775,7 +78705,7 @@ INSERT INTO ZZTECHLOG_PARTS
   29568
 , 7580
 , 1
-, ''||chr ( 9 )||'153649'
+, '153649'
 , 'aisle 1'
 , 'gearbox'
 )
@@ -78797,7 +78727,7 @@ INSERT INTO ZZTECHLOG_PARTS
   29590
 , 7603
 , 1
-, ''||chr ( 9 )||'119021'
+, '119021'
 , 'Aisle 4'
 , 'Lower drive frame'
 )
@@ -79444,13 +79374,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 3600 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -79466,7 +79394,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1023987'
 , '02-011-02-R'
-, ''||chr ( 9 )||'CLV420-1910S05 rasterscanner directly li'
+, 'CLV420-1910S05 rasterscanner directly li'
 )
 ;
 
@@ -80740,7 +80668,7 @@ INSERT INTO ZZTECHLOG_PARTS
   29595
 , 7604
 , 1
-, ''||chr ( 9 )||'119021'
+, '119021'
 , 'Aisle 4'
 , 'lower drive fram'
 )
@@ -81092,7 +81020,7 @@ INSERT INTO ZZTECHLOG_PARTS
   30217
 , 7759
 , 1
-, ''||chr ( 9 )||'133197'
+, '133197'
 , 'Aisle 1'
 , 'White belt'
 )
@@ -81137,7 +81065,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 7780
 , 1
 , '20060001'
-, ''||chr ( 9 )||'02-024-03-R'
+, '02-024-03-R'
 , 'ZONECONTROLLER non sap CVS CAP EX'
 )
 ;
@@ -81380,7 +81308,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -81402,7 +81330,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -81444,7 +81372,7 @@ INSERT INTO ZZTECHLOG_PARTS
   31047
 , 8027
 , 1
-, ''||chr ( 9 )||'420922'
+, '420922'
 , 'aisle 1'
 , 'sensor module'
 )
@@ -81651,13 +81579,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 3700 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -82265,7 +82191,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28313
 , 7245
 , 1
-, ''||chr ( 9 )||'102234'
+, '102234'
 , 'Aisle 1'
 , 'DPS A.P. Drive wheel'
 )
@@ -82287,7 +82213,7 @@ INSERT INTO ZZTECHLOG_PARTS
   28314
 , 7245
 , 2
-, ''||chr ( 9 )||'102136'
+, '102136'
 , 'Aisle1'
 , '140 eccentric wheel'
 )
@@ -82553,7 +82479,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -82575,7 +82501,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -82685,7 +82611,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -83299,9 +83225,9 @@ INSERT INTO ZZTECHLOG_PARTS
   30306
 , 7781
 , 1
-, ''||chr ( 9 )||'20060009'
+, '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -83499,7 +83425,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -83521,7 +83447,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -83858,13 +83784,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 3800 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -83988,7 +83912,7 @@ INSERT INTO ZZTECHLOG_PARTS
   31738
 , 8298
 , 1
-, ''||chr ( 9 )||'74297'
+, '74297'
 , 'aisle 2 L'
 , '500 N gas shock'
 )
@@ -84164,9 +84088,9 @@ INSERT INTO ZZTECHLOG_PARTS
   32019
 , 8387
 , 1
-, ''||chr ( 9 )||'20060009'
+, '20060009'
 , '02-023-03-R'
-, ''||chr ( 9 )||'DPS PICK LIGHT (Red/White)'
+, 'DPS PICK LIGHT (Red/White)'
 )
 ;
 
@@ -84254,7 +84178,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '74297'
 , '02-022-03-L'
-, ''||chr ( 9 )||'GAS SHOCK'
+, 'GAS SHOCK'
 )
 ;
 
@@ -84824,7 +84748,7 @@ INSERT INTO ZZTECHLOG_PARTS
   29350
 , 7514
 , 1
-, ''||chr ( 9 )||'102136'
+, '102136'
 , 'Aisle 1'
 , '140 wheel'
 )
@@ -84846,7 +84770,7 @@ INSERT INTO ZZTECHLOG_PARTS
   29352
 , 7515
 , 12
-, ''||chr ( 9 )||'154440'
+, '154440'
 , 'Aisle 1'
 , 'phase'
 )
@@ -85156,7 +85080,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '1049066'
 , '02-013-02-R'
-, ''||chr ( 9 )||'Sensor WL9-3P3430'
+, 'Sensor WL9-3P3430'
 )
 ;
 
@@ -85198,9 +85122,9 @@ INSERT INTO ZZTECHLOG_PARTS
   29968
 , 7682
 , 1
-, '1029081'||chr ( 9 )||''
+, '1029081'
 , '02-013-02-R'
-, ''||chr ( 9 )||'WL27-3P3431 light barrier'
+, 'WL27-3P3431 light barrier'
 )
 ;
 
@@ -85264,7 +85188,7 @@ INSERT INTO ZZTECHLOG_PARTS
   30091
 , 7723
 , 2
-, ''||chr ( 9 )||'119021'
+, '119021'
 , 'Aisle 4'
 , 'Drive frame'
 )
@@ -85946,7 +85870,7 @@ INSERT INTO ZZTECHLOG_PARTS
   31715
 , 8292
 , 2
-, ''||chr ( 9 )||'212115'
+, '212115'
 , 'aisle 1'
 , '270x110 wheel'
 )
@@ -85990,7 +85914,7 @@ INSERT INTO ZZTECHLOG_PARTS
   31717
 , 8292
 , 1
-, ''||chr ( 9 )||'170394'
+, '170394'
 , 'aisle 1'
 , 'i 12 gearbox'
 )
@@ -86012,7 +85936,7 @@ INSERT INTO ZZTECHLOG_PARTS
   31718
 , 8292
 , 1
-, ''||chr ( 9 )||'119021'
+, '119021'
 , 'aisle 1'
 , 'double pin drive frame'
 )
@@ -86065,13 +85989,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 3900 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -86129,7 +86051,7 @@ INSERT INTO ZZTECHLOG_PARTS
   31821
 , 8332
 , 1
-, ''||chr ( 9 )||'96182'
+, '96182'
 , 'aisle 1'
 , '350 wheel'
 )
@@ -86151,7 +86073,7 @@ INSERT INTO ZZTECHLOG_PARTS
   31822
 , 8332
 , 1
-, ''||chr ( 9 )||'102136'
+, '102136'
 , 'aisle 1'
 , '140 wheel'
 )
@@ -86173,7 +86095,7 @@ INSERT INTO ZZTECHLOG_PARTS
   31823
 , 8332
 , 1
-, ''||chr ( 9 )||'102234'
+, '102234'
 , 'aisle 1'
 , '270x60 wheel'
 )
@@ -86219,7 +86141,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '320554'
 , '01-012-03-R'
-, ''||chr ( 9 )||'CBU 420 With Rubber'
+, 'CBU 420 With Rubber'
 )
 ;
 
@@ -86241,7 +86163,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , '420924'
 , '01-012-03-R'
-, ''||chr ( 9 )||'Sensormodul LS RE C PW-C11'
+, 'Sensormodul LS RE C PW-C11'
 )
 ;
 
@@ -86503,7 +86425,7 @@ INSERT INTO ZZTECHLOG_PARTS
   32539
 , 8519
 , 1
-, ''||chr ( 9 )||'96182'
+, '96182'
 , '01-023-02-R'
 , 'Running wheel'
 )
@@ -88197,7 +88119,7 @@ INSERT INTO ZZTECHLOG_PARTS
   36496
 , 9565
 , 1
-, ''||chr ( 9 )||'119021'
+, '119021'
 , 'aisle 4'
 , 'drive frame'
 )
@@ -88272,13 +88194,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 4000 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -88710,7 +88630,7 @@ INSERT INTO ZZTECHLOG_PARTS
   33519
 , 8774
 , 1
-, ''||chr ( 9 )||'314716'
+, '314716'
 , 'Aisle 1'
 , '420'
 )
@@ -88732,7 +88652,7 @@ INSERT INTO ZZTECHLOG_PARTS
   33520
 , 8774
 , 1
-, ''||chr ( 9 )||'420924'
+, '420924'
 , 'Aisle 1'
 , 'Sensormodule'
 )
@@ -90208,7 +90128,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 1
 , 'WS34 - D430'
 , 'aisle 2'
-, 'D430 '||chr ( 9 )||'LIGHT BARRIER non sap TRANSMITTER'
+, 'D430 LIGHT BARRIER non sap TRANSMITTER'
 )
 ;
 
@@ -90294,7 +90214,7 @@ INSERT INTO ZZTECHLOG_PARTS
   36503
 , 9567
 , 1
-, ''||chr ( 9 )||'187010'
+, '187010'
 , 'aisle 2'
 , 'interface module ibs'
 )
@@ -90316,7 +90236,7 @@ INSERT INTO ZZTECHLOG_PARTS
   36504
 , 9567
 , 1
-, ''||chr ( 9 )||'48610'
+, '48610'
 , 'aisl2 2'
 , 'contactor main'
 )
@@ -90360,7 +90280,7 @@ INSERT INTO ZZTECHLOG_PARTS
   36506
 , 9567
 , 1
-, ''||chr ( 9 )||'19880'
+, '19880'
 , 'aisle 3'
 , 'aux contactor could not get off the main'
 )
@@ -90479,13 +90399,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 4100 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -91643,7 +91561,7 @@ INSERT INTO ZZTECHLOG_PARTS
   34863
 , 9207
 , 1
-, ''||chr ( 9 )||'774735'
+, '774735'
 , 'aisle 2'
 , 'SAFETY RELAY PNOZ_X4/115V_AC'
 )
@@ -91973,7 +91891,7 @@ INSERT INTO ZZTECHLOG_PARTS
   35241
 , 9290
 , 1
-, ''||chr ( 9 )||'420924'
+, '420924'
 , '2R'
 , 'sensor modue right side'
 )
@@ -92479,7 +92397,7 @@ INSERT INTO ZZTECHLOG_PARTS
   36546
 , 9583
 , 1
-, ''||chr ( 9 )||'102136'
+, '102136'
 , 'aisle 1'
 , '140 wheel'
 )
@@ -92686,13 +92604,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 4200 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -93014,7 +92930,7 @@ INSERT INTO ZZTECHLOG_PARTS
   32894
 , 8626
 , 2
-, ''||chr ( 9 )||'EMF2113IB'
+, 'EMF2113IB'
 , 'aisle 2'
 , 'interbus'
 )
@@ -93146,7 +93062,7 @@ INSERT INTO ZZTECHLOG_PARTS
   32956
 , 8632
 , 1
-, ''||chr ( 9 )||'20060009'
+, '20060009'
 , 'Aisle 2'
 , 'DPS Picklight'
 )
@@ -94598,7 +94514,7 @@ INSERT INTO ZZTECHLOG_PARTS
   36235
 , 9514
 , 1
-, ''||chr ( 9 )||'119019'
+, '119019'
 , 'aisle 4'
 , 'drive frame'
 )
@@ -94620,7 +94536,7 @@ INSERT INTO ZZTECHLOG_PARTS
   36236
 , 9514
 , 1
-, ''||chr ( 9 )||'287782'
+, '287782'
 , 'aisle 1'
 , 'slave hub'
 )
@@ -94642,7 +94558,7 @@ INSERT INTO ZZTECHLOG_PARTS
   36237
 , 9514
 , 1
-, ''||chr ( 9 )||'294938'
+, '294938'
 , 'aisle 1'
 , 'pressure spring'
 )
@@ -94893,13 +94809,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 4300 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -96673,7 +96587,7 @@ INSERT INTO ZZTECHLOG_PARTS
   35877
 , 9445
 , 1
-, ''||chr ( 9 )||'102137'
+, '102137'
 , 'aisle 1'
 , 'wheel'
 )
@@ -96783,7 +96697,7 @@ INSERT INTO ZZTECHLOG_PARTS
   36223
 , 9512
 , 1
-, ''||chr ( 9 )||'119019'
+, '119019'
 , 'aisle 4'
 , 'ap drive frame'
 )
@@ -96939,7 +96853,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 2
 , '92265'
 , 'Aisle 1'
-, ''||chr ( 9 )||'SLC Belt Tote Erector Toothed Belt 30AT5/ 2535 -PAZ-V'
+, 'SLC Belt Tote Erector Toothed Belt 30AT5/ 2535 -PAZ-V'
 )
 ;
 
@@ -97047,7 +96961,7 @@ INSERT INTO ZZTECHLOG_PARTS
   36509
 , 9565
 , 1
-, ''||chr ( 9 )||'119019'
+, '119019'
 , 'aisle 4'
 , 'ap drive frame'
 )
@@ -97100,13 +97014,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 4400 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -97582,7 +97494,7 @@ INSERT INTO ZZTECHLOG_PARTS
   33982
 , 8945
 , 1
-, ''||chr ( 9 )||'74297'
+, '74297'
 , 'shop'
 , 'GAS SHOCK AM8/BM8-500N HUB:103MM Typ 16-4-143-106'
 )
@@ -97604,7 +97516,7 @@ INSERT INTO ZZTECHLOG_PARTS
   33983
 , 8945
 , 1
-, ''||chr ( 9 )||'13585'
+, '13585'
 , 'shop'
 , 'Stop washer 6 mm NR.1840-6'
 )
@@ -99307,13 +99219,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 4500 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -99437,7 +99347,7 @@ INSERT INTO ZZTECHLOG_PARTS
   32847
 , 8613
 , 1
-, ''||chr ( 9 )||'212115'
+, '212115'
 , 'aisle 1'
 , '270 x 110 wheel'
 )
@@ -99547,7 +99457,7 @@ INSERT INTO ZZTECHLOG_PARTS
   32963
 , 8634
 , 1
-, ''||chr ( 9 )||'10213'
+, '10213'
 , 'Aisle 3'
 , 'DILM9-10(24VDC) load contactor'
 )
@@ -100361,7 +100271,7 @@ INSERT INTO ZZTECHLOG_PARTS
   34379
 , 9089
 , 1
-, '00086054 '||chr ( 9 )||''
+, '00086054 '
 , '1R'
 , '420 cbu'
 )
@@ -100493,7 +100403,7 @@ INSERT INTO ZZTECHLOG_PARTS
   35138
 , 9261
 , 1
-, ''||chr ( 9 )||'1332MW426MZ'
+, '1332MW426MZ'
 , 'cabinet'
 , 'HandHeld Quick-Release Plug 3notch Plug in on Cabinet for hand held desk.'
 )
@@ -101514,13 +101424,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 4600 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -103721,13 +103629,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 4700 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -105928,13 +105834,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 4800 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -108135,13 +108039,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 4900 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -110342,13 +110244,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 5000 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -112549,13 +112449,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 5100 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -114756,13 +114654,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 5200 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -115656,7 +115552,7 @@ INSERT INTO ZZTECHLOG_PARTS
   39694
 , 10436
 , 1
-, ''||chr ( 9 )||'774735'
+, '774735'
 , 'aisle 2'
 , 'pnoz4'
 )
@@ -116963,13 +116859,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 5300 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -119170,13 +119064,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 5400 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -121377,13 +121269,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 5500 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -123584,13 +123474,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 5600 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -125791,13 +125679,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 5700 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -127998,13 +127884,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 5800 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -130205,13 +130089,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 5900 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -132412,13 +132294,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 6000 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -134619,13 +134499,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 6100 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -136826,13 +136704,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 6200 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -139033,13 +138909,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 6300 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -141240,13 +141114,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 6400 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -143447,13 +143319,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 6500 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -145654,13 +145524,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 6600 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -147861,13 +147729,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 6700 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -150068,13 +149934,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 6800 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -152275,13 +152139,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 6900 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -154482,13 +154344,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 7000 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -155867,7 +155727,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 14276
 , 1
 , '102137'
-, '01-011-02-R'||chr ( 9 )||''
+, '01-011-02-R'
 , '270x110 Drive wheel , Uremet Uremet Grey wheel'
 )
 ;
@@ -156689,13 +156549,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 7100 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -158896,13 +158754,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 7200 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -161103,13 +160959,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 7300 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -163310,13 +163164,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 7400 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -165517,13 +165369,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 7500 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -167187,7 +167037,7 @@ INSERT INTO ZZTECHLOG_PARTS
   59040
 , 15595
 , 1
-, ''||chr ( 9 )||'20140_00019'
+, '20140_00019'
 , 'MEZ'
 , 'Blocking device motor.'
 )
@@ -167724,13 +167574,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 7600 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -169931,13 +169779,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 7700 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -172138,13 +171984,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 7800 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -174345,13 +174189,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 7900 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -176552,13 +176394,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 8000 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -178759,13 +178599,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 8100 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -178934,7 +178772,7 @@ INSERT INTO ZZTECHLOG_PARTS
 , 16069
 , 1
 , '111817'
-, 'CUB-05-ROW-06'||chr ( 9 )||''
+, 'CUB-05-ROW-06'
 , 'Swing Cape KPL. Right CPL. RIGHT'
 )
 ;
@@ -180966,13 +180804,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 8200 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -183173,13 +183009,11 @@ INSERT INTO ZZTECHLOG_PARTS
 
 
 
-commit
-;
 
 
 
 
-prompt 8300 records committed...
+
 INSERT INTO ZZTECHLOG_PARTS
 (
   zztlp_ref
@@ -183528,14 +183362,3 @@ INSERT INTO ZZTECHLOG_PARTS
 , 'cbu'
 )
 ;
-
-
-
-
-commit
-;
-
-
-
-
-prompt 8316 records loaded set feedback on set define on prompt Done.

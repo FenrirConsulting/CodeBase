@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="Windows-1252" ?>
 <NotepadPlus>
-    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" isSearch2ButtonsMode="no" regexBackward4PowerUser="no" />
-    <History nbMaxFile="10" inSubMenu="no" customLength="-1" />
+    <FindHistory nbMaxFindHistoryPath="10" nbMaxFindHistoryFilter="10" nbMaxFindHistoryFind="10" nbMaxFindHistoryReplace="10" matchWord="no" matchCase="no" wrap="yes" directionDown="yes" fifRecuisive="yes" fifInHiddenFolder="no" dlgAlwaysVisible="no" fifFilterFollowsDoc="no" fifFolderFollowsDoc="no" searchMode="0" transparencyMode="1" transparency="150" dotMatchesNewline="no" isSearch2ButtonsMode="no" regexBackward4PowerUser="no">
+        <Filter name="" />
+        <Filter name="" />
+        <Filter name="" />
+        <Filter name="" />
+        <Filter name="" />
+        <Filter name="" />
+        <Filter name="" />
+        <Filter name="" />
+        <Filter name="" />
+        <Find name="||" />
+        <Find name="Chr" />
+        <Find name="Chr (" />
+        <Find name="Chr (10)" />
+        <Find name="&apos;||Chr ( 10 )||" />
+        <Find name="Chr ( 13 )" />
+        <Find name="&apos;||Chr ( 13 )||&apos;" />
+        <Find name="||Chr ( 13 )||&apos;&apos;" />
+        <Find name="&apos;||Chr ( 13 )||&apos;&apos;||Chr ( 10 )||&apos;" />
+        <Find name="commit" />
+        <Replace name="" />
+        <Replace name="date" />
+    </FindHistory>
+    <History nbMaxFile="10" inSubMenu="no" customLength="-1">
+        <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TECHLOG_TECHS_FORMATTED.sql" />
+        <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\ZZ_WEEKLY_REPORT_FORMATTED.sql" />
+        <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\ZZHANDOVERLOG_FORMATTED.sql" />
+        <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\ZZ_DEPARTDATE_FORMATTED.sql" />
+        <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TECHLOG_PARTS_FORMATTED.sql" />
+        <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\ZZTECHLOG_FORMATTED.sql" />
+        <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TECHLOG_USER_FORMATTED.sql" />
+    </History>
     <GUIConfigs>
         <GUIConfig name="ToolBar" visible="yes">standard</GUIConfig>
         <GUIConfig name="StatusBar">show</GUIConfig>
@@ -9,8 +39,8 @@
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="no" size="4" />
-        <GUIConfig name="AppPosition" x="0" y="0" width="1100" height="700" isMaximized="no" />
-        <GUIConfig name="FindWindowPosition" left="0" top="0" right="0" bottom="0" />
+        <GUIConfig name="AppPosition" x="1280" y="0" width="880" height="700" isMaximized="yes" />
+        <GUIConfig name="FindWindowPosition" left="432" top="36" right="1021" bottom="400" />
         <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20080426">yes</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
         <GUIConfig name="CheckHistoryFiles">no</GUIConfig>

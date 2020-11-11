@@ -28,11 +28,11 @@ INSERT INTO ZZHANDOVERLOG
 , 'ewr'
 , null
 , null
-, to_date ( '20-11-2014 18:23:28','dd-mm-yyyy hh24:mi:ss' )
+, ('20-11-2014 18:23:28')
 , 'MITCHELL, DAN'
-, to_date ( '20-11-2014 18:23:28','dd-mm-yyyy hh24:mi:ss' )
+, ( '20-11-2014 18:23:28')
 , 'MITCHELL, DAN'
-, to_date ( '20-11-2014 18:23:28','dd-mm-yyyy hh24:mi:ss' )
+, ( '20-11-2014 18:23:28')
 )
 ;
 
@@ -65,14 +65,14 @@ INSERT INTO ZZHANDOVERLOG
 , null
 , 'Mouse over tooltips have lots of info!'
 , null
-, 'This becomes a tooltip of Complaint cell on the main form.'||chr ( 13 )||''||chr ( 10 )||'Pretty nice I think'
+, 'This becomes a tooltip of Complaint cell on the main form. Pretty nice I think'
 , 0
 , 'NOTES'
-, to_date ( '12-11-2014 22:16:39','dd-mm-yyyy hh24:mi:ss' )
+,  ( '12-11-2014 22:16:39' )
 , 'MITCHELL, DAN'
-, to_date ( '12-11-2014 22:16:39','dd-mm-yyyy hh24:mi:ss' )
+,  ( '12-11-2014 22:16:39' )
 , 'MITCHELL, DAN'
-, to_date ( '20-11-2014 18:25:27','dd-mm-yyyy hh24:mi:ss' )
+,  ( '20-11-2014 18:25:27' )
 )
 ;
 
@@ -108,11 +108,11 @@ INSERT INTO ZZHANDOVERLOG
 , 'Any ideas for a few?'
 , 999
 , 'NOTES'
-, to_date ( '14-11-2014 23:27:02','dd-mm-yyyy hh24:mi:ss' )
+,  ( '14-11-2014 23:27:02' )
 , 'MITCHELL, DAN'
-, to_date ( '14-11-2014 23:27:02','dd-mm-yyyy hh24:mi:ss' )
+,  ( '14-11-2014 23:27:02' )
 , 'MITCHELL, DAN'
-, to_date ( '14-11-2014 23:27:02','dd-mm-yyyy hh24:mi:ss' )
+,  ( '14-11-2014 23:27:02' )
 )
 ;
 
@@ -148,11 +148,11 @@ INSERT INTO ZZHANDOVERLOG
 , 'afgdasfg'
 , 0
 , 'NOTES'
-, to_date ( '06-11-2014 14:43:36','dd-mm-yyyy hh24:mi:ss' )
+,  ( '06-11-2014 14:43:36' )
 , 'Farnell, Brian'
-, to_date ( '06-11-2014 14:43:36','dd-mm-yyyy hh24:mi:ss' )
+,  ( '06-11-2014 14:43:36' )
 , 'MITCHELL, DAN'
-, to_date ( '19-11-2014 22:45:59','dd-mm-yyyy hh24:mi:ss' )
+,  ( '19-11-2014 22:45:59' )
 )
 ;
 
@@ -188,11 +188,11 @@ INSERT INTO ZZHANDOVERLOG
 , null
 , 0
 , 'NOTES'
-, to_date ( '17-11-2014 12:16:02','dd-mm-yyyy hh24:mi:ss' )
+,  ( '17-11-2014 12:16:02' )
 , 'Farnell, Brian'
-, to_date ( '17-11-2014 12:16:02','dd-mm-yyyy hh24:mi:ss' )
+,  ( '17-11-2014 12:16:02' )
 , 'MITCHELL, DAN'
-, to_date ( '19-11-2014 20:06:10','dd-mm-yyyy hh24:mi:ss' )
+,  ( '19-11-2014 20:06:10' )
 )
 ;
 
@@ -228,11 +228,11 @@ INSERT INTO ZZHANDOVERLOG
 , 'Correction also'
 , 0
 , 'NOTES'
-, to_date ( '12-11-2014 22:22:10','dd-mm-yyyy hh24:mi:ss' )
+,  ( '12-11-2014 22:22:10' )
 , 'MITCHELL, DAN'
-, to_date ( '12-11-2014 22:22:10','dd-mm-yyyy hh24:mi:ss' )
+,  ( '12-11-2014 22:22:10' )
 , 'MITCHELL, DAN'
-, to_date ( '20-11-2014 18:12:31','dd-mm-yyyy hh24:mi:ss' )
+,  ( '20-11-2014 18:12:31' )
 )
 ;
 
@@ -268,11 +268,11 @@ INSERT INTO ZZHANDOVERLOG
 , 'test'
 , null
 , null
-, to_date ( '19-11-2014 19:17:55','dd-mm-yyyy hh24:mi:ss' )
+,  ( '19-11-2014 19:17:55' )
 , 'MITCHELL, DAN'
-, to_date ( '19-11-2014 19:17:55','dd-mm-yyyy hh24:mi:ss' )
+,  ( '19-11-2014 19:17:55' )
 , 'MITCHELL, DAN'
-, to_date ( '19-11-2014 21:30:33','dd-mm-yyyy hh24:mi:ss' )
+,  ( '19-11-2014 21:30:33' )
 )
 ;
 
@@ -308,11 +308,11 @@ INSERT INTO ZZHANDOVERLOG
 , null
 , null
 , null
-, to_date ( '20-11-2014 10:51:54','dd-mm-yyyy hh24:mi:ss' )
+,  ( '20-11-2014 10:51:54' )
 , 'Farnell, Brian'
-, to_date ( '20-11-2014 10:51:54','dd-mm-yyyy hh24:mi:ss' )
+,  ( '20-11-2014 10:51:54' )
 , 'Farnell, Brian'
-, to_date ( '20-11-2014 10:51:54','dd-mm-yyyy hh24:mi:ss' )
+,  ( '20-11-2014 10:51:54' )
 )
 ;
 
@@ -348,11 +348,11 @@ INSERT INTO ZZHANDOVERLOG
 , 'wdcwecded'
 , 0
 , 'NOTES'
-, to_date ( '06-11-2014 14:45:49','dd-mm-yyyy hh24:mi:ss' )
+,  ( '06-11-2014 14:45:49' )
 , 'Farnell, Brian'
-, to_date ( '06-11-2014 14:45:49','dd-mm-yyyy hh24:mi:ss' )
+,  ( '06-11-2014 14:45:49' )
 , 'MITCHELL, DAN'
-, to_date ( '20-11-2014 18:20:15','dd-mm-yyyy hh24:mi:ss' )
+,  ( '20-11-2014 18:20:15' )
 )
 ;
 
@@ -388,11 +388,11 @@ INSERT INTO ZZHANDOVERLOG
 , null
 , 0
 , 'NOTES'
-, to_date ( '14-11-2014 22:32:34','dd-mm-yyyy hh24:mi:ss' )
+,  ( '14-11-2014 22:32:34' )
 , 'Steinke, Stephen'
-, to_date ( '14-11-2014 22:32:34','dd-mm-yyyy hh24:mi:ss' )
+,  ( '14-11-2014 22:32:34' )
 , 'MITCHELL, DAN'
-, to_date ( '17-11-2014 23:14:47','dd-mm-yyyy hh24:mi:ss' )
+,  ( '17-11-2014 23:14:47' )
 )
 ;
 
@@ -428,11 +428,11 @@ INSERT INTO ZZHANDOVERLOG
 , 'asd'
 , 999
 , 'NOTES'
-, to_date ( '19-11-2014 14:08:45','dd-mm-yyyy hh24:mi:ss' )
+,  ( '19-11-2014 14:08:45' )
 , 'Farnell, Brian'
-, to_date ( '19-11-2014 14:08:45','dd-mm-yyyy hh24:mi:ss' )
+,  ( '19-11-2014 14:08:45' )
 , 'Farnell, Brian'
-, to_date ( '20-11-2014 10:51:15','dd-mm-yyyy hh24:mi:ss' )
+,  ( '20-11-2014 10:51:15' )
 )
 ;
 
