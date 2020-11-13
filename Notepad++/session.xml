@@ -1,6 +1,8 @@
 <NotepadPlus>
     <Session activeView="0">
-        <mainView activeIndex="0" />
+        <mainView activeIndex="0">
+            <File firstVisibleLine="352096" xOffset="0" scrollWidth="3024" startPos="5610855" endPos="5610855" selMode="0" offset="0" wrapCount="1" lang="Normal Text" encoding="-1" userReadOnly="no" filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TechLogGoodSoFar.txt" backupFilePath="" originalFileLastModifTimestamp="169929566" originalFileLastModifTimestampHigh="30849382" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="7274574" mapWrapIndentMode="-1" mapIsWrap="no" />
+        </mainView>
         <subView activeIndex="0" />
     </Session>
 </NotepadPlus>

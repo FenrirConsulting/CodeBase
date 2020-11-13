@@ -12,6 +12,9 @@
         <Filter name="" />
         <Filter name="" />
         <Filter name="" />
+        <Filter name="" />
+        <Find name="12520" />
+        <Find name="11903" />
         <Find name="10196" />
         <Find name="11517" />
         <Find name="9077" />
@@ -20,8 +23,6 @@
         <Find name="08_01" />
         <Find name="All" />
         <Find name=":arg" />
-        <Find name="arg" />
-        <Find name="arg0" />
         <Replace name="&apos;" />
         <Replace name=")" />
         <Replace name="date" />
@@ -34,7 +35,6 @@
         <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\ZZ_DEPARTDATE_FORMATTED.sql" />
         <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TECHLOG_PARTS_FORMATTED.sql" />
         <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TECHLOG_USER_FORMATTED.sql" />
-        <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TechLogGoodSoFar.txt" />
         <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\ZZTECHLOG_FORMATTED.sql" />
     </History>
     <GUIConfigs>
