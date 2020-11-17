@@ -13,7 +13,11 @@
         <Filter name="" />
         <Filter name="" />
         <Filter name="" />
+        <Filter name="" />
+        <Filter name="" />
         <Find name="12520" />
+        <Find name="operator" />
+        <Find name="nazi" />
         <Find name="11903" />
         <Find name="10196" />
         <Find name="11517" />
@@ -21,8 +25,6 @@
         <Find name="Broken" />
         <Find name="prox" />
         <Find name="08_01" />
-        <Find name="All" />
-        <Find name=":arg" />
         <Replace name="&apos;" />
         <Replace name=")" />
         <Replace name="date" />
