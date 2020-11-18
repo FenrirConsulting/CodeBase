@@ -15,6 +15,8 @@
         <Filter name="" />
         <Filter name="" />
         <Filter name="" />
+        <Filter name="" />
+        <Find name="15342" />
         <Find name="12520" />
         <Find name="operator" />
         <Find name="nazi" />
@@ -24,7 +26,6 @@
         <Find name="9077" />
         <Find name="Broken" />
         <Find name="prox" />
-        <Find name="08_01" />
         <Replace name="&apos;" />
         <Replace name=")" />
         <Replace name="date" />
@@ -38,6 +39,7 @@
         <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TECHLOG_PARTS_FORMATTED.sql" />
         <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TECHLOG_USER_FORMATTED.sql" />
         <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\ZZTECHLOG_FORMATTED.sql" />
+        <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TechLogGoodSoFar.txt" />
     </History>
     <GUIConfigs>
         <GUIConfig name="ToolBar" visible="yes">standard</GUIConfig>
