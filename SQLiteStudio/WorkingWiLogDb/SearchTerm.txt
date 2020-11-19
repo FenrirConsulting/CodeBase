@@ -1,0 +1,15 @@
+INSERT INTO zztechlog
+(
+  zztl_ref
+, zztl_state
+, zztl_wotype
+, zztl_woasset
+, zztl_wocomplaint
+, zztl_worootcause
+, zztl_wocorrection
+, zztl_genuser
+, zztl_gendate
+, zztl_moduser
+, zztl_moddate
+)
+INSERT INTO zztechlog

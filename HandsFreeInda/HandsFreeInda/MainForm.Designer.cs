@@ -371,7 +371,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(43)))));
+<<<<<<< HEAD
             this.BackgroundImage = global::HandsFreeInda.Properties.Resources.Pumpkin;
+=======
+            this.BackgroundImage = global::HandsFreeInda.Properties.Resources.Turkey;
+>>>>>>> 389c243e280c9870336a4617c52997da8eba30d1
             this.ClientSize = new System.Drawing.Size(957, 505);
             this.Controls.Add(this.mainPanelBox);
             this.Controls.Add(this.bottomBorder);
