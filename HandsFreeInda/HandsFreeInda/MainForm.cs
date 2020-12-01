@@ -408,7 +408,7 @@ namespace HandsFreeInda
                             indaExitFocus();
                         }
 
-                        else if (username == "1444437" || username == "2003" || username == "20031")
+                        else if (username == "2003" || username == "20031")
                         {
                             if (jobCode != "")
                             {

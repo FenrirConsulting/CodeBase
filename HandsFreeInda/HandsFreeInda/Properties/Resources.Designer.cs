@@ -99,8 +99,16 @@ namespace HandsFreeInda.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-<<<<<<< HEAD
-=======
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snowflakeLogo {
+            get {
+                object obj = ResourceManager.GetObject("snowflakeLogo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -111,6 +119,5 @@ namespace HandsFreeInda.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
->>>>>>> 389c243e280c9870336a4617c52997da8eba30d1
     }
 }

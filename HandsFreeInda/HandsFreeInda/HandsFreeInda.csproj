@@ -108,10 +108,8 @@
   <ItemGroup>
     <Content Include="Piano.jpg" />
     <Content Include="Pumpkin.png" />
-<<<<<<< HEAD
-=======
+    <Content Include="snowflakeLogo.png" />
     <Content Include="Turkey.png" />
->>>>>>> 389c243e280c9870336a4617c52997da8eba30d1
     <None Include="exit.png" />
     <None Include="greyBackLogo.png" />
     <Content Include="logo.ico" />
