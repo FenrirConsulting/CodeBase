@@ -15,6 +15,7 @@ namespace AutomationTechLog
 {
     public partial class MainForm : Form 
     {
+        sqlLiteMethods DBConn = new sqlLiteMethods();
 
         public MainForm(DataRow passedRow)
         {
@@ -27,6 +28,37 @@ namespace AutomationTechLog
         }
 
 
+
+        private void buildDataGrid() {
+
+            DataTable TECHLOGTable = DBConn.getTable("TECHLOG");
+            DataTable TECHLOGUserTable = DBConn.getTable("TECHLOG_USER");
+            DataTable dataGridTable;
+
+            var query =
+
+            from dt1 in TECHLOGTable.AsEnumerable()
+            join dt2 in TECHLOGUserTable.AsEnumerable()
+            on dt1.Field<int>("tl_ref") equals dt2.Field<int>("tl_ref")
+            select new
+            {
+                Ref = dt1.Field<int>("tl_ref"),
+                State = dt1.Field<string>("tl_state"),
+                Type = dt1.Field<string>("tl_wotype"),
+                Asset = dt1.Field<string>("tl_woasset"),
+                Complaint = dt1.Field<string>("tl_wocomplaint"),
+                GenUser = dt1.Field<string>("tl_genuser"),
+                 GenDate = dt1.Field<string>("tl_gendate"),
+                RootCause = dt1.Field<string>("tl_worootcause"),
+                Correction = dt1.Field<string>("tl_wocorrection"),
+                ModUser = dt1.Field<string>("tl_moduser"),
+                ModDate = dt1.Field<string>("tl_moddate"),
+                Time = dt2.Field<int>("tlu_time")
+            };
+
+            DataTable filledTable = query.CopyToDataTable();
+
+        }
 
         public static int GetWeekNumber(DateTime now)
         {
