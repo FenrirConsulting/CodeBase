@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.titlePanel = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
             this.welcomeLabel = new System.Windows.Forms.Label();
@@ -50,20 +49,23 @@
             this.olderRecordsCheckbox = new System.Windows.Forms.CheckBox();
             this.enteredOrdersCheckbox = new System.Windows.Forms.CheckBox();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStripTypeLabel = new System.Windows.Forms.ToolStripLabel();
             this.ownerComboBox = new System.Windows.Forms.ToolStripComboBox();
-            this.searchLikeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSearchLabel = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripTypeLabel = new System.Windows.Forms.ToolStripLabel();
+            this.searchLikeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.cancelSearchButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripCSVButton = new System.Windows.Forms.ToolStripButton();
+            this.datagridOverview = new System.Windows.Forms.DataGridView();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizeButton)).BeginInit();
             this.buttonPanel.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridOverview)).BeginInit();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -78,7 +80,7 @@
             this.titlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titlePanel.Location = new System.Drawing.Point(0, 0);
             this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(909, 37);
+            this.titlePanel.Size = new System.Drawing.Size(969, 37);
             this.titlePanel.TabIndex = 0;
             this.titlePanel.DoubleClick += new System.EventHandler(this.titlePanel_DoubleClick);
             this.titlePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseMove);
@@ -89,7 +91,7 @@
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.titleLabel.Location = new System.Drawing.Point(332, 5);
+            this.titleLabel.Location = new System.Drawing.Point(362, 5);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(245, 26);
             this.titleLabel.TabIndex = 46;
@@ -121,7 +123,7 @@
             // 
             this.closeButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.closeButton.Image = global::AutomationTechLog.Properties.Resources.exit;
-            this.closeButton.Location = new System.Drawing.Point(825, 0);
+            this.closeButton.Location = new System.Drawing.Point(885, 0);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(28, 37);
             this.closeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -133,7 +135,7 @@
             // 
             this.resizeButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.resizeButton.Image = global::AutomationTechLog.Properties.Resources.resizeIcon;
-            this.resizeButton.Location = new System.Drawing.Point(853, 0);
+            this.resizeButton.Location = new System.Drawing.Point(913, 0);
             this.resizeButton.Name = "resizeButton";
             this.resizeButton.Size = new System.Drawing.Size(28, 37);
             this.resizeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -145,7 +147,7 @@
             // 
             this.minimizeButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.minimizeButton.Image = global::AutomationTechLog.Properties.Resources.minimizeIcon;
-            this.minimizeButton.Location = new System.Drawing.Point(881, 0);
+            this.minimizeButton.Location = new System.Drawing.Point(941, 0);
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(28, 37);
             this.minimizeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -171,7 +173,7 @@
             this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonPanel.Location = new System.Drawing.Point(0, 37);
             this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(909, 51);
+            this.buttonPanel.Size = new System.Drawing.Size(969, 51);
             this.buttonPanel.TabIndex = 1;
             // 
             // searchContextLabel
@@ -299,6 +301,8 @@
             // olderRecordsCheckbox
             // 
             this.olderRecordsCheckbox.AutoSize = true;
+            this.olderRecordsCheckbox.Checked = true;
+            this.olderRecordsCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.olderRecordsCheckbox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.olderRecordsCheckbox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.olderRecordsCheckbox.Location = new System.Drawing.Point(7, 28);
@@ -311,6 +315,8 @@
             // enteredOrdersCheckbox
             // 
             this.enteredOrdersCheckbox.AutoSize = true;
+            this.enteredOrdersCheckbox.Checked = true;
+            this.enteredOrdersCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.enteredOrdersCheckbox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.enteredOrdersCheckbox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.enteredOrdersCheckbox.Location = new System.Drawing.Point(7, 5);
@@ -330,12 +336,20 @@
             this.searchLikeComboBox,
             this.toolStripSearchTextBox,
             this.searchButton,
-            this.cancelSearchButton});
+            this.cancelSearchButton,
+            this.toolStripCSVButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 88);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(909, 25);
+            this.toolStrip.Size = new System.Drawing.Size(969, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
+            // 
+            // toolStripTypeLabel
+            // 
+            this.toolStripTypeLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripTypeLabel.Name = "toolStripTypeLabel";
+            this.toolStripTypeLabel.Size = new System.Drawing.Size(37, 22);
+            this.toolStripTypeLabel.Text = "Type: ";
             // 
             // ownerComboBox
             // 
@@ -345,19 +359,7 @@
             "Passdown"});
             this.ownerComboBox.Name = "ownerComboBox";
             this.ownerComboBox.Size = new System.Drawing.Size(121, 25);
-            // 
-            // searchLikeComboBox
-            // 
-            this.searchLikeComboBox.Items.AddRange(new object[] {
-            "Asset Like",
-            "Ref #",
-            "Date Range",
-            "User Like",
-            "State Like",
-            "Full text",
-            "Week #"});
-            this.searchLikeComboBox.Name = "searchLikeComboBox";
-            this.searchLikeComboBox.Size = new System.Drawing.Size(121, 25);
+            this.ownerComboBox.ToolTipText = "Owner Type";
             // 
             // toolStripSeparator1
             // 
@@ -373,12 +375,19 @@
             this.toolStripSearchLabel.Size = new System.Drawing.Size(47, 22);
             this.toolStripSearchLabel.Text = "Search:";
             // 
-            // toolStripTypeLabel
+            // searchLikeComboBox
             // 
-            this.toolStripTypeLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripTypeLabel.Name = "toolStripTypeLabel";
-            this.toolStripTypeLabel.Size = new System.Drawing.Size(37, 22);
-            this.toolStripTypeLabel.Text = "Type: ";
+            this.searchLikeComboBox.Items.AddRange(new object[] {
+            "Asset Like",
+            "Ref #",
+            "Date Range",
+            "User Like",
+            "State Like",
+            "Full text",
+            "Week #"});
+            this.searchLikeComboBox.Name = "searchLikeComboBox";
+            this.searchLikeComboBox.Size = new System.Drawing.Size(121, 25);
+            this.searchLikeComboBox.ToolTipText = "Search Type";
             // 
             // toolStripSearchTextBox
             // 
@@ -386,31 +395,57 @@
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
+            this.toolStripSearchTextBox.ToolTipText = "Search Criteria";
             // 
             // searchButton
             // 
             this.searchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.searchButton.Image = ((System.Drawing.Image)(resources.GetObject("searchButton.Image")));
+            this.searchButton.Image = global::AutomationTechLog.Properties.Resources.Search;
             this.searchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(23, 22);
             this.searchButton.Text = "toolStripButton1";
+            this.searchButton.ToolTipText = "Run Current Search";
             // 
             // cancelSearchButton
             // 
             this.cancelSearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.cancelSearchButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelSearchButton.Image")));
+            this.cancelSearchButton.Image = global::AutomationTechLog.Properties.Resources.Stop;
             this.cancelSearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.cancelSearchButton.Name = "cancelSearchButton";
             this.cancelSearchButton.Size = new System.Drawing.Size(23, 22);
             this.cancelSearchButton.Text = "toolStripButton2";
+            this.cancelSearchButton.ToolTipText = "Cancel Current Search";
+            // 
+            // toolStripCSVButton
+            // 
+            this.toolStripCSVButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripCSVButton.Image = global::AutomationTechLog.Properties.Resources.ExportToExcel_16x;
+            this.toolStripCSVButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripCSVButton.Name = "toolStripCSVButton";
+            this.toolStripCSVButton.Size = new System.Drawing.Size(23, 22);
+            this.toolStripCSVButton.Text = "toolStripButton1";
+            this.toolStripCSVButton.ToolTipText = "Export to CSV (Excel)";
+            // 
+            // datagridOverview
+            // 
+            this.datagridOverview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.datagridOverview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
+            this.datagridOverview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridOverview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datagridOverview.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.datagridOverview.Location = new System.Drawing.Point(0, 113);
+            this.datagridOverview.Name = "datagridOverview";
+            this.datagridOverview.Size = new System.Drawing.Size(969, 506);
+            this.datagridOverview.TabIndex = 3;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.ClientSize = new System.Drawing.Size(909, 619);
+            this.ClientSize = new System.Drawing.Size(969, 619);
+            this.Controls.Add(this.datagridOverview);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.buttonPanel);
             this.Controls.Add(this.titlePanel);
@@ -427,6 +462,7 @@
             this.buttonPanel.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridOverview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,5 +499,7 @@
         private System.Windows.Forms.ToolStripTextBox toolStripSearchTextBox;
         private System.Windows.Forms.ToolStripButton searchButton;
         private System.Windows.Forms.ToolStripButton cancelSearchButton;
+        private System.Windows.Forms.ToolStripButton toolStripCSVButton;
+        private System.Windows.Forms.DataGridView datagridOverview;
     }
 }

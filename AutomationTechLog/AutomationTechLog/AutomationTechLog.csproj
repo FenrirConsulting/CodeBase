@@ -120,6 +120,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Dependancies\Add.png" />
+    <None Include="Dependancies\Report.png" />
+    <None Include="Dependancies\Search.png" />
+    <None Include="Dependancies\Stop.png" />
+    <None Include="Dependancies\User.png" />
+    <None Include="Dependancies\ExportToExcel_16x.png" />
     <Content Include="greyBackLogo.png" />
     <Content Include="System.Data.SQLite.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
