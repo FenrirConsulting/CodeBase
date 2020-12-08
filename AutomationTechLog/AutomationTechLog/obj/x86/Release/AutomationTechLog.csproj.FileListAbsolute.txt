@@ -22,7 +22,6 @@ C:\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\Automati
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.dll
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.LoginForm.resources
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.MainForm.resources
-C:\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojResolveAssemblyReference.cache
 \\Rfl6dpspw1p\c$\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SQLite.dll
 \\Rfl6dpspw1p\c$\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.Entity.dll
 \\Rfl6dpspw1p\c$\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\bin\Release\x64\SQLite.Interop.dll
@@ -68,7 +67,6 @@ C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\Automati
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\LocalDatabase.db
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\AutomationTechLog.exe
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\AutomationTechLog.pdb
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojAssemblyReference.cache
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.LoginForm.resources
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.MainForm.resources
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.Properties.Resources.resources

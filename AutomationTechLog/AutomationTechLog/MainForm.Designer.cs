@@ -59,6 +59,7 @@
             this.cancelSearchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripCSVButton = new System.Windows.Forms.ToolStripButton();
             this.datagridOverview = new System.Windows.Forms.DataGridView();
+            this.olderDateBox = new System.Windows.Forms.Label();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).BeginInit();
@@ -158,6 +159,7 @@
             // buttonPanel
             // 
             this.buttonPanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buttonPanel.Controls.Add(this.olderDateBox);
             this.buttonPanel.Controls.Add(this.searchContextLabel);
             this.buttonPanel.Controls.Add(this.legendLabel4);
             this.buttonPanel.Controls.Add(this.usersButton);
@@ -181,7 +183,7 @@
             this.searchContextLabel.AutoSize = true;
             this.searchContextLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchContextLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.searchContextLabel.Location = new System.Drawing.Point(671, 18);
+            this.searchContextLabel.Location = new System.Drawing.Point(706, 18);
             this.searchContextLabel.Name = "searchContextLabel";
             this.searchContextLabel.Size = new System.Drawing.Size(76, 15);
             this.searchContextLabel.TabIndex = 42;
@@ -194,7 +196,7 @@
             this.legendLabel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.legendLabel4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.legendLabel4.ForeColor = System.Drawing.Color.Black;
-            this.legendLabel4.Location = new System.Drawing.Point(838, 25);
+            this.legendLabel4.Location = new System.Drawing.Point(873, 25);
             this.legendLabel4.Name = "legendLabel4";
             this.legendLabel4.Size = new System.Drawing.Size(68, 17);
             this.legendLabel4.TabIndex = 45;
@@ -206,7 +208,7 @@
             this.usersButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.usersButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usersButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.usersButton.Location = new System.Drawing.Point(444, 9);
+            this.usersButton.Location = new System.Drawing.Point(473, 10);
             this.usersButton.Name = "usersButton";
             this.usersButton.Size = new System.Drawing.Size(87, 30);
             this.usersButton.TabIndex = 41;
@@ -220,7 +222,7 @@
             this.legendLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.legendLabel3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.legendLabel3.ForeColor = System.Drawing.Color.Black;
-            this.legendLabel3.Location = new System.Drawing.Point(770, 25);
+            this.legendLabel3.Location = new System.Drawing.Point(805, 25);
             this.legendLabel3.Name = "legendLabel3";
             this.legendLabel3.Size = new System.Drawing.Size(68, 17);
             this.legendLabel3.TabIndex = 44;
@@ -231,7 +233,7 @@
             this.rowCountLabel.AutoSize = true;
             this.rowCountLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rowCountLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.rowCountLabel.Location = new System.Drawing.Point(538, 27);
+            this.rowCountLabel.Location = new System.Drawing.Point(566, 25);
             this.rowCountLabel.Name = "rowCountLabel";
             this.rowCountLabel.Size = new System.Drawing.Size(109, 15);
             this.rowCountLabel.TabIndex = 40;
@@ -243,7 +245,7 @@
             this.legendLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.legendLabel2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.legendLabel2.ForeColor = System.Drawing.Color.Black;
-            this.legendLabel2.Location = new System.Drawing.Point(838, 8);
+            this.legendLabel2.Location = new System.Drawing.Point(873, 8);
             this.legendLabel2.Name = "legendLabel2";
             this.legendLabel2.Size = new System.Drawing.Size(68, 17);
             this.legendLabel2.TabIndex = 43;
@@ -255,7 +257,7 @@
             this.legendLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.legendLabel1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.legendLabel1.ForeColor = System.Drawing.Color.Black;
-            this.legendLabel1.Location = new System.Drawing.Point(770, 8);
+            this.legendLabel1.Location = new System.Drawing.Point(805, 8);
             this.legendLabel1.Name = "legendLabel1";
             this.legendLabel1.Size = new System.Drawing.Size(68, 17);
             this.legendLabel1.TabIndex = 42;
@@ -267,7 +269,7 @@
             this.reportsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.reportsButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reportsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.reportsButton.Location = new System.Drawing.Point(334, 9);
+            this.reportsButton.Location = new System.Drawing.Point(363, 10);
             this.reportsButton.Name = "reportsButton";
             this.reportsButton.Size = new System.Drawing.Size(87, 30);
             this.reportsButton.TabIndex = 39;
@@ -279,7 +281,7 @@
             this.weekNumberLabel.AutoSize = true;
             this.weekNumberLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weekNumberLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.weekNumberLabel.Location = new System.Drawing.Point(538, 9);
+            this.weekNumberLabel.Location = new System.Drawing.Point(566, 7);
             this.weekNumberLabel.Name = "weekNumberLabel";
             this.weekNumberLabel.Size = new System.Drawing.Size(112, 15);
             this.weekNumberLabel.TabIndex = 38;
@@ -291,7 +293,7 @@
             this.addNewButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addNewButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addNewButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.addNewButton.Location = new System.Drawing.Point(224, 9);
+            this.addNewButton.Location = new System.Drawing.Point(253, 10);
             this.addNewButton.Name = "addNewButton";
             this.addNewButton.Size = new System.Drawing.Size(87, 30);
             this.addNewButton.TabIndex = 37;
@@ -307,9 +309,9 @@
             this.olderRecordsCheckbox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.olderRecordsCheckbox.Location = new System.Drawing.Point(7, 28);
             this.olderRecordsCheckbox.Name = "olderRecordsCheckbox";
-            this.olderRecordsCheckbox.Size = new System.Drawing.Size(220, 19);
+            this.olderRecordsCheckbox.Size = new System.Drawing.Size(158, 19);
             this.olderRecordsCheckbox.TabIndex = 1;
-            this.olderRecordsCheckbox.Text = "Hide Records older than 11/2/2020";
+            this.olderRecordsCheckbox.Text = "Hide Records older than";
             this.olderRecordsCheckbox.UseVisualStyleBackColor = true;
             // 
             // enteredOrdersCheckbox
@@ -406,6 +408,7 @@
             this.searchButton.Size = new System.Drawing.Size(23, 22);
             this.searchButton.Text = "toolStripButton1";
             this.searchButton.ToolTipText = "Run Current Search";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // cancelSearchButton
             // 
@@ -416,6 +419,7 @@
             this.cancelSearchButton.Size = new System.Drawing.Size(23, 22);
             this.cancelSearchButton.Text = "toolStripButton2";
             this.cancelSearchButton.ToolTipText = "Cancel Current Search";
+            this.cancelSearchButton.Click += new System.EventHandler(this.cancelSearchButton_Click);
             // 
             // toolStripCSVButton
             // 
@@ -438,6 +442,17 @@
             this.datagridOverview.Name = "datagridOverview";
             this.datagridOverview.Size = new System.Drawing.Size(969, 506);
             this.datagridOverview.TabIndex = 3;
+            // 
+            // olderDateBox
+            // 
+            this.olderDateBox.AutoSize = true;
+            this.olderDateBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.olderDateBox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.olderDateBox.Location = new System.Drawing.Point(161, 29);
+            this.olderDateBox.Name = "olderDateBox";
+            this.olderDateBox.Size = new System.Drawing.Size(71, 15);
+            this.olderDateBox.TabIndex = 46;
+            this.olderDateBox.Text = "07-12-2020";
             // 
             // MainForm
             // 
@@ -501,5 +516,6 @@
         private System.Windows.Forms.ToolStripButton cancelSearchButton;
         private System.Windows.Forms.ToolStripButton toolStripCSVButton;
         private System.Windows.Forms.DataGridView datagridOverview;
+        private System.Windows.Forms.Label olderDateBox;
     }
 }

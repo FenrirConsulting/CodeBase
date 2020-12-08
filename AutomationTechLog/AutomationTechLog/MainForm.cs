@@ -15,17 +15,87 @@ namespace AutomationTechLog
 {
     public partial class MainForm : Form 
     {
+        sqlLiteMethods DBConn = new sqlLiteMethods();
 
         public MainForm(DataRow passedRow)
         {
             InitializeComponent();
-            DateTime passedTime = DateTime.Now;
-            int weekNumber = GetWeekNumber(passedTime);
+            DateTime currentTime = DateTime.Now;
+            DateTime olderThanDate = DateTime.Now.AddDays(-60);
+
+            int weekNumber = GetWeekNumber(currentTime);
             weekNumberLabel.Text = "Week Number: " + weekNumber.ToString();
             if (passedRow != null) { nameTitleLabel.Text = passedRow["tlt_name"].ToString(); ; }
+
+            string currentTimeFormated = formatDate(currentTime);
+            string olderThanDateFormatted = formatDate(olderThanDate);
+            olderDateBox.Text = olderThanDateFormatted;
+
             
         }
 
+        private string formatDateWithTime (DateTime passedTime) {
+
+            string formattedTime = "";
+            formattedTime = passedTime.ToString("MM/dd/yyyy HH:mm:ss");
+            return formattedTime;
+        
+        }
+
+        private string formatDate(DateTime passedTime)
+        {
+            string formattedDate = "";
+            formattedDate = passedTime.ToString("MM/dd/yyyy");
+            return formattedDate;
+        }
+
+
+        private DataTable buildOverviewDataTable() {
+
+            DataTable TECHLOGTable = DBConn.getTable("TECHLOG");
+            DataTable TECHLOGUserTable = DBConn.getTable("TECHLOG_USER");
+
+
+            DataTable filledTable = new DataTable();
+            filledTable.Columns.Add("tl_ref", typeof(int));
+            filledTable.Columns.Add("tl_state", typeof(string));
+            filledTable.Columns.Add("tl_wotype", typeof(string));
+            filledTable.Columns.Add("tl_woasset", typeof(string));
+            filledTable.Columns.Add("tl_wocomplaint", typeof(string));
+            filledTable.Columns.Add("tl_genuser", typeof(string));
+            filledTable.Columns.Add("tl_gendate", typeof(string));
+            filledTable.Columns.Add("tl_worootcause", typeof(string));
+            filledTable.Columns.Add("tl_wocorrection", typeof(string));
+            filledTable.Columns.Add("tl_moduser", typeof(string));
+            filledTable.Columns.Add("tl_moddate", typeof(string));
+            filledTable.Columns.Add("tlu_time", typeof(string));
+           
+
+            var query = 
+            from dt1 in TECHLOGTable.AsEnumerable()
+            join dt2 in TECHLOGUserTable.AsEnumerable()
+            on dt1.Field<int>("tl_ref") equals dt2.Field<int>("tl_ref")
+            
+            select filledTable.LoadDataRow(new object[] 
+            {
+                dt1.Field<int>("tl_ref"),
+                dt1.Field<string>("tl_state"),
+                dt1.Field<string>("tl_wotype"),
+                dt1.Field<string>("tl_woasset"),
+                dt1.Field<string>("tl_wocomplaint"),
+                dt1.Field<string>("tl_genuser"),
+                dt1.Field<string>("tl_gendate"),
+                dt1.Field<string>("tl_worootcause"),
+                dt1.Field<string>("tl_wocorrection"),
+                dt1.Field<string>("tl_moduser"),
+                dt1.Field<string>("tl_moddate"),
+                dt2.Field<string>("tlu_time")
+            }, false);
+            query.CopyToDataTable();
+
+            return filledTable;
+
+        }
 
 
         public static int GetWeekNumber(DateTime now)
@@ -95,6 +165,18 @@ namespace AutomationTechLog
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            DataTable searchedTable = buildOverviewDataTable();
+            datagridOverview.DataSource = searchedTable;
+        }
+
+        private void cancelSearchButton_Click(object sender, EventArgs e)
+        {
+            bool showEntered = Convert.ToBoolean(enteredOrdersCheckbox.CheckState);
+            MessageBox.Show(showEntered.ToString());
         }
 
 

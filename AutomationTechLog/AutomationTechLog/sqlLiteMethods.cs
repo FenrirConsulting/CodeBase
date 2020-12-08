@@ -39,7 +39,7 @@ namespace AutomationTechLog
         {
             try
             {
-                conn = new SQLiteConnection(@"Data Source=|DataDirectory|\LocalDatabase.db");
+                conn = new SQLiteConnection(@"Data Source=|DataDirectory|\LocalDatabase.db;");
                 conn.Open();
                 return "Connected";
             }
