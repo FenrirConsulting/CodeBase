@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Web;
 
 namespace ITTicketSystem
 {
@@ -27,6 +28,8 @@ namespace ITTicketSystem
 
             List<String> categoriesList = new List<String>();
             categoriesList = DBConn.buildColumnList(categoriesList, "Categories", "Name");
+
+
 
             this.recordsGrid.Columns["Password"].Visible = false;
             this.recordsGrid.Columns["ID"].Visible = false;
@@ -162,6 +165,7 @@ namespace ITTicketSystem
                 DBConn.userTableUpdate(id, table, name, email, tech, employeeId, employeepassword);
 
                 recordsGrid.DataSource = DBConn.getTable(table);
+                hideAdmin();
             }
             catch
             {
@@ -185,6 +189,7 @@ namespace ITTicketSystem
                 DBConn.userAddRecord(table, name, email, tech, employeeId, employeepassword);
 
                 recordsGrid.DataSource = DBConn.getTable(table);
+                hideAdmin();
             }
             catch (Exception ex)
             {
@@ -210,6 +215,7 @@ namespace ITTicketSystem
                         DBConn.deleteRecord(table, id);
 
                         recordsGrid.DataSource = DBConn.getTable(table);
+                        hideAdmin();
                     }
                     catch (Exception ex)
                     {
@@ -307,6 +313,7 @@ namespace ITTicketSystem
                     if (isTech == true)
                     {
                         adminPanel.Visible = true;
+                        hideAdmin();
                     }
                     else
                     {
@@ -327,5 +334,25 @@ namespace ITTicketSystem
 
         }
 
+
+        private void hideAdmin()
+        {
+
+            foreach (DataGridViewRow row in recordsGrid.Rows)
+            {
+                if (row.Cells[4].Value != null)
+                {
+                    if (row.Cells[4].Value.Equals("1444437") || row.Cells[4].Value.Equals("1337"))
+                    {
+                        CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[recordsGrid.DataSource];
+                        currencyManager1.SuspendBinding();
+                        row.Visible = false;
+                        currencyManager1.ResumeBinding();
+                    }
+                }
+            }
+
+        }
     }
+
 }
