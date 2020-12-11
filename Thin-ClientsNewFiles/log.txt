@@ -1,0 +1,217 @@
+
+C:\Witron\PCO>echo a   1>NUL  && 
+
+C:\Witron\PCO>echo a   1>NUL  || 
+
+C:\Witron\PCO>set LOGFILE=batch.log 
+
+C:\Witron\PCO>call :LOG  1>batch.log 
+
+C:\Witron\PCO>SET APP_SERVER=RFL6DPSPW2C 
+
+C:\Witron\PCO>SET APPL_RUNTIME_SHARE=CVS-APP-RT 
+
+C:\Witron\PCO>SET APPL_VAR_SHARE=CVS-APP-VAR 
+
+C:\Witron\PCO>SET APPL_LOG_SHARE=CVS-CLIENT-LOG 
+
+C:\Witron\PCO>SET WS_USER=WCLIENT_USER 
+
+C:\Witron\PCO>SET WS_USER_AUTOLOGON=YES 
+
+C:\Witron\PCO>SET WS_USER_AUTOLOGON=WCLIENT_USER 
+
+C:\Witron\PCO>SET WS_PASSWORD=WMS.2016 
+
+C:\Witron\PCO>SET CLIENT_WITRON_DIR=c:\Program Files\Witron 
+
+C:\Witron\PCO>SET LOGON_SERVER=RFL6DPSPW2C 
+
+C:\Witron\PCO>SET LOGON_SERVER_DOMAIN=RFL6WMSDOM 
+
+C:\Witron\PCO>SET LOGON_SCRIPT=\\RFL6DPSPW2C\CVS-APP-RT\atl\runtime\etc\ClientFiles\LogonScript.bat 
+
+C:\Witron\PCO>SET LOGON_LOG=\\RFL6DPSPW2C\CVS-CLIENT-LOG\Client_Startup\ 
+
+C:\Witron\PCO>SET LOGON_RUNTIME_SHARE=CVS-APP-RT 
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT APP_SERVER.WitronClientSetup" APP_SERVER 
+Command : "QUERYDNSTEXT APP_SERVER.WitronClientSetup" 
+Env name: APP_SERVER
+Env val : !APP_SERVER!
+RFL6DPSPW2C
+Env val : APP_SERVER=!APP_SERVER!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT APPL_RUNTIME_SHARE.WitronClientSetup" APPL_RUNTIME_SHARE 
+Command : "QUERYDNSTEXT APPL_RUNTIME_SHARE.WitronClientSetup" 
+Env name: APPL_RUNTIME_SHARE
+Env val : !APPL_RUNTIME_SHARE!
+CVS-APP-RT
+Env val : APPL_RUNTIME_SHARE=!APPL_RUNTIME_SHARE!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT APPL_VAR_SHARE.WitronClientSetup" APPL_VAR_SHARE 
+Command : "QUERYDNSTEXT APPL_VAR_SHARE.WitronClientSetup" 
+Env name: APPL_VAR_SHARE
+Env val : !APPL_VAR_SHARE!
+CVS-APP-VAR
+Env val : APPL_VAR_SHARE=!APPL_VAR_SHARE!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT APPL_LOG_SHARE.WitronClientSetup" APPL_LOG_SHARE 1>NUL 2>&1 
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT CLIENT_WITRON_DIR.WitronClientSetup" CLIENT_WITRON_DIR 
+Command : "QUERYDNSTEXT CLIENT_WITRON_DIR.WitronClientSetup" 
+Env name: CLIENT_WITRON_DIR
+Env val : !CLIENT_WITRON_DIR!
+C:\Witron
+Env val : CLIENT_WITRON_DIR=!CLIENT_WITRON_DIR!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT WS_USER_AUTOLOGON.WitronClientSetup" WS_USER_AUTOLOGON 
+Command : "QUERYDNSTEXT WS_USER_AUTOLOGON.WitronClientSetup" 
+Env name: WS_USER_AUTOLOGON
+Env val : !WS_USER_AUTOLOGON!
+WCLIENT_USER
+Env val : WS_USER_AUTOLOGON=!WS_USER_AUTOLOGON!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT WS_PASSWORD.WitronClientSetup" WS_PASSWORD 
+Command : "QUERYDNSTEXT WS_PASSWORD.WitronClientSetup" 
+Env name: WS_PASSWORD
+Env val : !WS_PASSWORD!
+WMS.2016
+Env val : WS_PASSWORD=!WS_PASSWORD!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_SERVER.WitronClientSetup" LOGON_SERVER 
+Command : "QUERYDNSTEXT LOGON_SERVER.WitronClientSetup" 
+Env name: LOGON_SERVER
+Env val : !LOGON_SERVER!
+RFL6DPSPW2C
+Env val : LOGON_SERVER=!LOGON_SERVER!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_SERVER_DOMAIN.WitronClientSetup" LOGON_SERVER_DOMAIN 
+Command : "QUERYDNSTEXT LOGON_SERVER_DOMAIN.WitronClientSetup" 
+Env name: LOGON_SERVER_DOMAIN
+Env val : !LOGON_SERVER_DOMAIN!
+RFL6WMSDOM
+Env val : LOGON_SERVER_DOMAIN=!LOGON_SERVER_DOMAIN!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_SERVER_USER.WitronClientSetup" LOGON_SERVER_USER 
+Command : "QUERYDNSTEXT LOGON_SERVER_USER.WitronClientSetup" 
+Env name: LOGON_SERVER_USER
+Env val : !LOGON_SERVER_USER!
+DNS request failed with error 9003
+
+Env val : LOGON_SERVER_USER=!LOGON_SERVER_USER!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_SERVER_PASSWORD.WitronClientSetup" LOGON_SERVER_PASSWORD  1>NUL 2>&1 
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_SCRIPT.WitronClientSetup" LOGON_SCRIPT 
+Command : "QUERYDNSTEXT LOGON_SCRIPT.WitronClientSetup" 
+Env name: LOGON_SCRIPT
+Env val : !LOGON_SCRIPT!
+\\RFL6DPSPW2C\CVS-APP-RT\atl\runtime\etc\ClientFiles\LogonScript.bat
+Env val : LOGON_SCRIPT=!LOGON_SCRIPT!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_LOG.WitronClientSetup" LOGON_LOG 
+Command : "QUERYDNSTEXT LOGON_LOG.WitronClientSetup" 
+Env name: LOGON_LOG
+Env val : !LOGON_LOG!
+\\RFL6DPSPW2C\CVS-CLIENT-LOG\Client_Startup\
+Env val : LOGON_LOG=!LOGON_LOG!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_RUNTIME_SHARE.WitronClientSetup" LOGON_RUNTIME_SHARE 
+Command : "QUERYDNSTEXT LOGON_RUNTIME_SHARE.WitronClientSetup" 
+Env name: LOGON_RUNTIME_SHARE
+Env val : !LOGON_RUNTIME_SHARE!
+CVS-APP-RT
+Env val : LOGON_RUNTIME_SHARE=!LOGON_RUNTIME_SHARE!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT APP_SERVER.WitronClientSetupTest" APP_SERVER 
+Command : "QUERYDNSTEXT APP_SERVER.WitronClientSetupTest" 
+Env name: APP_SERVER
+Env val : !APP_SERVER!
+RFL6DPSAPW1V
+Env val : APP_SERVER=!APP_SERVER!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT APPL_RUNTIME_SHARE.WitronClientSetupTest" APPL_RUNTIME_SHARE 
+Command : "QUERYDNSTEXT APPL_RUNTIME_SHARE.WitronClientSetupTest" 
+Env name: APPL_RUNTIME_SHARE
+Env val : !APPL_RUNTIME_SHARE!
+WMS-RT
+Env val : APPL_RUNTIME_SHARE=!APPL_RUNTIME_SHARE!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT APPL_VAR_SHARE.WitronClientSetupTest" APPL_VAR_SHARE 
+Command : "QUERYDNSTEXT APPL_VAR_SHARE.WitronClientSetupTest" 
+Env name: APPL_VAR_SHARE
+Env val : !APPL_VAR_SHARE!
+WMS-VAR
+Env val : APPL_VAR_SHARE=!APPL_VAR_SHARE!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT APPL_LOG_SHARE.WitronClientSetupTest" APPL_LOG_SHARE 1>NUL 2>&1 
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT CLIENT_WITRON_DIR.WitronClientSetupTest" CLIENT_WITRON_DIR 
+Command : "QUERYDNSTEXT CLIENT_WITRON_DIR.WitronClientSetupTest" 
+Env name: CLIENT_WITRON_DIR
+Env val : !CLIENT_WITRON_DIR!
+C:\Witron
+Env val : CLIENT_WITRON_DIR=!CLIENT_WITRON_DIR!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT WS_USER_AUTOLOGON.WitronClientSetupTest" WS_USER_AUTOLOGON 
+Command : "QUERYDNSTEXT WS_USER_AUTOLOGON.WitronClientSetupTest" 
+Env name: WS_USER_AUTOLOGON
+Env val : !WS_USER_AUTOLOGON!
+WCLIENT_USER
+Env val : WS_USER_AUTOLOGON=!WS_USER_AUTOLOGON!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT WS_PASSWORD.WitronClientSetupTest" WS_PASSWORD 
+Command : "QUERYDNSTEXT WS_PASSWORD.WitronClientSetupTest" 
+Env name: WS_PASSWORD
+Env val : !WS_PASSWORD!
+WMS.2016
+Env val : WS_PASSWORD=!WS_PASSWORD!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_SERVER.WitronClientSetupTest" LOGON_SERVER 
+Command : "QUERYDNSTEXT LOGON_SERVER.WitronClientSetupTest" 
+Env name: LOGON_SERVER
+Env val : !LOGON_SERVER!
+RFL6DPSAPW1V
+Env val : LOGON_SERVER=!LOGON_SERVER!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_SERVER_DOMAIN.WitronClientSetupTest" LOGON_SERVER_DOMAIN 
+Command : "QUERYDNSTEXT LOGON_SERVER_DOMAIN.WitronClientSetupTest" 
+Env name: LOGON_SERVER_DOMAIN
+Env val : !LOGON_SERVER_DOMAIN!
+RFL6WMSDOM
+Env val : LOGON_SERVER_DOMAIN=!LOGON_SERVER_DOMAIN!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_SERVER_USER.WitronClientSetupTest" LOGON_SERVER_USER 
+Command : "QUERYDNSTEXT LOGON_SERVER_USER.WitronClientSetupTest" 
+Env name: LOGON_SERVER_USER
+Env val : !LOGON_SERVER_USER!
+DNS request failed with error 9003
+
+Env val : LOGON_SERVER_USER=!LOGON_SERVER_USER!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_SERVER_PASSWORD.WitronClientSetupTest" LOGON_SERVER_PASSWORD  1>NUL 2>&1 
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_SCRIPT.WitronClientSetupTest" LOGON_SCRIPT 
+Command : "QUERYDNSTEXT LOGON_SCRIPT.WitronClientSetupTest" 
+Env name: LOGON_SCRIPT
+Env val : !LOGON_SCRIPT!
+\\RFL6DPSAPW1V\WMS-RT\atl\runtime\etc\ClientFiles\LogonScript.bat
+Env val : LOGON_SCRIPT=!LOGON_SCRIPT!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_LOG.WitronClientSetupTest" LOGON_LOG 
+Command : "QUERYDNSTEXT LOGON_LOG.WitronClientSetupTest" 
+Env name: LOGON_LOG
+Env val : !LOGON_LOG!
+\\RFL6DPSAPW1V\WMS-LOG\Client_Startup\
+Env val : LOGON_LOG=!LOGON_LOG!
+
+C:\Witron\PCO>CALL SetEnvironmentTest.cmd\..\ScriptHelperToEnv.cmd "QUERYDNSTEXT LOGON_RUNTIME_SHARE.WitronClientSetupTest" LOGON_RUNTIME_SHARE 
+Command : "QUERYDNSTEXT LOGON_RUNTIME_SHARE.WitronClientSetupTest" 
+Env name: LOGON_RUNTIME_SHARE
+Env val : !LOGON_RUNTIME_SHARE!
+WMS-RT
+Env val : LOGON_RUNTIME_SHARE=!LOGON_RUNTIME_SHARE!
+
+C:\Witron\PCO>PAUSE
+Press any key to continue . . . 

@@ -1,0 +1,24 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters]
+"DisablePasswordChange"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Terminal Server Client]
+"AuthenticationLevelOverride"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SystemCertificates\AuthRoot]
+"DisableRootAutoUpdate"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Terminal Server Client\LocalDevices]
+"TS-CLUSTER"=dword:0000004f
+"RFL6TS01PW1P"=dword:0000004f
+"RFL6TS02PW1P"=dword:0000004f
+"RFL6TSPW1V"=dword:0000004f
+"RFL6TSPW2V"=dword:0000004f
+"RFL6TSPW1"=dword:0000004f
+"TS-CLUSTER.RFL6WMSDOM.local"=dword:0000006f
+"RFL6TS01PW1P.RFL6WMSDOM.local"=dword:0000006f
+"RFL6TS02PW1P.RFL6WMSDOM.local"=dword:0000006f
+"RFL6TSPW1V.RFL6WMSDOM.local"=dword:0000006f
+"RFL6TSPW2V.RFL6WMSDOM.local"=dword:0000006f
+"RFL6TSPW1.RFL6WMSDOM.local"=dword:0000006f
