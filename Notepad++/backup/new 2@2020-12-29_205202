@@ -1,0 +1,134 @@
+private void tsbSearch_Click(object sender, EventArgs e)
+	{
+		string[] text;
+		string MySQL = "";
+		string WhereSQL = "";
+		string GroupSQL = "";
+			
+		if (!((Microsoft.VisualBasic.CompilerServices.Operators.CompareString(this.tscbSearchType.Text, "Date Range", false) == 0 
+		|| Microsoft.VisualBasic.CompilerServices.Operators.CompareString(this.tstxtSearchCriteria.Text, "", false) == 0 ? false : true) | 
+		(Microsoft.VisualBasic.CompilerServices.Operators.CompareString(this.tscbSearchType.Text, "Date Range", false) 
+		!= 0 || !this.dtpFromDate.Visible ? false : true)))
+			
+		{
+			MySQL = "SELECT tl.*, nvl(sum(zzu.zztlu_time),0) \"TTime\",count(zzu.zztlu_name) \"TCount\" FROM ZZTECHLOG tl, ZZTECHLOG_User zzu ";
+			
+			WhereSQL = "where zzu.zztl_ref(+) = tl.zztl_ref ";
+			
+			GroupSQL = " group by tl.zztl_ref,tl.zztl_state,tl.zztl_wotype,tl.zztl_woasset,tl.zztl_wocomplaint,tl.zztl_worootcause,
+			tl.zztl_wocorrection,tl.zztl_genuser,tl.zztl_gendate,tl.zztl_moduser,tl.zztl_moddate order by zztl_gendate desc";
+			this.BuildTitle("SEARCH: All");
+		}
+		else
+		{
+			string str = this.tscbSearchType.Text;
+			if (Microsoft.VisualBasic.CompilerServices.Operators.CompareString(str, "Asset Like", false) == 0)
+			{
+				MySQL = "SELECT tl.*, nvl(sum(zzu.zztlu_time),0) \"TTime\",count(zzu.zztlu_name) \"TCount\" FROM ZZTECHLOG tl , 
+				ZZTECHLOG_User zzu ";
+				
+				WhereSQL = string.Concat(" WHERE zzu.zztl_ref(+) = tl.zztl_ref AND upper(tl.zztl_woasset) like '%", 
+				Microsoft.VisualBasic.Strings.Replace(this.tstxtSearchCriteria.Text.ToUpper(), "'", "''", 1, -1, CompareMethod.Binary), "%'  ");
+				
+				GroupSQL = " GROUP BY tl.zztl_ref,tl.zztl_state,tl.zztl_wotype,tl.zztl_woasset,tl.zztl_wocomplaint,tl.zztl_worootcause,
+				tl.zztl_wocorrection,tl.zztl_genuser,tl.zztl_gendate,zztl_moduser,zztl_moddate ORDER BY zztl_gendate desc";
+				this.BuildTitle(string.Concat("SEARCH: Asset Like '", this.tstxtSearchCriteria.Text.ToUpper(), "'"));
+			}
+			else if (Microsoft.VisualBasic.CompilerServices.Operators.CompareString(str, "Date Range", false) == 0)
+			{
+				MySQL = "SELECT tl.*, nvl(sum(zzu.zztlu_time),0) \"TTime\",count(zzu.zztlu_name) \"TCount\" FROM ZZTECHLOG tl, ZZTECHLOG_User zzu ";
+				
+				text = new string[] { "WHERE zzu.zztl_ref(+) = tl.zztl_ref AND trunc(tl.zztl_moddate) between to_date('", this.dtpFromDate.Text, 
+				"','MM-DD-YYYY') and to_date('", this.dtpToDate.Text, "','MM-DD-YYYY') " };
+				
+				WhereSQL = string.Concat(text);
+				
+				GroupSQL = " GROUP BY tl.zztl_ref,tl.zztl_state,tl.zztl_wotype,tl.zztl_woasset,tl.zztl_wocomplaint,tl.zztl_worootcause,
+				tl.zztl_wocorrection,tl.zztl_genuser,tl.zztl_gendate,zztl_moduser,zztl_moddate ORDER BY zztl_gendate desc";
+				
+				text = new string[] { "SEARCH: ", this.tscbSearchType.Text, " between ", this.dtpFromDate.Text, " and ", this.dtpToDate.Text };
+				
+				this.BuildTitle(string.Concat(text));
+			}
+			else if (Microsoft.VisualBasic.CompilerServices.Operators.CompareString(str, "User Like", false) == 0)
+			{
+				MySQL = "SELECT tl.*, nvl(sum(zzu.zztlu_time),0) \"TTime\",count(zzu.zztlu_name) \"TCount\" 
+				FROM ZZTECHLOG tl, ZZTECHLOG_User zzu ";
+				
+				text = new string[] { "WHERE zzu.zztl_ref(+) = tl.zztl_ref AND (upper(tl.zztl_genuser) like '%", 
+				Microsoft.VisualBasic.Strings.Replace(this.tstxtSearchCriteria.Text.ToUpper(), "'", "''", 1, -1, CompareMethod.Binary), 
+				"%' OR upper(tl.zztl_moduser) like '%", Microsoft.VisualBasic.Strings.Replace(this.tstxtSearchCriteria.Text.ToUpper(), 
+				"'", "''", 1, -1, CompareMethod.Binary), "%' )" };
+				
+				WhereSQL = string.Concat(text);
+				
+				GroupSQL = " GROUP BY tl.zztl_ref,tl.zztl_state,tl.zztl_wotype,tl.zztl_woasset,tl.zztl_wocomplaint,tl.zztl_worootcause,
+				tl.zztl_wocorrection,tl.zztl_genuser,tl.zztl_gendate,zztl_moduser,zztl_moddate ORDER BY zztl_gendate desc";
+				
+				this.BuildTitle(string.Concat("SEARCH: User Like '", this.tstxtSearchCriteria.Text.ToUpper(), "'"));
+			}
+			else if (Microsoft.VisualBasic.CompilerServices.Operators.CompareString(str, "State Like", false) == 0)
+			{
+				MySQL = "SELECT tl.*, nvl(sum(zzu.zztlu_time),0) \"TTime\",count(zzu.zztlu_name) \"TCount\" from ZZTECHLOG tl, ZZTECHLOG_User zzu ";
+				WhereSQL = string.Concat("WHERE zzu.zztl_ref(+) = tl.zztl_ref AND upper(tl.zztl_state) like '%", 
+				Microsoft.VisualBasic.Strings.Replace(this.tstxtSearchCriteria.Text.ToUpper(), "'", "''", 1, -1, CompareMethod.Binary), "%' ");
+				
+				GroupSQL = " GROUP BY tl.zztl_ref,tl.zztl_state,tl.zztl_wotype,tl.zztl_woasset,tl.zztl_wocomplaint,tl.zztl_worootcause,
+				tl.zztl_wocorrection,tl.zztl_genuser,tl.zztl_gendate,zztl_moduser,zztl_moddate ORDER BY zztl_gendate desc";
+				
+				this.BuildTitle(string.Concat("SEARCH: State Like '", this.tstxtSearchCriteria.Text.ToUpper(), "'"));
+			}
+			else if (Microsoft.VisualBasic.CompilerServices.Operators.CompareString(str, "Full text", false) == 0)
+			{
+				MySQL = "select * from (SELECT tl.*, nvl(sum(zzu.zztlu_time),0) \"TTime\",count(zzu.zztlu_name) \"TCount\" from ZZTECHLOG tl, 
+				ZZTECHLOG_User zzu WHERE zzu.zztl_ref(+) = tl.zztl_ref GROUP BY tl.zztl_ref,tl.zztl_state,tl.zztl_wotype,tl.zztl_woasset,
+				tl.zztl_wocomplaint,tl.zztl_worootcause,tl.zztl_wocorrection,tl.zztl_genuser,
+				tl.zztl_gendate,zztl_moduser,zztl_moddate ORDER BY zztl_gendate desc) tl";
+				
+				text = new string[] { " where (upper(tl.zztl_wocomplaint) like '%", 
+				Microsoft.VisualBasic.Strings.Replace(this.tstxtSearchCriteria.Text.ToUpper(), "'", "''", 1, -1, CompareMethod.Binary), 
+				"%' OR upper(tl.zztl_wocorrection) like '%", Microsoft.VisualBasic.Strings.Replace(this.tstxtSearchCriteria.Text.ToUpper(), 
+				"'", "''", 1, -1, CompareMethod.Binary), "%' OR upper(tl.zztl_worootcause) like '%", 
+				Microsoft.VisualBasic.Strings.Replace(this.tstxtSearchCriteria.Text.ToUpper(), "'", "''", 1, -1, CompareMethod.Binary), "%' )" };
+				
+				WhereSQL = string.Concat(text);
+				
+				GroupSQL = "";
+				
+				this.BuildTitle(string.Concat("Full text: Like '", this.tstxtSearchCriteria.Text, "'"));
+			}
+			else if (Microsoft.VisualBasic.CompilerServices.Operators.CompareString(str, "Week #", false) == 0)
+			{
+				MySQL = "SELECT tl.*, nvl(sum(zzu.zztlu_time),0) \"TTime\",count(zzu.zztlu_name) \"TCount\" 
+				FROM ZZTECHLOG tl, ZZTECHLOG_User zzu ";
+				
+				WhereSQL = string.Concat(" WHERE zzu.zztl_ref(+) = tl.zztl_ref and to_char(zztl_gendate,'IW') = ", 
+				this.tstxtSearchCriteria.Text.ToUpper());
+				
+				GroupSQL = " GROUP BY tl.zztl_ref,tl.zztl_state,tl.zztl_wotype,tl.zztl_woasset,tl.zztl_wocomplaint,tl.zztl_worootcause,
+				tl.zztl_wocorrection,tl.zztl_genuser,tl.zztl_gendate,zztl_moduser,zztl_moddate ORDER BY zztl_gendate desc";
+				
+				this.BuildTitle(string.Concat("SEARCH: Week #", this.tstxtSearchCriteria.Text));
+			}
+			else if (Microsoft.VisualBasic.CompilerServices.Operators.CompareString(str, "Ref #", false) == 0)
+			{
+				MySQL = "SELECT tl.*, nvl(sum(zzu.zztlu_time),0) \"TTime\",count(zzu.zztlu_name) \"TCount\" FROM ZZTECHLOG tl, ZZTECHLOG_User zzu ";
+				
+				WhereSQL = string.Concat(" WHERE zzu.zztl_ref(+) = tl.zztl_ref and tl.zztl_ref = ", this.tstxtSearchCriteria.Text);
+				
+				GroupSQL = " GROUP BY tl.zztl_ref,tl.zztl_state,tl.zztl_wotype,tl.zztl_woasset,tl.zztl_wocomplaint,tl.zztl_worootcause,
+				tl.zztl_wocorrection,tl.zztl_genuser,tl.zztl_gendate,zztl_moduser,zztl_moddate ORDER BY zztl_gendate desc";
+				
+				this.BuildTitle(string.Concat("SEARCH: Ref #", this.tstxtSearchCriteria.Text));
+			}
+		}
+		if (!this.chkShowEntered.Checked)
+		{
+			WhereSQL = string.Concat(WhereSQL, " and tl.zztl_state != 'Entered'");
+		}
+		if (this.chkHideOld.Checked)
+		{
+			WhereSQL = string.Concat(WhereSQL, " and zztl_gendate > (sysdate - 30) ");
+		}
+		this.GlobalRefreshDGV(string.Concat(MySQL, WhereSQL, GroupSQL));
+	}

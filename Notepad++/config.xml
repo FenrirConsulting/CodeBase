@@ -41,6 +41,8 @@
         <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TECHLOG_PARTS_FORMATTED.sql" />
         <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TECHLOG_USER_FORMATTED.sql" />
         <File filename="C:\Users\c067460\Desktop\NewDPS.rdp" />
+        <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\ZZTECHLOG_FORMATTED.sql" />
+        <File filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TechLogGoodSoFar.txt" />
     </History>
     <GUIConfigs>
         <GUIConfig name="ToolBar" visible="yes">standard</GUIConfig>
@@ -49,7 +51,7 @@
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="no" size="4" />
-        <GUIConfig name="AppPosition" x="1280" y="0" width="880" height="700" isMaximized="yes" />
+        <GUIConfig name="AppPosition" x="0" y="-3" width="880" height="700" isMaximized="yes" />
         <GUIConfig name="FindWindowPosition" left="438" top="37" right="1027" bottom="401" />
         <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20080426">yes</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>
