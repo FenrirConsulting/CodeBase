@@ -41,7 +41,7 @@ namespace AutomationTechLog
             string whereSQL = "";
             string groupSQL = "";
 
-
+            builtSQL = selectSQL + whereSQL + groupSQL;
 
             return builtSQL;
         }
@@ -87,7 +87,7 @@ namespace AutomationTechLog
             filledTable.Columns.Add("tl_moduser", typeof(string));
             filledTable.Columns.Add("tl_moddate", typeof(string));
             filledTable.Columns.Add("tlu_time", typeof(string));
-           
+
 
 
             var query = 
@@ -112,9 +112,17 @@ namespace AutomationTechLog
             }, false);
             query.CopyToDataTable();
 
-            return filledTable;
+            DataTable clonedTable = filledTable.Clone();
+            clonedTable.Columns["wl_gendate"].DataType = typeof(DateTime);
+
+            foreach (DataRow row in filledTable.Rows) {
+                clonedTable.ImportRow(row);
+            }
+
+            return clonedTable;
 
         }
+
 
 
         public static int GetWeekNumber(DateTime now)
@@ -190,7 +198,18 @@ namespace AutomationTechLog
         {
             DataTable searchedTable = buildOverviewDataTable();
             string builtSQL = buildSQL();
-            datagridOverview.DataSource = searchedTable;
+            buildDataGridView(searchedTable, builtSQL);
+        }
+
+
+        public void buildDataGridView(DataTable passedTable, string builtSQL)
+        {
+
+            datagridOverview.DataSource = passedTable;
+            
+           
+           
+
         }
 
         private void cancelSearchButton_Click(object sender, EventArgs e)
