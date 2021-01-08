@@ -1,8 +1,7 @@
 <NotepadPlus>
     <Session activeView="0">
         <mainView activeIndex="0">
-            <File firstVisibleLine="0" xOffset="0" scrollWidth="5624" startPos="0" endPos="0" selMode="0" offset="0" wrapCount="1" lang="SQL" encoding="-1" userReadOnly="no" filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\ZZTECHLOG_FORMATTED.sql" backupFilePath="" originalFileLastModifTimestamp="658984809" originalFileLastModifTimestampHigh="30850580" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="0" mapWrapIndentMode="-1" mapIsWrap="no" />
-            <File firstVisibleLine="50239" xOffset="0" scrollWidth="1048" startPos="821154" endPos="821154" selMode="0" offset="0" wrapCount="1" lang="Normal Text" encoding="-1" userReadOnly="no" filename="C:\CodeBase\SQLiteStudio\WorkingWiLogDb\TechLogGoodSoFar.txt" backupFilePath="" originalFileLastModifTimestamp="434585387" originalFileLastModifTimestampHigh="30850581" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="1143209984" mapWrapIndentMode="-1" mapIsWrap="no" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="4368" startPos="7939" endPos="0" selMode="0" offset="0" wrapCount="1" lang="Normal Text" encoding="-1" userReadOnly="no" filename="new 2" backupFilePath="C:\CodeBase\Notepad++\backup\new 2@2020-12-29_205202" originalFileLastModifTimestamp="0" originalFileLastModifTimestampHigh="0" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="-1002360779" mapWrapIndentMode="-1" mapIsWrap="no" />
         </mainView>
         <subView activeIndex="0" />
     </Session>

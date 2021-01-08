@@ -62,6 +62,7 @@ namespace AutomationTechLog
                 SQLiteCommand cmd = new SQLiteCommand(strCommand);
                 cmd.Connection = conn;
                 SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
