@@ -1,0 +1,185 @@
+ Instructions for preparring a Thin Client clean out of box for deployement. 
+
+Log Into Client for first time under Username : Administrator , Password : Administrator 
+
+
+ *** THIS ASSUMES THE USB IS DRIVE "D:"  if NOT than change all orcurances of "D:\" to be correct! ***
+  *** ALL COMMANDS SHOULD BE RAN AS ADMINISTRATOR IN A CMD WINDOW FROM ROOT DIRECTORY***
+
+  
+STEP 1 : 
+
+  ***************FOLLOWING IS RUN VIA BATCH_1.bat found on USB Root Directory***************
+
+  Set Version=Ver_1
+
+  ::REM Set Auto Login to Administrator during build process
+
+  REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AutoAdminLogon /t REG_SZ /d 1 /f  
+  REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultUserName /t REG_SZ /d Administrator /f  
+  REG ADD "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultPassword /t REG_SZ /d Administrator /f 
+  REG ADD "HKLM\System\CurrentControlSet\services\AERTFilters" /v Start /t REG_SZ /d 4 /f  
+
+  ::REM Disable Flash Updater service
+
+  SC Config AdobeFlashPlayerUpdateSvc Start= disabled
+
+  ::REM Set power/Disk timeouts
+  POWERCFG -change -monitor-timeout-ac -0  
+  POWERCFG -change -disk-timeout-ac -0 
+  POWERCFG -change -standby-timeout-ac -0 
+  powercfg -SETACVALUEINDEX cfd567d2-8f07-4c3a-8ea6-073bdc5f7161 SUB_BUTTONS  7648efa3-dd9c-4e3e-b566-50f929386280 000
+  powercfg -SETDCVALUEINDEX cfd567d2-8f07-4c3a-8ea6-073bdc5f7161 SUB_BUTTONS  7648efa3-dd9c-4e3e-b566-50f929386280 000
+  powercfg -setactive cfd567d2-8f07-4c3a-8ea6-073bdc5f7161
+  REG ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f  
+  REG ADD "HKCU\Environment" /V SEE_MASK_NOZONECHECKS /T REG_SZ /D 0 /F  
+  SETX SEE_MASK_NOZONECHECKS 1 /m 
+  SETX INSTALLED "%Version% %date% %Time%" /m
+
+  ::REM Set screen saver 
+  REG ADD "HKCU\Software\Policies\Microsoft\Windows\Control Panel\Desktop" /v SCRNSAVE.EXE /t REG_SZ /f      
+  REG ADD "HKCU\Software\Policies\Microsoft\Windows\Control Panel\Desktop" /v ScreenSaveTimeOut /t REG_SZ  /f  
+  REG ADD "HKCU\Software\Policies\Microsoft\Windows\Control Panel\Desktop" /v ScreenSaveActive /t REG_SZ /d 0 /f  
+  REG ADD "HKCU\Control Panel\Desktop" /v ScreenSaveActive /t REG_SZ /d 0 /f  
+
+  ::REM Prevent locking Desktop via Start menu  
+  REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v DisableLockWorkstation /t REG_DWORD /d 1 /f 
+
+  ::REM Prevent black text boxs!
+  REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Themes" /v CurrentTheme /t REG_SZ /d "C:\windows\resources\Ease of Access Themes\classic.theme"  /f
+
+  ::REM Prevent autostarts
+  REG delete HKLM\Software\Microsoft\Windows\CurrentVersion\Run /v CitrixReceiver /f  
+  REG delete HKLM\Software\Microsoft\Windows\CurrentVersion\Run /v ConnectionCenter /f
+  REG delete HKLM\Software\Microsoft\Windows\CurrentVersion\Run /v HpConnector /f   
+  REG delete HKLM\Software\Microsoft\Windows\CurrentVersion\Run /v Redirector /f  
+  REG delete HKLM\Software\Microsoft\Windows\CurrentVersion\Run /v "PDF Complete" /f  
+  
+  ::REM Clear system log files
+  WEVTUTIL cl security
+  WEVTUTIL cl application
+  WEVTUTIL cl setup
+  WEVTUTIL cl Microsoft-Windows-Kernel-EventTracing/Admin
+  WEVTUTIL cl Microsoft-Windows-Dhcpv6-Client/Admin
+  WEVTUTIL cl system  
+  SETLOCAL EnableExtensions EnableDelayedExpansion
+  SETX APPL_VAR_SHARE CVS-APP-VAR /m 
+  SETX WS_USER_AUTOLOGON YES /m 
+  SETX CLIENT_WITRON_DIR "%PROGRAMFILES%\Witron" /m 
+  MD C:\Temp 
+  SETX TMP C:/Temp /m
+  SETX TEMP C:/Temp /m
+  SETX ORACLE_HOME C:\OracleInstantClient /m
+  SET ORACLE_HOME=C:\OracleInstantClient
+  MD C:\SWSetup\APP\Applications\Altiris
+  MD "%ProgramFiles%\Altiris\Dagent"
+  MD C:\SWSetup\APP\Applications\HP\HPEasyShell
+  MD C:\SWSetup\APP\Applications\HP\HPThinUpdate
+
+  :: Creates the LocalAdmin backdoor admin User
+
+  net user "LocalAdmin" "#CVS2575" /add
+  net localgroup "Administrators" "LocalAdmin" /add
+  net localgroup "Backup Operators" "LocalAdmin" /add
+  net localgroup "Cryptographic Operators" "LocalAdmin" /add
+  net localgroup "Distributed COM Users" "LocalAdmin" /add
+  net localgroup "Event Log Readers" "LocalAdmin" /add
+  net localgroup "Guests" "LocalAdmin" /add
+  net localgroup "IIS_IUSRS" "LocalAdmin" /add
+  net localgroup "Network Configuration Operators" "LocalAdmin" /add
+  net localgroup "Performance Log Users" "LocalAdmin" /add
+  net localgroup "Performance Monitor Users" "LocalAdmin" /add
+  net localgroup "Power Users" "LocalAdmin" /add
+  net localgroup "Remote Desktop Users" "LocalAdmin" /add
+  net localgroup "Replicator" "LocalAdmin" /add
+  net localgroup "Users" "LocalAdmin" /add
+  Pause 
+
+  ***************FOLLOWING IS RUN VIA BATCH_2.bat found on USB Root Directory***************
+
+  XCOPY D:\Install_Files\Software_Installs\Oracleinstantclient\*.* C:\OracleInstantClient /S/E/I/Y/C/Q /R  
+ XCOPY D:\Install_Files\Witron\*.* C:\Witron\ /S/E/Y/C/I/Q /R
+ 
+  REM :: "Florida" 
+  SETX PATH "C:\ORACLEINSTANTCLIENT;C:\PROGRAM FILES\BROADCOM\BROADCOM 802.11\DRIVER;C:\PROGRAM FILES\WIDCOMM\BLUETOOTH SOFTWARE\;C:\WINDOWS;C:\WINDOWS\SYSTEM32;C:\WINDOWS\SYSTEM32\WBEM;C:\WINDOWS\SYSTEM32\WINDOWSPOWERSHELL\V1.0\;O:\ASL\RUNTIME\BIN;O:\ASL\RUNTIME\SHLIB;O:\ASL\RUNTIME\SYSTEM;R:\ASL\RUNTIME\BIN;R:\ASL\RUNTIME\SHLIB;R:\ASL\RUNTIME\SYSTEM;X:\ABL\RUNTIME\BIN;X:\ABL\RUNTIME\SHLIB;X:\ABL\RUNTIME\SYSTEM;X:\ASL\RUNTIME\BIN;X:\ASL\RUNTIME\SHLIB;X:\ASL\RUNTIME\SYSTEM;X:\ATL\RUNTIME\BIN;X:\ATL\RUNTIME\SHLIB;X:\ATL\RUNTIME\SYSTEM;\\RFL6DPSPW2C\CVS-CLIENT-RT\ABL\RUNTIME\BIN;\\RFL6DPSPW2C\CVS-CLIENT-RT\ABL\RUNTIME\SHLIB;\\RFL6DPSPW2C\CVS-CLIENT-RT\ASL\RUNTIME\BIN;\\RFL6DPSPW2C\CVS-CLIENT-RT\ASL\RUNTIME\SHLIB;\\RFL6DPSPW2C\CVS-CLIENT-RT\ATL\RUNTIME\BIN;\\RFL6DPSPW2C\CVS-CLIENT-RT\ATL\RUNTIME\ETC\CLIENTFILES;\\RFL6DPSPW2C\CVS-CLIENT-RT\ATL\RUNTIME\SHLIB;" /m  
+  SETX APPLSERVER RFL6DPSPW2C /m 
+  SET APPLSERVER=RFL6DPSPW2C
+  TZUTIL /s "Eastern Standard Time" 
+  SETX APPLSHAREBIN \\%APPLSERVER%\CVS-Client-RT /m 
+  SETX APPLSHARELOG \\%APPLSERVER%\CVS-Client-LOG /m 
+  SETX APPLSHAREVAR \\%APPLSERVER%\CVS-Client-VAR /m 
+  SETX LOGON_SERVER_DOMAIN RFL6WMSDOM /m 
+  SET LOGON_SERVER_DOMAIN=RFL6WMSDOM 
+  REG IMPORT D:\Install_Files\Witron-FL.reg  
+  COPY D:\Install_Files\Software_Installs\tnsnames-FL.* C:\OracleInstantClient\Network\admin\tnsnames.ora  /Y/V/Z
+  COPY D:\Install_Files\Software_Installs\MapNetDrives-FL.cmd "C:\Witron\PCO\MapNetDrives.cmd" /Y/V/Z 
+	
+  XCOPY D:\Install_Files\FL-Start_Menu\*.* "C:\Users\All Users\Microsoft\Windows\Start Menu\" /S/E/Y/C/I/Q /R
+  Pause
+
+
+  ***************FOLLOWING IS RUN VIA BATCH_3.bat found on USB Root Directory***************
+
+  Start /Wait D:\Install_Files\Software_Installs\npp.7.4.2.Installer.exe /S   
+
+  COPY D:\Install_Files\Software_Installs\dagent.msi "C:\SWSetup\APP\Applications\Altiris\dagent.msi" /Y/V/Z
+  COPY D:\Install_Files\Software_Installs\aclient-FL.* "%ProgramFiles%\Altiris\Dagent\aclient.inp" /Y/V/Z 
+  Start /Wait C:\SWSetup\APP\Applications\Altiris\dagent.msi /norestart /passive /l*v "C:\dagent.log" 
+  Net Stop "Altiris Deployment Agent"
+  Net Start "Altiris Deployment Agent"
+  Start "" "C:\Program Files\Altiris\Dagent\dagent.exe"
+ 
+  "%ProgramFiles%\TightVNC\uninstall.exe" /S 
+  REG IMPORT D:\Install_Files\Software_Installs\VNC\VNC-config.reg
+  Start /Wait D:\Install_Files\Software_Installs\VNC\tightvnc-2.0.2-setup.exe /S
+
+  COPY D:\Install_Files\Software_Installs\BIOS\BiosConfigUtility.exe c:\Windows\BiosConfigUtility.exe
+  COPY D:\Install_Files\Software_Installs\BIOS\Config.txt c:\Windows\Config.txt  
+  START /WAIT C:\Windows\BIOSConfigutility.exe  /set:C:\Windows\config.txt
+  
+  C:\Witron\PCO\Instsrv.exe PCORUN C:\Witron\PCO\Srvany.exe  
+  SC description PCORUN "Allows client to connect to remote PCO server"
+  REG ADD "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PCORUN" /v Parameters /t REG_SZ /d C:\Witron\PCO\pcorun.exe /f   
+
+  COPY D:\Install_Files\Software_Installs\HP-Updates\HPThinUpdate-02.05.00-Win32.msi "C:\SWSetup\APP\Applications\HP\HPThinUpdate\HPThinUpdate-02.05.00-Win32.msi" /Y/V/Z
+  START /Wait MSIEXEC /i C:\SWSetup\APP\Applications\HP\HPThinUpdate\HPThinUpdate-02.05.00-Win32.msi /l*v "C:\HPThinUpdate-02.05.00-Win32.log"
+  
+  PAUSE
+  
+  ***************First Reboot, Then Perform Following Steps Found in Reboot_1.bat***************
+ 
+  COPY  D:\Install_Files\Software_Installs\HP-Updates\HPEasyShell-03.05.019-Win32.msi "C:\SWSetup\APP\Applications\HP\HPEasyShell\HPEasyShell-03.05.019-Win32.msi" /Y/V/Z
+  START /Wait MSIEXEC /i C:\SWSetup\APP\Applications\HP\HPEasyShell\HPEasyShell-03.05.019-Win32.msi /l*v "C:\HPEasyShell-03.05.019-Win32.log"
+  REG IMPORT D:\Install_Files\Software_Installs\New_HPEasyShellSettings.reg  
+  START "" "C:\Program Files\HP\HP Easy Shell\HPEasyShell.exe" 
+  :: Exit the EasyShell
+  PAUSE
+
+  *************** Connect Client to RFL6WMSDOM******************
+  :: Connect client to RFL6WMSDOM -> Start Menu -> Computer Right Click -> Properties -> 
+  :: Change Settings -> Change -> Set to RFL6WMSDOM.Local Domain. Save.
+  :: Reboot 
+
+  ***************Second Reboot, Then Perform Following Steps Found in Reboot_2.bat , need RFL6WMSDOM Connection to Perform***************
+
+  Call C:\Witron\PCO\MapNetDrives.cmd
+  START /wait msiexec /i D:\Install_Files\Software_Installs\AslSetUpVC10.msi /passive  /norestart /l*v "C:\AslSetUpVC10.log"  
+
+  REG ADD "HKLM\System\CurrentControlSet\Control\TimeZoneInformation" /v DynamicDaylightTimeDisabled /t REG_SZ /d 1 /f 	
+  START /WAIT D:\Install_Files\CVS-GetTime\CVS-GetTIme.exe
+  :: **For Get time, Client has to be connected to network or you will get an error message. Message can be ignored and time will update when 
+  :: connected to network. **
+
+  COPY  D:\Install_Files\RegisterThinclientComponents-A.cmd "C:\RegisterThinclientComponents-A.cmd" /Y/V/Z
+  Call C:\Witron\PCO\MapNetDrives.cmd  
+  CALL C:\RegisterThinclientComponents-A.cmd r > c:\RegisterThinclientComponents-A.txt 
+  
+  netsh wlan add profile filename ="D:\Install_Files\Wifi.Xml"
+  netsh interface set interface "Wireless Network Connection" Disable
+
+  xcopy /s MSFLXGRD.ocx C:\Witron\
+  RegSvr32.exe C:\Witron\MSFLXGRD.ocx
+  
+  START /WAIT D:\Install_Files\ChromeStandaloneSetup.exe
+  START /WAIT D:\Install_Files\7z1900.exe
+  PAUSE
