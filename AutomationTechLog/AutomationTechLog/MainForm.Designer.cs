@@ -36,6 +36,7 @@
             this.resizeButton = new System.Windows.Forms.PictureBox();
             this.minimizeButton = new System.Windows.Forms.PictureBox();
             this.buttonPanel = new System.Windows.Forms.Panel();
+            this.olderDateBox = new System.Windows.Forms.Label();
             this.searchContextLabel = new System.Windows.Forms.Label();
             this.legendLabel4 = new System.Windows.Forms.Label();
             this.usersButton = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.cancelSearchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripCSVButton = new System.Windows.Forms.ToolStripButton();
             this.datagridOverview = new System.Windows.Forms.DataGridView();
-            this.olderDateBox = new System.Windows.Forms.Label();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).BeginInit();
@@ -178,6 +178,17 @@
             this.buttonPanel.Size = new System.Drawing.Size(969, 51);
             this.buttonPanel.TabIndex = 1;
             // 
+            // olderDateBox
+            // 
+            this.olderDateBox.AutoSize = true;
+            this.olderDateBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.olderDateBox.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.olderDateBox.Location = new System.Drawing.Point(161, 29);
+            this.olderDateBox.Name = "olderDateBox";
+            this.olderDateBox.Size = new System.Drawing.Size(71, 15);
+            this.olderDateBox.TabIndex = 46;
+            this.olderDateBox.Text = "09-12-2020";
+            // 
             // searchContextLabel
             // 
             this.searchContextLabel.AutoSize = true;
@@ -235,9 +246,9 @@
             this.rowCountLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.rowCountLabel.Location = new System.Drawing.Point(566, 25);
             this.rowCountLabel.Name = "rowCountLabel";
-            this.rowCountLabel.Size = new System.Drawing.Size(109, 15);
+            this.rowCountLabel.Size = new System.Drawing.Size(65, 15);
             this.rowCountLabel.TabIndex = 40;
-            this.rowCountLabel.Text = "Row X of YYY rows";
+            this.rowCountLabel.Text = "Row 0 of 0";
             // 
             // legendLabel2
             // 
@@ -434,25 +445,16 @@
             // datagridOverview
             // 
             this.datagridOverview.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.datagridOverview.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedHeaders;
             this.datagridOverview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.datagridOverview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.datagridOverview.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.datagridOverview.Location = new System.Drawing.Point(0, 113);
             this.datagridOverview.Name = "datagridOverview";
+            this.datagridOverview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridOverview.Size = new System.Drawing.Size(969, 506);
             this.datagridOverview.TabIndex = 3;
-            // 
-            // olderDateBox
-            // 
-            this.olderDateBox.AutoSize = true;
-            this.olderDateBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.olderDateBox.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.olderDateBox.Location = new System.Drawing.Point(161, 29);
-            this.olderDateBox.Name = "olderDateBox";
-            this.olderDateBox.Size = new System.Drawing.Size(71, 15);
-            this.olderDateBox.TabIndex = 46;
-            this.olderDateBox.Text = "07-12-2020";
+            this.datagridOverview.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.datagridOverview_CellFormatting);
+            this.datagridOverview.SelectionChanged += new System.EventHandler(this.datagridOverview_SelectionChanged);
             // 
             // MainForm
             // 

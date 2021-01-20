@@ -16,6 +16,10 @@ namespace AutomationTechLog
     public partial class MainForm : Form 
     {
         sqlLiteMethods DBConn = new sqlLiteMethods();
+        string username = "";
+        string employeeID = "";
+        int rowCount = 0;
+        int selectedRow = 0;
 
         public MainForm(DataRow passedRow)
         {
@@ -25,13 +29,17 @@ namespace AutomationTechLog
 
             int weekNumber = GetWeekNumber(currentTime);
             weekNumberLabel.Text = "Week Number: " + weekNumber.ToString();
-            if (passedRow != null) { nameTitleLabel.Text = passedRow["tlt_name"].ToString(); ; }
+            if (passedRow != null) { username = passedRow["tlt_name"].ToString(); nameTitleLabel.Text = username; 
+                employeeID = passedRow["tlt_auname"].ToString(); }
 
             string currentTimeFormated = formatDate(currentTime);
-            string olderThanDateFormatted = formatDate(olderThanDate);
+            //string olderThanDateFormatted = formatDate(olderThanDate);
+            string olderThanDateFormatted = "09/12/2020";
             olderDateBox.Text = olderThanDateFormatted;
 
-            
+            DataTable searchedTable = buildOverviewDataTable();
+            string builtSQL = buildSQL();
+            buildDataGridView(searchedTable, builtSQL);
         }
 
         private string buildSQL() {
@@ -89,6 +97,13 @@ namespace AutomationTechLog
             filledTable.Columns.Add("tlu_time", typeof(string));
 
 
+            /*
+             select TECHLOG.*, sum(TECHLOG_USER.tlu_time) as TTime, count(TECHLOG_USER.tlu_name) as CountField 
+            FROM TECHLOG LEFT JOIN TECHLOG_USER
+            ON TECHLOG_USER.tl_ref = TECHLOG.tl_ref
+            GROUP BY TECHLOG.tl_ref
+             
+            */
 
             var query = 
             from dt1 in TECHLOGTable.AsEnumerable()
@@ -112,8 +127,10 @@ namespace AutomationTechLog
             }, false);
             query.CopyToDataTable();
 
+            
             DataTable clonedTable = filledTable.Clone();
-            clonedTable.Columns["wl_gendate"].DataType = typeof(DateTime);
+            clonedTable.Columns["tl_gendate"].DataType = typeof(DateTime);
+            clonedTable.Columns["tl_moddate"].DataType = typeof(DateTime);
 
             foreach (DataRow row in filledTable.Rows) {
                 clonedTable.ImportRow(row);
@@ -204,10 +221,46 @@ namespace AutomationTechLog
 
         public void buildDataGridView(DataTable passedTable, string builtSQL)
         {
+            DateTime oldDate = stringToDate(olderDateBox.Text);
+            DateTime currentDate = DateTime.Today;
+            DataView results = new DataView(passedTable);
+            string builtFilter = "";
 
-            datagridOverview.DataSource = passedTable;
+
+
+            if (olderRecordsCheckbox.Checked) { builtFilter = builtFilter +  "tl_gendate >= #" + oldDate + "#" + " AND "; }
+            if (enteredOrdersCheckbox.Checked == false) { builtFilter = builtFilter + "tl_state <> 'Entered'" + " AND "; }
+            if (ownerComboBox.SelectedIndex > -1) {
+                if (ownerComboBox.Text == "Mine") { builtFilter = builtFilter + " tl_genuser = '" + username + "'" + " AND "; }
+                if (ownerComboBox.Text == "Passdown") { builtFilter = builtFilter + "tl_wotype = '" + ownerComboBox.Text + "'" + " AND "; }
+            }
+            if (builtFilter.Length < 5) { builtFilter = builtFilter + " AND "; }
+
+            builtFilter = builtFilter.Remove(builtFilter.Length - 5);
+            results.RowFilter = builtFilter;
+            results.Sort = "tl_gendate DESC";
+
             
-           
+
+
+
+            datagridOverview.DataSource = results;
+            datagridOverview.Columns["tl_ref"].HeaderText = "Ref #";
+            datagridOverview.Columns["tl_state"].HeaderText = "State";
+            datagridOverview.Columns["tl_wotype"].HeaderText = "Type";
+            datagridOverview.Columns["tl_woasset"].HeaderText = "Asset";
+            datagridOverview.Columns["tl_wocomplaint"].HeaderText = "Complaint";
+            datagridOverview.Columns["tl_genuser"].HeaderText = "Gen User";
+            datagridOverview.Columns["tl_gendate"].HeaderText = "Gen Date";
+            datagridOverview.Columns["tl_worootcause"].Visible = false;
+            datagridOverview.Columns["tl_wocorrection"].Visible = false;
+            datagridOverview.Columns["tl_moduser"].Visible = false;
+            datagridOverview.Columns["tl_moddate"].Visible = false;
+            datagridOverview.Columns["tlu_time"].HeaderText = "Time";
+            rowCount = datagridOverview.Rows.Count;
+            datagridOverview.RowHeadersWidth = 10;
+            rowCountLabel.Text = "Row " + selectedRow.ToString() + " of " + rowCount.ToString();
+            
            
 
         }
@@ -216,6 +269,96 @@ namespace AutomationTechLog
         {
             bool showEntered = Convert.ToBoolean(enteredOrdersCheckbox.CheckState);
             MessageBox.Show(showEntered.ToString());
+        }
+
+        private void datagridOverview_SelectionChanged(object sender, EventArgs e)
+        {
+            if (datagridOverview.CurrentCell != null) {
+                selectedRow = datagridOverview.CurrentCell.RowIndex;
+                rowCountLabel.Text = "Row " + selectedRow.ToString() + " of " + rowCount.ToString();
+            }
+        }
+
+        private void datagridOverview_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            string str = "";
+            if (datagridOverview.Rows.Count != 0) {
+                if (datagridOverview.Rows[e.RowIndex].Cells["tl_wotype"].Value != null)
+                {
+                    str = datagridOverview.Rows[e.RowIndex].Cells["tl_wotype"].Value.ToString();
+                }
+            }
+            if (String.Compare(str,"Passdown",false) == 0) {
+                this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.PaleTurquoise;
+            }
+            else if (String.Compare(str, "Facility", false) == 0)
+            {
+                this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.BurlyWood;
+            }
+            else if (String.Compare(str, "Unplanned", false) == 0)
+            {
+                this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.DarkGray;
+            }
+            else if (String.Compare(str, "Improvement", false) == 0)
+            {
+                this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.DarkSeaGreen;
+            }
+            else if (String.Compare(str, "Review", false) != 0)
+            {
+                this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+            }
+            else {
+                this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+            }
+
+            string str1 = "";
+            if (datagridOverview.Rows.Count != 0)
+            {
+                if (datagridOverview.Rows[e.RowIndex].Cells["tl_state"].Value != null)
+                {
+                    str1 = datagridOverview.Rows[e.RowIndex].Cells["tl_state"].Value.ToString();
+                }
+            }
+            if (String.Compare(str1, "Completed", false) == 0)
+            {
+                this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(this.Font.Name, this.Font.Size, FontStyle.Regular);
+            }
+            else if (String.Compare(str1, "Entered", false) != 0)
+            {
+                this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(this.Font.Name, this.Font.Size, FontStyle.Regular);
+            }
+            else 
+            {
+                this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkBlue;
+                this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(this.Font.Name, this.Font.Size, FontStyle.Bold);
+            }
+
+
+            if (datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Value != null && datagridOverview.Rows[e.RowIndex].Cells["tl_moduser"].Value != null)
+            {
+                if (String.Compare(datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Value.ToString(), datagridOverview.Rows[e.RowIndex].Cells["tl_moduser"].Value.ToString(), false) == 0)
+                {
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Style.BackColor = this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.BackColor;
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Style.ForeColor = this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.ForeColor;
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_gendate"].Style.BackColor = this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.BackColor;
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_gendate"].Style.ForeColor = this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.ForeColor;
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].ToolTipText = "";
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_gendate"].ToolTipText = "";
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Style.Font = this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.Font;
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_wocomplaint"].ToolTipText = string.Concat("Correction: ", this.datagridOverview.Rows[e.RowIndex].Cells["tl_wocorrection"].Value.ToString());
+                }
+                else
+                {
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Style.Font = new Font(this.Font.Name, this.Font.Size, FontStyle.Bold);
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].ToolTipText = string.Concat ("Mod by: ", this.datagridOverview.Rows[e.RowIndex].Cells["tl_moduser"].Value.ToString());
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Style.BackColor = Color.Blue;
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Style.ForeColor = Color.White;
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_gendate"].Style.BackColor = Color.Blue;
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_gendate"].Style.ForeColor = Color.White;
+                    this.datagridOverview.Rows[e.RowIndex].Cells["tl_gendate"].ToolTipText = string.Concat("Mod by: ", this.datagridOverview.Rows[e.RowIndex].Cells["tl_moddate"].Value.ToString());
+                }
+            }
+            //this.datagridOverview.Rows[e.RowIndex].Cells["TTime"].ToolTipText = string.Concat("Techs: ", this.datagridOverview.Rows[e.RowIndex].Cells["TCount"].Value.ToString());
         }
 
 
