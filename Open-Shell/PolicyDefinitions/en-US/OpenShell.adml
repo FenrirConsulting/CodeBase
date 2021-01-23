@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<displayName>Open-Shell settings</displayName>
+	<description>Open-Shell settings</description>
+	<resources>
+		<stringTable>
+			<string id="SettingState1">Locked to this value</string>
+			<string id="SettingState2">Locked to default</string>
+			<string id="SettingState3">Unlocked</string>
+			<string id="OpenShellCat">Open-Shell</string>
+			<string id="OpenShellCatHelp">Open-Shell group policy settings</string>
+			<string id="SUPPORTED_CS404">Requires Open-Shell 4.0.4 or later.</string>
+			<string id="CS_str_1">Language for Open-Shell components</string>
+			<string id="CS_str_2">Select the language to be used by Open-Shell (for example en-US or de-DE). The language will affect the text in the start menu, toolbars, etc. If the appropriate language DLL is installed, the settings UI may also be translated
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CS_str_3">Enable automatic checks for new versions</string>
+			<string id="CS_str_4">When this is checked, Open-Shell will check for new releases every week. You will be notified if there is a new version of the Open-Shell software or a new update for your current language
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+		</stringTable>
+		<presentationTable>
+			<presentation id="CS_Language">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Language for Open-Shell components</label></textBox>
+			</presentation>
+			<presentation id="CS_Update">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable automatic checks for new versions</checkBox>
+			</presentation>
+		</presentationTable>
+	</resources>
+</policyDefinitionResources>

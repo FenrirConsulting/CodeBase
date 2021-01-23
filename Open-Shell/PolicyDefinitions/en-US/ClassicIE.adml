@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<displayName>Open-Shell settings</displayName>
+	<description>Open-Shell settings</description>
+	<resources>
+		<stringTable>
+			<string id="SettingState1">Locked to this value</string>
+			<string id="SettingState2">Locked to default</string>
+			<string id="SettingState3">Unlocked</string>
+			<string id="ClassicIECat">Classic IE</string>
+			<string id="ClassicIECatHelp">Classic IE group policy settings</string>
+			<string id="SUPPORTED_CS404">Requires Open-Shell 4.0.4 or later.
+Requires Internet Explorer 9 or later.</string>
+			<string id="CIE_str_1">Enable settings</string>
+			<string id="CIE_str_2">Enables the users to edit their own settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_3">Show caption in the title bar</string>
+			<string id="CIE_str_4">When this is checked, Internet Explorer will show the page title in the title bar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_5">Show icon in the title bar</string>
+			<string id="CIE_str_6">When this is checked, Internet Explorer will show the page icon in the title bar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_7">Center caption</string>
+			<string id="CIE_str_8">When this is checked, the caption will be centered in the title bar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_9">Caption font</string>
+			<string id="CIE_str_10">Select the font and text size to use for the caption.
+
+The format is &lt;font name&gt;, &lt;normal | bold | italic | bold_italic&gt;, &lt;size&gt;. For example &quot;Segoe UI, normal, 9&quot;
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_11">Text color</string>
+			<string id="CIE_str_12">Select the color for the caption text
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_13">Text color (maximized)</string>
+			<string id="CIE_str_14">Select the color for the caption text when the window is maximized
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_15">Text color (inactive)</string>
+			<string id="CIE_str_16">Select the color for the caption text when the window is inactive
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_17">Text color (maximized, inactive)</string>
+			<string id="CIE_str_18">Select the color for the caption text when the window is maximized and inactive
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_19">Text glow</string>
+			<string id="CIE_str_20">When this is checked, the text will have a glow around it
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_21">Glow color</string>
+			<string id="CIE_str_22">Select the color for the caption glow
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_23">Text glow (maximized)</string>
+			<string id="CIE_str_24">When this is checked, the text in the maximized window will have a glow around it
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_25">Glow color (maximized)</string>
+			<string id="CIE_str_26">Select the color for the caption glow when the window is maximized
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_27">Show progress</string>
+			<string id="CIE_str_28">When this is checked, the status bar will show the progress of the current page
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_29">Show zone</string>
+			<string id="CIE_str_30">When this is checked, the status bar will show the current security zone
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CIE_str_31">Show protected mode</string>
+			<string id="CIE_str_32">When this is checked, the status bar will show if the browser is running in protected mode
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+		</stringTable>
+		<presentationTable>
+			<presentation id="CIE_EnableSettings">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable settings</checkBox>
+			</presentation>
+			<presentation id="CIE_ShowCaption">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show caption in the title bar</checkBox>
+			</presentation>
+			<presentation id="CIE_ShowIcon">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show icon in the title bar</checkBox>
+			</presentation>
+			<presentation id="CIE_CenterCaption">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Center caption</checkBox>
+			</presentation>
+			<presentation id="CIE_CaptionFont">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Caption font</label></textBox>
+			</presentation>
+			<presentation id="CIE_TextColor">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Text color</decimalTextBox>
+			</presentation>
+			<presentation id="CIE_MaxColor">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Text color (maximized)</decimalTextBox>
+			</presentation>
+			<presentation id="CIE_InactiveColor">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Text color (inactive)</decimalTextBox>
+			</presentation>
+			<presentation id="CIE_InactiveMaxColor">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Text color (maximized, inactive)</decimalTextBox>
+			</presentation>
+			<presentation id="CIE_Glow">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Text glow</checkBox>
+			</presentation>
+			<presentation id="CIE_GlowColor">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Glow color</decimalTextBox>
+			</presentation>
+			<presentation id="CIE_MaxGlow">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Text glow (maximized)</checkBox>
+			</presentation>
+			<presentation id="CIE_MaxGlowColor">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Glow color (maximized)</decimalTextBox>
+			</presentation>
+			<presentation id="CIE_ShowProgress">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show progress</checkBox>
+			</presentation>
+			<presentation id="CIE_ShowZone">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show zone</checkBox>
+			</presentation>
+			<presentation id="CIE_ShowProtected">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show protected mode</checkBox>
+			</presentation>
+		</presentationTable>
+	</resources>
+</policyDefinitionResources>

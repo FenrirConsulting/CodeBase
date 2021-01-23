@@ -1,0 +1,2791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="0.9" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<policyNamespaces>
+		<target prefix="classic_start_menu" namespace="Open-Shell.Policies.Menu" />
+		<using prefix="classic_shell" namespace="Open-Shell.Policies.OpenShell" />
+	</policyNamespaces>
+	<supersededAdm fileName="" />
+	<resources minRequiredRevision="1.0"/>
+	<supportedOn>
+		<definitions>
+			<definition name="SUPPORTED_CS404_WIN7" displayName="$(string.SUPPORTED_CS404_WIN7)"/>
+			<definition name="SUPPORTED_CS404_WIN78" displayName="$(string.SUPPORTED_CS404_WIN78)"/>
+			<definition name="SUPPORTED_CS404_WIN781" displayName="$(string.SUPPORTED_CS404_WIN781)"/>
+			<definition name="SUPPORTED_CS404_WIN8" displayName="$(string.SUPPORTED_CS404_WIN8)"/>
+			<definition name="SUPPORTED_CS404_WIN881" displayName="$(string.SUPPORTED_CS404_WIN881)"/>
+			<definition name="SUPPORTED_CS404_WIN81" displayName="$(string.SUPPORTED_CS404_WIN81)"/>
+			<definition name="SUPPORTED_CS404_CLASSIC1_STYLE" displayName="$(string.SUPPORTED_CS404_CLASSIC1_STYLE)"/>
+			<definition name="SUPPORTED_CS404_CLASSIC2_STYLE" displayName="$(string.SUPPORTED_CS404_CLASSIC2_STYLE)"/>
+			<definition name="SUPPORTED_CS404_CLASSIC_STYLE" displayName="$(string.SUPPORTED_CS404_CLASSIC_STYLE)"/>
+			<definition name="SUPPORTED_CS404_WIN7_STYLE" displayName="$(string.SUPPORTED_CS404_WIN7_STYLE)"/>
+		</definitions>
+	</supportedOn>
+	<categories>
+		<category name="StartMenu" displayName="$(string.MenuCat)" explainText="$(string.MenuCatHelp)">
+			<parentCategory ref="classic_shell:OpenShell" />
+		</category>
+	</categories>
+	<policies>
+		<policy name="CSM_MenuStyle" class="Both" displayName="$(string.CSM_str_1)" explainText="$(string.CSM_str_2)" presentation="$(presentation.CSM_MenuStyle)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MenuStyle_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="MenuStyle">
+					<item displayName="$(string.CSM_str_3)"><value><string>Classic1</string></value></item>
+					<item displayName="$(string.CSM_str_4)"><value><string>Classic2</string></value></item>
+					<item displayName="$(string.CSM_str_5)"><value><string>Win7</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_EnableSettings" class="Both" displayName="$(string.CSM_str_6)" explainText="$(string.CSM_str_7)" presentation="$(presentation.CSM_EnableSettings)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableSettings_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableSettings">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_FolderStartMenu" class="Both" displayName="$(string.CSM_str_8)" explainText="$(string.CSM_str_9)" presentation="$(presentation.CSM_FolderStartMenu)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="FolderStartMenu_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="FolderStartMenu"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_FolderCommonStartMenu" class="Both" displayName="$(string.CSM_str_10)" explainText="$(string.CSM_str_11)" presentation="$(presentation.CSM_FolderCommonStartMenu)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="FolderCommonStartMenu_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="FolderCommonStartMenu"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_FolderPrograms" class="Both" displayName="$(string.CSM_str_12)" explainText="$(string.CSM_str_13)" presentation="$(presentation.CSM_FolderPrograms)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="FolderPrograms_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="FolderPrograms"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_FolderCommonPrograms" class="Both" displayName="$(string.CSM_str_14)" explainText="$(string.CSM_str_15)" presentation="$(presentation.CSM_FolderCommonPrograms)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="FolderCommonPrograms_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="FolderCommonPrograms"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_AutoStartDelay" class="Both" displayName="$(string.CSM_str_16)" explainText="$(string.CSM_str_17)" presentation="$(presentation.CSM_AutoStartDelay)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="AutoStartDelay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="AutoStartDelay"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MouseClick" class="Both" displayName="$(string.CSM_str_18)" explainText="$(string.CSM_str_19)" presentation="$(presentation.CSM_MouseClick)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MouseClick_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="MouseClick">
+					<item displayName="$(string.CSM_str_20)"><value><string>Nothing</string></value></item>
+					<item displayName="$(string.CSM_str_21)"><value><string>ClassicMenu</string></value></item>
+					<item displayName="$(string.CSM_str_22)"><value><string>WindowsMenu</string></value></item>
+					<item displayName="$(string.CSM_str_23)"><value><string>Both</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ShiftClick" class="Both" displayName="$(string.CSM_str_24)" explainText="$(string.CSM_str_25)" presentation="$(presentation.CSM_ShiftClick)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShiftClick_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="ShiftClick">
+					<item displayName="$(string.CSM_str_26)"><value><string>Nothing</string></value></item>
+					<item displayName="$(string.CSM_str_27)"><value><string>ClassicMenu</string></value></item>
+					<item displayName="$(string.CSM_str_28)"><value><string>WindowsMenu</string></value></item>
+					<item displayName="$(string.CSM_str_29)"><value><string>Both</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_WinKey" class="Both" displayName="$(string.CSM_str_30)" explainText="$(string.CSM_str_31)" presentation="$(presentation.CSM_WinKey)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="WinKey_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="WinKey">
+					<item displayName="$(string.CSM_str_32)"><value><string>Nothing</string></value></item>
+					<item displayName="$(string.CSM_str_33)"><value><string>ClassicMenu</string></value></item>
+					<item displayName="$(string.CSM_str_34)"><value><string>WindowsMenu</string></value></item>
+					<item displayName="$(string.CSM_str_35)"><value><string>Both</string></value></item>
+					<item displayName="$(string.CSM_str_36)"><value><string>Desktop</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ShiftWin" class="Both" displayName="$(string.CSM_str_37)" explainText="$(string.CSM_str_38)" presentation="$(presentation.CSM_ShiftWin)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShiftWin_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="ShiftWin">
+					<item displayName="$(string.CSM_str_39)"><value><string>Nothing</string></value></item>
+					<item displayName="$(string.CSM_str_40)"><value><string>ClassicMenu</string></value></item>
+					<item displayName="$(string.CSM_str_41)"><value><string>WindowsMenu</string></value></item>
+					<item displayName="$(string.CSM_str_42)"><value><string>Both</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MiddleClick" class="Both" displayName="$(string.CSM_str_43)" explainText="$(string.CSM_str_44)" presentation="$(presentation.CSM_MiddleClick)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MiddleClick_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="MiddleClick">
+					<item displayName="$(string.CSM_str_45)"><value><string>Nothing</string></value></item>
+					<item displayName="$(string.CSM_str_46)"><value><string>ClassicMenu</string></value></item>
+					<item displayName="$(string.CSM_str_47)"><value><string>WindowsMenu</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_Hover" class="Both" displayName="$(string.CSM_str_48)" explainText="$(string.CSM_str_49)" presentation="$(presentation.CSM_Hover)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="Hover_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="Hover">
+					<item displayName="$(string.CSM_str_50)"><value><string>Nothing</string></value></item>
+					<item displayName="$(string.CSM_str_51)"><value><string>ClassicMenu</string></value></item>
+					<item displayName="$(string.CSM_str_52)"><value><string>WindowsMenu</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_StartHoverDelay" class="Both" displayName="$(string.CSM_str_53)" explainText="$(string.CSM_str_54)" presentation="$(presentation.CSM_StartHoverDelay)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="StartHoverDelay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="StartHoverDelay"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ShiftRight" class="Both" displayName="$(string.CSM_str_55)" explainText="$(string.CSM_str_56)" presentation="$(presentation.CSM_ShiftRight)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShiftRight_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShiftRight">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_CSMHotkey" class="Both" displayName="$(string.CSM_str_57)" explainText="$(string.CSM_str_58)" presentation="$(presentation.CSM_CSMHotkey)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="CSMHotkey_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="CSMHotkey"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_WSMHotkey" class="Both" displayName="$(string.CSM_str_59)" explainText="$(string.CSM_str_60)" presentation="$(presentation.CSM_WSMHotkey)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="WSMHotkey_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="WSMHotkey"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_Computer" class="Both" displayName="$(string.CSM_str_61)" explainText="$(string.CSM_str_62)" presentation="$(presentation.CSM_Computer)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="Computer_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="Computer">
+					<item displayName="$(string.CSM_str_63)"><value><string>Hide</string></value></item>
+					<item displayName="$(string.CSM_str_64)"><value><string>Show</string></value></item>
+					<item displayName="$(string.CSM_str_65)"><value><string>Menu</string></value></item>
+					<item displayName="$(string.CSM_str_66)"><value><string>Drives</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_Favorites" class="Both" displayName="$(string.CSM_str_67)" explainText="$(string.CSM_str_68)" presentation="$(presentation.CSM_Favorites)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="Favorites_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="Favorites">
+					<item displayName="$(string.CSM_str_69)"><value><string>Hide</string></value></item>
+					<item displayName="$(string.CSM_str_70)"><value><string>Show</string></value></item>
+					<item displayName="$(string.CSM_str_71)"><value><string>Menu</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_Documents" class="Both" displayName="$(string.CSM_str_72)" explainText="$(string.CSM_str_73)" presentation="$(presentation.CSM_Documents)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="Documents_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="Documents">
+					<item displayName="$(string.CSM_str_74)"><value><string>Hide</string></value></item>
+					<item displayName="$(string.CSM_str_75)"><value><string>Show</string></value></item>
+					<item displayName="$(string.CSM_str_76)"><value><string>Menu</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MaxRecentDocuments" class="Both" displayName="$(string.CSM_str_77)" explainText="$(string.CSM_str_78)" presentation="$(presentation.CSM_MaxRecentDocuments)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MaxRecentDocuments_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MaxRecentDocuments"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SortRecentDocuments" class="Both" displayName="$(string.CSM_str_79)" explainText="$(string.CSM_str_80)" presentation="$(presentation.CSM_SortRecentDocuments)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SortRecentDocuments_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="SortRecentDocuments">
+					<item displayName="$(string.CSM_str_81)"><value><string>Name</string></value></item>
+					<item displayName="$(string.CSM_str_82)"><value><string>Extension</string></value></item>
+					<item displayName="$(string.CSM_str_83)"><value><string>Date</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_UserFiles" class="Both" displayName="$(string.CSM_str_84)" explainText="$(string.CSM_str_85)" presentation="$(presentation.CSM_UserFiles)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="UserFiles_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="UserFiles">
+					<item displayName="$(string.CSM_str_86)"><value><string>Hide</string></value></item>
+					<item displayName="$(string.CSM_str_87)"><value><string>Show</string></value></item>
+					<item displayName="$(string.CSM_str_88)"><value><string>Menu</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_UserDocuments" class="Both" displayName="$(string.CSM_str_89)" explainText="$(string.CSM_str_90)" presentation="$(presentation.CSM_UserDocuments)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="UserDocuments_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="UserDocuments">
+					<item displayName="$(string.CSM_str_91)"><value><string>Hide</string></value></item>
+					<item displayName="$(string.CSM_str_92)"><value><string>Show</string></value></item>
+					<item displayName="$(string.CSM_str_93)"><value><string>Menu</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_UserPictures" class="Both" displayName="$(string.CSM_str_94)" explainText="$(string.CSM_str_95)" presentation="$(presentation.CSM_UserPictures)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="UserPictures_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="UserPictures">
+					<item displayName="$(string.CSM_str_96)"><value><string>Hide</string></value></item>
+					<item displayName="$(string.CSM_str_97)"><value><string>Show</string></value></item>
+					<item displayName="$(string.CSM_str_98)"><value><string>Menu</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ControlPanel" class="Both" displayName="$(string.CSM_str_99)" explainText="$(string.CSM_str_100)" presentation="$(presentation.CSM_ControlPanel)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="ControlPanel_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="ControlPanel">
+					<item displayName="$(string.CSM_str_101)"><value><string>Hide</string></value></item>
+					<item displayName="$(string.CSM_str_102)"><value><string>Show</string></value></item>
+					<item displayName="$(string.CSM_str_103)"><value><string>Menu</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ControlPanelCategories" class="Both" displayName="$(string.CSM_str_104)" explainText="$(string.CSM_str_105)" presentation="$(presentation.CSM_ControlPanelCategories)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ControlPanelCategories_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ControlPanelCategories">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_Network" class="Both" displayName="$(string.CSM_str_106)" explainText="$(string.CSM_str_107)" presentation="$(presentation.CSM_Network)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="Network_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="Network">
+					<item displayName="$(string.CSM_str_108)"><value><string>Hide</string></value></item>
+					<item displayName="$(string.CSM_str_109)"><value><string>Show</string></value></item>
+					<item displayName="$(string.CSM_str_110)"><value><string>Menu</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_Printers" class="Both" displayName="$(string.CSM_str_111)" explainText="$(string.CSM_str_112)" presentation="$(presentation.CSM_Printers)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="Printers_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="Printers">
+					<item displayName="$(string.CSM_str_113)"><value><string>Hide</string></value></item>
+					<item displayName="$(string.CSM_str_114)"><value><string>Show</string></value></item>
+					<item displayName="$(string.CSM_str_115)"><value><string>Menu</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_Shutdown" class="Both" displayName="$(string.CSM_str_116)" explainText="$(string.CSM_str_117)" presentation="$(presentation.CSM_Shutdown)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="Shutdown_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="Shutdown">
+					<item displayName="$(string.CSM_str_118)"><value><string>Hide</string></value></item>
+					<item displayName="$(string.CSM_str_119)"><value><string>Show</string></value></item>
+					<item displayName="$(string.CSM_str_120)"><value><string>Menu</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_LogOff" class="Both" displayName="$(string.CSM_str_121)" explainText="$(string.CSM_str_122)" presentation="$(presentation.CSM_LogOff)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="LogOff_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="LogOff">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ConfirmLogOff" class="Both" displayName="$(string.CSM_str_123)" explainText="$(string.CSM_str_124)" presentation="$(presentation.CSM_ConfirmLogOff)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ConfirmLogOff_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ConfirmLogOff">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_Undock" class="Both" displayName="$(string.CSM_str_125)" explainText="$(string.CSM_str_126)" presentation="$(presentation.CSM_Undock)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="Undock_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="Undock">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_Search" class="Both" displayName="$(string.CSM_str_127)" explainText="$(string.CSM_str_128)" presentation="$(presentation.CSM_Search)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="Search_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="Search">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ShowAppsMenu" class="Both" displayName="$(string.CSM_str_129)" explainText="$(string.CSM_str_130)" presentation="$(presentation.CSM_ShowAppsMenu)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShowAppsMenu_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowAppsMenu">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_Help" class="Both" displayName="$(string.CSM_str_131)" explainText="$(string.CSM_str_132)" presentation="$(presentation.CSM_Help)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="Help_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="Help">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_Run" class="Both" displayName="$(string.CSM_str_133)" explainText="$(string.CSM_str_134)" presentation="$(presentation.CSM_Run)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="Run_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="Run">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ProgramsStyle" class="Both" displayName="$(string.CSM_str_135)" explainText="$(string.CSM_str_136)" presentation="$(presentation.CSM_ProgramsStyle)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="ProgramsStyle_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="ProgramsStyle">
+					<item displayName="$(string.CSM_str_137)"><value><string>Cascade</string></value></item>
+					<item displayName="$(string.CSM_str_138)"><value><string>Inline</string></value></item>
+					<item displayName="$(string.CSM_str_139)"><value><string>Hidden</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_AllProgramsMetro" class="Both" displayName="$(string.CSM_str_140)" explainText="$(string.CSM_str_141)" presentation="$(presentation.CSM_AllProgramsMetro)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN881" />
+			<elements>
+				<enum id="State" valueName="AllProgramsMetro_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="AllProgramsMetro">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_FoldersFirst" class="Both" displayName="$(string.CSM_str_142)" explainText="$(string.CSM_str_143)" presentation="$(presentation.CSM_FoldersFirst)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="FoldersFirst_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="FoldersFirst">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_OpenPrograms" class="Both" displayName="$(string.CSM_str_144)" explainText="$(string.CSM_str_145)" presentation="$(presentation.CSM_OpenPrograms)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="OpenPrograms_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="OpenPrograms">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ProgramsMenuDelay" class="Both" displayName="$(string.CSM_str_146)" explainText="$(string.CSM_str_147)" presentation="$(presentation.CSM_ProgramsMenuDelay)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="ProgramsMenuDelay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="ProgramsMenuDelay"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_HideProgramsMetro" class="Both" displayName="$(string.CSM_str_148)" explainText="$(string.CSM_str_149)" presentation="$(presentation.CSM_HideProgramsMetro)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN881" />
+			<elements>
+				<enum id="State" valueName="HideProgramsMetro_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="HideProgramsMetro">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_PinnedPrograms" class="Both" displayName="$(string.CSM_str_150)" explainText="$(string.CSM_str_151)" presentation="$(presentation.CSM_PinnedPrograms)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="PinnedPrograms_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="PinnedPrograms">
+					<item displayName="$(string.CSM_str_152)"><value><string>FastItems</string></value></item>
+					<item displayName="$(string.CSM_str_153)"><value><string>PinnedItems</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_RecentPrograms" class="Both" displayName="$(string.CSM_str_154)" explainText="$(string.CSM_str_155)" presentation="$(presentation.CSM_RecentPrograms)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="RecentPrograms_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="RecentPrograms">
+					<item displayName="$(string.CSM_str_156)"><value><string>None</string></value></item>
+					<item displayName="$(string.CSM_str_157)"><value><string>Recent</string></value></item>
+					<item displayName="$(string.CSM_str_158)"><value><string>Frequent</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_RecentMetroApps" class="Both" displayName="$(string.CSM_str_159)" explainText="$(string.CSM_str_160)" presentation="$(presentation.CSM_RecentMetroApps)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN881" />
+			<elements>
+				<enum id="State" valueName="RecentMetroApps_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="RecentMetroApps">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MaxRecentPrograms" class="Both" displayName="$(string.CSM_str_161)" explainText="$(string.CSM_str_162)" presentation="$(presentation.CSM_MaxRecentPrograms)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MaxRecentPrograms_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MaxRecentPrograms"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_RecentProgsTop" class="Both" displayName="$(string.CSM_str_163)" explainText="$(string.CSM_str_164)" presentation="$(presentation.CSM_RecentProgsTop)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="RecentProgsTop_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="RecentProgsTop">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_RecentSortName" class="Both" displayName="$(string.CSM_str_165)" explainText="$(string.CSM_str_166)" presentation="$(presentation.CSM_RecentSortName)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="RecentSortName_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="RecentSortName">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_RecentProgKeys" class="Both" displayName="$(string.CSM_str_167)" explainText="$(string.CSM_str_168)" presentation="$(presentation.CSM_RecentProgKeys)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="RecentProgKeys_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="RecentProgKeys">
+					<item displayName="$(string.CSM_str_169)"><value><string>NoKey</string></value></item>
+					<item displayName="$(string.CSM_str_170)"><value><string>Normal</string></value></item>
+					<item displayName="$(string.CSM_str_171)"><value><string>Digits</string></value></item>
+					<item displayName="$(string.CSM_str_172)"><value><string>HiddenDigits</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_EnableJumplists" class="Both" displayName="$(string.CSM_str_173)" explainText="$(string.CSM_str_174)" presentation="$(presentation.CSM_EnableJumplists)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableJumplists_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableJumplists">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MaxJumplists" class="Both" displayName="$(string.CSM_str_175)" explainText="$(string.CSM_str_176)" presentation="$(presentation.CSM_MaxJumplists)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MaxJumplists_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MaxJumplists"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_JumplistKeys" class="Both" displayName="$(string.CSM_str_177)" explainText="$(string.CSM_str_178)" presentation="$(presentation.CSM_JumplistKeys)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="JumplistKeys_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="JumplistKeys">
+					<item displayName="$(string.CSM_str_179)"><value><string>Select</string></value></item>
+					<item displayName="$(string.CSM_str_180)"><value><string>Run</string></value></item>
+					<item displayName="$(string.CSM_str_181)"><value><string>Open</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ShutdownCommand" class="Both" displayName="$(string.CSM_str_182)" explainText="$(string.CSM_str_183)" presentation="$(presentation.CSM_ShutdownCommand)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="ShutdownCommand_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="ShutdownCommand">
+					<item displayName="$(string.CSM_str_184)"><value><string>CommandNone</string></value></item>
+					<item displayName="$(string.CSM_str_185)"><value><string>CommandShutdown</string></value></item>
+					<item displayName="$(string.CSM_str_186)"><value><string>CommandRestart</string></value></item>
+					<item displayName="$(string.CSM_str_187)"><value><string>CommandLogOff</string></value></item>
+					<item displayName="$(string.CSM_str_188)"><value><string>CommandSleep</string></value></item>
+					<item displayName="$(string.CSM_str_189)"><value><string>CommandHibernate</string></value></item>
+					<item displayName="$(string.CSM_str_190)"><value><string>CommandLock</string></value></item>
+					<item displayName="$(string.CSM_str_191)"><value><string>CommandSwitch</string></value></item>
+					<item displayName="$(string.CSM_str_192)"><value><string>CommandShutdownBox</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ShutdownW7" class="Both" displayName="$(string.CSM_str_193)" explainText="$(string.CSM_str_194)" presentation="$(presentation.CSM_ShutdownW7)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="ShutdownW7_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="ShutdownW7"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_RemoteShutdown" class="Both" displayName="$(string.CSM_str_195)" explainText="$(string.CSM_str_196)" presentation="$(presentation.CSM_RemoteShutdown)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="RemoteShutdown_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="RemoteShutdown">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_HybridShutdown" class="Both" displayName="$(string.CSM_str_197)" explainText="$(string.CSM_str_198)" presentation="$(presentation.CSM_HybridShutdown)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="HybridShutdown_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="HybridShutdown">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SelectLastShutdown" class="Both" displayName="$(string.CSM_str_199)" explainText="$(string.CSM_str_200)" presentation="$(presentation.CSM_SelectLastShutdown)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SelectLastShutdown_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SelectLastShutdown">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ProgramsWidth" class="Both" displayName="$(string.CSM_str_201)" explainText="$(string.CSM_str_202)" presentation="$(presentation.CSM_ProgramsWidth)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="ProgramsWidth_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="ProgramsWidth"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_JumplistWidth" class="Both" displayName="$(string.CSM_str_203)" explainText="$(string.CSM_str_204)" presentation="$(presentation.CSM_JumplistWidth)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="JumplistWidth_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="JumplistWidth"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MinMainHeight" class="Both" displayName="$(string.CSM_str_205)" explainText="$(string.CSM_str_206)" presentation="$(presentation.CSM_MinMainHeight)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="MinMainHeight_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MinMainHeight"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_StartScreenShortcut" class="Both" displayName="$(string.CSM_str_207)" explainText="$(string.CSM_str_208)" presentation="$(presentation.CSM_StartScreenShortcut)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN881" />
+			<elements>
+				<enum id="State" valueName="StartScreenShortcut_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="StartScreenShortcut">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MainSortZA" class="Both" displayName="$(string.CSM_str_209)" explainText="$(string.CSM_str_210)" presentation="$(presentation.CSM_MainSortZA)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MainSortZA_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="MainSortZA">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MainSortOnce" class="Both" displayName="$(string.CSM_str_211)" explainText="$(string.CSM_str_212)" presentation="$(presentation.CSM_MainSortOnce)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MainSortOnce_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="MainSortOnce">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_AutoStart" class="Both" displayName="$(string.CSM_str_213)" explainText="$(string.CSM_str_214)" presentation="$(presentation.CSM_AutoStart)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="AutoStart_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="AutoStart">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_HighlightNew" class="Both" displayName="$(string.CSM_str_215)" explainText="$(string.CSM_str_216)" presentation="$(presentation.CSM_HighlightNew)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="HighlightNew_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="HighlightNew">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_HighlightNewApps" class="Both" displayName="$(string.CSM_str_217)" explainText="$(string.CSM_str_218)" presentation="$(presentation.CSM_HighlightNewApps)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="HighlightNewApps_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="HighlightNewApps">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_CheckWinUpdates" class="Both" displayName="$(string.CSM_str_219)" explainText="$(string.CSM_str_220)" presentation="$(presentation.CSM_CheckWinUpdates)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="CheckWinUpdates_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="CheckWinUpdates">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MenuDelay" class="Both" displayName="$(string.CSM_str_221)" explainText="$(string.CSM_str_222)" presentation="$(presentation.CSM_MenuDelay)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MenuDelay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MenuDelay"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SplitMenuDelay" class="Both" displayName="$(string.CSM_str_223)" explainText="$(string.CSM_str_224)" presentation="$(presentation.CSM_SplitMenuDelay)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SplitMenuDelay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="SplitMenuDelay"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_InfotipDelay" class="Both" displayName="$(string.CSM_str_225)" explainText="$(string.CSM_str_226)" presentation="$(presentation.CSM_InfotipDelay)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="InfotipDelay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="InfotipDelay"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_FolderInfotipDelay" class="Both" displayName="$(string.CSM_str_227)" explainText="$(string.CSM_str_228)" presentation="$(presentation.CSM_FolderInfotipDelay)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="FolderInfotipDelay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="FolderInfotipDelay"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_EnableDragDrop" class="Both" displayName="$(string.CSM_str_229)" explainText="$(string.CSM_str_230)" presentation="$(presentation.CSM_EnableDragDrop)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableDragDrop_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableDragDrop">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_DragHideDelay" class="Both" displayName="$(string.CSM_str_231)" explainText="$(string.CSM_str_232)" presentation="$(presentation.CSM_DragHideDelay)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="DragHideDelay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="DragHideDelay"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ScrollType" class="Both" displayName="$(string.CSM_str_233)" explainText="$(string.CSM_str_234)" presentation="$(presentation.CSM_ScrollType)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ScrollType_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="ScrollType">
+					<item displayName="$(string.CSM_str_235)"><value><string>Scroll</string></value></item>
+					<item displayName="$(string.CSM_str_236)"><value><string>NoScroll</string></value></item>
+					<item displayName="$(string.CSM_str_237)"><value><string>Auto</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SameSizeColumns" class="Both" displayName="$(string.CSM_str_238)" explainText="$(string.CSM_str_239)" presentation="$(presentation.CSM_SameSizeColumns)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SameSizeColumns_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SameSizeColumns">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_UserPicturePath" class="Both" displayName="$(string.CSM_str_240)" explainText="$(string.CSM_str_241)" presentation="$(presentation.CSM_UserPicturePath)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="UserPicturePath_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="UserPicturePath"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_UserPictureCommand" class="Both" displayName="$(string.CSM_str_242)" explainText="$(string.CSM_str_243)" presentation="$(presentation.CSM_UserPictureCommand)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="UserPictureCommand_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="UserPictureCommand"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_UserNameCommand" class="Both" displayName="$(string.CSM_str_244)" explainText="$(string.CSM_str_245)" presentation="$(presentation.CSM_UserNameCommand)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="UserNameCommand_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="UserNameCommand"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchFilesCommand" class="Both" displayName="$(string.CSM_str_246)" explainText="$(string.CSM_str_247)" presentation="$(presentation.CSM_SearchFilesCommand)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="SearchFilesCommand_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SearchFilesCommand"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ExpandFolderLinks" class="Both" displayName="$(string.CSM_str_248)" explainText="$(string.CSM_str_249)" presentation="$(presentation.CSM_ExpandFolderLinks)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ExpandFolderLinks_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ExpandFolderLinks">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_EnableTouch" class="Both" displayName="$(string.CSM_str_250)" explainText="$(string.CSM_str_251)" presentation="$(presentation.CSM_EnableTouch)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableTouch_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableTouch">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_EnableAccessibility" class="Both" displayName="$(string.CSM_str_252)" explainText="$(string.CSM_str_253)" presentation="$(presentation.CSM_EnableAccessibility)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableAccessibility_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableAccessibility">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ShowNextToTaskbar" class="Both" displayName="$(string.CSM_str_254)" explainText="$(string.CSM_str_255)" presentation="$(presentation.CSM_ShowNextToTaskbar)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShowNextToTaskbar_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowNextToTaskbar">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_PreCacheIcons" class="Both" displayName="$(string.CSM_str_256)" explainText="$(string.CSM_str_257)" presentation="$(presentation.CSM_PreCacheIcons)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="PreCacheIcons_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="PreCacheIcons">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_DelayIcons" class="Both" displayName="$(string.CSM_str_258)" explainText="$(string.CSM_str_259)" presentation="$(presentation.CSM_DelayIcons)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="DelayIcons_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="DelayIcons">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ReportSkinErrors" class="Both" displayName="$(string.CSM_str_260)" explainText="$(string.CSM_str_261)" presentation="$(presentation.CSM_ReportSkinErrors)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ReportSkinErrors_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ReportSkinErrors">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchBox" class="Both" displayName="$(string.CSM_str_262)" explainText="$(string.CSM_str_263)" presentation="$(presentation.CSM_SearchBox)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchBox_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="SearchBox">
+					<item displayName="$(string.CSM_str_264)"><value><string>Hide</string></value></item>
+					<item displayName="$(string.CSM_str_265)"><value><string>Normal</string></value></item>
+					<item displayName="$(string.CSM_str_266)"><value><string>Tab</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchSelect" class="Both" displayName="$(string.CSM_str_267)" explainText="$(string.CSM_str_268)" presentation="$(presentation.CSM_SearchSelect)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchSelect_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchSelect">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchTrack" class="Both" displayName="$(string.CSM_str_269)" explainText="$(string.CSM_str_270)" presentation="$(presentation.CSM_SearchTrack)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchTrack_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchTrack">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchResults" class="Both" displayName="$(string.CSM_str_271)" explainText="$(string.CSM_str_272)" presentation="$(presentation.CSM_SearchResults)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="SearchResults_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="SearchResults"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchResultsMax" class="Both" displayName="$(string.CSM_str_273)" explainText="$(string.CSM_str_274)" presentation="$(presentation.CSM_SearchResultsMax)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="SearchResultsMax_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="SearchResultsMax"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchAutoComplete" class="Both" displayName="$(string.CSM_str_275)" explainText="$(string.CSM_str_276)" presentation="$(presentation.CSM_SearchAutoComplete)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchAutoComplete_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchAutoComplete">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchPrograms" class="Both" displayName="$(string.CSM_str_277)" explainText="$(string.CSM_str_278)" presentation="$(presentation.CSM_SearchPrograms)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchPrograms_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchPrograms">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchPath" class="Both" displayName="$(string.CSM_str_279)" explainText="$(string.CSM_str_280)" presentation="$(presentation.CSM_SearchPath)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchPath_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchPath">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchMetroApps" class="Both" displayName="$(string.CSM_str_281)" explainText="$(string.CSM_str_282)" presentation="$(presentation.CSM_SearchMetroApps)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN881" />
+			<elements>
+				<enum id="State" valueName="SearchMetroApps_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchMetroApps">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchMetroSettings" class="Both" displayName="$(string.CSM_str_283)" explainText="$(string.CSM_str_284)" presentation="$(presentation.CSM_SearchMetroSettings)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchMetroSettings_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchMetroSettings">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchKeywords" class="Both" displayName="$(string.CSM_str_285)" explainText="$(string.CSM_str_286)" presentation="$(presentation.CSM_SearchKeywords)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchKeywords_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchKeywords">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchSubWord" class="Both" displayName="$(string.CSM_str_287)" explainText="$(string.CSM_str_288)" presentation="$(presentation.CSM_SearchSubWord)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchSubWord_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchSubWord">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchFiles" class="Both" displayName="$(string.CSM_str_289)" explainText="$(string.CSM_str_290)" presentation="$(presentation.CSM_SearchFiles)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchFiles_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchFiles">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchContents" class="Both" displayName="$(string.CSM_str_291)" explainText="$(string.CSM_str_292)" presentation="$(presentation.CSM_SearchContents)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchContents_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchContents">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchCategories" class="Both" displayName="$(string.CSM_str_293)" explainText="$(string.CSM_str_294)" presentation="$(presentation.CSM_SearchCategories)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchCategories_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchCategories">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SearchInternet" class="Both" displayName="$(string.CSM_str_295)" explainText="$(string.CSM_str_296)" presentation="$(presentation.CSM_SearchInternet)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SearchInternet_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SearchInternet">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SmallIconSize" class="Both" displayName="$(string.CSM_str_297)" explainText="$(string.CSM_str_298)" presentation="$(presentation.CSM_SmallIconSize)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SmallIconSize_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="SmallIconSize"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_LargeIconSize" class="Both" displayName="$(string.CSM_str_299)" explainText="$(string.CSM_str_300)" presentation="$(presentation.CSM_LargeIconSize)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="LargeIconSize_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="LargeIconSize"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_InvertMetroIcons" class="Both" displayName="$(string.CSM_str_301)" explainText="$(string.CSM_str_302)" presentation="$(presentation.CSM_InvertMetroIcons)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="InvertMetroIcons_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="InvertMetroIcons">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MaxMainMenuWidth" class="Both" displayName="$(string.CSM_str_303)" explainText="$(string.CSM_str_304)" presentation="$(presentation.CSM_MaxMainMenuWidth)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="MaxMainMenuWidth_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MaxMainMenuWidth"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MaxMenuWidth" class="Both" displayName="$(string.CSM_str_305)" explainText="$(string.CSM_str_306)" presentation="$(presentation.CSM_MaxMenuWidth)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MaxMenuWidth_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MaxMenuWidth"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_OverrideDPI" class="Both" displayName="$(string.CSM_str_307)" explainText="$(string.CSM_str_308)" presentation="$(presentation.CSM_OverrideDPI)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="OverrideDPI_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="OverrideDPI"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MainMenuAnimate" class="Both" displayName="$(string.CSM_str_309)" explainText="$(string.CSM_str_310)" presentation="$(presentation.CSM_MainMenuAnimate)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MainMenuAnimate_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="MainMenuAnimate">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MainMenuAnimation" class="Both" displayName="$(string.CSM_str_311)" explainText="$(string.CSM_str_312)" presentation="$(presentation.CSM_MainMenuAnimation)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="MainMenuAnimation_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="MainMenuAnimation">
+					<item displayName="$(string.CSM_str_313)"><value><string>None</string></value></item>
+					<item displayName="$(string.CSM_str_314)"><value><string>Fade</string></value></item>
+					<item displayName="$(string.CSM_str_315)"><value><string>Slide</string></value></item>
+					<item displayName="$(string.CSM_str_316)"><value><string>Random</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MainMenuAnimationSpeed" class="Both" displayName="$(string.CSM_str_317)" explainText="$(string.CSM_str_318)" presentation="$(presentation.CSM_MainMenuAnimationSpeed)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="MainMenuAnimationSpeed_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MainMenuAnimationSpeed"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SubMenuAnimation" class="Both" displayName="$(string.CSM_str_319)" explainText="$(string.CSM_str_320)" presentation="$(presentation.CSM_SubMenuAnimation)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SubMenuAnimation_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="SubMenuAnimation">
+					<item displayName="$(string.CSM_str_321)"><value><string>None</string></value></item>
+					<item displayName="$(string.CSM_str_322)"><value><string>Fade</string></value></item>
+					<item displayName="$(string.CSM_str_323)"><value><string>Slide</string></value></item>
+					<item displayName="$(string.CSM_str_324)"><value><string>Random</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SubMenuAnimationSpeed" class="Both" displayName="$(string.CSM_str_325)" explainText="$(string.CSM_str_326)" presentation="$(presentation.CSM_SubMenuAnimationSpeed)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SubMenuAnimationSpeed_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="SubMenuAnimationSpeed"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SubMenuAnimationAlways" class="Both" displayName="$(string.CSM_str_327)" explainText="$(string.CSM_str_328)" presentation="$(presentation.CSM_SubMenuAnimationAlways)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SubMenuAnimationAlways_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SubMenuAnimationAlways">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MainMenuScrollSpeed" class="Both" displayName="$(string.CSM_str_329)" explainText="$(string.CSM_str_330)" presentation="$(presentation.CSM_MainMenuScrollSpeed)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="MainMenuScrollSpeed_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MainMenuScrollSpeed"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SubMenuScrollSpeed" class="Both" displayName="$(string.CSM_str_331)" explainText="$(string.CSM_str_332)" presentation="$(presentation.CSM_SubMenuScrollSpeed)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SubMenuScrollSpeed_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="SubMenuScrollSpeed"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MenuFadeSpeed" class="Both" displayName="$(string.CSM_str_333)" explainText="$(string.CSM_str_334)" presentation="$(presentation.CSM_MenuFadeSpeed)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MenuFadeSpeed_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MenuFadeSpeed"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MenuCaption" class="Both" displayName="$(string.CSM_str_335)" explainText="$(string.CSM_str_336)" presentation="$(presentation.CSM_MenuCaption)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="MenuCaption_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="MenuCaption"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MenuUsername" class="Both" displayName="$(string.CSM_str_337)" explainText="$(string.CSM_str_338)" presentation="$(presentation.CSM_MenuUsername)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC_STYLE" />
+			<elements>
+				<enum id="State" valueName="MenuUsername_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="MenuUsername"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_NumericSort" class="Both" displayName="$(string.CSM_str_339)" explainText="$(string.CSM_str_340)" presentation="$(presentation.CSM_NumericSort)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="NumericSort_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="NumericSort">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_FontSmoothing" class="Both" displayName="$(string.CSM_str_341)" explainText="$(string.CSM_str_342)" presentation="$(presentation.CSM_FontSmoothing)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="FontSmoothing_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="FontSmoothing">
+					<item displayName="$(string.CSM_str_343)"><value><string>Default</string></value></item>
+					<item displayName="$(string.CSM_str_344)"><value><string>None</string></value></item>
+					<item displayName="$(string.CSM_str_345)"><value><string>Standard</string></value></item>
+					<item displayName="$(string.CSM_str_346)"><value><string>ClearType</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MenuShadow" class="Both" displayName="$(string.CSM_str_347)" explainText="$(string.CSM_str_348)" presentation="$(presentation.CSM_MenuShadow)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MenuShadow_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="MenuShadow">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_AeroGlass" class="Both" displayName="$(string.CSM_str_349)" explainText="$(string.CSM_str_350)" presentation="$(presentation.CSM_AeroGlass)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="AeroGlass_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="AeroGlass">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_EnableGlass" class="Both" displayName="$(string.CSM_str_351)" explainText="$(string.CSM_str_352)" presentation="$(presentation.CSM_EnableGlass)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableGlass_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableGlass">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_GlassOverride" class="Both" displayName="$(string.CSM_str_353)" explainText="$(string.CSM_str_354)" presentation="$(presentation.CSM_GlassOverride)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="GlassOverride_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="GlassOverride">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_GlassColor" class="Both" displayName="$(string.CSM_str_355)" explainText="$(string.CSM_str_356)" presentation="$(presentation.CSM_GlassColor)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="GlassColor_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="GlassColor"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_GlassIntensity" class="Both" displayName="$(string.CSM_str_357)" explainText="$(string.CSM_str_358)" presentation="$(presentation.CSM_GlassIntensity)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="GlassIntensity_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="GlassIntensity"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_GlassBlending" class="Both" displayName="$(string.CSM_str_359)" explainText="$(string.CSM_str_360)" presentation="$(presentation.CSM_GlassBlending)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="GlassBlending_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="GlassBlending"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_GlassOpacity" class="Both" displayName="$(string.CSM_str_361)" explainText="$(string.CSM_str_362)" presentation="$(presentation.CSM_GlassOpacity)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="GlassOpacity_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="GlassOpacity"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinC1" class="Both" displayName="$(string.CSM_str_363)" explainText="$(string.CSM_str_364)" presentation="$(presentation.CSM_SkinC1)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC1_STYLE" />
+			<elements>
+				<enum id="State" valueName="SkinC1_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SkinC1"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinVariationC1" class="Both" displayName="$(string.CSM_str_365)" explainText="$(string.CSM_str_366)" presentation="$(presentation.CSM_SkinVariationC1)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC1_STYLE" />
+			<elements>
+				<enum id="State" valueName="SkinVariationC1_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SkinVariationC1"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinOptionsC1" class="Both" displayName="$(string.CSM_str_367)" explainText="$(string.CSM_str_368)" presentation="$(presentation.CSM_SkinOptionsC1)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC1_STYLE" />
+			<elements>
+				<enum id="State" valueName="SkinOptionsC1_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<multiText id="Value" valueName="SkinOptionsC1"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinC2" class="Both" displayName="$(string.CSM_str_369)" explainText="$(string.CSM_str_370)" presentation="$(presentation.CSM_SkinC2)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC2_STYLE" />
+			<elements>
+				<enum id="State" valueName="SkinC2_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SkinC2"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinVariationC2" class="Both" displayName="$(string.CSM_str_371)" explainText="$(string.CSM_str_372)" presentation="$(presentation.CSM_SkinVariationC2)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC2_STYLE" />
+			<elements>
+				<enum id="State" valueName="SkinVariationC2_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SkinVariationC2"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinOptionsC2" class="Both" displayName="$(string.CSM_str_373)" explainText="$(string.CSM_str_374)" presentation="$(presentation.CSM_SkinOptionsC2)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC2_STYLE" />
+			<elements>
+				<enum id="State" valueName="SkinOptionsC2_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<multiText id="Value" valueName="SkinOptionsC2"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinW7" class="Both" displayName="$(string.CSM_str_375)" explainText="$(string.CSM_str_376)" presentation="$(presentation.CSM_SkinW7)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="SkinW7_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SkinW7"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinVariationW7" class="Both" displayName="$(string.CSM_str_377)" explainText="$(string.CSM_str_378)" presentation="$(presentation.CSM_SkinVariationW7)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="SkinVariationW7_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SkinVariationW7"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinOptionsW7" class="Both" displayName="$(string.CSM_str_379)" explainText="$(string.CSM_str_380)" presentation="$(presentation.CSM_SkinOptionsW7)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="SkinOptionsW7_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<multiText id="Value" valueName="SkinOptionsW7"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_EnableStartButton" class="Both" displayName="$(string.CSM_str_381)" explainText="$(string.CSM_str_382)" presentation="$(presentation.CSM_EnableStartButton)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableStartButton_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableStartButton">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_AllTaskbars" class="Both" displayName="$(string.CSM_str_383)" explainText="$(string.CSM_str_384)" presentation="$(presentation.CSM_AllTaskbars)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN881" />
+			<elements>
+				<enum id="State" valueName="AllTaskbars_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="AllTaskbars">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_StartButtonTip" class="Both" displayName="$(string.CSM_str_385)" explainText="$(string.CSM_str_386)" presentation="$(presentation.CSM_StartButtonTip)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="StartButtonTip_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="StartButtonTip"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_StartButtonType" class="Both" displayName="$(string.CSM_str_387)" explainText="$(string.CSM_str_388)" presentation="$(presentation.CSM_StartButtonType)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="StartButtonType_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="StartButtonType">
+					<item displayName="$(string.CSM_str_389)"><value><string>AeroButton</string></value></item>
+					<item displayName="$(string.CSM_str_390)"><value><string>ClasicButton</string></value></item>
+					<item displayName="$(string.CSM_str_391)"><value><string>CustomButton</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_StartButtonPath" class="Both" displayName="$(string.CSM_str_392)" explainText="$(string.CSM_str_393)" presentation="$(presentation.CSM_StartButtonPath)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="StartButtonPath_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="StartButtonPath"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_StartButtonSize" class="Both" displayName="$(string.CSM_str_394)" explainText="$(string.CSM_str_395)" presentation="$(presentation.CSM_StartButtonSize)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="StartButtonSize_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="StartButtonSize"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_StartButtonAlign" class="Both" displayName="$(string.CSM_str_396)" explainText="$(string.CSM_str_397)" presentation="$(presentation.CSM_StartButtonAlign)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="StartButtonAlign_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="StartButtonAlign">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_StartButtonIcon" class="Both" displayName="$(string.CSM_str_398)" explainText="$(string.CSM_str_399)" presentation="$(presentation.CSM_StartButtonIcon)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="StartButtonIcon_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="StartButtonIcon"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_StartButtonIconSize" class="Both" displayName="$(string.CSM_str_400)" explainText="$(string.CSM_str_401)" presentation="$(presentation.CSM_StartButtonIconSize)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="StartButtonIconSize_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="StartButtonIconSize"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_StartButtonText" class="Both" displayName="$(string.CSM_str_402)" explainText="$(string.CSM_str_403)" presentation="$(presentation.CSM_StartButtonText)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="StartButtonText_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="StartButtonText"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_CustomTaskbar" class="Both" displayName="$(string.CSM_str_404)" explainText="$(string.CSM_str_405)" presentation="$(presentation.CSM_CustomTaskbar)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="CustomTaskbar_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="CustomTaskbar">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_TaskbarLook" class="Both" displayName="$(string.CSM_str_406)" explainText="$(string.CSM_str_407)" presentation="$(presentation.CSM_TaskbarLook)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TaskbarLook_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="TaskbarLook">
+					<item displayName="$(string.CSM_str_408)"><value><string>Opaque</string></value></item>
+					<item displayName="$(string.CSM_str_409)"><value><string>Transparent</string></value></item>
+					<item displayName="$(string.CSM_str_410)"><value><string>Glass</string></value></item>
+					<item displayName="$(string.CSM_str_411)"><value><string>AeroGlass</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_TaskbarOpacity" class="Both" displayName="$(string.CSM_str_412)" explainText="$(string.CSM_str_413)" presentation="$(presentation.CSM_TaskbarOpacity)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TaskbarOpacity_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="TaskbarOpacity"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_TaskbarColor" class="Both" displayName="$(string.CSM_str_414)" explainText="$(string.CSM_str_415)" presentation="$(presentation.CSM_TaskbarColor)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TaskbarColor_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="TaskbarColor"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_TaskbarTextColor" class="Both" displayName="$(string.CSM_str_416)" explainText="$(string.CSM_str_417)" presentation="$(presentation.CSM_TaskbarTextColor)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TaskbarTextColor_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="TaskbarTextColor"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_TaskbarTexture" class="Both" displayName="$(string.CSM_str_418)" explainText="$(string.CSM_str_419)" presentation="$(presentation.CSM_TaskbarTexture)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TaskbarTexture_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="TaskbarTexture"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_TaskbarTileH" class="Both" displayName="$(string.CSM_str_420)" explainText="$(string.CSM_str_421)" presentation="$(presentation.CSM_TaskbarTileH)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TaskbarTileH_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="TaskbarTileH">
+					<item displayName="$(string.CSM_str_422)"><value><string>Tile</string></value></item>
+					<item displayName="$(string.CSM_str_423)"><value><string>Stretch</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_TaskbarBordersH" class="Both" displayName="$(string.CSM_str_424)" explainText="$(string.CSM_str_425)" presentation="$(presentation.CSM_TaskbarBordersH)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TaskbarBordersH_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="TaskbarBordersH"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_TaskbarTileV" class="Both" displayName="$(string.CSM_str_426)" explainText="$(string.CSM_str_427)" presentation="$(presentation.CSM_TaskbarTileV)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TaskbarTileV_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="TaskbarTileV">
+					<item displayName="$(string.CSM_str_428)"><value><string>Tile</string></value></item>
+					<item displayName="$(string.CSM_str_429)"><value><string>Stretch</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_TaskbarBordersV" class="Both" displayName="$(string.CSM_str_430)" explainText="$(string.CSM_str_431)" presentation="$(presentation.CSM_TaskbarBordersV)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TaskbarBordersV_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="TaskbarBordersV"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkipMetro" class="Both" displayName="$(string.CSM_str_432)" explainText="$(string.CSM_str_433)" presentation="$(presentation.CSM_SkipMetro)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN8" />
+			<elements>
+				<enum id="State" valueName="SkipMetro_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SkipMetro">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_DisableHotCorner" class="Both" displayName="$(string.CSM_str_434)" explainText="$(string.CSM_str_435)" presentation="$(presentation.CSM_DisableHotCorner)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN881" />
+			<elements>
+				<enum id="State" valueName="DisableHotCorner_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="DisableHotCorner">
+					<item displayName="$(string.CSM_str_436)"><value><string>DisableNone</string></value></item>
+					<item displayName="$(string.CSM_str_437)"><value><string>DisableStart</string></value></item>
+					<item displayName="$(string.CSM_str_438)"><value><string>DisableAll</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_OpenMouseMonitor" class="Both" displayName="$(string.CSM_str_439)" explainText="$(string.CSM_str_440)" presentation="$(presentation.CSM_OpenMouseMonitor)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN881" />
+			<elements>
+				<enum id="State" valueName="OpenMouseMonitor_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="OpenMouseMonitor">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MenuItems1" class="Both" displayName="$(string.CSM_str_441)" explainText="$(string.CSM_str_442)" presentation="$(presentation.CSM_MenuItems1)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC1_STYLE" />
+			<elements>
+				<enum id="State" valueName="MenuItems1_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<multiText id="Value" valueName="MenuItems1"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MenuItems2" class="Both" displayName="$(string.CSM_str_443)" explainText="$(string.CSM_str_444)" presentation="$(presentation.CSM_MenuItems2)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_CLASSIC2_STYLE" />
+			<elements>
+				<enum id="State" valueName="MenuItems2_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<multiText id="Value" valueName="MenuItems2"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_MenuItems7" class="Both" displayName="$(string.CSM_str_445)" explainText="$(string.CSM_str_446)" presentation="$(presentation.CSM_MenuItems7)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7_STYLE" />
+			<elements>
+				<enum id="State" valueName="MenuItems7_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<multiText id="Value" valueName="MenuItems7"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_CascadeAll" class="Both" displayName="$(string.CSM_str_447)" explainText="$(string.CSM_str_448)" presentation="$(presentation.CSM_CascadeAll)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="CascadeAll_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="CascadeAll">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_AllProgramsDelay" class="Both" displayName="$(string.CSM_str_449)" explainText="$(string.CSM_str_450)" presentation="$(presentation.CSM_AllProgramsDelay)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="AllProgramsDelay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="AllProgramsDelay"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_InitiallySelect" class="Both" displayName="$(string.CSM_str_451)" explainText="$(string.CSM_str_452)" presentation="$(presentation.CSM_InitiallySelect)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="InitiallySelect_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="InitiallySelect">
+					<item displayName="$(string.CSM_str_453)"><value><string>SelectSearch</string></value></item>
+					<item displayName="$(string.CSM_str_454)"><value><string>SelectButton</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CSM_HideUserPic" class="Both" displayName="$(string.CSM_str_455)" explainText="$(string.CSM_str_456)" presentation="$(presentation.CSM_HideUserPic)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="HideUserPic_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="HideUserPic">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinA" class="Both" displayName="$(string.CSM_str_457)" explainText="$(string.CSM_str_458)" presentation="$(presentation.CSM_SkinA)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="SkinA_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SkinA"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinVariationA" class="Both" displayName="$(string.CSM_str_459)" explainText="$(string.CSM_str_460)" presentation="$(presentation.CSM_SkinVariationA)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="SkinVariationA_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SkinVariationA"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SkinOptionsA" class="Both" displayName="$(string.CSM_str_461)" explainText="$(string.CSM_str_462)" presentation="$(presentation.CSM_SkinOptionsA)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="SkinOptionsA_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<multiText id="Value" valueName="SkinOptionsA"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_EnableContextMenu" class="Both" displayName="$(string.CSM_str_463)" explainText="$(string.CSM_str_464)" presentation="$(presentation.CSM_EnableContextMenu)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableContextMenu_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableContextMenu">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_CascadingMenu" class="Both" displayName="$(string.CSM_str_465)" explainText="$(string.CSM_str_466)" presentation="$(presentation.CSM_CascadingMenu)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="CascadingMenu_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="CascadingMenu">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ShowNewFolder" class="Both" displayName="$(string.CSM_str_467)" explainText="$(string.CSM_str_468)" presentation="$(presentation.CSM_ShowNewFolder)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShowNewFolder_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowNewFolder">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_EnableExit" class="Both" displayName="$(string.CSM_str_469)" explainText="$(string.CSM_str_470)" presentation="$(presentation.CSM_EnableExit)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableExit_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableExit">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_EnableExplorer" class="Both" displayName="$(string.CSM_str_471)" explainText="$(string.CSM_str_472)" presentation="$(presentation.CSM_EnableExplorer)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableExplorer_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableExplorer">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_ExplorerPath" class="Both" displayName="$(string.CSM_str_473)" explainText="$(string.CSM_str_474)" presentation="$(presentation.CSM_ExplorerPath)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ExplorerPath_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="ExplorerPath"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_DisablePinExt" class="Both" displayName="$(string.CSM_str_475)" explainText="$(string.CSM_str_476)" presentation="$(presentation.CSM_DisablePinExt)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="DisablePinExt_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="DisablePinExt">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SoundMain" class="Both" displayName="$(string.CSM_str_477)" explainText="$(string.CSM_str_478)" presentation="$(presentation.CSM_SoundMain)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SoundMain_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SoundMain"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SoundPopup" class="Both" displayName="$(string.CSM_str_479)" explainText="$(string.CSM_str_480)" presentation="$(presentation.CSM_SoundPopup)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SoundPopup_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SoundPopup"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SoundCommand" class="Both" displayName="$(string.CSM_str_481)" explainText="$(string.CSM_str_482)" presentation="$(presentation.CSM_SoundCommand)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SoundCommand_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SoundCommand"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SoundDrop" class="Both" displayName="$(string.CSM_str_483)" explainText="$(string.CSM_str_484)" presentation="$(presentation.CSM_SoundDrop)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SoundDrop_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SoundDrop"/>
+			</elements>
+		</policy>
+
+		<policy name="CSM_SoundButtonHover" class="Both" displayName="$(string.CSM_str_485)" explainText="$(string.CSM_str_486)" presentation="$(presentation.CSM_SoundButtonHover)" key="Software\Policies\OpenShell\StartMenu">
+			<parentCategory ref="StartMenu" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SoundButtonHover_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="SoundButtonHover"/>
+			</elements>
+		</policy>
+
+	</policies>
+</policyDefinitions>

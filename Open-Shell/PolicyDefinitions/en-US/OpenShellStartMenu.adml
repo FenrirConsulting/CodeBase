@@ -1,0 +1,2587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<displayName>Open-Shell settings</displayName>
+	<description>Open-Shell settings</description>
+	<resources>
+		<stringTable>
+			<string id="SettingState1">Locked to this value</string>
+			<string id="SettingState2">Locked to default</string>
+			<string id="SettingState3">Unlocked</string>
+			<string id="MenuCat">Open-Shell Menu</string>
+			<string id="MenuCatHelp">Open-Shell Menu group policy settings</string>
+			<string id="SUPPORTED_CS404_WIN7">Requires Open-Shell 4.0.4 or later.
+Requires Windows 7.</string>
+			<string id="SUPPORTED_CS404_WIN78">Requires Open-Shell 4.0.4 or later.
+Requires Windows 7 or Windows 8.</string>
+			<string id="SUPPORTED_CS404_WIN781">Requires Open-Shell 4.0.4 or later.
+Requires Windows 7 or Windows 8.1.</string>
+			<string id="SUPPORTED_CS404_WIN8">Requires Open-Shell 4.0.4 or later.
+Requires Windows 8.</string>
+			<string id="SUPPORTED_CS404_WIN881">Requires Open-Shell 4.0.4 or later.
+Requires Windows 8 or Windows 8.1.</string>
+			<string id="SUPPORTED_CS404_WIN81">Requires Open-Shell 4.0.4 or later.
+Requires Windows 8.1.</string>
+			<string id="SUPPORTED_CS404_CLASSIC1_STYLE">Requires Open-Shell 4.0.4 or later.
+Requires Classic menu style with one column.</string>
+			<string id="SUPPORTED_CS404_CLASSIC2_STYLE">Requires Open-Shell 4.0.4 or later.
+Requires Classic menu style with two columns.</string>
+			<string id="SUPPORTED_CS404_CLASSIC_STYLE">Requires Open-Shell 4.0.4 or later.
+Requires Classic menu style.</string>
+			<string id="SUPPORTED_CS404_WIN7_STYLE">Requires Open-Shell 4.0.4 or later.
+Requires Windows 7 menu style.</string>
+			<string id="CSM_str_1">Menu style</string>
+			<string id="CSM_str_2">Select the style for the start menu.
+The style determines the overall look and functionality of the menu.
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_3">Classic with one column</string>
+			<string id="CSM_str_4">Classic with two columns</string>
+			<string id="CSM_str_5">Windows 7</string>
+			<string id="CSM_str_6">Enable settings</string>
+			<string id="CSM_str_7">Enables the users to edit their own settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_8">Start Menu folder</string>
+			<string id="CSM_str_9">Enter an override for the per-user start menu folder (also overrides the per-user Programs folder).
+The path can contain environment variables.
+Note: This setting is not editable from the Settings dialog
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_10">Common Start Menu folder</string>
+			<string id="CSM_str_11">Enter an override for the common start menu folder (also overrides the common Programs folder).
+The path can contain environment variables.
+Note: This setting is not editable from the Settings dialog
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_12">Programs folder</string>
+			<string id="CSM_str_13">Enter an override for the per-user Programs folder.
+The path can contain environment variables.
+Note: This setting is not editable from the Settings dialog
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_14">Common Programs folder</string>
+			<string id="CSM_str_15">Enter an override for the common Programs folder.
+The path can contain environment variables.
+Note: This setting is not editable from the Settings dialog
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_16">Auto-start delay</string>
+			<string id="CSM_str_17">Enter a delay in ms when launching the start menu automatically during login (does not apply when starting the menu manually by running StartMenu.exe).
+Note: This setting is not editable from the Settings dialog
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_18">Left Click opens</string>
+			<string id="CSM_str_19">Select what happens when you click the left mouse button on the Start Button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_20">Nothing</string>
+			<string id="CSM_str_21">Open-Shell Menu</string>
+			<string id="CSM_str_22">Windows Start Menu</string>
+			<string id="CSM_str_23">Start Menu in Desktop and Start Screen in Metro</string>
+			<string id="CSM_str_24">Shift+Click opens</string>
+			<string id="CSM_str_25">Select what happens when you hold Shift and click the left mouse button on the Start Button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_26">Nothing</string>
+			<string id="CSM_str_27">Open-Shell Menu</string>
+			<string id="CSM_str_28">Windows Start Menu</string>
+			<string id="CSM_str_29">Start Menu in Desktop and Start Screen in Metro</string>
+			<string id="CSM_str_30">Windows Key opens</string>
+			<string id="CSM_str_31">Select what happens when you press the Windows key
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_32">Nothing</string>
+			<string id="CSM_str_33">Open-Shell Menu</string>
+			<string id="CSM_str_34">Windows Start Menu</string>
+			<string id="CSM_str_35">Start Menu in Desktop and Start Screen in Metro</string>
+			<string id="CSM_str_36">Start Menu in Desktop and shows Desktop in Metro</string>
+			<string id="CSM_str_37">Shift+Win opens</string>
+			<string id="CSM_str_38">Select what happens when you hold Shift and press the Windows key
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_39">Nothing</string>
+			<string id="CSM_str_40">Open-Shell Menu</string>
+			<string id="CSM_str_41">Windows Start Menu</string>
+			<string id="CSM_str_42">Start Menu in Desktop and Start Screen in Metro</string>
+			<string id="CSM_str_43">Middle Click opens</string>
+			<string id="CSM_str_44">Select what happens when you click the middle mouse button on the Start Button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_45">Nothing</string>
+			<string id="CSM_str_46">Open-Shell Menu</string>
+			<string id="CSM_str_47">Windows Start Menu</string>
+			<string id="CSM_str_48">Hover opens</string>
+			<string id="CSM_str_49">Select what happens when you hover the mouse over the Start Button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_50">Nothing</string>
+			<string id="CSM_str_51">Open-Shell Menu</string>
+			<string id="CSM_str_52">Windows Start Menu</string>
+			<string id="CSM_str_53">Hover delay (for Start button)</string>
+			<string id="CSM_str_54">Enter the delay (in ms) for hovering over the Start Button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_55">Right click opens Win+X menu</string>
+			<string id="CSM_str_56">When this is checked, right-click on the start button will open the Win+X power menu instead of the Open-Shell menu. Otherwise Shift+right-click will open it
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_57">Additional Classic Menu hotkey</string>
+			<string id="CSM_str_58">Enter an additional hotkey for opening the classic start menu.
+
+The base value is the main key's virtual code. Add 256 for Shift, 512 for Control and 1024 for Alt.
+The best way to get the value is to select the hotkey in the Open-Shell Menu settings dialog and then look up the value named CSMHotkey in HKCU\Software\OpenShell\StartMenu\Settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_59">Additional Windows Menu hotkey</string>
+			<string id="CSM_str_60">Enter an additional hotkey for opening the Windows start menu.
+
+The base value is the main key's virtual code. Add 256 for Shift, 512 for Control and 1024 for Alt.
+The best way to get the value is to select the hotkey in the Open-Shell Menu settings dialog and then look up the value named WSMHotkey in HKCU\Software\OpenShell\StartMenu\Settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_61">Computer</string>
+			<string id="CSM_str_62">Select how to display the computer in the start menu
+Warning: You don't have a Computer item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_63">Don't display this item</string>
+			<string id="CSM_str_64">Display as a link</string>
+			<string id="CSM_str_65">Display as a menu</string>
+			<string id="CSM_str_66">Display as a list of drives</string>
+			<string id="CSM_str_67">Favorites</string>
+			<string id="CSM_str_68">Select how to display Favorites in the start menu
+Warning: You don't have a Favorites item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_69">Don't display this item</string>
+			<string id="CSM_str_70">Display as a link</string>
+			<string id="CSM_str_71">Display as a menu</string>
+			<string id="CSM_str_72">Recent documents</string>
+			<string id="CSM_str_73">Select how to display the recent documents in the start menu
+Warning: You don't have a Documents item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_74">Don't display this item</string>
+			<string id="CSM_str_75">Display as a link</string>
+			<string id="CSM_str_76">Display as a menu</string>
+			<string id="CSM_str_77">Max recent documents</string>
+			<string id="CSM_str_78">Limit the number of recent documents in the start menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_79">Sort Recent Documents</string>
+			<string id="CSM_str_80">Select how you want the recent documents to be sorted
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_81">By name</string>
+			<string id="CSM_str_82">By extension</string>
+			<string id="CSM_str_83">By date</string>
+			<string id="CSM_str_84">User files</string>
+			<string id="CSM_str_85">Select how to display the user's files in the start menu
+Warning: You don't have a User Files item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_86">Don't display this item</string>
+			<string id="CSM_str_87">Display as a link</string>
+			<string id="CSM_str_88">Display as a menu</string>
+			<string id="CSM_str_89">User documents</string>
+			<string id="CSM_str_90">Select how to display the user's documents in the start menu
+Warning: You don't have a User Documents item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_91">Don't display this item</string>
+			<string id="CSM_str_92">Display as a link</string>
+			<string id="CSM_str_93">Display as a menu</string>
+			<string id="CSM_str_94">User pictures</string>
+			<string id="CSM_str_95">Select how to display the user's pictures in the start menu
+Warning: You don't have a User Pictures item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_96">Don't display this item</string>
+			<string id="CSM_str_97">Display as a link</string>
+			<string id="CSM_str_98">Display as a menu</string>
+			<string id="CSM_str_99">Control Panel</string>
+			<string id="CSM_str_100">Select how to display the Control Panel in the start menu
+Warning: You don't have a Control Panel item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_101">Don't display this item</string>
+			<string id="CSM_str_102">Display as a link</string>
+			<string id="CSM_str_103">Display as a menu</string>
+			<string id="CSM_str_104">Use Categories view</string>
+			<string id="CSM_str_105">When this is checked, the Control Panel will open in Categories view
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_106">Network Connections</string>
+			<string id="CSM_str_107">Select how to display Network in the start menu
+Warning: You don't have a Network Connections item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_108">Don't display this item</string>
+			<string id="CSM_str_109">Display as a link</string>
+			<string id="CSM_str_110">Display as a menu</string>
+			<string id="CSM_str_111">Printers</string>
+			<string id="CSM_str_112">Select how to display Printers in the start menu
+Warning: You don't have a Printers item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_113">Don't display this item</string>
+			<string id="CSM_str_114">Display as a link</string>
+			<string id="CSM_str_115">Display as a menu</string>
+			<string id="CSM_str_116">Shutdown</string>
+			<string id="CSM_str_117">Select how to display Shutdown in the start menu
+Warning: You don't have a 'Shutdown dialog' item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_118">Don't display this item</string>
+			<string id="CSM_str_119">Display as a link</string>
+			<string id="CSM_str_120">Display as a menu</string>
+			<string id="CSM_str_121">Show Log Off</string>
+			<string id="CSM_str_122">Enable the Log Off item
+Warning: You don't have a Log Off item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_123">Confirm Log Off</string>
+			<string id="CSM_str_124">The Log Off command will show a confirmation prompt before logging off
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_125">Show Undock</string>
+			<string id="CSM_str_126">Enable the Undock item (for laptops only)
+Warning: You don't have a Undock item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_127">Show Search Menu</string>
+			<string id="CSM_str_128">Enable the Search menu
+Warning: You don't have a Search Menu item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_129">Show Apps menu</string>
+			<string id="CSM_str_130">Enable the Apps menu
+Warning: You don't have the Apps item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_131">Show Help and Support</string>
+			<string id="CSM_str_132">Enable the Help and Support item
+Warning: You don't have a Help item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_133">Show Run</string>
+			<string id="CSM_str_134">Enable the Run item
+Warning: You don't have a Run item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_135">All Programs style</string>
+			<string id="CSM_str_136">Select how to show the All Programs list in the main menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_137">Cascading sub-menu</string>
+			<string id="CSM_str_138">Inside main menu</string>
+			<string id="CSM_str_139">Hidden</string>
+			<string id="CSM_str_140">Show Metro apps</string>
+			<string id="CSM_str_141">When this is checked, the programs tree will include a folder for the Metro apps
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_142">Show folders first</string>
+			<string id="CSM_str_143">When this is checked, the All Programs tree will show the folders first and the programs last
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_144">Open automatically</string>
+			<string id="CSM_str_145">When this is checked, the All Programs list will be automatically shown when you open the start menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_146">Delay multiplier for the All Programs button (%)</string>
+			<string id="CSM_str_147">Select percentage of the menu delay to use when hovering over the All Programs button. For example 200% means two times longer delay than normal
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_148">Hide app shortcuts</string>
+			<string id="CSM_str_149">When this is checked, the shortcuts to Metro apps that are outside of the dedicated Apps folder will be hidden
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_150">Pinned Programs folder</string>
+			<string id="CSM_str_151">Select the location to store the pinned programs
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_152">Use Start Menu folder</string>
+			<string id="CSM_str_153">Use Pinned folder</string>
+			<string id="CSM_str_154">Show recent or frequent programs</string>
+			<string id="CSM_str_155">Enable the display of used programs in the start menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_156">Don't show</string>
+			<string id="CSM_str_157">Recent programs</string>
+			<string id="CSM_str_158">Frequent programs</string>
+			<string id="CSM_str_159">Show recent Metro apps</string>
+			<string id="CSM_str_160">When this is checked, the recent programs list will include Metro apps
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_161">Max recent programs (use negative number to reverse the order)</string>
+			<string id="CSM_str_162">Limit the number of recent programs. If the number is negative, the most recent program will be at the bottom
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_163">Show recent programs on top</string>
+			<string id="CSM_str_164">Select if you want the recent programs to be before or after the other programs in the main menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_165">Sort by name</string>
+			<string id="CSM_str_166">When this is checked, the recent programs will be sorted by name.
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_167">Shortcuts for the recent programs</string>
+			<string id="CSM_str_168">Select the style of the keyboard shortcuts for the recent programs
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_169">No shortcuts</string>
+			<string id="CSM_str_170">Normal shortcuts</string>
+			<string id="CSM_str_171">Digits</string>
+			<string id="CSM_str_172">Hidden digits</string>
+			<string id="CSM_str_173">Enable jumplists</string>
+			<string id="CSM_str_174">When this is checked, programs in the main menu will have a sub-menu of recently used documents and common tasks
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_175">Max items in jumplists</string>
+			<string id="CSM_str_176">Limit the number of items in the jumplists
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_177">Keyboard shortcuts for programs with jumplists</string>
+			<string id="CSM_str_178">Select the action to happen when you press the keyboard shortcut for a program with a jumplist
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_179">Select</string>
+			<string id="CSM_str_180">Run</string>
+			<string id="CSM_str_181">Open jumplist</string>
+			<string id="CSM_str_182">Shutdown command</string>
+			<string id="CSM_str_183">Select the default command for the Shutdown button in the menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_184">None (hide the button)</string>
+			<string id="CSM_str_185">Shutdown</string>
+			<string id="CSM_str_186">Restart</string>
+			<string id="CSM_str_187">Log off</string>
+			<string id="CSM_str_188">Sleep</string>
+			<string id="CSM_str_189">Hibernate</string>
+			<string id="CSM_str_190">Lock</string>
+			<string id="CSM_str_191">Switch User</string>
+			<string id="CSM_str_192">Shutdown dialog</string>
+			<string id="CSM_str_193">Shutdown menu items</string>
+			<string id="CSM_str_194">Select the commands to appear in the shutdown menu in the Windows 7 style. The choices are: switch_user, windows_security, logoff, lock, disconnect, undock, restart, sleep, hibernate, shutdown. Separate the commands with a comma or semicolon. The order is not important. You must list at least one. If the list is empty, all commands are enabled (unless disabled by other rules).
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_195">Show Shutdown during remote sessions</string>
+			<string id="CSM_str_196">Enable the Shutdown item during a Remote Desktop connection
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_197">Enable hybrid shutdown</string>
+			<string id="CSM_str_198">When this is checked, the shutdown button will perform the faster hybrid shutdown. You can still do a full shutdown by holding down Shift
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_199">Select the last item in shutdown menu</string>
+			<string id="CSM_str_200">When this is checked, the last item will be selected by default when the shutdown menu is opened with the keyboard
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_201">Programs pane width</string>
+			<string id="CSM_str_202">Set the width of the program column in the Windows 7 style in characters.
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_203">Jumplist pane width</string>
+			<string id="CSM_str_204">Set the width of the jumplist column in the Windows 7 style in characters.
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_205">Minimum menu height</string>
+			<string id="CSM_str_206">The main menu will be at least as tall as this many search results
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_207">Show Start screen shortcut</string>
+			<string id="CSM_str_208">When this is checked, the main menu will contain a shortcut to open the Start screen
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_209">Sort the main menu in Z-&gt;A order</string>
+			<string id="CSM_str_210">The menu will be sorted in descending order by default
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_211">Sort the main menu only the first time</string>
+			<string id="CSM_str_212">The menu will be sorted automatically the first time it is opened. Any items added later will be at the bottom
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_213">Start automatically for this user</string>
+			<string id="CSM_str_214">The start menu will run automatically when you log in
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_215">Highlight newly installed programs</string>
+			<string id="CSM_str_216">When this is checked, the start menu will highlight the programs that were recently installed
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_217">Highlight newly installed apps</string>
+			<string id="CSM_str_218">When this is checked, the start menu will highlight the apps that were recently installed
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_219">Check for Windows updates on shutdown</string>
+			<string id="CSM_str_220">When this is checked, the start menu will check if there are any pending updates and will install them on shutdown
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_221">Menu delay</string>
+			<string id="CSM_str_222">The delay (in ms) for opening sub-menus when the mouse hovers over a folder item
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_223">Delay multiplier for split buttons (%)</string>
+			<string id="CSM_str_224">Select percentage of the menu delay to use when hovering over the main portion of the split button. For example 200% means two times longer delay than normal
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_225">Infotip delay</string>
+			<string id="CSM_str_226">The delay for the infotip. The first number is the delay for showing the infotip and the second is the delay for hiding it. Use '0,0' to disable the tips
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_227">Infotip delay (for folders)</string>
+			<string id="CSM_str_228">Same as the above, but for folder items. This is disabled by default because the folder infotips are usually not very helpful
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_229">Enable Drag and Drop</string>
+			<string id="CSM_str_230">When this is checked, the user will be allowed to drag and drop items in the start menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_231">Drag/drop hide delay</string>
+			<string id="CSM_str_232">The delay (in ms), after which the menu will close when you are dragging an item outside of the menu. Lets you drag from the menu to the Desktop or other programs
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_233">Multiple columns in sub-menus</string>
+			<string id="CSM_str_234">Select what to do when a sub-menu doesn't fit in a single column
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_235">Use single column (scroll)</string>
+			<string id="CSM_str_236">Use multiple columns</string>
+			<string id="CSM_str_237">Auto (multiple columns if they fit)</string>
+			<string id="CSM_str_238">All columns are same size</string>
+			<string id="CSM_str_239">When this is checked, all columns of a menu will be forced to be the same size
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_240">User picture</string>
+			<string id="CSM_str_241">Override the default user picture with another image
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_242">User picture command</string>
+			<string id="CSM_str_243">Enter the command you want to run when you click on the user picture
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_244">User name command</string>
+			<string id="CSM_str_245">Enter the command you want to run when you click on the user name
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_246">Custom search command</string>
+			<string id="CSM_str_247">Enter a custom command to run when you pick Search -&gt; For Files or Folders
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_248">Expand folder shortcuts</string>
+			<string id="CSM_str_249">When this is checked, shortcuts (links) to folders will open as sub-menusOnly works for symbolic links (like junctions) and not for plain shortcuts
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_250">Enable touch features</string>
+			<string id="CSM_str_251">When this is checked, the start menu will enable its touch and stylus features.
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_252">Enable accessibility</string>
+			<string id="CSM_str_253">Enable the active accessibility features of the start menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_254">Show next to taskbar (when the taskbar is vertical)</string>
+			<string id="CSM_str_255">When this is checked and the taskbar is docked to the left or right edge of the screen, the start menu will appear next to the taskbar instead of on top of it
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_256">Pre-cache icons</string>
+			<string id="CSM_str_257">When this is checked, the system will begin pre-loading the icons as soon as you log in, so the start menu will open faster
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_258">Delay loading of icons</string>
+			<string id="CSM_str_259">When this is checked, the menu will show first and the icons will continue to load after that
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_260">Report skin errors</string>
+			<string id="CSM_str_261">When this is checked, the menu will report problems with the current skin. This is useful when creating and troubleshooting new skins
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_262">Show search box</string>
+			<string id="CSM_str_263">Enable the search for programs
+Warning: You don't have a Search Box item in your custom menu, so this setting will be ignored
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_264">No search box</string>
+			<string id="CSM_str_265">Access normally</string>
+			<string id="CSM_str_266">Access with Tab</string>
+			<string id="CSM_str_267">Selected by default</string>
+			<string id="CSM_str_268">When this is checked, the search box will be selected when you open the menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_269">Track frequency of use</string>
+			<string id="CSM_str_270">When this is checked, the start menu will track how frequently you use programs and will sort the search results by usage
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_271">Results per category</string>
+			<string id="CSM_str_272">Limit the number of results shown per category
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_273">Results per maximized category</string>
+			<string id="CSM_str_274">Limit the number of results shown for the maximized category
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_275">Enable Auto-Complete</string>
+			<string id="CSM_str_276">When this is checked, typing a path in the search box will auto-complete names of files and folders
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_277">Search programs and settings</string>
+			<string id="CSM_str_278">When this is checked, the search results will include programs and settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_279">Search the system path</string>
+			<string id="CSM_str_280">When this is checked, the search will look in the folders listed in the PATH environment variable
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_281">Search Metro apps</string>
+			<string id="CSM_str_282">When this is checked, the search results will include Metro apps
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_283">Search Settings</string>
+			<string id="CSM_str_284">When this is checked, the search results will include the modern Settings window
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_285">Search for keywords</string>
+			<string id="CSM_str_286">When this is checked, the search will look at the keywords associated with the settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_287">Match parts of words</string>
+			<string id="CSM_str_288">The search will match parts in the middle of words. For example 'enu' will match 'Classic Menu'
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_289">Search files</string>
+			<string id="CSM_str_290">When this is checked, the search results will include files, emails  and other items from indexed locations
+Warning: the search service is disabled
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_291">Search contents</string>
+			<string id="CSM_str_292">When this is checked, the search will look at the file contents and metadata
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_293">Organize by library</string>
+			<string id="CSM_str_294">When this is checked, the files will be grouped by the library they are in - Documents, Music, Pictures, etc
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_295">Search the Internet</string>
+			<string id="CSM_str_296">When this is checked, the start menu will have an option to search the Internet
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_297">Small icon size</string>
+			<string id="CSM_str_298">Set the small icon size. The default is 16 for DPI&lt;=96, 20 for 96&lt;DPI&lt;=120 and 24 for DPI&gt;120
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_299">Large icon size</string>
+			<string id="CSM_str_300">Set the large icon size. The default is 32 for DPI&lt;=96, 40 for 96&lt;DPI&lt;=120 and 48 for DPI&gt;120
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_301">Invert Metro icon color</string>
+			<string id="CSM_str_302">When this is checked, the Metro icons will appear as colored symbols on transparent background
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_303">Main menu width</string>
+			<string id="CSM_str_304">Set the width of the main menu text to fit this many average-width characters
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_305">Sub-menu width</string>
+			<string id="CSM_str_306">Set the width of the sub-menu text to fit this many average-width characters
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_307">Override system DPI</string>
+			<string id="CSM_str_308">Select a different DPI value to be used by the menu. The setting controls the size of the menu icons, text, and other graphical elements. The acceptable values are between 96 and 480. Use 0 to disable the override.
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_309">Animated transitions in main menu</string>
+			<string id="CSM_str_310">When this is checked, the transitions in the main menu will be animated
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_311">Main menu animation</string>
+			<string id="CSM_str_312">Pick the type of the animation for the main menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_313">No animation</string>
+			<string id="CSM_str_314">Fade</string>
+			<string id="CSM_str_315">Slide</string>
+			<string id="CSM_str_316">Random</string>
+			<string id="CSM_str_317">Main menu animation speed</string>
+			<string id="CSM_str_318">The duration (in ms) for the main menu animation
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_319">Sub-menu animation</string>
+			<string id="CSM_str_320">Pick the type of the animation for the sub-menus
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_321">No animation</string>
+			<string id="CSM_str_322">Fade</string>
+			<string id="CSM_str_323">Slide</string>
+			<string id="CSM_str_324">Random</string>
+			<string id="CSM_str_325">Sub-menu animation speed</string>
+			<string id="CSM_str_326">The duration (in ms) for the sub-menu animation
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_327">Always animate sub-menus</string>
+			<string id="CSM_str_328">When this is checked, the sub-menus will animate every time they open
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_329">Main menu scroll speed (1..10)</string>
+			<string id="CSM_str_330">The speed (from 1 to 10) when scrolling the items in the main menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_331">Sub-menu scroll speed (1..10)</string>
+			<string id="CSM_str_332">The speed (from 1 to 10) when scrolling the items in the sub-menus
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_333">Fade speed</string>
+			<string id="CSM_str_334">The duration (in ms) of the fade animation for the selected menu item
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_335">Menu caption</string>
+			<string id="CSM_str_336">Enter the text you want to see on the side of the menu (for skins that support caption)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_337">User name text</string>
+			<string id="CSM_str_338">Enter the text you want to see in the user-name portion of the menu (for skins that show the user name)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_339">Use numeric sorting</string>
+			<string id="CSM_str_340">When this is checked, the start menu will use numeric (logical) sorting instead of alphabetical sorting for names that contain numbers
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_341">Font smoothing</string>
+			<string id="CSM_str_342">Select the font smoothing for the menu text
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_343">Default</string>
+			<string id="CSM_str_344">No smoothing</string>
+			<string id="CSM_str_345">Standard</string>
+			<string id="CSM_str_346">Clear Type</string>
+			<string id="CSM_str_347">Enable menu shadow</string>
+			<string id="CSM_str_348">When this is checked, the menus will have a shadow
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_349">Enable Aero Glass (requires Aero Glass mod)</string>
+			<string id="CSM_str_350">Check this to use glass transparency (requires the Aero Glass mod to be installed)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_351">Enable menu glass</string>
+			<string id="CSM_str_352">Check this to use glass transparency in the menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_353">Override glass color</string>
+			<string id="CSM_str_354">Check this to override the system glass color to use in the menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_355">Menu glass color</string>
+			<string id="CSM_str_356">Select the glass color to use in the menu. How much this color affects the menu will depend on the selected skin
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_357">Menu glass intensity</string>
+			<string id="CSM_str_358">Select the intensity (brightness) for the glass color in the menu (0 - dark, 100 - bright)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_359">Menu color blending</string>
+			<string id="CSM_str_360">Select how much of the menu skin color to blend (0 - less, 100 - more)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_361">Glass opacity</string>
+			<string id="CSM_str_362">Set the opacity for the glass in the menu (0 - transparent, 100 - opaque)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_363">Skin for classic menu with one column</string>
+			<string id="CSM_str_364">Select the skin to be used by the classic style with one column
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_365">Skin variation for classic menu with one column</string>
+			<string id="CSM_str_366">Select the skin variation to be used by the classic style with one column (for skins that support multiple variations)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_367">Skin options for classic menu with one column</string>
+			<string id="CSM_str_368">Select the skin options to be used by the classic style with one column.
+The options are a list of hex numbers. The best way to get them is to adjust the options in the Open-Shell Menu settings dialog and then look up the value named SkinOptionsC1 in HKCU\Software\OpenShell\StartMenu\Settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_369">Skin for classic menu with two columns</string>
+			<string id="CSM_str_370">Select the skin to be used by the classic style with two columns
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_371">Skin variation for classic menu with two columns</string>
+			<string id="CSM_str_372">Select the skin variation to be used by the classic style with two columns (for skins that support multiple variations)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_373">Skin options for classic menu with two columns</string>
+			<string id="CSM_str_374">Select the skin options to be used by the classic style with two columns.
+The options are a list of hex numbers. The best way to get them is to adjust the options in the Open-Shell Menu settings dialog and then look up the value named SkinOptionsC2 in HKCU\Software\OpenShell\StartMenu\Settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_375">Skin for the Windows 7 style</string>
+			<string id="CSM_str_376">Select the skin to be used by the Windows 7 style
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_377">Skin variation for the Windows 7 style</string>
+			<string id="CSM_str_378">Select the skin variation to be used by the Windows 7 style (for skins that support multiple variations)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_379">Skin options for the Windows 7 style</string>
+			<string id="CSM_str_380">Select the skin options to be used by the Windows 7 style.
+The options are a list of hex numbers. The best way to get them is to adjust the options in the Open-Shell Menu settings dialog and then look up the value named SkinOptionsW7 in HKCU\Software\OpenShell\StartMenu\Settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_381">Replace Start button</string>
+			<string id="CSM_str_382">When this is checked, the Start button will be replaced with a custom image
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_383">Show on all taskbars</string>
+			<string id="CSM_str_384">When this is checked, each taskbar will have its own start button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_385">Button tooltip</string>
+			<string id="CSM_str_386">Select the tooltip for the Start button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_387">Button look</string>
+			<string id="CSM_str_388">Select the look of the Start button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_389">Aero button</string>
+			<string id="CSM_str_390">Classic button</string>
+			<string id="CSM_str_391">Custom button</string>
+			<string id="CSM_str_392">Button image</string>
+			<string id="CSM_str_393">Select a bitmap to be used for the Start buttonThe value is a full path to the BMP or PNG file
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_394">Button size</string>
+			<string id="CSM_str_395">Select the width for the button when using a custom image. Enter 0 to use the actual bitmap size
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_396">Align to corner of the screen</string>
+			<string id="CSM_str_397">When this is checked, the button will be aligned to the corner of the screen instead of the middle of the taskbar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_398">Button icon</string>
+			<string id="CSM_str_399">Select the icon for the classic Start buttonThe value can be a path to an ICO file or a path to an EXE/DLL and an the ID of the icon
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_400">Icon size</string>
+			<string id="CSM_str_401">Select the size for the button icon. Enter 0 to use the default icon size
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_402">Button text</string>
+			<string id="CSM_str_403">Select the text for the classic Start button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_404">Customize taskbar</string>
+			<string id="CSM_str_405">When this is checked, you can customize the look of the taskbar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_406">Taskbar look</string>
+			<string id="CSM_str_407">Select the look for the taskbar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_408">Opaque</string>
+			<string id="CSM_str_409">Transparent</string>
+			<string id="CSM_str_410">Glass</string>
+			<string id="CSM_str_411">Aero Glass</string>
+			<string id="CSM_str_412">Taskbar opacity</string>
+			<string id="CSM_str_413">Set the opacity for the taskbar (0 - transparent, 100 - opaque)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_414">Taskbar color</string>
+			<string id="CSM_str_415">Set the color for the taskbar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_416">Taskbar text color</string>
+			<string id="CSM_str_417">Select the color for the text on the taskbar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_418">Taskbar texture</string>
+			<string id="CSM_str_419">Select a texture image for the taskbar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_420">Horizontal stretching</string>
+			<string id="CSM_str_421">Choose how to stretch the texture horizontally
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_422">Tile</string>
+			<string id="CSM_str_423">Stretch</string>
+			<string id="CSM_str_424">Border sizes</string>
+			<string id="CSM_str_425">Select how many pixel on each side of the texture to exclude from stretching
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_426">Vertical stretching</string>
+			<string id="CSM_str_427">Choose how to stretch the texture vertically
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_428">Tile</string>
+			<string id="CSM_str_429">Stretch</string>
+			<string id="CSM_str_430">Border sizes</string>
+			<string id="CSM_str_431">Select how many pixel on each side of the texture to exclude from stretching
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_432">Skip Metro screen</string>
+			<string id="CSM_str_433">Automatically skip the Metro screen after login and enter the DesktopThis setting doesn't work for Windows 8.1. You need to use the built-in Windows setting for booting to Desktop
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_434">Disable active corners</string>
+			<string id="CSM_str_435">Select which active corners to disable
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_436">None</string>
+			<string id="CSM_str_437">Start screen</string>
+			<string id="CSM_str_438">All</string>
+			<string id="CSM_str_439">Open Windows Start menu on monitor with the mouse</string>
+			<string id="CSM_str_440">When this is checked, pressing Shift+Win will open the Windows Start menu on the same monitor as the mouse pointer
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_441">Menu items for classic menu with one column</string>
+			<string id="CSM_str_442">Select the menu items to be used by the classic style with one column.
+The best way to get the right string is to configure the items in the Open-Shell Menu settings dialog and then look up the value named MenuItems1 in HKCU\Software\OpenShell\StartMenu\Settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_443">Menu items for classic menu with two columns</string>
+			<string id="CSM_str_444">Select the menu items to be used by the classic style with two columns.
+The best way to get the right string is to configure the items in the Open-Shell Menu settings dialog and then look up the value named MenuItems2 in HKCU\Software\OpenShell\StartMenu\Settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_445">Menu items for the Windows 7 style</string>
+			<string id="CSM_str_446">Select the menu items to be used by the Windows 7 style.
+The best way to get the right string is to configure the items in the Open-Shell Menu settings dialog and then look up the value named MenuItems7 in HKCU\Software\OpenShell\StartMenu\Settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_447">Cascading All Programs menu</string>
+			<string id="CSM_str_448">When this is checked, the 'All Programs' item in the Windows start menu will expand as a cascading sub-menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_449">Hover delay (for All Programs in Windows 7)</string>
+			<string id="CSM_str_450">Enter the delay (in ms) for hovering over the 'All Programs' item
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_451">Initially focus on:</string>
+			<string id="CSM_str_452">Select which item will be selected by default when you open the Windows start menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_453">Search box</string>
+			<string id="CSM_str_454">All Programs</string>
+			<string id="CSM_str_455">Hide user picture</string>
+			<string id="CSM_str_456">When this is checked, the user picture is removed from the Windows start menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_457">Skin for the All Programs sub-menu for the Windows 7 start menu</string>
+			<string id="CSM_str_458">Select the skin to be used by the All Programs sub-menu for the Windows 7 start menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_459">Skin variation for the All Programs sub-menu for the Windows 7 start menu</string>
+			<string id="CSM_str_460">Select the skin variation to be used by the All Programs sub-menu for the Windows 7 start menu (for skins that support multiple variations)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_461">Skin options for the All Programs sub-menu for the Windows 7 start menu</string>
+			<string id="CSM_str_462">Select the skin options to be used by the All Programs sub-menu for the Windows 7 start menu.
+The options are a list of hex numbers. The best way to get them is to adjust the options in the Open-Shell Menu settings dialog and then look up the value named SkinOptionsA in HKCU\Software\OpenShell\StartMenu\Settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_463">Enable right-click menu</string>
+			<string id="CSM_str_464">When this is checked, the user will be allowed to right-click on an item and use its context menu
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_465">Cascading right-click menu</string>
+			<string id="CSM_str_466">When this is checked, the additional items of the right-click menu (like New Folder, or Sort by Name) are placed in a sub-menu of their own
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_467">Enable New Folder and New Shortcut</string>
+			<string id="CSM_str_468">When this is checked, the user will be allowed to right-click in the start menu and create new folders and shortcuts
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_469">Enable Exit</string>
+			<string id="CSM_str_470">When this is checked, the user can right-click on the start button and select 'Exit'
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_471">Enable Windows Explorer</string>
+			<string id="CSM_str_472">Uncheck this to prevent opening folders in Windows Explorer
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_473">Default Explorer path</string>
+			<string id="CSM_str_474">Set the default path for the Windows Explorer command in the Start Button menu. Leave blank to remove the Windows Explorer command. The special locations 'computer', 'desktop' and 'libraries' are also supported
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_475">Disable the Pin shell extension</string>
+			<string id="CSM_str_476">When this is checked, the shell extension that allows pinning to the Open-Shell start menu will be disabled.
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_477">Main menu sound</string>
+			<string id="CSM_str_478">This sound plays when the start menu is openedThe value can be a name of a system event or a path to a WAV file
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_479">Sub-menu sound</string>
+			<string id="CSM_str_480">This sound plays when a sub-menu is openedThe value can be a name of a system event or a path to a WAV file
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_481">Command sound</string>
+			<string id="CSM_str_482">This sound plays when a start menu item is executedThe value can be a name of a system event or a path to a WAV file
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_483">Drop sound</string>
+			<string id="CSM_str_484">This sound plays when something is dropped on the start menuThe value can be a name of a system event or a path to a WAV file
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CSM_str_485">Start button hover sound</string>
+			<string id="CSM_str_486">This sound plays when the mouse hovers over the start button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+		</stringTable>
+		<presentationTable>
+			<presentation id="CSM_MenuStyle">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Menu style</dropdownList>
+			</presentation>
+			<presentation id="CSM_EnableSettings">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable settings</checkBox>
+			</presentation>
+			<presentation id="CSM_FolderStartMenu">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Start Menu folder</label></textBox>
+			</presentation>
+			<presentation id="CSM_FolderCommonStartMenu">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Common Start Menu folder</label></textBox>
+			</presentation>
+			<presentation id="CSM_FolderPrograms">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Programs folder</label></textBox>
+			</presentation>
+			<presentation id="CSM_FolderCommonPrograms">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Common Programs folder</label></textBox>
+			</presentation>
+			<presentation id="CSM_AutoStartDelay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Auto-start delay</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_MouseClick">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Left Click opens</dropdownList>
+			</presentation>
+			<presentation id="CSM_ShiftClick">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Shift+Click opens</dropdownList>
+			</presentation>
+			<presentation id="CSM_WinKey">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Windows Key opens</dropdownList>
+			</presentation>
+			<presentation id="CSM_ShiftWin">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Shift+Win opens</dropdownList>
+			</presentation>
+			<presentation id="CSM_MiddleClick">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Middle Click opens</dropdownList>
+			</presentation>
+			<presentation id="CSM_Hover">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Hover opens</dropdownList>
+			</presentation>
+			<presentation id="CSM_StartHoverDelay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Hover delay (for Start button)</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_ShiftRight">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Right click opens Win+X menu</checkBox>
+			</presentation>
+			<presentation id="CSM_CSMHotkey">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Additional Classic Menu hotkey</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_WSMHotkey">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Additional Windows Menu hotkey</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_Computer">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Computer</dropdownList>
+			</presentation>
+			<presentation id="CSM_Favorites">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Favorites</dropdownList>
+			</presentation>
+			<presentation id="CSM_Documents">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Recent documents</dropdownList>
+			</presentation>
+			<presentation id="CSM_MaxRecentDocuments">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Max recent documents</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_SortRecentDocuments">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Sort Recent Documents</dropdownList>
+			</presentation>
+			<presentation id="CSM_UserFiles">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">User files</dropdownList>
+			</presentation>
+			<presentation id="CSM_UserDocuments">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">User documents</dropdownList>
+			</presentation>
+			<presentation id="CSM_UserPictures">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">User pictures</dropdownList>
+			</presentation>
+			<presentation id="CSM_ControlPanel">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Control Panel</dropdownList>
+			</presentation>
+			<presentation id="CSM_ControlPanelCategories">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Use Categories view</checkBox>
+			</presentation>
+			<presentation id="CSM_Network">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Network Connections</dropdownList>
+			</presentation>
+			<presentation id="CSM_Printers">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Printers</dropdownList>
+			</presentation>
+			<presentation id="CSM_Shutdown">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Shutdown</dropdownList>
+			</presentation>
+			<presentation id="CSM_LogOff">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show Log Off</checkBox>
+			</presentation>
+			<presentation id="CSM_ConfirmLogOff">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Confirm Log Off</checkBox>
+			</presentation>
+			<presentation id="CSM_Undock">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show Undock</checkBox>
+			</presentation>
+			<presentation id="CSM_Search">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show Search Menu</checkBox>
+			</presentation>
+			<presentation id="CSM_ShowAppsMenu">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show Apps menu</checkBox>
+			</presentation>
+			<presentation id="CSM_Help">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show Help and Support</checkBox>
+			</presentation>
+			<presentation id="CSM_Run">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show Run</checkBox>
+			</presentation>
+			<presentation id="CSM_ProgramsStyle">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">All Programs style</dropdownList>
+			</presentation>
+			<presentation id="CSM_AllProgramsMetro">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show Metro apps</checkBox>
+			</presentation>
+			<presentation id="CSM_FoldersFirst">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show folders first</checkBox>
+			</presentation>
+			<presentation id="CSM_OpenPrograms">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Open automatically</checkBox>
+			</presentation>
+			<presentation id="CSM_ProgramsMenuDelay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Delay multiplier for the All Programs button (%)</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_HideProgramsMetro">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Hide app shortcuts</checkBox>
+			</presentation>
+			<presentation id="CSM_PinnedPrograms">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Pinned Programs folder</dropdownList>
+			</presentation>
+			<presentation id="CSM_RecentPrograms">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Show recent or frequent programs</dropdownList>
+			</presentation>
+			<presentation id="CSM_RecentMetroApps">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show recent Metro apps</checkBox>
+			</presentation>
+			<presentation id="CSM_MaxRecentPrograms">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Max recent programs (use negative number to reverse the order)</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_RecentProgsTop">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show recent programs on top</checkBox>
+			</presentation>
+			<presentation id="CSM_RecentSortName">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Sort by name</checkBox>
+			</presentation>
+			<presentation id="CSM_RecentProgKeys">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Shortcuts for the recent programs</dropdownList>
+			</presentation>
+			<presentation id="CSM_EnableJumplists">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable jumplists</checkBox>
+			</presentation>
+			<presentation id="CSM_MaxJumplists">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Max items in jumplists</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_JumplistKeys">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Keyboard shortcuts for programs with jumplists</dropdownList>
+			</presentation>
+			<presentation id="CSM_ShutdownCommand">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Shutdown command</dropdownList>
+			</presentation>
+			<presentation id="CSM_ShutdownW7">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Shutdown menu items</label></textBox>
+			</presentation>
+			<presentation id="CSM_RemoteShutdown">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show Shutdown during remote sessions</checkBox>
+			</presentation>
+			<presentation id="CSM_HybridShutdown">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable hybrid shutdown</checkBox>
+			</presentation>
+			<presentation id="CSM_SelectLastShutdown">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Select the last item in shutdown menu</checkBox>
+			</presentation>
+			<presentation id="CSM_ProgramsWidth">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Programs pane width</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_JumplistWidth">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Jumplist pane width</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_MinMainHeight">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Minimum menu height</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_StartScreenShortcut">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show Start screen shortcut</checkBox>
+			</presentation>
+			<presentation id="CSM_MainSortZA">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Sort the main menu in Z-&gt;A order</checkBox>
+			</presentation>
+			<presentation id="CSM_MainSortOnce">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Sort the main menu only the first time</checkBox>
+			</presentation>
+			<presentation id="CSM_AutoStart">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Start automatically for this user</checkBox>
+			</presentation>
+			<presentation id="CSM_HighlightNew">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Highlight newly installed programs</checkBox>
+			</presentation>
+			<presentation id="CSM_HighlightNewApps">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Highlight newly installed apps</checkBox>
+			</presentation>
+			<presentation id="CSM_CheckWinUpdates">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Check for Windows updates on shutdown</checkBox>
+			</presentation>
+			<presentation id="CSM_MenuDelay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Menu delay</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_SplitMenuDelay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Delay multiplier for split buttons (%)</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_InfotipDelay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Infotip delay</label></textBox>
+			</presentation>
+			<presentation id="CSM_FolderInfotipDelay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Infotip delay (for folders)</label></textBox>
+			</presentation>
+			<presentation id="CSM_EnableDragDrop">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable Drag and Drop</checkBox>
+			</presentation>
+			<presentation id="CSM_DragHideDelay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Drag/drop hide delay</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_ScrollType">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Multiple columns in sub-menus</dropdownList>
+			</presentation>
+			<presentation id="CSM_SameSizeColumns">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">All columns are same size</checkBox>
+			</presentation>
+			<presentation id="CSM_UserPicturePath">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>User picture</label></textBox>
+			</presentation>
+			<presentation id="CSM_UserPictureCommand">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>User picture command</label></textBox>
+			</presentation>
+			<presentation id="CSM_UserNameCommand">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>User name command</label></textBox>
+			</presentation>
+			<presentation id="CSM_SearchFilesCommand">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Custom search command</label></textBox>
+			</presentation>
+			<presentation id="CSM_ExpandFolderLinks">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Expand folder shortcuts</checkBox>
+			</presentation>
+			<presentation id="CSM_EnableTouch">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable touch features</checkBox>
+			</presentation>
+			<presentation id="CSM_EnableAccessibility">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable accessibility</checkBox>
+			</presentation>
+			<presentation id="CSM_ShowNextToTaskbar">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show next to taskbar (when the taskbar is vertical)</checkBox>
+			</presentation>
+			<presentation id="CSM_PreCacheIcons">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Pre-cache icons</checkBox>
+			</presentation>
+			<presentation id="CSM_DelayIcons">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Delay loading of icons</checkBox>
+			</presentation>
+			<presentation id="CSM_ReportSkinErrors">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Report skin errors</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchBox">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Show search box</dropdownList>
+			</presentation>
+			<presentation id="CSM_SearchSelect">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Selected by default</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchTrack">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Track frequency of use</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchResults">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Results per category</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_SearchResultsMax">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Results per maximized category</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_SearchAutoComplete">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable Auto-Complete</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchPrograms">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Search programs and settings</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchPath">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Search the system path</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchMetroApps">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Search Metro apps</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchMetroSettings">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Search Settings</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchKeywords">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Search for keywords</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchSubWord">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Match parts of words</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchFiles">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Search files</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchContents">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Search contents</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchCategories">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Organize by library</checkBox>
+			</presentation>
+			<presentation id="CSM_SearchInternet">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Search the Internet</checkBox>
+			</presentation>
+			<presentation id="CSM_SmallIconSize">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Small icon size</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_LargeIconSize">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Large icon size</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_InvertMetroIcons">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Invert Metro icon color</checkBox>
+			</presentation>
+			<presentation id="CSM_MaxMainMenuWidth">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Main menu width</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_MaxMenuWidth">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Sub-menu width</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_OverrideDPI">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Override system DPI</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_MainMenuAnimate">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Animated transitions in main menu</checkBox>
+			</presentation>
+			<presentation id="CSM_MainMenuAnimation">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Main menu animation</dropdownList>
+			</presentation>
+			<presentation id="CSM_MainMenuAnimationSpeed">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Main menu animation speed</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_SubMenuAnimation">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Sub-menu animation</dropdownList>
+			</presentation>
+			<presentation id="CSM_SubMenuAnimationSpeed">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Sub-menu animation speed</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_SubMenuAnimationAlways">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Always animate sub-menus</checkBox>
+			</presentation>
+			<presentation id="CSM_MainMenuScrollSpeed">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Main menu scroll speed (1..10)</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_SubMenuScrollSpeed">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Sub-menu scroll speed (1..10)</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_MenuFadeSpeed">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Fade speed</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_MenuCaption">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Menu caption</label></textBox>
+			</presentation>
+			<presentation id="CSM_MenuUsername">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>User name text</label></textBox>
+			</presentation>
+			<presentation id="CSM_NumericSort">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Use numeric sorting</checkBox>
+			</presentation>
+			<presentation id="CSM_FontSmoothing">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Font smoothing</dropdownList>
+			</presentation>
+			<presentation id="CSM_MenuShadow">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable menu shadow</checkBox>
+			</presentation>
+			<presentation id="CSM_AeroGlass">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable Aero Glass (requires Aero Glass mod)</checkBox>
+			</presentation>
+			<presentation id="CSM_EnableGlass">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable menu glass</checkBox>
+			</presentation>
+			<presentation id="CSM_GlassOverride">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Override glass color</checkBox>
+			</presentation>
+			<presentation id="CSM_GlassColor">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Menu glass color</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_GlassIntensity">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Menu glass intensity</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_GlassBlending">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Menu color blending</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_GlassOpacity">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Glass opacity</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_SkinC1">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Skin for classic menu with one column</label></textBox>
+			</presentation>
+			<presentation id="CSM_SkinVariationC1">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Skin variation for classic menu with one column</label></textBox>
+			</presentation>
+			<presentation id="CSM_SkinOptionsC1">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<multiTextBox refId="Value">Skin options for classic menu with one column</multiTextBox>
+			</presentation>
+			<presentation id="CSM_SkinC2">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Skin for classic menu with two columns</label></textBox>
+			</presentation>
+			<presentation id="CSM_SkinVariationC2">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Skin variation for classic menu with two columns</label></textBox>
+			</presentation>
+			<presentation id="CSM_SkinOptionsC2">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<multiTextBox refId="Value">Skin options for classic menu with two columns</multiTextBox>
+			</presentation>
+			<presentation id="CSM_SkinW7">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Skin for the Windows 7 style</label></textBox>
+			</presentation>
+			<presentation id="CSM_SkinVariationW7">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Skin variation for the Windows 7 style</label></textBox>
+			</presentation>
+			<presentation id="CSM_SkinOptionsW7">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<multiTextBox refId="Value">Skin options for the Windows 7 style</multiTextBox>
+			</presentation>
+			<presentation id="CSM_EnableStartButton">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Replace Start button</checkBox>
+			</presentation>
+			<presentation id="CSM_AllTaskbars">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show on all taskbars</checkBox>
+			</presentation>
+			<presentation id="CSM_StartButtonTip">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Button tooltip</label></textBox>
+			</presentation>
+			<presentation id="CSM_StartButtonType">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Button look</dropdownList>
+			</presentation>
+			<presentation id="CSM_StartButtonPath">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Button image</label></textBox>
+			</presentation>
+			<presentation id="CSM_StartButtonSize">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Button size</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_StartButtonAlign">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Align to corner of the screen</checkBox>
+			</presentation>
+			<presentation id="CSM_StartButtonIcon">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Button icon</label></textBox>
+			</presentation>
+			<presentation id="CSM_StartButtonIconSize">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Icon size</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_StartButtonText">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Button text</label></textBox>
+			</presentation>
+			<presentation id="CSM_CustomTaskbar">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Customize taskbar</checkBox>
+			</presentation>
+			<presentation id="CSM_TaskbarLook">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Taskbar look</dropdownList>
+			</presentation>
+			<presentation id="CSM_TaskbarOpacity">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Taskbar opacity</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_TaskbarColor">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Taskbar color</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_TaskbarTextColor">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Taskbar text color</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_TaskbarTexture">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Taskbar texture</label></textBox>
+			</presentation>
+			<presentation id="CSM_TaskbarTileH">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Horizontal stretching</dropdownList>
+			</presentation>
+			<presentation id="CSM_TaskbarBordersH">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Border sizes</label></textBox>
+			</presentation>
+			<presentation id="CSM_TaskbarTileV">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Vertical stretching</dropdownList>
+			</presentation>
+			<presentation id="CSM_TaskbarBordersV">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Border sizes</label></textBox>
+			</presentation>
+			<presentation id="CSM_SkipMetro">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Skip Metro screen</checkBox>
+			</presentation>
+			<presentation id="CSM_DisableHotCorner">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Disable active corners</dropdownList>
+			</presentation>
+			<presentation id="CSM_OpenMouseMonitor">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Open Windows Start menu on monitor with the mouse</checkBox>
+			</presentation>
+			<presentation id="CSM_MenuItems1">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<multiTextBox refId="Value">Menu items for classic menu with one column</multiTextBox>
+			</presentation>
+			<presentation id="CSM_MenuItems2">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<multiTextBox refId="Value">Menu items for classic menu with two columns</multiTextBox>
+			</presentation>
+			<presentation id="CSM_MenuItems7">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<multiTextBox refId="Value">Menu items for the Windows 7 style</multiTextBox>
+			</presentation>
+			<presentation id="CSM_CascadeAll">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Cascading All Programs menu</checkBox>
+			</presentation>
+			<presentation id="CSM_AllProgramsDelay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Hover delay (for All Programs in Windows 7)</decimalTextBox>
+			</presentation>
+			<presentation id="CSM_InitiallySelect">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Initially focus on:</dropdownList>
+			</presentation>
+			<presentation id="CSM_HideUserPic">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Hide user picture</checkBox>
+			</presentation>
+			<presentation id="CSM_SkinA">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Skin for the All Programs sub-menu for the Windows 7 start menu</label></textBox>
+			</presentation>
+			<presentation id="CSM_SkinVariationA">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Skin variation for the All Programs sub-menu for the Windows 7 start menu</label></textBox>
+			</presentation>
+			<presentation id="CSM_SkinOptionsA">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<multiTextBox refId="Value">Skin options for the All Programs sub-menu for the Windows 7 start menu</multiTextBox>
+			</presentation>
+			<presentation id="CSM_EnableContextMenu">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable right-click menu</checkBox>
+			</presentation>
+			<presentation id="CSM_CascadingMenu">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Cascading right-click menu</checkBox>
+			</presentation>
+			<presentation id="CSM_ShowNewFolder">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable New Folder and New Shortcut</checkBox>
+			</presentation>
+			<presentation id="CSM_EnableExit">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable Exit</checkBox>
+			</presentation>
+			<presentation id="CSM_EnableExplorer">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable Windows Explorer</checkBox>
+			</presentation>
+			<presentation id="CSM_ExplorerPath">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Default Explorer path</label></textBox>
+			</presentation>
+			<presentation id="CSM_DisablePinExt">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Disable the Pin shell extension</checkBox>
+			</presentation>
+			<presentation id="CSM_SoundMain">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Main menu sound</label></textBox>
+			</presentation>
+			<presentation id="CSM_SoundPopup">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Sub-menu sound</label></textBox>
+			</presentation>
+			<presentation id="CSM_SoundCommand">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Command sound</label></textBox>
+			</presentation>
+			<presentation id="CSM_SoundDrop">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Drop sound</label></textBox>
+			</presentation>
+			<presentation id="CSM_SoundButtonHover">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Start button hover sound</label></textBox>
+			</presentation>
+		</presentationTable>
+	</resources>
+</policyDefinitionResources>

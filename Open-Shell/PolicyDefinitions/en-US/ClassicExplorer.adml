@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<displayName>Open-Shell settings</displayName>
+	<description>Open-Shell settings</description>
+	<resources>
+		<stringTable>
+			<string id="SettingState1">Locked to this value</string>
+			<string id="SettingState2">Locked to default</string>
+			<string id="SettingState3">Unlocked</string>
+			<string id="ClassicExplorerCat">Classic Explorer</string>
+			<string id="ClassicExplorerCatHelp">Classic Explorer group policy settings</string>
+			<string id="SUPPORTED_CS404_WIN7">Requires Open-Shell 4.0.4 or later.
+Requires Windows 7.</string>
+			<string id="SUPPORTED_CS404_WIN881">Requires Open-Shell 4.0.4 or later.
+Requires Windows 8 or Windows 8.1.</string>
+			<string id="CE_str_1">Enable settings</string>
+			<string id="CE_str_2">Enables the users to edit their own settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_3">Process white list</string>
+			<string id="CE_str_4">List of processes that can load Classic Explorer. Use only the file name of the process (like &quot;notepad.exe&quot;), separate multiple names with a comma or semicolon.
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_5">Process black list</string>
+			<string id="CE_str_6">List of processes that will not load Classic Explorer. Use only the file name of the process (like &quot;notepad.exe&quot;), separate multiple names with a comma or semicolon.
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_7">No initial showing of the toolbar</string>
+			<string id="CE_str_8">When this is checked, the Explorer toolbar will not be automatically displayed
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_9">Navigation pane style</string>
+			<string id="CE_str_10">Pick the style for the folder tree in the navigation pane
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_11">Windows XP Classic</string>
+			<string id="CE_str_12">Windows XP Simple</string>
+			<string id="CE_str_13">Windows Vista</string>
+			<string id="CE_str_14">Show horizontal scrollbar</string>
+			<string id="CE_str_15">Select if the horizontal scrollbar will be enabled
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_16">Default</string>
+			<string id="CE_str_17">Disabled</string>
+			<string id="CE_str_18">Enabled</string>
+			<string id="CE_str_19">Don't fade buttons</string>
+			<string id="CE_str_20">When this is checked, the small triangle buttons for expanding the folder will not fade out when the mouse moves away
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_21">Tree item spacing</string>
+			<string id="CE_str_22">This is a number for controlling the spacing between the items in the folder tree. Use positive numbers to increase the spacing, and negative numbers to reduce the spacing
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_23">Full-size offset for sub-folders</string>
+			<string id="CE_str_24">When this is checked, the sub-folders will be offset by the full size of the icon, instead of the half of the size
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_25">Auto-navigate to the selected folder</string>
+			<string id="CE_str_26">Select if the files on the right should update to show the current folder on the left
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_27">Default behavior</string>
+			<string id="CE_str_28">When using the keyboard</string>
+			<string id="CE_str_29">Always</string>
+			<string id="CE_str_30">Auto-navigation delay</string>
+			<string id="CE_str_31">Enter the delay (in ms) for updating the files after selecting a new folder
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_32">Enable Alt+Enter in the navigation pane</string>
+			<string id="CE_str_33">When this is checked, pressing Alt+Enter will show the properties of the selected folder
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_34">Fix folder scrolling</string>
+			<string id="CE_str_35">This option fixes a bug in Windows 7 that moves a folder to the bottom of the screen after it is expanded
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_36">Show caption in the title bar</string>
+			<string id="CE_str_37">Show the caption (the current path) in the title bar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_38">Show icon in the title bar</string>
+			<string id="CE_str_39">Show the icon of the current folder in the title bar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_40">Disable breadcrumbs</string>
+			<string id="CE_str_41">Disable breadcrumbs and show the full path in the address bar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_42">Address bar history</string>
+			<string id="CE_str_43">Control the contents of the history dropdown
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_44">Normal history</string>
+			<string id="CE_str_45">Simple path</string>
+			<string id="CE_str_46">Extended path</string>
+			<string id="CE_str_47">Hide Search box</string>
+			<string id="CE_str_48">Hide the search box from the address bar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_49">Additional shortcut for the address bar</string>
+			<string id="CE_str_50">Enter a letter 'A' to 'Z' to be a shortcut for the address bar in combination with the Alt key
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_51">Show Up button</string>
+			<string id="CE_str_52">Controls how the Up button is displayed
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_53">Don't show</string>
+			<string id="CE_str_54">Before Back/Forward</string>
+			<string id="CE_str_55">After Back/Forward</string>
+			<string id="CE_str_56">Normal Up button icon</string>
+			<string id="CE_str_57">Pick the icon to use for the normal Up button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_58">Pressed Up button icon</string>
+			<string id="CE_str_59">Pick the icon to use for the pressed Up button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_60">Hot Up button icon</string>
+			<string id="CE_str_61">Pick the icon to use for the hot Up button (when the mouse is over the button)
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_62">Disabled Up button icon</string>
+			<string id="CE_str_63">Pick the icon to use for the disabled Up button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_64">Up button size</string>
+			<string id="CE_str_65">Set the size for the Up button. By default it is 30 for DPI&lt;120 and 36 for DPI&gt;=120
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_66">Additional shortcut for the Up button</string>
+			<string id="CE_str_67">Select a shortcut for navigating to the parent folder
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_68">Big buttons</string>
+			<string id="CE_str_69">Use big buttons in the toolbar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_70">Small icon size</string>
+			<string id="CE_str_71">Set the icon size when 'Big buttons' is unchecked. By default it is 16 for DPI&lt;120 and 24 for DPI&gt;=120
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_72">Large icon size</string>
+			<string id="CE_str_73">Set the icon size when 'Big buttons' is checked. By default it is 24 for DPI&lt;120 and 32 for DPI&gt;=120
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_74">Menu icon size</string>
+			<string id="CE_str_75">Set the size of the icons in the dropdown menus
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_76">Text is on the side</string>
+			<string id="CE_str_77">When this is checked, the toolbar is in list mode. The button text shows next to the icon instead of under the icon
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_78">Same size buttons</string>
+			<string id="CE_str_79">When this is checked, all toolbar buttons are the same size, determined by the widest button. Cannot be combined with 'Text is on the side'
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_80">Resizeable toolbar</string>
+			<string id="CE_str_81">When this is checked, the toolbar can be resized to be smaller than its full size. The buttons that don't fit on screen can be accessed by clicking on the small chevron button
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_82">Toolbar buttons</string>
+			<string id="CE_str_83">Select the buttons to be shown in the toolbar.
+The best way to get the right string is to configure the buttons in the Classic Explorer settings dialog and then look up the value named ToolbarItems in HKCU\Software\OpenShell\ClassicExplorer\Settings
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_84">Show free space and file size</string>
+			<string id="CE_str_85">The status bar will show the free space on the current drive and the total size of all selected files. If no files are selected, the total size of all files will be shown
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_86">Show detailed info for single selection</string>
+			<string id="CE_str_87">When a single file is selected, the status bar will show the detailed information for that file
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_88">Force status refresh</string>
+			<string id="CE_str_89">This is a workaround for a bug in Explorer for Windows 7. Sometimes when a new Explorer window is opened the status bar is blank. Check this option to enable the workaround
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_90">Show status bar</string>
+			<string id="CE_str_91">When this is checked, Explorer will have a status bar that shows information about the total selection size, free disk space, and more
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_92">Show zone</string>
+			<string id="CE_str_93">When this is checked, the status bar will display the current security zone
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_94">Status bar font</string>
+			<string id="CE_str_95">Select the font to use for the status bar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_96">Add icon overlay for shared folders</string>
+			<string id="CE_str_97">When this is checked, the shared folders will get a small overlay icon
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_98">Share overlay icon</string>
+			<string id="CE_str_99">Set the icon to be used for the overlay
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_100">Show hidden shares</string>
+			<string id="CE_str_101">When this is checked, the overlay will appear also for hidden shares ending with $
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_102">Show overlay only in Explorer (improves performance)</string>
+			<string id="CE_str_103">When this is checked, the overlay icon will be shown only in Explorer. Otherwise they will be shown in all processes
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_104">Show sort headers in all views</string>
+			<string id="CE_str_105">When this is checked, the sort headers will show in all views, not just Details
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_106">Hide scroll tooltips</string>
+			<string id="CE_str_107">When this is checked, there won't be a tooltip when you are dragging the vertical scrollbar
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_108">Replace file conflict dialog</string>
+			<string id="CE_str_109">When this is checked, the dialog showing file conflicts during a copy or move operation will be replaced with the old-style dialog from Windows XP
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_110">Replace folder conflict dialog</string>
+			<string id="CE_str_111">When this is checked, the dialog showing folder conflicts during a copy or move operation will be replaced with the old-style dialog from Windows XP
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_112">Sound alert for file conflicts</string>
+			<string id="CE_str_113">This setting adds a sound alert to the copy confirmation dialog when a system or read-only file is about to be overwritten
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_114">No alert</string>
+			<string id="CE_str_115">For system files</string>
+			<string id="CE_str_116">For system and read-only files</string>
+			<string id="CE_str_117">Always show more details</string>
+			<string id="CE_str_118">When this is checked, Explorer dialogs like Copy, Move or Delete will expand to show all details by default
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_119">Delay for more details</string>
+			<string id="CE_str_120">Delay (in ms) for showing more details in the progress dialog. On Windows 7 with Aero if the details are shown too soon the progress dialog flickers badly. Use a delay of at least 250 ms to avoid the flicker. The delay is also useful if you want to see the details only for longer operations
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+			<string id="CE_str_121">Enable dialogs only in Explorer (improves performance)</string>
+			<string id="CE_str_122">When this is checked, the file and folder conflict dialogs will be replaced only in Explorer. Otherwise they will be replaced for all processes
+
+If you set the state to 'Locked to this value', the setting will be locked to the specified value for all users.
+
+If you set the state to 'Locked to default', the setting will be locked to the default value for all users. The specified value is ignored.
+
+If you set the state to 'Unlocked', the default value for the setting will be changed to the specified value. Individual users can override the setting.
+</string>
+		</stringTable>
+		<presentationTable>
+			<presentation id="CE_EnableSettings">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable settings</checkBox>
+			</presentation>
+			<presentation id="CE_ProcessWhiteList">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Process white list</label></textBox>
+			</presentation>
+			<presentation id="CE_ProcessBlackList">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Process black list</label></textBox>
+			</presentation>
+			<presentation id="CE_NoInitialToolbar">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">No initial showing of the toolbar</checkBox>
+			</presentation>
+			<presentation id="CE_TreeStyle">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Navigation pane style</dropdownList>
+			</presentation>
+			<presentation id="CE_HScrollbar">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Show horizontal scrollbar</dropdownList>
+			</presentation>
+			<presentation id="CE_NoFadeButtons">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Don't fade buttons</checkBox>
+			</presentation>
+			<presentation id="CE_TreeItemSpacing">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Tree item spacing</decimalTextBox>
+			</presentation>
+			<presentation id="CE_FullIndent">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Full-size offset for sub-folders</checkBox>
+			</presentation>
+			<presentation id="CE_AutoNavigate">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Auto-navigate to the selected folder</dropdownList>
+			</presentation>
+			<presentation id="CE_AutoNavDelay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Auto-navigation delay</decimalTextBox>
+			</presentation>
+			<presentation id="CE_AltEnter">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable Alt+Enter in the navigation pane</checkBox>
+			</presentation>
+			<presentation id="CE_FixFolderScroll">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Fix folder scrolling</checkBox>
+			</presentation>
+			<presentation id="CE_ShowCaption">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show caption in the title bar</checkBox>
+			</presentation>
+			<presentation id="CE_ShowIcon">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show icon in the title bar</checkBox>
+			</presentation>
+			<presentation id="CE_DisableBreadcrumbs">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Disable breadcrumbs</checkBox>
+			</presentation>
+			<presentation id="CE_AddressBarHistory">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Address bar history</dropdownList>
+			</presentation>
+			<presentation id="CE_HideSearch">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Hide Search box</checkBox>
+			</presentation>
+			<presentation id="CE_AddressAltD">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Additional shortcut for the address bar</label></textBox>
+			</presentation>
+			<presentation id="CE_ShowUpButton">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Show Up button</dropdownList>
+			</presentation>
+			<presentation id="CE_UpIconNormal">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Normal Up button icon</label></textBox>
+			</presentation>
+			<presentation id="CE_UpIconPressed">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Pressed Up button icon</label></textBox>
+			</presentation>
+			<presentation id="CE_UpIconHot">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Hot Up button icon</label></textBox>
+			</presentation>
+			<presentation id="CE_UpIconDisabled">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Disabled Up button icon</label></textBox>
+			</presentation>
+			<presentation id="CE_UpIconSize">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Up button size</decimalTextBox>
+			</presentation>
+			<presentation id="CE_UpHotkey">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Additional shortcut for the Up button</decimalTextBox>
+			</presentation>
+			<presentation id="CE_UseBigButtons">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Big buttons</checkBox>
+			</presentation>
+			<presentation id="CE_SmallIconSize">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Small icon size</decimalTextBox>
+			</presentation>
+			<presentation id="CE_LargeIconSize">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Large icon size</decimalTextBox>
+			</presentation>
+			<presentation id="CE_MenuIconSize">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Menu icon size</decimalTextBox>
+			</presentation>
+			<presentation id="CE_ToolbarListMode">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Text is on the side</checkBox>
+			</presentation>
+			<presentation id="CE_SameSizeButtons">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Same size buttons</checkBox>
+			</presentation>
+			<presentation id="CE_ResizeableToolbar">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Resizeable toolbar</checkBox>
+			</presentation>
+			<presentation id="CE_ToolbarItems">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<multiTextBox refId="Value">Toolbar buttons</multiTextBox>
+			</presentation>
+			<presentation id="CE_ShowFreeSpace">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show free space and file size</checkBox>
+			</presentation>
+			<presentation id="CE_ShowInfoTip">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show detailed info for single selection</checkBox>
+			</presentation>
+			<presentation id="CE_ForceRefreshWin7">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Force status refresh</checkBox>
+			</presentation>
+			<presentation id="CE_ShowStatusBar">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show status bar</checkBox>
+			</presentation>
+			<presentation id="CE_ShowZone">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show zone</checkBox>
+			</presentation>
+			<presentation id="CE_StatusBarFont">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Status bar font</label></textBox>
+			</presentation>
+			<presentation id="CE_ShareOverlay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Add icon overlay for shared folders</checkBox>
+			</presentation>
+			<presentation id="CE_ShareOverlayIcon">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<textBox refId="Value"><label>Share overlay icon</label></textBox>
+			</presentation>
+			<presentation id="CE_ShareOverlayHidden">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show hidden shares</checkBox>
+			</presentation>
+			<presentation id="CE_ShareExplorer">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show overlay only in Explorer (improves performance)</checkBox>
+			</presentation>
+			<presentation id="CE_ShowHeaders">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Show sort headers in all views</checkBox>
+			</presentation>
+			<presentation id="CE_HideScrollTip">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Hide scroll tooltips</checkBox>
+			</presentation>
+			<presentation id="CE_ReplaceFileUI">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Replace file conflict dialog</checkBox>
+			</presentation>
+			<presentation id="CE_ReplaceFolderUI">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Replace folder conflict dialog</checkBox>
+			</presentation>
+			<presentation id="CE_OverwriteAlertLevel">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<dropdownList refId="Value" defaultItem="0" noSort="true">Sound alert for file conflicts</dropdownList>
+			</presentation>
+			<presentation id="CE_EnableMore">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Always show more details</checkBox>
+			</presentation>
+			<presentation id="CE_MoreProgressDelay">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<decimalTextBox refId="Value" spin="false">Delay for more details</decimalTextBox>
+			</presentation>
+			<presentation id="CE_FileExplorer">
+				<dropdownList refId="State" defaultItem="0" noSort="true">State:</dropdownList>
+				<checkBox refId="Value">Enable dialogs only in Explorer (improves performance)</checkBox>
+			</presentation>
+		</presentationTable>
+	</resources>
+</policyDefinitionResources>

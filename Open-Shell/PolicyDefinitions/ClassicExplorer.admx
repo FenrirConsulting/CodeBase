@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="0.9" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<policyNamespaces>
+		<target prefix="classic_explorer" namespace="Open-Shell.Policies.ClassicExplorer" />
+		<using prefix="classic_shell" namespace="Open-Shell.Policies.OpenShell" />
+	</policyNamespaces>
+	<supersededAdm fileName="" />
+	<resources minRequiredRevision="1.0"/>
+	<supportedOn>
+		<definitions>
+			<definition name="SUPPORTED_CS404_WIN7" displayName="$(string.SUPPORTED_CS404_WIN7)"/>
+			<definition name="SUPPORTED_CS404_WIN881" displayName="$(string.SUPPORTED_CS404_WIN881)"/>
+		</definitions>
+	</supportedOn>
+	<categories>
+		<category name="ClassicExplorer" displayName="$(string.ClassicExplorerCat)" explainText="$(string.ClassicExplorerCatHelp)">
+			<parentCategory ref="classic_shell:OpenShell" />
+		</category>
+	</categories>
+	<policies>
+		<policy name="CE_EnableSettings" class="Both" displayName="$(string.CE_str_1)" explainText="$(string.CE_str_2)" presentation="$(presentation.CE_EnableSettings)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableSettings_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableSettings">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ProcessWhiteList" class="Both" displayName="$(string.CE_str_3)" explainText="$(string.CE_str_4)" presentation="$(presentation.CE_ProcessWhiteList)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ProcessWhiteList_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="ProcessWhiteList"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_ProcessBlackList" class="Both" displayName="$(string.CE_str_5)" explainText="$(string.CE_str_6)" presentation="$(presentation.CE_ProcessBlackList)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ProcessBlackList_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="ProcessBlackList"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_NoInitialToolbar" class="Both" displayName="$(string.CE_str_7)" explainText="$(string.CE_str_8)" presentation="$(presentation.CE_NoInitialToolbar)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="NoInitialToolbar_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="NoInitialToolbar">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_TreeStyle" class="Both" displayName="$(string.CE_str_9)" explainText="$(string.CE_str_10)" presentation="$(presentation.CE_TreeStyle)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TreeStyle_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="TreeStyle">
+					<item displayName="$(string.CE_str_11)"><value><string>XPClassic</string></value></item>
+					<item displayName="$(string.CE_str_12)"><value><string>XPSimple</string></value></item>
+					<item displayName="$(string.CE_str_13)"><value><string>Vista</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CE_HScrollbar" class="Both" displayName="$(string.CE_str_14)" explainText="$(string.CE_str_15)" presentation="$(presentation.CE_HScrollbar)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="HScrollbar_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="HScrollbar">
+					<item displayName="$(string.CE_str_16)"><value><string>Default</string></value></item>
+					<item displayName="$(string.CE_str_17)"><value><string>Off</string></value></item>
+					<item displayName="$(string.CE_str_18)"><value><string>On</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CE_NoFadeButtons" class="Both" displayName="$(string.CE_str_19)" explainText="$(string.CE_str_20)" presentation="$(presentation.CE_NoFadeButtons)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="NoFadeButtons_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="NoFadeButtons">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_TreeItemSpacing" class="Both" displayName="$(string.CE_str_21)" explainText="$(string.CE_str_22)" presentation="$(presentation.CE_TreeItemSpacing)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TreeItemSpacing_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="TreeItemSpacing"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_FullIndent" class="Both" displayName="$(string.CE_str_23)" explainText="$(string.CE_str_24)" presentation="$(presentation.CE_FullIndent)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="FullIndent_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="FullIndent">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_AutoNavigate" class="Both" displayName="$(string.CE_str_25)" explainText="$(string.CE_str_26)" presentation="$(presentation.CE_AutoNavigate)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="AutoNavigate_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="AutoNavigate">
+					<item displayName="$(string.CE_str_27)"><value><string>Default</string></value></item>
+					<item displayName="$(string.CE_str_28)"><value><string>KeyboardOnly</string></value></item>
+					<item displayName="$(string.CE_str_29)"><value><string>Always</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CE_AutoNavDelay" class="Both" displayName="$(string.CE_str_30)" explainText="$(string.CE_str_31)" presentation="$(presentation.CE_AutoNavDelay)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="AutoNavDelay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="AutoNavDelay"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_AltEnter" class="Both" displayName="$(string.CE_str_32)" explainText="$(string.CE_str_33)" presentation="$(presentation.CE_AltEnter)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="AltEnter_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="AltEnter">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_FixFolderScroll" class="Both" displayName="$(string.CE_str_34)" explainText="$(string.CE_str_35)" presentation="$(presentation.CE_FixFolderScroll)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="FixFolderScroll_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="FixFolderScroll">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShowCaption" class="Both" displayName="$(string.CE_str_36)" explainText="$(string.CE_str_37)" presentation="$(presentation.CE_ShowCaption)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="ShowCaption_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowCaption">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShowIcon" class="Both" displayName="$(string.CE_str_38)" explainText="$(string.CE_str_39)" presentation="$(presentation.CE_ShowIcon)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="ShowIcon_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowIcon">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_DisableBreadcrumbs" class="Both" displayName="$(string.CE_str_40)" explainText="$(string.CE_str_41)" presentation="$(presentation.CE_DisableBreadcrumbs)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="DisableBreadcrumbs_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="DisableBreadcrumbs">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_AddressBarHistory" class="Both" displayName="$(string.CE_str_42)" explainText="$(string.CE_str_43)" presentation="$(presentation.CE_AddressBarHistory)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="AddressBarHistory_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="AddressBarHistory">
+					<item displayName="$(string.CE_str_44)"><value><string>NormalHistory</string></value></item>
+					<item displayName="$(string.CE_str_45)"><value><string>SimplePath</string></value></item>
+					<item displayName="$(string.CE_str_46)"><value><string>ExtendedPath</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CE_HideSearch" class="Both" displayName="$(string.CE_str_47)" explainText="$(string.CE_str_48)" presentation="$(presentation.CE_HideSearch)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="HideSearch_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="HideSearch">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_AddressAltD" class="Both" displayName="$(string.CE_str_49)" explainText="$(string.CE_str_50)" presentation="$(presentation.CE_AddressAltD)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="AddressAltD_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="AddressAltD"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShowUpButton" class="Both" displayName="$(string.CE_str_51)" explainText="$(string.CE_str_52)" presentation="$(presentation.CE_ShowUpButton)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="ShowUpButton_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="ShowUpButton">
+					<item displayName="$(string.CE_str_53)"><value><string>DontShow</string></value></item>
+					<item displayName="$(string.CE_str_54)"><value><string>BeforeBack</string></value></item>
+					<item displayName="$(string.CE_str_55)"><value><string>AfterBack</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CE_UpIconNormal" class="Both" displayName="$(string.CE_str_56)" explainText="$(string.CE_str_57)" presentation="$(presentation.CE_UpIconNormal)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="UpIconNormal_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="UpIconNormal"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_UpIconPressed" class="Both" displayName="$(string.CE_str_58)" explainText="$(string.CE_str_59)" presentation="$(presentation.CE_UpIconPressed)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="UpIconPressed_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="UpIconPressed"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_UpIconHot" class="Both" displayName="$(string.CE_str_60)" explainText="$(string.CE_str_61)" presentation="$(presentation.CE_UpIconHot)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="UpIconHot_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="UpIconHot"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_UpIconDisabled" class="Both" displayName="$(string.CE_str_62)" explainText="$(string.CE_str_63)" presentation="$(presentation.CE_UpIconDisabled)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="UpIconDisabled_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="UpIconDisabled"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_UpIconSize" class="Both" displayName="$(string.CE_str_64)" explainText="$(string.CE_str_65)" presentation="$(presentation.CE_UpIconSize)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="UpIconSize_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="UpIconSize"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_UpHotkey" class="Both" displayName="$(string.CE_str_66)" explainText="$(string.CE_str_67)" presentation="$(presentation.CE_UpHotkey)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="UpHotkey_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="UpHotkey"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_UseBigButtons" class="Both" displayName="$(string.CE_str_68)" explainText="$(string.CE_str_69)" presentation="$(presentation.CE_UseBigButtons)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="UseBigButtons_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="UseBigButtons">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_SmallIconSize" class="Both" displayName="$(string.CE_str_70)" explainText="$(string.CE_str_71)" presentation="$(presentation.CE_SmallIconSize)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SmallIconSize_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="SmallIconSize"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_LargeIconSize" class="Both" displayName="$(string.CE_str_72)" explainText="$(string.CE_str_73)" presentation="$(presentation.CE_LargeIconSize)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="LargeIconSize_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="LargeIconSize"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_MenuIconSize" class="Both" displayName="$(string.CE_str_74)" explainText="$(string.CE_str_75)" presentation="$(presentation.CE_MenuIconSize)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MenuIconSize_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MenuIconSize"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_ToolbarListMode" class="Both" displayName="$(string.CE_str_76)" explainText="$(string.CE_str_77)" presentation="$(presentation.CE_ToolbarListMode)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ToolbarListMode_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ToolbarListMode">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_SameSizeButtons" class="Both" displayName="$(string.CE_str_78)" explainText="$(string.CE_str_79)" presentation="$(presentation.CE_SameSizeButtons)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="SameSizeButtons_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="SameSizeButtons">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ResizeableToolbar" class="Both" displayName="$(string.CE_str_80)" explainText="$(string.CE_str_81)" presentation="$(presentation.CE_ResizeableToolbar)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ResizeableToolbar_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ResizeableToolbar">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ToolbarItems" class="Both" displayName="$(string.CE_str_82)" explainText="$(string.CE_str_83)" presentation="$(presentation.CE_ToolbarItems)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ToolbarItems_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<multiText id="Value" valueName="ToolbarItems"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShowFreeSpace" class="Both" displayName="$(string.CE_str_84)" explainText="$(string.CE_str_85)" presentation="$(presentation.CE_ShowFreeSpace)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShowFreeSpace_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowFreeSpace">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShowInfoTip" class="Both" displayName="$(string.CE_str_86)" explainText="$(string.CE_str_87)" presentation="$(presentation.CE_ShowInfoTip)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShowInfoTip_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowInfoTip">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ForceRefreshWin7" class="Both" displayName="$(string.CE_str_88)" explainText="$(string.CE_str_89)" presentation="$(presentation.CE_ForceRefreshWin7)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="ForceRefreshWin7_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ForceRefreshWin7">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShowStatusBar" class="Both" displayName="$(string.CE_str_90)" explainText="$(string.CE_str_91)" presentation="$(presentation.CE_ShowStatusBar)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN881" />
+			<elements>
+				<enum id="State" valueName="ShowStatusBar_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowStatusBar">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShowZone" class="Both" displayName="$(string.CE_str_92)" explainText="$(string.CE_str_93)" presentation="$(presentation.CE_ShowZone)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN881" />
+			<elements>
+				<enum id="State" valueName="ShowZone_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowZone">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_StatusBarFont" class="Both" displayName="$(string.CE_str_94)" explainText="$(string.CE_str_95)" presentation="$(presentation.CE_StatusBarFont)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="StatusBarFont_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="StatusBarFont"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShareOverlay" class="Both" displayName="$(string.CE_str_96)" explainText="$(string.CE_str_97)" presentation="$(presentation.CE_ShareOverlay)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShareOverlay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShareOverlay">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShareOverlayIcon" class="Both" displayName="$(string.CE_str_98)" explainText="$(string.CE_str_99)" presentation="$(presentation.CE_ShareOverlayIcon)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShareOverlayIcon_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="ShareOverlayIcon"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShareOverlayHidden" class="Both" displayName="$(string.CE_str_100)" explainText="$(string.CE_str_101)" presentation="$(presentation.CE_ShareOverlayHidden)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShareOverlayHidden_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShareOverlayHidden">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShareExplorer" class="Both" displayName="$(string.CE_str_102)" explainText="$(string.CE_str_103)" presentation="$(presentation.CE_ShareExplorer)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShareExplorer_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShareExplorer">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ShowHeaders" class="Both" displayName="$(string.CE_str_104)" explainText="$(string.CE_str_105)" presentation="$(presentation.CE_ShowHeaders)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShowHeaders_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowHeaders">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_HideScrollTip" class="Both" displayName="$(string.CE_str_106)" explainText="$(string.CE_str_107)" presentation="$(presentation.CE_HideScrollTip)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="classic_shell:SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="HideScrollTip_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="HideScrollTip">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ReplaceFileUI" class="Both" displayName="$(string.CE_str_108)" explainText="$(string.CE_str_109)" presentation="$(presentation.CE_ReplaceFileUI)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="ReplaceFileUI_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ReplaceFileUI">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_ReplaceFolderUI" class="Both" displayName="$(string.CE_str_110)" explainText="$(string.CE_str_111)" presentation="$(presentation.CE_ReplaceFolderUI)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="ReplaceFolderUI_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ReplaceFolderUI">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_OverwriteAlertLevel" class="Both" displayName="$(string.CE_str_112)" explainText="$(string.CE_str_113)" presentation="$(presentation.CE_OverwriteAlertLevel)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="OverwriteAlertLevel_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<enum id="Value" valueName="OverwriteAlertLevel">
+					<item displayName="$(string.CE_str_114)"><value><string>NoAlert</string></value></item>
+					<item displayName="$(string.CE_str_115)"><value><string>SystemFiles</string></value></item>
+					<item displayName="$(string.CE_str_116)"><value><string>ReadOnlyFiles</string></value></item>
+				</enum>
+			</elements>
+		</policy>
+
+		<policy name="CE_EnableMore" class="Both" displayName="$(string.CE_str_117)" explainText="$(string.CE_str_118)" presentation="$(presentation.CE_EnableMore)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="EnableMore_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableMore">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CE_MoreProgressDelay" class="Both" displayName="$(string.CE_str_119)" explainText="$(string.CE_str_120)" presentation="$(presentation.CE_MoreProgressDelay)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="MoreProgressDelay_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MoreProgressDelay"/>
+			</elements>
+		</policy>
+
+		<policy name="CE_FileExplorer" class="Both" displayName="$(string.CE_str_121)" explainText="$(string.CE_str_122)" presentation="$(presentation.CE_FileExplorer)" key="Software\Policies\OpenShell\ClassicExplorer">
+			<parentCategory ref="ClassicExplorer" />
+			<supportedOn ref="SUPPORTED_CS404_WIN7" />
+			<elements>
+				<enum id="State" valueName="FileExplorer_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="FileExplorer">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+	</policies>
+</policyDefinitions>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="0.9" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<policyNamespaces>
+		<target prefix="classic_shell" namespace="Open-Shell.Policies.OpenShell" />
+	</policyNamespaces>
+	<supersededAdm fileName="" />
+	<resources minRequiredRevision="1.0"/>
+	<supportedOn>
+		<definitions>
+			<definition name="SUPPORTED_CS404" displayName="$(string.SUPPORTED_CS404)"/>
+		</definitions>
+	</supportedOn>
+	<categories>
+		<category name="OpenShell" displayName="$(string.OpenShellCat)" explainText="$(string.OpenShellCatHelp)"/>
+	</categories>
+	<policies>
+		<policy name="CS_Language" class="Both" displayName="$(string.CS_str_1)" explainText="$(string.CS_str_2)" presentation="$(presentation.CS_Language)" key="Software\Policies\OpenShell\OpenShell">
+			<parentCategory ref="OpenShell" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="Language_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="Language"/>
+			</elements>
+		</policy>
+
+		<policy name="CS_Update" class="Both" displayName="$(string.CS_str_3)" explainText="$(string.CS_str_4)" presentation="$(presentation.CS_Update)" key="Software\Policies\OpenShell\OpenShell">
+			<parentCategory ref="OpenShell" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="Update_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="Update">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+	</policies>
+</policyDefinitions>

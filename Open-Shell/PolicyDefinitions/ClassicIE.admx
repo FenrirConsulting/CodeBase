@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="0.9" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+	<policyNamespaces>
+		<target prefix="classic_ie" namespace="Open-Shell.Policies.ClassicIE" />
+		<using prefix="classic_shell" namespace="Open-Shell.Policies.OpenShell" />
+	</policyNamespaces>
+	<supersededAdm fileName="" />
+	<resources minRequiredRevision="1.0"/>
+	<supportedOn>
+		<definitions>
+			<definition name="SUPPORTED_CS404" displayName="$(string.SUPPORTED_CS404)"/>
+		</definitions>
+	</supportedOn>
+	<categories>
+		<category name="ClassicIE" displayName="$(string.ClassicIECat)" explainText="$(string.ClassicIECatHelp)">
+			<parentCategory ref="classic_shell:OpenShell" />
+		</category>
+	</categories>
+	<policies>
+		<policy name="CIE_EnableSettings" class="Both" displayName="$(string.CIE_str_1)" explainText="$(string.CIE_str_2)" presentation="$(presentation.CIE_EnableSettings)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="EnableSettings_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="EnableSettings">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CIE_ShowCaption" class="Both" displayName="$(string.CIE_str_3)" explainText="$(string.CIE_str_4)" presentation="$(presentation.CIE_ShowCaption)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShowCaption_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowCaption">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CIE_ShowIcon" class="Both" displayName="$(string.CIE_str_5)" explainText="$(string.CIE_str_6)" presentation="$(presentation.CIE_ShowIcon)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShowIcon_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowIcon">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CIE_CenterCaption" class="Both" displayName="$(string.CIE_str_7)" explainText="$(string.CIE_str_8)" presentation="$(presentation.CIE_CenterCaption)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="CenterCaption_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="CenterCaption">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CIE_CaptionFont" class="Both" displayName="$(string.CIE_str_9)" explainText="$(string.CIE_str_10)" presentation="$(presentation.CIE_CaptionFont)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="CaptionFont_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<text id="Value" valueName="CaptionFont"/>
+			</elements>
+		</policy>
+
+		<policy name="CIE_TextColor" class="Both" displayName="$(string.CIE_str_11)" explainText="$(string.CIE_str_12)" presentation="$(presentation.CIE_TextColor)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="TextColor_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="TextColor"/>
+			</elements>
+		</policy>
+
+		<policy name="CIE_MaxColor" class="Both" displayName="$(string.CIE_str_13)" explainText="$(string.CIE_str_14)" presentation="$(presentation.CIE_MaxColor)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MaxColor_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MaxColor"/>
+			</elements>
+		</policy>
+
+		<policy name="CIE_InactiveColor" class="Both" displayName="$(string.CIE_str_15)" explainText="$(string.CIE_str_16)" presentation="$(presentation.CIE_InactiveColor)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="InactiveColor_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="InactiveColor"/>
+			</elements>
+		</policy>
+
+		<policy name="CIE_InactiveMaxColor" class="Both" displayName="$(string.CIE_str_17)" explainText="$(string.CIE_str_18)" presentation="$(presentation.CIE_InactiveMaxColor)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="InactiveMaxColor_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="InactiveMaxColor"/>
+			</elements>
+		</policy>
+
+		<policy name="CIE_Glow" class="Both" displayName="$(string.CIE_str_19)" explainText="$(string.CIE_str_20)" presentation="$(presentation.CIE_Glow)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="Glow_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="Glow">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CIE_GlowColor" class="Both" displayName="$(string.CIE_str_21)" explainText="$(string.CIE_str_22)" presentation="$(presentation.CIE_GlowColor)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="GlowColor_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="GlowColor"/>
+			</elements>
+		</policy>
+
+		<policy name="CIE_MaxGlow" class="Both" displayName="$(string.CIE_str_23)" explainText="$(string.CIE_str_24)" presentation="$(presentation.CIE_MaxGlow)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MaxGlow_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="MaxGlow">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CIE_MaxGlowColor" class="Both" displayName="$(string.CIE_str_25)" explainText="$(string.CIE_str_26)" presentation="$(presentation.CIE_MaxGlowColor)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="MaxGlowColor_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<decimal id="Value" valueName="MaxGlowColor"/>
+			</elements>
+		</policy>
+
+		<policy name="CIE_ShowProgress" class="Both" displayName="$(string.CIE_str_27)" explainText="$(string.CIE_str_28)" presentation="$(presentation.CIE_ShowProgress)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShowProgress_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowProgress">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CIE_ShowZone" class="Both" displayName="$(string.CIE_str_29)" explainText="$(string.CIE_str_30)" presentation="$(presentation.CIE_ShowZone)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShowZone_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowZone">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+		<policy name="CIE_ShowProtected" class="Both" displayName="$(string.CIE_str_31)" explainText="$(string.CIE_str_32)" presentation="$(presentation.CIE_ShowProtected)" key="Software\Policies\OpenShell\ClassicIE">
+			<parentCategory ref="ClassicIE" />
+			<supportedOn ref="SUPPORTED_CS404" />
+			<elements>
+				<enum id="State" valueName="ShowProtected_State">
+					<item displayName="$(string.SettingState1)"><value><decimal value="0" /></value></item>
+					<item displayName="$(string.SettingState2)"><value><decimal value="1" /></value></item>
+					<item displayName="$(string.SettingState3)"><value><decimal value="2" /></value></item>
+				</enum>
+				<boolean id="Value" valueName="ShowProtected">
+					<trueValue><decimal value="1" /></trueValue>
+					<falseValue><decimal value="0" /></falseValue>
+				</boolean>
+			</elements>
+		</policy>
+
+	</policies>
+</policyDefinitions>
