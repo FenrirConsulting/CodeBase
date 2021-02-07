@@ -25,6 +25,7 @@ app.on('ready', () => {
 
     const mod2AHTML = config.index.pageThree;
     const mod2BHTML = config.index.pageFour;
+    const mod2CHTML = config.index.pageFifteen;
 
     const mod3AHTML = config.index.pageFive;
     const mod3BHTML = config.index.pageSix;
@@ -39,28 +40,30 @@ app.on('ready', () => {
     const dashHTML = config.index.pageTwelve;
     const tempHTML = config.index.pageThirteen;
     const jsonHTML = config.index.pageFourteen;
+
+
     var userCheck = 0;
 
-    if (username == "dpsPicker" || username == "DPSBoard") {
+    if (username == "dpsPicker" || username == "DPSBoard" || hostname == "DPSPERFBOARD") {
         userCheck = 1
     };
-    if (username == "DPSBoardB") {
+    if (username == "DPSBoardB" || hostname == "DPSPERFBOARDB") {
         userCheck = 2
     };
 
 
-    if (username == "wmsuser" || username == "CasesBoard") {
+    if (username == "CasesBoard" || hostname == "CASESPERFBOARD") {
         userCheck = 3
     };
-    if (username == "CasesBoardB") {
+    if (username == "CasesBoardB" || hostname == "CASESPERFBOARDB") {
         userCheck = 4
     };
 
 
-    if (username == "RepackBoard") {
+    if (username == "RepackBoard" || hostname == "REPACKPERFBOARD") {
         userCheck = 5
     };
-    if (username == "RepackBoardB") {
+    if (username == "RepackBoardB" || hostname == "REPACKBOARDB") {
         userCheck = 6
     };
 
@@ -106,6 +109,7 @@ app.on('ready', () => {
             //windowLauncher(mod1BHTML); 
             //windowLauncher(mod2AHTML);
             //windowLauncher(mod2bHTML);
+            //windowLauncher(mod2CHTML);
             //windowLauncher(mod3AHTML);
             //windowLauncher(mod3BHTML);
             //windowLauncher(news1HTML);

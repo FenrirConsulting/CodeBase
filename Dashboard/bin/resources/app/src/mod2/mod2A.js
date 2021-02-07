@@ -21,6 +21,8 @@ var fPath2 = path.join(dirPath,file2);
 var count = 1;
 var myTime;
 
+$(".mod2Set").addClass("hideElement");
+$(".mod2Set").fadeOut();
 myStartFunction();
 
 function timerFunc() {
@@ -42,20 +44,15 @@ function timerFunc() {
                 fPath = path.join(dirPath,file1);
                 fPath2 = path.join(dirPath,file2);
                 runData(objTbl, objTbl2);
-                count = 2;
+                count = count + 1;
                 break;
+
             case 2:
-                fPath = path.join(dirPath,file1);
-                fPath2 = path.join(dirPath,file2);
-                runData(objTbl, objTbl2);
-                count = 3;
-                break;
-            case 3:
-                fPath = path.join(dirPath,file1);
-                fPath2 = path.join(dirPath,file2);
-                runData(objTbl, objTbl2);
-                count = 1;
-                break;
+                myStopFunction();
+                $(".mod2Set").fadeOut(1500);
+                setTimeout(function () {
+                    location.href="../mod2/mod2B.html"
+                }, 2500);
         }
 
     }
@@ -79,7 +76,7 @@ function myStopFunction() { // Clear interval timer
 function runData(objTbl, objTbl2) {
 
     // Fades out Divs, Stops scroll interval, runs new table, fades in on timer
-    $(".mod2Set").fadeOut(3000);
+    
 
     setTimeout(function () {
         objTbl.scrollTop = function () {
@@ -97,6 +94,7 @@ function runData(objTbl, objTbl2) {
         readData1();
         readData2();
         $(".mod2Set").fadeIn(4000);
+        $(".mod2Set").addClass("showElement");
 
 
     }, 2500);
@@ -131,6 +129,7 @@ function readData1() {
         console.log(title);
         console.log(date);
         console.log(week);
+        count = 2;
 
         // Creates empty fields for spacing between different .txt Files
         // Change n count for more or less empty lines between files. 

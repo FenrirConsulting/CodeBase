@@ -7,6 +7,16 @@ html {
     -webkit-app-region: drag;
 }
 
+.hideElement {
+
+    visibility : hidden;
+}
+
+.showElement {
+
+    visibility : visible;
+}
+
 body {
     background-color: rgb(36, 51, 66);
     color: #212624;

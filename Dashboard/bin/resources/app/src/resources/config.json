@@ -3,22 +3,22 @@
 	"dashboard": {
 
 	
-	"pageOne": "../news/news2.html",
+	"pageOne": "../mod1/mod1A.html",
 
 	
-	"pageTwo": "../news/news2.html",
+	"pageTwo": "../mod1/mod1B.html",
 
 	
-	"pageThree": "../news/news2.html",
+	"pageThree": "../mod2/mod2A.html",
 
 	
-	"pageFour": "../news/news2.html",
+	"pageFour": "../mod2/mod2B.html",
 
 	
-	"pageFive": "../news/news2.html",
+	"pageFive": "../mod3/mod3A.html",
 
 	
-	"pageSix": "../news/news2.html",
+	"pageSix": "../mod3/mod3B.html",
 
 	
 	"pageSeven": "../news/news1.html",
@@ -44,7 +44,7 @@
 	
 	"pageFourteen": "../dash/jsoneditor.html",
 
-	
+
 	"jsonTitle": "Configuration Editor"
 
 	},
@@ -135,20 +135,28 @@
 	"mod2B": {
 
 	
-	"mainTitle": "Cases Weekly",
+	"mainTitle": "MPS Weekly",
 
 	
-	"titleOne": "CPS Weekly",
+	"titleOne": "MPS Weekly",
 
 	
-	"titleTwo": "MPS Weekly",
+	"fileOne": "mpsWeek.txt"
+
+	},
+
+
+	"mod2C": {
 
 	
-	"fileOne": "cpsWeek.txt",
-
+		"mainTitle": "CPS Weekly",
 	
-	"fileTwo": "mpsWeek.txt"
-
+		
+		"titleOne": "CPS Weekly",
+	
+		
+		"fileOne": "cpsWeek.txt"
+	
 	},
 
 	"mod3A": {
@@ -211,7 +219,7 @@
 	"news2": {
 
 	
-	"mainTitle": "Warehouse Updat",
+	"mainTitle": "Warehouse Update",
 
 	
 	"titleOne": "Warehouse Update ",
@@ -242,20 +250,20 @@
 	"fileOne": "Overview.csv",
 
 	
-	"fileTwo": "Overview.csv"
+	"fileTwo": "Repack.csv"
 
 	},
 
 	"chart2": {
 
 	
-	"mainTitle": "Dashboard",
+	"mainTitle": "Chart 2",
 
 	
-	"titleOne": "Dashboard",
+	"titleOne": "Chart 2",
 
 	
-	"titleTwo": "Dashboard",
+	"titleTwo": "Chart 2",
 
 	
 	"fileOne": "Overview.csv",
@@ -308,6 +316,9 @@
 
 	
 	"pageFourteen": "./src/dash/jsoneditor.html",
+
+
+	"pageFifteen" : "./src/mod2/mod2C.html",
 
 	
 	"testPage": "testInformation"

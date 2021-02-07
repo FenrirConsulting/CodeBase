@@ -1,12 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const config = require('../resources/config.json');
-setTimeout(function(){location.href="../charts/chart1.html";},20 * 1000);
+setTimeout(function(){location.href="news2.html";},20 * 1000);
 
 var dirPath = '../../../../../DisplayScreens/';
 var fileName = config.news1.fileOne;
 var title = config.news1.titleOne;
 var fPath = path.join(dirPath,fileName);
+
 
 document.getElementById("Title").innerHTML = title;
 

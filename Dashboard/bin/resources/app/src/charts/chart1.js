@@ -1,7 +1,7 @@
 window.$ = window.jQuery = require('../resources/chart.js');
 window.$ = window.jQuery = require('../resources/d3.js');
 window.$ = window.jQuery = require('../resources/canvasJS.js'); 
-//setTimeout(function(){location.href="../news/news1.html";},20 * 1000);
+setTimeout(function(){location.href="../news/news1.html";},20 * 1000);
 const path = require('path');
 const fs = require('fs');
 const config = require('../resources/config.json');
@@ -12,9 +12,12 @@ document.title = mainTitle;
 document.getElementById("Title").innerHTML = title;
 var parentPath = '../../../../../ReportGenerator/Reports/';//It goes three folders or directories back from given __dirname.
 var fileName = config.chart1.fileOne;
+var fileName2 = config.chart1.fileTwo;
 
 var totalsFile = config.news1.fileOne;
+
 var fPath = path.join(dirPath,totalsFile);
+
 var dpsTotal = 0;
 var mpsTotal = 0;
 var cpsTotal = 0;
@@ -115,6 +118,7 @@ function fetchTotals(){
 }
 
 var doc = path.join(parentPath,fileName);
+var doc2 = path.join(parentPath,fileName2); // Repack File Csv , to be gathered from secondary generator file
 
 function hourlyValueCheck (myChart, goalCheck){
 
@@ -137,34 +141,44 @@ myChart.update();
 
 d3.text(doc).then(function(text){
     var fixedData = d3.csvParse(text.split('\n').slice(1).join('\n'));
+    d3.text(doc2).then(function(text){
+        var fixedData2 = d3.csvParse(text.split('\n').slice(1).join('\n'));
+        
+        makeChart(fixedData, fixedData2)
+    })
     fetchTotals();
-    makeChart(fixedData)
 })
 
-function makeChart(data) {
+
+
+function makeChart(data, data2) {
 
 
     data = data.splice(0, data.length - 1);
-
     data.splice(0,1);
-
+    data2 = data2.splice(0, data2.length - 1);
+    data2.splice(0,1);
     var str = ":00:00";
     
     const newArray = data.map(data => ({
         date: data["Date"].split(" ")[0],
-
         time: data["Date"].match(/^(\S+)\s(.*)/).slice(2),
-
-        
         data1: data["DPS Pick EA *"].replace(/,/g, ''),
         data2: data["MPS Pick Case *"].replace(/,/g, ''),
-        data3: data["CPS Pick Case *"].replace(/,/g, ''),
-        data4: data["Totes from Rep"].replace(/,/g, '')
+        data3: data["CPS Pick Case *"].replace(/,/g, '')
     }));
 
-    
+    const repackArray = data2.map(data2 => ({
+        date2: data2["Date"].split(" ")[0],
+        time2: data2["Date"].match(/^(\S+)\s(.*)/).slice(2),
+        data4: data2["Totes from Rep"].replace(/,/g, '')
+    }));
+
+
     var dateLabel = newArray.map(function(newArray){return newArray.date});
     var timeLabel = newArray.map(function(newArray){return newArray.time});
+    var dateLabel2 = repackArray.map(function(repackArray){return repackArray.date2});
+    var timeLabel2 = repackArray.map(function(repackArray){return repackArray.time2});
 
     for (var i = 0; i < timeLabel.length; i++) {
         var str = ":00:00";
@@ -172,12 +186,17 @@ function makeChart(data) {
         timeLabel[i][0] = tempString;
     }
 
+    for (var i = 0; i < timeLabel2.length; i++) {
+        var str = ":00:00";
+        var tempString = timeLabel2[i].toString().replace(str, "");
+        timeLabel2[i][0] = tempString;
+    }
     
 
     var data1 = newArray.map(function(newArray) {return +newArray.data1});
     var data2 = newArray.map(function(newArray) {return +newArray.data2});
     var data3 = newArray.map(function(newArray) {return +newArray.data3});
-    var data4 = newArray.map(function(newArray) {return +newArray.data4});
+    var data4 = repackArray.map(function(repackArray) {return +repackArray.data4});
 
     finalDate = (dateLabel.length - 1);
     document.getElementById("Date").innerHTML = dateLabel[finalDate];
@@ -195,9 +214,10 @@ function makeChart(data) {
         cpsRunningTotal += parseInt( data3[i], 10 ); //don't forget to add the base
     }
 
-    for( var i = 0; i < data1.length; i++ ){
+    for( var i = 0; i < data2.length; i++ ){
         repackRunningTotal += parseInt( data4[i], 10 ); //don't forget to add the base
     }
+    
   
     Chart1 = new Chart('chart', {
 
@@ -219,7 +239,7 @@ function makeChart(data) {
                     trendlineLinear: {
                         style: "#377eb8",
                         lineStyle: "solid",
-                        width: 4
+                        width: 6
                     }                             
                 }
             ]
@@ -456,7 +476,7 @@ function makeChart(data) {
         fontColor: "#FFFFFF",
 
         data: {
-            labels: timeLabel,
+            labels: timeLabel2,
 
             datasets: [
                 {
@@ -481,7 +501,7 @@ function makeChart(data) {
 
             title: {
                 display: true,
-                text: "Repack Totes per Hour",
+                text: "Repack Cases per Hour",
                 fontColor:"white",
                 fontSize: 24
             },

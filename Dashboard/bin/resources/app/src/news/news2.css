@@ -15,6 +15,7 @@ body {
     margin: 0;
     padding : 0;
     display:grid;
+    grid-gap:5px;
     grid-template-rows: 10% 90%;
 }
 
@@ -32,6 +33,17 @@ header{
     text-shadow: 0 0 3px #000;
     -moz-text-shadow: 0 0 3px #000;
     -webkit-text-shadow: 0 0 3px #000;
+}
+
+.title, .date {
+    align-self: center;
+    text-align: center;
+}
+
+.logo{
+
+    padding: 10px;
+    align-self: center;
 }
 
 span {
@@ -54,36 +66,26 @@ span {
         0px -5px 35px rgba(255, 255, 255, 0.3);
   }
 
+  .odd,.even{
+    padding: 4px;
+    margin: 4px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
   .odd{
 
     border-color: lighten(rgb(7, 10, 14), 10%);
     background-color: rgb(46, 91, 136);
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    display: inline-block;
   }
 
   .even{
-
     border-color: lighten(rgb(5, 8, 10), 40%);
     background-color: #34495E;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
-    display: inline-block;
   }
 
 
-.title, .date {
-    align-self: center;
-    text-align: center;
-}
 
-.logo{
-
-    padding: 10px;
-}
 
 ::-webkit-scrollbar {
     width: 0px;

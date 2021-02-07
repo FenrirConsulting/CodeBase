@@ -16,6 +16,16 @@ table {
     scroll-behavior: smooth;
 }
 
+.hideElement {
+
+    visibility : hidden;
+}
+
+.showElement {
+
+    visibility : visible;
+}
+
 #grid_wrapper {
     padding: 0px;
     margin: 0px;

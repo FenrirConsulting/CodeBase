@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const config = require('../resources/config.json');
-setTimeout(function(){location.href="news1.html";},20 * 1000);
+setTimeout(function(){location.href="../charts/chart1.html";},20 * 1000);
 
 var dirPath = '../../../../../DisplayScreens/';
 var fileName = config.news2.fileOne;

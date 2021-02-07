@@ -10,7 +10,6 @@ const config = require('../resources/config.json');
 
 // Add Var's and filenames for desired reports
 var file1 = config.mod2B.fileOne;
-var file2 = config.mod2B.fileTwo;
 var title = config.mod2B.mainTitle;
 document.title = title;
 
@@ -21,6 +20,8 @@ var count = 1;
 var myTime;
 var activeTable = document.getElementById("DataStream1");
 
+$(".mod2Set1").addClass("hideElement");
+$(".mod2Set1").fadeOut();
 myStartFunction(); // Begins table function
 
 function timerFunc() {
@@ -39,15 +40,18 @@ function timerFunc() {
             case 1:
                 fPath = path.join(dirPath,file1);
                 activeTable = document.getElementById("DataStream1");
+                console.log(count);
+                count = count+1;
                 runData(objTbl, count);
-                count = 2;
                 break;
-            case 2:
-                fPath = path.join(dirPath,file2);
-                activeTable = document.getElementById("DataStream2");
-                runData(objTbl), count;
-                count = 1;
-                break;
+
+            case 2 :
+                myStopFunction();
+                console.log(count);
+                $(".mod2Set1").fadeOut(1500);
+                setTimeout(function () {
+                    location.href="../mod2/mod2C.html"
+                }, 2500);
         }
 
     }
@@ -73,9 +77,7 @@ function myStopFunction() { // Clear interval timer
 function runData(objTbl, count) {
 
     // Fades out Divs, Stops scroll interval, runs new table, fades in on timer
-    $(".mod2Set1").fadeOut(1500);
-    $(".mod2Set2").fadeOut(1500);
-
+    
     setTimeout(function () {
         objTbl.scrollTop = 0;
     }, 2000);
@@ -84,19 +86,13 @@ function runData(objTbl, count) {
 
     setTimeout(function () {
 
-        if (count == 1) {
-            readData1();
-            $(".mod2Set1").fadeIn(3000);
-            setTimeout(function () {
-                myStartFunction();
-            }, 1500);
-        } else {
-            readData2();
-            $(".mod2Set2").fadeIn(3000);
-            setTimeout(function () {
-                myStartFunction();
-            }, 1500);
-        }
+        readData1();
+        $(".mod2Set1").fadeIn(3000);
+        $(".mod2Set1").addClass("showElement");
+        setTimeout(function () {
+            myStartFunction();
+        }, 1500);
+        
 
     }, 1500);
 
@@ -187,7 +183,7 @@ function readData1() {
 
         // Creates empty fields for spacing between different .txt Files
         // Change n count for more or less empty lines between files. 
-        for (n = 0; n < 15; n++) {
+        for (n = 0; n < 8; n++) {
 
             var f = [];
             var td = [];
@@ -213,112 +209,7 @@ function readData1() {
 }
 
 
-function readData2() {
 
-    fs2.readFile((path.resolve(__dirname, fPath)), function (error, data) {
-        console.log("runData");
-
-        if (error) {
-            throw error;
-        }
-
-        $("#tbl2 tbody").children().remove()
-
-        // File is read into table string array. Lines 1-3 are used to store the Title, Date,
-        // and Week into string variables that are displayed in their respective boxes. Trims | out of Title/Date/Week
-
-        var table2 = data.toString().split("\n");
-        var pretitle2 = table2[1];
-        var predate2 = table2[2];
-        var preweek2 = table2[3];
-        var title2 = pretitle2.replace(/\|.*/, '');;
-        var date2 = predate2.replace(/\|.*/, '');;
-        var week2 = preweek2.replace(/\|.*/, '');;
-        console.log(title2);
-        console.log(date2);
-        console.log(week2);
-
-        for (n = 0; n < 10; n++) {
-
-            var f = [];
-            var td = [];
-            var tar = document.getElementById("DataStream2");
-            var tr = document.createElement('tr');
-
-            for (i = 0; i < 11; i++) {
-                f[i] = ("");
-                td[i] = document.createElement('td');
-                td[i].innerHTML = f[i];
-                td[i].setAttribute("id", "remove");
-                tr.appendChild(td[i]);
-            }
-
-            tar.appendChild(tr);
-        }
-
-        for (i = 4; i < table2.length - 1; i++) {
-
-            var f1 = table2[i].trim().split("|", 12);
-            var tar = document.getElementById("DataStream2");
-            var tr = document.createElement('tr');
-            var td = [];
-
-            for (n = 0; n < 11; n++) {
-                td[n] = document.createElement('td');
-                td[n].innerHTML = f1[n];
-                td[n].setAttribute("id", "remove")
-                tr.appendChild(td[n]);
-            }
-
-            tar.appendChild(tr);
-
-            var valueCheck = parseInt(td[5].innerHTML, 10);
-            changeColor(td[5], valueCheck);
-            var valueCheck = parseInt(td[6].innerHTML, 10);
-            changeColor(td[6], valueCheck);
-            var valueCheck = parseFloat(td[8].innerHTML, 10);
-            changeColor(td[8], valueCheck);
-
-            function changeColor(input, valueCheck) {
-                $(input).removeClass();
-
-                if (valueCheck > 99.99) {
-                    $(input).addClass('pass');
-                } else if (valueCheck > 99.89 && input == td[8]) {
-                    $(input).addClass('warning');
-                } else {
-                    $(input).addClass('fail');
-                }
-            }
-
-        };
-
-        // Creates empty fields for spacing between different .txt Files
-        // Change n count for more or less empty lines between files. 
-        for (n = 0; n < 10; n++) {
-
-            var f = [];
-            var td = [];
-            var tar = document.getElementById("DataStream2");
-            var tr = document.createElement('tr');
-
-            for (i = 0; i < 11; i++) {
-                f[i] = ("");
-                td[i] = document.createElement('td');
-                td[i].innerHTML = f[i];
-                td[i].setAttribute("id", "remove");
-                tr.appendChild(td[i]);
-            }
-
-            tar.appendChild(tr);
-        }
-
-        document.getElementById("Title2").innerHTML = title2;
-        document.getElementById("Date2").innerHTML = date2;
-        document.getElementById("Week2").innerHTML = week2;
-
-    });
-}
 
 // Allows for reloading and DevTools inside app, using F5 & F12
 document.addEventListener("keydown", function (e) {
