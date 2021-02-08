@@ -76,12 +76,10 @@ span {
   .odd{
 
     border-color: lighten(rgb(7, 10, 14), 10%);
-    background-color: rgb(46, 91, 136);
   }
 
   .even{
     border-color: lighten(rgb(5, 8, 10), 40%);
-    background-color: #34495E;
   }
 
 

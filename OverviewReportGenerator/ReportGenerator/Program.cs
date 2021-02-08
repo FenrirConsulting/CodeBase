@@ -38,8 +38,9 @@ namespace ReportGenerator
           
             string clientPath = "X:\\abl\\runtime\\bin\\";
             string serverPath = "R:\\abl\\runtime\\bin\\";
-            string absolutePath = "\\\\rfl6dpspw2c\\CVS-CLIENT-RT\\abl\\runtime\\bin\\";
-            string bmisFile = "BMIS_start.bat";
+            //string absolutePath = "\\\\rfl6dpspw2c\\CVS-CLIENT-RT\\abl\\runtime\\bin\\";
+            string bmisFile = "BMIS.exe";
+            string bmisProgram = "BMIS.exe";
             string savedFile = "Overview.csv";
            
             string pathSelection = clientPath + bmisFile;
@@ -53,7 +54,7 @@ namespace ReportGenerator
             }
             else 
             {
-                pathSelection = absolutePath + bmisFile;
+                pathSelection = bmisProgram;
             }
 
 
@@ -212,7 +213,9 @@ namespace ReportGenerator
             
             try
             {
-                SendKeys.SendWait("%{F4}");
+                string strCmdText;
+                strCmdText = "taskkill /im bmis.exe";
+                System.Diagnostics.Process.Start("CMD.exe", strCmdText);
             }
             catch (Exception ex)
             {

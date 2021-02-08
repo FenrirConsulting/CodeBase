@@ -125,11 +125,11 @@ app.on('ready', () => {
             break;
 
         case 8 :
-            windowLauncher(chart1HTML);
+            windowLauncher(news2HTML);
             break; 
 
         default:
-            dashLauncher(dashHTML); 
+            dashLauncher(news2HTML); 
     }
 
     function dashLauncher(fileName){
