@@ -17,9 +17,10 @@ namespace AutomationTechLog
     {
         sqlLiteMethods DBConn = new sqlLiteMethods();
         string username = "";
-        string employeeID = "";
         int rowCount = 0;
         int selectedRow = 0;
+
+        GlobalUser globalUser = new GlobalUser();
 
         public MainForm(DataRow passedRow)
         {
@@ -29,8 +30,16 @@ namespace AutomationTechLog
 
             int weekNumber = GetWeekNumber(currentTime);
             weekNumberLabel.Text = "Week Number: " + weekNumber.ToString();
-            if (passedRow != null) { username = passedRow["tlt_name"].ToString(); nameTitleLabel.Text = username; 
-                employeeID = passedRow["tlt_auname"].ToString(); }
+            if (passedRow != null) {
+
+                globalUser.globalUsername = passedRow["tlt_name"].ToString(); nameTitleLabel.Text = globalUser.globalUsername;
+                globalUser.globalEmployeeId = passedRow["tlt_auname"].ToString();
+                globalUser.globalAdmin = passedRow["tlt_isadmin"].ToString();
+                globalUser.globalLead = passedRow["tlt_islead"].ToString();
+                globalUser.globalActive = passedRow["tlt_isactive"].ToString();
+                globalUser.globalPassword = passedRow["tlt_pword"].ToString();
+
+            }
 
             string currentTimeFormated = formatDate(currentTime);
             //string olderThanDateFormatted = formatDate(olderThanDate);
@@ -78,7 +87,7 @@ namespace AutomationTechLog
 
         private DataTable buildOverviewDataTable() {
 
-            DataTable TECHLOGTable = DBConn.getTable("TECHLOG");
+            DataTable TECHLOGTable = DBConn.getOverviewTable("TECHLOG");
             DataTable TECHLOGUserTable = DBConn.getTable("TECHLOG_USER");
 
 
@@ -95,15 +104,9 @@ namespace AutomationTechLog
             filledTable.Columns.Add("tl_moduser", typeof(string));
             filledTable.Columns.Add("tl_moddate", typeof(string));
             filledTable.Columns.Add("tlu_time", typeof(string));
+            filledTable.Columns.Add("TTime", typeof(long));
+            filledTable.Columns.Add("CountField", typeof(long));
 
-
-            /*
-             select TECHLOG.*, sum(TECHLOG_USER.tlu_time) as TTime, count(TECHLOG_USER.tlu_name) as CountField 
-            FROM TECHLOG LEFT JOIN TECHLOG_USER
-            ON TECHLOG_USER.tl_ref = TECHLOG.tl_ref
-            GROUP BY TECHLOG.tl_ref
-             
-            */
 
             var query = 
             from dt1 in TECHLOGTable.AsEnumerable()
@@ -123,7 +126,10 @@ namespace AutomationTechLog
                 dt1.Field<string>("tl_wocorrection"),
                 dt1.Field<string>("tl_moduser"),
                 dt1.Field<string>("tl_moddate"),
-                dt2.Field<string>("tlu_time")
+                dt2.Field<string>("tlu_time"),
+                dt1.Field<long>("TTime"),
+                dt1.Field<long>("CountField")
+               
             }, false);
             query.CopyToDataTable();
 
@@ -231,7 +237,7 @@ namespace AutomationTechLog
             if (olderRecordsCheckbox.Checked) { builtFilter = builtFilter +  "tl_gendate >= #" + oldDate + "#" + " AND "; }
             if (enteredOrdersCheckbox.Checked == false) { builtFilter = builtFilter + "tl_state <> 'Entered'" + " AND "; }
             if (ownerComboBox.SelectedIndex > -1) {
-                if (ownerComboBox.Text == "Mine") { builtFilter = builtFilter + " tl_genuser = '" + username + "'" + " AND "; }
+                if (ownerComboBox.Text == "Mine") { builtFilter = builtFilter + " tl_genuser = '" + globalUser.globalUsername + "'" + " AND "; }
                 if (ownerComboBox.Text == "Passdown") { builtFilter = builtFilter + "tl_wotype = '" + ownerComboBox.Text + "'" + " AND "; }
             }
             if (builtFilter.Length < 5) { builtFilter = builtFilter + " AND "; }
@@ -256,7 +262,9 @@ namespace AutomationTechLog
             datagridOverview.Columns["tl_wocorrection"].Visible = false;
             datagridOverview.Columns["tl_moduser"].Visible = false;
             datagridOverview.Columns["tl_moddate"].Visible = false;
-            datagridOverview.Columns["tlu_time"].HeaderText = "Time";
+            datagridOverview.Columns["tlu_time"].Visible = false;
+            datagridOverview.Columns["TTime"].HeaderText = "Time";
+            datagridOverview.Columns["CountField"].Visible = false;
             rowCount = datagridOverview.Rows.Count;
             datagridOverview.RowHeadersWidth = 10;
             rowCountLabel.Text = "Row " + selectedRow.ToString() + " of " + rowCount.ToString();
@@ -333,7 +341,7 @@ namespace AutomationTechLog
                 this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(this.Font.Name, this.Font.Size, FontStyle.Bold);
             }
 
-
+            
             if (datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Value != null && datagridOverview.Rows[e.RowIndex].Cells["tl_moduser"].Value != null)
             {
                 if (String.Compare(datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Value.ToString(), datagridOverview.Rows[e.RowIndex].Cells["tl_moduser"].Value.ToString(), false) == 0)
@@ -346,6 +354,7 @@ namespace AutomationTechLog
                     this.datagridOverview.Rows[e.RowIndex].Cells["tl_gendate"].ToolTipText = "";
                     this.datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Style.Font = this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.Font;
                     this.datagridOverview.Rows[e.RowIndex].Cells["tl_wocomplaint"].ToolTipText = string.Concat("Correction: ", this.datagridOverview.Rows[e.RowIndex].Cells["tl_wocorrection"].Value.ToString());
+                    this.datagridOverview.Rows[e.RowIndex].Cells["TTime"].ToolTipText = string.Concat("Techs: ", this.datagridOverview.Rows[e.RowIndex].Cells["CountField"].Value.ToString());
                 }
                 else
                 {
@@ -356,13 +365,32 @@ namespace AutomationTechLog
                     this.datagridOverview.Rows[e.RowIndex].Cells["tl_gendate"].Style.BackColor = Color.Blue;
                     this.datagridOverview.Rows[e.RowIndex].Cells["tl_gendate"].Style.ForeColor = Color.White;
                     this.datagridOverview.Rows[e.RowIndex].Cells["tl_gendate"].ToolTipText = string.Concat("Mod by: ", this.datagridOverview.Rows[e.RowIndex].Cells["tl_moddate"].Value.ToString());
+                    this.datagridOverview.Rows[e.RowIndex].Cells["TTime"].ToolTipText = string.Concat("Techs: ", this.datagridOverview.Rows[e.RowIndex].Cells["CountField"].Value.ToString());
                 }
             }
-            //this.datagridOverview.Rows[e.RowIndex].Cells["TTime"].ToolTipText = string.Concat("Techs: ", this.datagridOverview.Rows[e.RowIndex].Cells["TCount"].Value.ToString());
         }
 
+        private void recordButton_Click(object sender, EventArgs e)
+        {
+            var updateForm = new UpdateForm();
+            updateForm.Show();
+        }
 
+        private void addNewButton_Click(object sender, EventArgs e)
+        {
+            var addForm = new AddForm();
+            addForm.Show();
+        }
 
+        private void usersButton_Click(object sender, EventArgs e)
+        {
+            var userForm = new UserForm();
+            userForm.Show();
+        }
 
+        private void reportsButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

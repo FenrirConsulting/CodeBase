@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.titlePanel = new System.Windows.Forms.Panel();
+            this.recordButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.welcomeLabel = new System.Windows.Forms.Label();
             this.nameTitleLabel = new System.Windows.Forms.Label();
@@ -72,6 +73,7 @@
             // titlePanel
             // 
             this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(58)))), ((int)(((byte)(66)))));
+            this.titlePanel.Controls.Add(this.recordButton);
             this.titlePanel.Controls.Add(this.titleLabel);
             this.titlePanel.Controls.Add(this.welcomeLabel);
             this.titlePanel.Controls.Add(this.nameTitleLabel);
@@ -85,6 +87,20 @@
             this.titlePanel.TabIndex = 0;
             this.titlePanel.DoubleClick += new System.EventHandler(this.titlePanel_DoubleClick);
             this.titlePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseMove);
+            // 
+            // recordButton
+            // 
+            this.recordButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.recordButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.recordButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recordButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.recordButton.Location = new System.Drawing.Point(663, 4);
+            this.recordButton.Name = "recordButton";
+            this.recordButton.Size = new System.Drawing.Size(144, 30);
+            this.recordButton.TabIndex = 47;
+            this.recordButton.Text = "RecordUpdate";
+            this.recordButton.UseVisualStyleBackColor = false;
+            this.recordButton.Click += new System.EventHandler(this.recordButton_Click);
             // 
             // titleLabel
             // 
@@ -225,6 +241,7 @@
             this.usersButton.TabIndex = 41;
             this.usersButton.Text = "Users";
             this.usersButton.UseVisualStyleBackColor = false;
+            this.usersButton.Click += new System.EventHandler(this.usersButton_Click);
             // 
             // legendLabel3
             // 
@@ -286,6 +303,7 @@
             this.reportsButton.TabIndex = 39;
             this.reportsButton.Text = "Reports";
             this.reportsButton.UseVisualStyleBackColor = false;
+            this.reportsButton.Click += new System.EventHandler(this.reportsButton_Click);
             // 
             // weekNumberLabel
             // 
@@ -310,6 +328,7 @@
             this.addNewButton.TabIndex = 37;
             this.addNewButton.Text = "Add New";
             this.addNewButton.UseVisualStyleBackColor = false;
+            this.addNewButton.Click += new System.EventHandler(this.addNewButton_Click);
             // 
             // olderRecordsCheckbox
             // 
@@ -405,6 +424,7 @@
             // toolStripSearchTextBox
             // 
             this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
@@ -519,5 +539,6 @@
         private System.Windows.Forms.ToolStripButton toolStripCSVButton;
         private System.Windows.Forms.DataGridView datagridOverview;
         private System.Windows.Forms.Label olderDateBox;
+        private System.Windows.Forms.Button recordButton;
     }
 }

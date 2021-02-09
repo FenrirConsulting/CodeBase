@@ -83,6 +83,41 @@ namespace AutomationTechLog
 
         }
 
+        public DataTable getOverviewTable(string table)
+        {
+
+            try
+            {
+                ConnectToDatabase();
+
+                string strCommand = "SELECT TECHLOG.*, sum(TECHLOG_USER.tlu_time) as TTime, count(TECHLOG_USER.tlu_name) as CountField " +
+                                    "FROM TECHLOG LEFT JOIN TECHLOG_USER "+
+                                    "ON TECHLOG_USER.tl_ref = TECHLOG.tl_ref "+
+                                    "GROUP BY TECHLOG.tl_ref";
+                SQLiteCommand cmd = new SQLiteCommand(strCommand);
+                cmd.Connection = conn;
+                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                Disconnect();
+
+                return dt;
+
+            }
+
+            catch (SQLiteException e)
+            {
+
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return null;
+
+            }
+
+        }
+
         public DataTable getTechUserTable(string table)
         {
 

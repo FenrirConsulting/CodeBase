@@ -76,3 +76,32 @@ C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\Automati
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.exe
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.pdb
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojResolveAssemblyReference.cache
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SQLite.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.Entity.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\Microsoft.Office.Interop.Outlook.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceca35.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlcecompact35.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceer35EN.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceme35.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceoledb35.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceqp35.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlcese35.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlite3.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\System.Data.SQLite.xml
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\LocalDatabase.db
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\x64\SQLite.Interop.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\x86\SQLite.Interop.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\AutomationTechLog.exe
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\AutomationTechLog.pdb
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.LoginForm.resources
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.MainForm.resources
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.Properties.Resources.resources
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.GenerateResource.cache
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CoreCompileInputs.cache
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CopyComplete
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.exe
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.pdb
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UpdateForm.resources
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddForm.resources
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UserForm.resources
