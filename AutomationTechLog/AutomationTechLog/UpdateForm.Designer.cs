@@ -33,6 +33,12 @@ namespace AutomationTechLog
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.generatedTitle = new System.Windows.Forms.Label();
             this.bodyPanel = new System.Windows.Forms.Panel();
+            this.stateComboBox = new System.Windows.Forms.ComboBox();
+            this.typeComboBox = new System.Windows.Forms.ComboBox();
+            this.assetTextBox = new System.Windows.Forms.TextBox();
+            this.assetLabel = new System.Windows.Forms.Label();
+            this.typeLabel = new System.Windows.Forms.Label();
+            this.stateLabel = new System.Windows.Forms.Label();
             this.complaintLabel = new System.Windows.Forms.Label();
             this.complaintTextBox = new System.Windows.Forms.TextBox();
             this.causeLabel = new System.Windows.Forms.Label();
@@ -47,12 +53,6 @@ namespace AutomationTechLog
             this.modifiedLabel = new System.Windows.Forms.Label();
             this.partsGrid = new System.Windows.Forms.DataGridView();
             this.userGrid = new System.Windows.Forms.DataGridView();
-            this.stateLabel = new System.Windows.Forms.Label();
-            this.typeLabel = new System.Windows.Forms.Label();
-            this.assetLabel = new System.Windows.Forms.Label();
-            this.assetTextBox = new System.Windows.Forms.TextBox();
-            this.typeComboBox = new System.Windows.Forms.ComboBox();
-            this.stateComboBox = new System.Windows.Forms.ComboBox();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
@@ -125,6 +125,78 @@ namespace AutomationTechLog
             this.bodyPanel.Size = new System.Drawing.Size(548, 562);
             this.bodyPanel.TabIndex = 1;
             this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
+            // 
+            // stateComboBox
+            // 
+            this.stateComboBox.FormattingEnabled = true;
+            this.stateComboBox.Items.AddRange(new object[] {
+            "Completed",
+            "Entered"});
+            this.stateComboBox.Location = new System.Drawing.Point(60, 14);
+            this.stateComboBox.Name = "stateComboBox";
+            this.stateComboBox.Size = new System.Drawing.Size(121, 21);
+            this.stateComboBox.TabIndex = 66;
+            // 
+            // typeComboBox
+            // 
+            this.typeComboBox.Enabled = false;
+            this.typeComboBox.FormattingEnabled = true;
+            this.typeComboBox.Items.AddRange(new object[] {
+            "Planned",
+            "Unplanned",
+            "System Support",
+            "Facility",
+            "Passdown"});
+            this.typeComboBox.Location = new System.Drawing.Point(221, 13);
+            this.typeComboBox.Name = "typeComboBox";
+            this.typeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.typeComboBox.TabIndex = 65;
+            // 
+            // assetTextBox
+            // 
+            this.assetTextBox.Location = new System.Drawing.Point(405, 14);
+            this.assetTextBox.Name = "assetTextBox";
+            this.assetTextBox.Size = new System.Drawing.Size(131, 20);
+            this.assetTextBox.TabIndex = 64;
+            // 
+            // assetLabel
+            // 
+            this.assetLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.assetLabel.AutoSize = true;
+            this.assetLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assetLabel.ForeColor = System.Drawing.Color.Black;
+            this.assetLabel.Location = new System.Drawing.Point(358, 16);
+            this.assetLabel.Name = "assetLabel";
+            this.assetLabel.Size = new System.Drawing.Size(41, 15);
+            this.assetLabel.TabIndex = 63;
+            this.assetLabel.Text = "Asset:";
+            this.assetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // typeLabel
+            // 
+            this.typeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeLabel.ForeColor = System.Drawing.Color.Black;
+            this.typeLabel.Location = new System.Drawing.Point(187, 16);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(37, 15);
+            this.typeLabel.TabIndex = 62;
+            this.typeLabel.Text = "Type:";
+            this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // stateLabel
+            // 
+            this.stateLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.stateLabel.AutoSize = true;
+            this.stateLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stateLabel.ForeColor = System.Drawing.Color.Black;
+            this.stateLabel.Location = new System.Drawing.Point(17, 16);
+            this.stateLabel.Name = "stateLabel";
+            this.stateLabel.Size = new System.Drawing.Size(43, 15);
+            this.stateLabel.TabIndex = 61;
+            this.stateLabel.Text = "State: ";
+            this.stateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // complaintLabel
             // 
@@ -296,78 +368,7 @@ namespace AutomationTechLog
             this.userGrid.Name = "userGrid";
             this.userGrid.Size = new System.Drawing.Size(524, 92);
             this.userGrid.TabIndex = 1;
-            // 
-            // stateLabel
-            // 
-            this.stateLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.stateLabel.AutoSize = true;
-            this.stateLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stateLabel.ForeColor = System.Drawing.Color.Black;
-            this.stateLabel.Location = new System.Drawing.Point(17, 16);
-            this.stateLabel.Name = "stateLabel";
-            this.stateLabel.Size = new System.Drawing.Size(43, 15);
-            this.stateLabel.TabIndex = 61;
-            this.stateLabel.Text = "State: ";
-            this.stateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // typeLabel
-            // 
-            this.typeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.typeLabel.AutoSize = true;
-            this.typeLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeLabel.ForeColor = System.Drawing.Color.Black;
-            this.typeLabel.Location = new System.Drawing.Point(187, 16);
-            this.typeLabel.Name = "typeLabel";
-            this.typeLabel.Size = new System.Drawing.Size(37, 15);
-            this.typeLabel.TabIndex = 62;
-            this.typeLabel.Text = "Type:";
-            this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // assetLabel
-            // 
-            this.assetLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.assetLabel.AutoSize = true;
-            this.assetLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.assetLabel.ForeColor = System.Drawing.Color.Black;
-            this.assetLabel.Location = new System.Drawing.Point(358, 16);
-            this.assetLabel.Name = "assetLabel";
-            this.assetLabel.Size = new System.Drawing.Size(41, 15);
-            this.assetLabel.TabIndex = 63;
-            this.assetLabel.Text = "Asset:";
-            this.assetLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // assetTextBox
-            // 
-            this.assetTextBox.Location = new System.Drawing.Point(405, 14);
-            this.assetTextBox.Name = "assetTextBox";
-            this.assetTextBox.Size = new System.Drawing.Size(131, 20);
-            this.assetTextBox.TabIndex = 64;
-            // 
-            // typeComboBox
-            // 
-            this.typeComboBox.Enabled = false;
-            this.typeComboBox.FormattingEnabled = true;
-            this.typeComboBox.Items.AddRange(new object[] {
-            "Planned",
-            "Unplanned",
-            "System Support",
-            "Facility",
-            "Passdown"});
-            this.typeComboBox.Location = new System.Drawing.Point(221, 13);
-            this.typeComboBox.Name = "typeComboBox";
-            this.typeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.typeComboBox.TabIndex = 65;
-            // 
-            // stateComboBox
-            // 
-            this.stateComboBox.FormattingEnabled = true;
-            this.stateComboBox.Items.AddRange(new object[] {
-            "Completed",
-            "Entered"});
-            this.stateComboBox.Location = new System.Drawing.Point(60, 14);
-            this.stateComboBox.Name = "stateComboBox";
-            this.stateComboBox.Size = new System.Drawing.Size(121, 21);
-            this.stateComboBox.TabIndex = 66;
+            this.userGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGrid_CellClick);
             // 
             // UpdateForm
             // 

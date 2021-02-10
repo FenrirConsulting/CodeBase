@@ -16,6 +16,7 @@ namespace AutomationTechLog
     public partial class UpdateForm : Form
     {
         sqlLiteMethods DBConn = new sqlLiteMethods();
+        DateTimePicker oDateTimePicker = new DateTimePicker();
 
         GlobalUser globalUser;
         public UpdateForm(GlobalUser passedUser)
@@ -26,22 +27,12 @@ namespace AutomationTechLog
             string titleBar = globalUser.globalUsername + " viewing record #" + globalUser.chosenRecord;
             generatedTitle.Text = titleBar;
 
+
             DataTable TECHLOGTable = buildTechlogTable();
             DataTable TECHLOGUserTable = buildTechlogUserTable();
             DataTable TECHLOGPartsTable = buildTechlogPartsTable();
+            
 
-            DataTable UserlistTable = DBConn.getTable("TECHLOG_TECHS");
-            List<String> userList = UserlistTable.Rows.OfType<DataRow>()
-                .Select(dr => dr.Field<string>("tlt_name")).ToList();
-
-            var col = new DataGridViewComboBoxColumn();
-            col.Name = "tlu_name";
-            col.DataPropertyName = "tlu_name";
-            col.HeaderText = "Tech Name";
-            col.DataSource = userList;
-            col.DisplayMember = "tlu_name";
-            col.ValueMember = "tlu_name";
-            userGrid.Columns.Add(col);
 
             userGrid.DataSource = TECHLOGUserTable;
             partsGrid.DataSource = TECHLOGPartsTable;
@@ -67,13 +58,33 @@ namespace AutomationTechLog
             causeTextBox.Text = selectedRow["tl_worootcause"].ToString();
             correctionTextBox.Text = selectedRow["tl_wocorrection"].ToString();
 
+            /*
+            DataGridViewComboBoxColumn userListBox = new DataGridViewComboBoxColumn();
+            DataTable UserlistTable = DBConn.getTable("TECHLOG_TECHS");
+            List<String> userList = UserlistTable.Rows.OfType<DataRow>()
+                .Select(dr => dr.Field<string>("tlt_name")).ToList();
 
+            userListBox.HeaderText = "TechBox";
+            userListBox.Name = "TechBox";
+            userListBox.DataSource = userList;
+            userListBox.DisplayMember = "TechBox";
+            userGrid.Columns.Add(userListBox);
+            userGrid.Columns["TechBox"].DataPropertyName = "ZZTLU_NAME";
+            */
 
-
+            DataTable UserlistTable = DBConn.getTable("TECHLOG_TECHS");
+            List<String> userList = UserlistTable.Rows.OfType<DataRow>()
+                .Select(dr => dr.Field<string>("tlt_name")).ToList();
+            DataGridViewComboBoxColumn userListBox = new DataGridViewComboBoxColumn();
+            userListBox.DataSource = userList;
+            userListBox.HeaderText = "Tech Name";
+            userListBox.Name = "Tech Name";
+            userGrid.Columns.Add(userListBox);
+            userGrid.Columns["Tech Name"].DataPropertyName = "tlu_name";
 
             userGrid.Columns["tlu_ref"].Visible = false;
             userGrid.Columns["tl_ref"].Visible = false;
-            userGrid.Columns["tlu_name"].HeaderText = "Tech Name";
+            userGrid.Columns["tlu_name"].Visible = false;
             userGrid.Columns["tlu_shift"].HeaderText = "Shift";
             userGrid.Columns["tlu_time"].HeaderText = "Minutes";
             userGrid.Columns["tlu_date"].HeaderText = "Date";
@@ -167,6 +178,9 @@ namespace AutomationTechLog
                 query.CopyToDataTable();
 
             }
+
+
+
 
             DataTable clonedTable = filledTable.Clone();
             clonedTable.Columns["tlu_date"].DataType = typeof(DateTime);
@@ -268,5 +282,50 @@ namespace AutomationTechLog
         {
             Close();
         }
+
+        private void userGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5) {
+                //Initialized a new DateTimePicker Control  
+
+                //Adding DateTimePicker control into DataGridView   
+                userGrid.Controls.Add(oDateTimePicker);
+
+                // Setting the format (i.e. 2014-10-10)  
+                oDateTimePicker.Format = DateTimePickerFormat.Short;
+
+                // It returns the retangular area that represents the Display area for a cell  
+                Rectangle oRectangle = userGrid.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+                //Setting area for DateTimePicker Control  
+                oDateTimePicker.Size = new Size(oRectangle.Width, oRectangle.Height);
+
+                // Setting Location  
+                oDateTimePicker.Location = new Point(oRectangle.X, oRectangle.Y);
+
+                // An event attached to dateTimePicker Control which is fired when DateTimeControl is closed  
+                oDateTimePicker.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
+
+                // An event attached to dateTimePicker Control which is fired when any date is selected  
+                oDateTimePicker.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
+
+                // Now make it visible  
+                oDateTimePicker.Visible = true;
+            }
+
+        }
+
+        private void dateTimePicker_OnTextChange(object sender, EventArgs e)
+        {
+            // Saving the 'Selected Date on Calendar' into DataGridView current cell  
+            userGrid.CurrentCell.Value = oDateTimePicker.Text.ToString();
+        }
+
+        void oDateTimePicker_CloseUp(object sender, EventArgs e)
+        {
+            // Hiding the control after use   
+            oDateTimePicker.Visible = false;
+        }
+
     }
 }
