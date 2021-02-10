@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AutomationTechLog
 {
-    class GlobalUser
+    public class GlobalUser
     {
 
         public string globalUsername { get; set; }
@@ -14,6 +14,8 @@ namespace AutomationTechLog
         public string globalActive { get; set; }
         public string globalLead { get; set; }
         public string globalEmployeeId { get; set; }
+        public string chosenRecord { get; set; }
+
 
     }
 }

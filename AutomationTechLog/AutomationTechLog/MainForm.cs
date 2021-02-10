@@ -240,15 +240,25 @@ namespace AutomationTechLog
                 if (ownerComboBox.Text == "Mine") { builtFilter = builtFilter + " tl_genuser = '" + globalUser.globalUsername + "'" + " AND "; }
                 if (ownerComboBox.Text == "Passdown") { builtFilter = builtFilter + "tl_wotype = '" + ownerComboBox.Text + "'" + " AND "; }
             }
+            if (searchLikeComboBox.SelectedIndex > -1) {
+                string searchTerm = toolStripSearchTextBox.Text;
+                string likeTerm = "";
+                if (searchLikeComboBox.Text == "Asset Like") { likeTerm = "tl_woasset"; }
+                if (searchLikeComboBox.Text == "Ref #") { likeTerm = "tl_ref"; }
+                if (searchLikeComboBox.Text == "User Like") { likeTerm = "tl_genuser"; }
+                if (searchLikeComboBox.Text == "State Like") { likeTerm = "tl_state"; }
+                if (searchLikeComboBox.Text == "Full text") { likeTerm = "tl_wocomplaint"; }
+                builtFilter = builtFilter + " " + likeTerm + " = '" + searchTerm + "'" + " AND ";
+            }
             if (builtFilter.Length < 5) { builtFilter = builtFilter + " AND "; }
 
             builtFilter = builtFilter.Remove(builtFilter.Length - 5);
             results.RowFilter = builtFilter;
             results.Sort = "tl_gendate DESC";
 
-            
 
 
+           
 
             datagridOverview.DataSource = results;
             datagridOverview.Columns["tl_ref"].HeaderText = "Ref #";
@@ -268,8 +278,8 @@ namespace AutomationTechLog
             rowCount = datagridOverview.Rows.Count;
             datagridOverview.RowHeadersWidth = 10;
             rowCountLabel.Text = "Row " + selectedRow.ToString() + " of " + rowCount.ToString();
-            
-           
+
+
 
         }
 
@@ -370,11 +380,6 @@ namespace AutomationTechLog
             }
         }
 
-        private void recordButton_Click(object sender, EventArgs e)
-        {
-            var updateForm = new UpdateForm();
-            updateForm.Show();
-        }
 
         private void addNewButton_Click(object sender, EventArgs e)
         {
@@ -391,6 +396,13 @@ namespace AutomationTechLog
         private void reportsButton_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void datagridOverview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            globalUser.chosenRecord = datagridOverview.Rows[e.RowIndex].Cells[0].Value.ToString();
+            var updateForm = new UpdateForm(globalUser);
+            updateForm.Show();
         }
     }
 }

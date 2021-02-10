@@ -148,70 +148,21 @@ namespace AutomationTechLog
 
         }
 
-        public DataTable getOpenTicketsTable(string table)
-        {
+        
+        public DataTable getSelectedRecord(string table, string referenceID) {
 
-            try
-            {
+            ConnectToDatabase();
 
-                ConnectToDatabase();
-                DataTable dt = new DataTable();
+            string strCommand = "SELECT * FROM " + table + " WHERE tl_ref=@ID" ;
+            SQLiteCommand cmd = new SQLiteCommand(strCommand);
+            cmd.Connection = conn;
+            cmd.Parameters.AddWithValue("@ID", referenceID);
+            SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
 
-                string strCommand = "SELECT * FROM " + table + " WHERE Status=@Status";
-                SQLiteCommand cmd = new SQLiteCommand(strCommand);
-                cmd.Connection = conn;
-                cmd.Parameters.AddWithValue("@Status", "Open");
-
-                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
-
-                da.Fill(dt);
-                Disconnect();
-                return dt;
-
-            }
-
-            catch (SQLiteException e)
-            {
-
-                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
-
-                return null;
-            }
-
-        }
-
-        public DataTable getClosedTicketsTable(string table)
-        {
-
-            try
-            {
-                ConnectToDatabase();
-
-                DataTable dt = new DataTable();
-
-                string strCommand = "SELECT * FROM " + table + " WHERE Status=@Status";
-                SQLiteCommand cmd = new SQLiteCommand(strCommand);
-                cmd.Connection = conn;
-                cmd.Parameters.AddWithValue("@Status", "Closed");
-
-                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
-
-                da.Fill(dt);
-
-                Disconnect();
-
-                return dt;
-
-            }
-
-            catch (SQLiteException e)
-            {
-
-                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
-                Disconnect();
-                return null;
-            }
-
+            Disconnect();
+            return dt;
         }
 
         public int ticketAddRecord(int ticket, string requestor, string email, string category, string created, string modified, string finished, string status, string comments, string request, string closedBy)

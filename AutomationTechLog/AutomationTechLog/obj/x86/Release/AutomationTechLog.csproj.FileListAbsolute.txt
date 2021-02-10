@@ -105,3 +105,4 @@ D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLo
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UpdateForm.resources
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddForm.resources
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UserForm.resources
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojAssemblyReference.cache

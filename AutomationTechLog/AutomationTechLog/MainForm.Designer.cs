@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.titlePanel = new System.Windows.Forms.Panel();
-            this.recordButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.welcomeLabel = new System.Windows.Forms.Label();
             this.nameTitleLabel = new System.Windows.Forms.Label();
@@ -38,7 +37,6 @@
             this.minimizeButton = new System.Windows.Forms.PictureBox();
             this.buttonPanel = new System.Windows.Forms.Panel();
             this.olderDateBox = new System.Windows.Forms.Label();
-            this.searchContextLabel = new System.Windows.Forms.Label();
             this.legendLabel4 = new System.Windows.Forms.Label();
             this.usersButton = new System.Windows.Forms.Button();
             this.legendLabel3 = new System.Windows.Forms.Label();
@@ -73,7 +71,6 @@
             // titlePanel
             // 
             this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(58)))), ((int)(((byte)(66)))));
-            this.titlePanel.Controls.Add(this.recordButton);
             this.titlePanel.Controls.Add(this.titleLabel);
             this.titlePanel.Controls.Add(this.welcomeLabel);
             this.titlePanel.Controls.Add(this.nameTitleLabel);
@@ -87,20 +84,6 @@
             this.titlePanel.TabIndex = 0;
             this.titlePanel.DoubleClick += new System.EventHandler(this.titlePanel_DoubleClick);
             this.titlePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseMove);
-            // 
-            // recordButton
-            // 
-            this.recordButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
-            this.recordButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.recordButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recordButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.recordButton.Location = new System.Drawing.Point(663, 4);
-            this.recordButton.Name = "recordButton";
-            this.recordButton.Size = new System.Drawing.Size(144, 30);
-            this.recordButton.TabIndex = 47;
-            this.recordButton.Text = "RecordUpdate";
-            this.recordButton.UseVisualStyleBackColor = false;
-            this.recordButton.Click += new System.EventHandler(this.recordButton_Click);
             // 
             // titleLabel
             // 
@@ -176,7 +159,6 @@
             // 
             this.buttonPanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.buttonPanel.Controls.Add(this.olderDateBox);
-            this.buttonPanel.Controls.Add(this.searchContextLabel);
             this.buttonPanel.Controls.Add(this.legendLabel4);
             this.buttonPanel.Controls.Add(this.usersButton);
             this.buttonPanel.Controls.Add(this.legendLabel3);
@@ -204,17 +186,6 @@
             this.olderDateBox.Size = new System.Drawing.Size(71, 15);
             this.olderDateBox.TabIndex = 46;
             this.olderDateBox.Text = "09-12-2020";
-            // 
-            // searchContextLabel
-            // 
-            this.searchContextLabel.AutoSize = true;
-            this.searchContextLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchContextLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.searchContextLabel.Location = new System.Drawing.Point(706, 18);
-            this.searchContextLabel.Name = "searchContextLabel";
-            this.searchContextLabel.Size = new System.Drawing.Size(76, 15);
-            this.searchContextLabel.TabIndex = 42;
-            this.searchContextLabel.Text = "SEARCH: ALL";
             // 
             // legendLabel4
             // 
@@ -385,6 +356,8 @@
             // 
             // ownerComboBox
             // 
+            this.ownerComboBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ownerComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.ownerComboBox.Items.AddRange(new object[] {
             "All",
             "Mine",
@@ -409,20 +382,21 @@
             // 
             // searchLikeComboBox
             // 
+            this.searchLikeComboBox.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.searchLikeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.searchLikeComboBox.Items.AddRange(new object[] {
             "Asset Like",
             "Ref #",
-            "Date Range",
             "User Like",
             "State Like",
-            "Full text",
-            "Week #"});
+            "Full text"});
             this.searchLikeComboBox.Name = "searchLikeComboBox";
             this.searchLikeComboBox.Size = new System.Drawing.Size(121, 25);
             this.searchLikeComboBox.ToolTipText = "Search Type";
             // 
             // toolStripSearchTextBox
             // 
+            this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
@@ -473,6 +447,7 @@
             this.datagridOverview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.datagridOverview.Size = new System.Drawing.Size(969, 506);
             this.datagridOverview.TabIndex = 3;
+            this.datagridOverview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridOverview_CellDoubleClick);
             this.datagridOverview.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.datagridOverview_CellFormatting);
             this.datagridOverview.SelectionChanged += new System.EventHandler(this.datagridOverview_SelectionChanged);
             // 
@@ -523,7 +498,6 @@
         private System.Windows.Forms.Button reportsButton;
         private System.Windows.Forms.Label rowCountLabel;
         private System.Windows.Forms.Button usersButton;
-        private System.Windows.Forms.Label searchContextLabel;
         private System.Windows.Forms.Label legendLabel1;
         private System.Windows.Forms.Label legendLabel2;
         private System.Windows.Forms.Label legendLabel3;
@@ -539,6 +513,5 @@
         private System.Windows.Forms.ToolStripButton toolStripCSVButton;
         private System.Windows.Forms.DataGridView datagridOverview;
         private System.Windows.Forms.Label olderDateBox;
-        private System.Windows.Forms.Button recordButton;
     }
 }

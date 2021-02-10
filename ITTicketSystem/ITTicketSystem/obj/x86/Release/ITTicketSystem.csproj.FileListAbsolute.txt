@@ -52,3 +52,34 @@ C:\Users\COlson\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSys
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.csproj.GenerateResource.Cache
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.exe
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.pdb
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\sqlceca35.dll
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\sqlcecompact35.dll
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\sqlceer35EN.dll
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\sqlceme35.dll
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\sqlceoledb35.dll
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\sqlceqp35.dll
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\sqlcese35.dll
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\localDatabase.sqlite
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\ITTicketSystem.exe.config
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\ITTicketSystem.exe
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\ITTicketSystem.pdb
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\System.Data.SQLite.dll
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\System.Data.SqlServerCe.dll
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\System.Data.SqlServerCe.Entity.dll
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\System.Data.SQLite.xml
+D:\CodeBase\ITTicketSystem\ITTicketSystem\bin\Release\System.Data.SQLite.dll.config
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.csprojAssemblyReference.cache
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\Interop.Microsoft.Office.Core.dll
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.csproj.ResolveComReference.cache
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.ClosedTickets.resources
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.CreateTicket.resources
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.MainForm.resources
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.OpenTicket.resources
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.Properties.Resources.resources
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.Settings.resources
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.UpdateTicket.resources
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.csproj.GenerateResource.cache
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.csproj.CoreCompileInputs.cache
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.csproj.CopyComplete
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.exe
+D:\CodeBase\ITTicketSystem\ITTicketSystem\obj\x86\Release\ITTicketSystem.pdb
