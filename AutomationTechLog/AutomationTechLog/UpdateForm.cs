@@ -17,6 +17,13 @@ namespace AutomationTechLog
     {
         sqlLiteMethods DBConn = new sqlLiteMethods();
         DateTimePicker oDateTimePicker = new DateTimePicker();
+        DataTable TECHLOGTable = new DataTable();
+        DataTable TECHLOGUserTable = new DataTable();
+        DataTable TECHLOGPartsTable = new DataTable();
+        string modUser = "";
+        string modDate = "";
+        int techsCount = 0;
+        int partsCount = 0;
 
         GlobalUser globalUser;
         public UpdateForm(GlobalUser passedUser)
@@ -24,14 +31,21 @@ namespace AutomationTechLog
             globalUser = passedUser;
             InitializeComponent();
 
+            buildTables();
+        }
+
+        public void buildTables() {
+
             string titleBar = globalUser.globalUsername + " viewing record #" + globalUser.chosenRecord;
             generatedTitle.Text = titleBar;
 
+            addUserDateTime.CustomFormat = "MM-dd-yyyy";
+            addUserDateTime.Format = DateTimePickerFormat.Custom;
 
-            DataTable TECHLOGTable = buildTechlogTable();
-            DataTable TECHLOGUserTable = buildTechlogUserTable();
-            DataTable TECHLOGPartsTable = buildTechlogPartsTable();
-            
+            TECHLOGTable = buildTechlogTable();
+            TECHLOGUserTable = buildTechlogUserTable();
+            TECHLOGPartsTable = buildTechlogPartsTable();
+
 
 
             userGrid.DataSource = TECHLOGUserTable;
@@ -39,16 +53,16 @@ namespace AutomationTechLog
             userGrid.RowHeadersWidth = 4;
             partsGrid.RowHeadersWidth = 4;
 
-            string techCount = TECHLOGUserTable.Rows.Count.ToString();
-            string partsCount = TECHLOGPartsTable.Rows.Count.ToString();
+            techsCount = TECHLOGUserTable.Rows.Count;
+            partsCount = TECHLOGPartsTable.Rows.Count;
 
-            techsLabel.Text = "Techs:(" + techCount + ")";
+            techsLabel.Text = "Techs:(" + techsCount + ")";
             partsLabel.Text = "Parts:(" + partsCount + ")";
 
             DataRow selectedRow = TECHLOGTable.Rows[0];
 
-            string modUser = selectedRow["tl_moduser"].ToString();
-            string modDate = selectedRow["tl_moddate"].ToString();
+            modUser = selectedRow["tl_moduser"].ToString();
+            modDate = selectedRow["tl_moddate"].ToString();
             modifiedLabel.Text = "Last Modified by: " + modUser + " on " + modDate;
 
             stateComboBox.Text = selectedRow["tl_state"].ToString();
@@ -58,29 +72,23 @@ namespace AutomationTechLog
             causeTextBox.Text = selectedRow["tl_worootcause"].ToString();
             correctionTextBox.Text = selectedRow["tl_wocorrection"].ToString();
 
-            /*
-            DataGridViewComboBoxColumn userListBox = new DataGridViewComboBoxColumn();
-            DataTable UserlistTable = DBConn.getTable("TECHLOG_TECHS");
-            List<String> userList = UserlistTable.Rows.OfType<DataRow>()
-                .Select(dr => dr.Field<string>("tlt_name")).ToList();
 
-            userListBox.HeaderText = "TechBox";
-            userListBox.Name = "TechBox";
-            userListBox.DataSource = userList;
-            userListBox.DisplayMember = "TechBox";
-            userGrid.Columns.Add(userListBox);
-            userGrid.Columns["TechBox"].DataPropertyName = "ZZTLU_NAME";
-            */
 
             DataTable UserlistTable = DBConn.getTable("TECHLOG_TECHS");
             List<String> userList = UserlistTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlt_name")).ToList();
+            addUserBox.DataSource = userList;
             DataGridViewComboBoxColumn userListBox = new DataGridViewComboBoxColumn();
             userListBox.DataSource = userList;
             userListBox.HeaderText = "Tech Name";
             userListBox.Name = "Tech Name";
             userGrid.Columns.Add(userListBox);
             userGrid.Columns["Tech Name"].DataPropertyName = "tlu_name";
+
+            DataGridViewCellStyle cell_style = new DataGridViewCellStyle();
+            cell_style.BackColor = Color.LightYellow;
+            cell_style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            userGrid.Columns["Tech Name"].DefaultCellStyle = cell_style;
 
             userGrid.Columns["tlu_ref"].Visible = false;
             userGrid.Columns["tl_ref"].Visible = false;
@@ -97,9 +105,9 @@ namespace AutomationTechLog
             partsGrid.Columns["tlp_location"].HeaderText = "Location";
             partsGrid.Columns["tlp_description"].HeaderText = "Description";
 
-            
 
             if (globalUser.globalLead != "True") { deleteButton.Enabled = false; deleteButton.Visible = false; }
+
         }
 
         public DataTable buildTechlogTable() {
@@ -114,6 +122,8 @@ namespace AutomationTechLog
             filledTable.Columns.Add("tl_wocomplaint", typeof(string));
             filledTable.Columns.Add("tl_worootcause", typeof(string));
             filledTable.Columns.Add("tl_wocorrection", typeof(string));
+            filledTable.Columns.Add("tl_genuser", typeof(string));
+            filledTable.Columns.Add("tl_gendate", typeof(string));
             filledTable.Columns.Add("tl_moduser", typeof(string));
             filledTable.Columns.Add("tl_moddate", typeof(string));
 
@@ -129,6 +139,8 @@ namespace AutomationTechLog
                 dt1.Field<string>("tl_wocomplaint"),
                 dt1.Field<string>("tl_worootcause"),
                 dt1.Field<string>("tl_wocorrection"),
+                dt1.Field<string>("tl_genuser"),
+                dt1.Field<string>("tl_gendate"),
                 dt1.Field<string>("tl_moduser"),
                 dt1.Field<string>("tl_moddate")
 
@@ -292,7 +304,8 @@ namespace AutomationTechLog
                 userGrid.Controls.Add(oDateTimePicker);
 
                 // Setting the format (i.e. 2014-10-10)  
-                oDateTimePicker.Format = DateTimePickerFormat.Short;
+                oDateTimePicker.Format = DateTimePickerFormat.Custom;
+                oDateTimePicker.CustomFormat = "MM-dd-yyyy";
 
                 // It returns the retangular area that represents the Display area for a cell  
                 Rectangle oRectangle = userGrid.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
@@ -327,5 +340,87 @@ namespace AutomationTechLog
             oDateTimePicker.Visible = false;
         }
 
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Update this record?",
+                      "Confirm Change", MessageBoxButtons.YesNo);
+
+            switch (dr)
+            {
+                case DialogResult.Yes: updateRecord();
+                    break;
+                case DialogResult.No:
+                    break;
+
+            }
+        }
+
+        private void updateRecord() {
+
+            foreach (DataRow selectedRow in TECHLOGTable.Rows)
+            {
+                DateTime currentTime = DateTime.Now;
+                DataRow currentRow = TECHLOGTable.Rows[0];
+
+                int tl_ref = (int)currentRow["tl_ref"];
+                string tl_state = stateComboBox.Text;
+                string tl_wotype = typeComboBox.Text;
+                string tl_woasset = assetTextBox.Text;
+                string tl_wocomplaint = complaintTextBox.Text;
+                string tl_worootcause = causeTextBox.Text;
+                string tl_wocorrection = correctionTextBox.Text;
+                string tl_genuser = currentRow["tl_genuser"].ToString();
+                string tl_gendate = currentRow["tl_gendate"].ToString();
+                string tl_moduser = modUser;
+                string tl_moddate = currentTime.ToString("MM/dd/yyyy HH:mm:ss");
+
+                DBConn.techlogRecordUpdate(tl_ref, tl_state, tl_wotype, tl_woasset, tl_wocomplaint, tl_worootcause, tl_wocorrection, tl_genuser, tl_gendate, tl_moduser,tl_moddate);
+
+            }
+
+            foreach (DataGridViewRow currentRow in userGrid.Rows) {
+
+                if (currentRow.Index <= techsCount) {
+
+                    if (currentRow.Cells["tlu_ref"].Value != null) {
+                        DateTime currentTime = DateTime.Now;
+                        int tlu_ref = (int)currentRow.Cells["tlu_ref"].Value;
+                        int tl_ref  = (int)currentRow.Cells["tl_ref"].Value;
+                        string tlu_name = currentRow.Cells["tlu_name"].Value.ToString();
+                        string tlu_time = currentRow.Cells["tlu_time"].Value.ToString();
+                        string tlu_shift = currentRow.Cells["tlu_shift"].Value.ToString();
+                        string raw_date = currentRow.Cells["tlu_date"].Value.ToString();
+                        DateTime parsedDateTime = DateTime.Parse(raw_date, CultureInfo.InvariantCulture);
+                        string tlu_date = parsedDateTime.ToString("MM-dd-yyyy");
+
+                        DBConn.techlogUserRecordUpdate(tlu_ref, tl_ref, tlu_name, tlu_time, tlu_shift, tlu_date);
+                    }
+                }
+
+
+            }
+
+            userGrid.DataSource = null;
+            userGrid.Rows.Clear();
+            partsGrid.DataSource = null;
+            partsGrid.Rows.Clear();
+            buildTables();
+
+        }
+
+        private void addTechButton_Click(object sender, EventArgs e)
+        {
+            if (globalUser.chosenRecord != null && addShiftBox.Text != null && addTimeTextBox.Text != null && addUserDateTime.Text != null && addUserBox.Text != null) {
+
+                int tl_ref = Int32.Parse(globalUser.chosenRecord);
+                string tlu_shift = addShiftBox.Text;
+                string tlu_time = addTimeTextBox.Text;
+                string tlu_date = addUserDateTime.Text;
+                string tlu_name = addUserBox.Text;
+
+                DBConn.addTechlogUserRecord(tl_ref, tlu_shift, tlu_time, tlu_date, tlu_name);
+            }
+
+        }
     }
 }

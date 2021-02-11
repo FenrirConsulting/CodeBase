@@ -33,6 +33,16 @@ namespace AutomationTechLog
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.generatedTitle = new System.Windows.Forms.Label();
             this.bodyPanel = new System.Windows.Forms.Panel();
+            this.addPartButton = new System.Windows.Forms.Button();
+            this.addPartNumberBox = new System.Windows.Forms.TextBox();
+            this.addLocationBox = new System.Windows.Forms.TextBox();
+            this.addDescriptionBox = new System.Windows.Forms.TextBox();
+            this.addQuantityBox = new System.Windows.Forms.TextBox();
+            this.addTechButton = new System.Windows.Forms.Button();
+            this.addShiftBox = new System.Windows.Forms.ComboBox();
+            this.addUserDateTime = new System.Windows.Forms.DateTimePicker();
+            this.addTimeTextBox = new System.Windows.Forms.TextBox();
+            this.addUserBox = new System.Windows.Forms.ComboBox();
             this.stateComboBox = new System.Windows.Forms.ComboBox();
             this.typeComboBox = new System.Windows.Forms.ComboBox();
             this.assetTextBox = new System.Windows.Forms.TextBox();
@@ -99,6 +109,16 @@ namespace AutomationTechLog
             // 
             // bodyPanel
             // 
+            this.bodyPanel.Controls.Add(this.addPartButton);
+            this.bodyPanel.Controls.Add(this.addPartNumberBox);
+            this.bodyPanel.Controls.Add(this.addLocationBox);
+            this.bodyPanel.Controls.Add(this.addDescriptionBox);
+            this.bodyPanel.Controls.Add(this.addQuantityBox);
+            this.bodyPanel.Controls.Add(this.addTechButton);
+            this.bodyPanel.Controls.Add(this.addShiftBox);
+            this.bodyPanel.Controls.Add(this.addUserDateTime);
+            this.bodyPanel.Controls.Add(this.addTimeTextBox);
+            this.bodyPanel.Controls.Add(this.addUserBox);
             this.bodyPanel.Controls.Add(this.stateComboBox);
             this.bodyPanel.Controls.Add(this.typeComboBox);
             this.bodyPanel.Controls.Add(this.assetTextBox);
@@ -122,9 +142,99 @@ namespace AutomationTechLog
             this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyPanel.Location = new System.Drawing.Point(0, 47);
             this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(548, 562);
+            this.bodyPanel.Size = new System.Drawing.Size(548, 651);
             this.bodyPanel.TabIndex = 1;
             this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
+            // 
+            // addPartButton
+            // 
+            this.addPartButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.addPartButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addPartButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addPartButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.addPartButton.Location = new System.Drawing.Point(436, 577);
+            this.addPartButton.Name = "addPartButton";
+            this.addPartButton.Size = new System.Drawing.Size(100, 24);
+            this.addPartButton.TabIndex = 80;
+            this.addPartButton.Text = "Add Part";
+            this.addPartButton.UseVisualStyleBackColor = false;
+            // 
+            // addPartNumberBox
+            // 
+            this.addPartNumberBox.Location = new System.Drawing.Point(145, 550);
+            this.addPartNumberBox.Name = "addPartNumberBox";
+            this.addPartNumberBox.Size = new System.Drawing.Size(131, 20);
+            this.addPartNumberBox.TabIndex = 79;
+            // 
+            // addLocationBox
+            // 
+            this.addLocationBox.Location = new System.Drawing.Point(275, 550);
+            this.addLocationBox.Name = "addLocationBox";
+            this.addLocationBox.Size = new System.Drawing.Size(131, 20);
+            this.addLocationBox.TabIndex = 78;
+            // 
+            // addDescriptionBox
+            // 
+            this.addDescriptionBox.Location = new System.Drawing.Point(405, 550);
+            this.addDescriptionBox.Name = "addDescriptionBox";
+            this.addDescriptionBox.Size = new System.Drawing.Size(131, 20);
+            this.addDescriptionBox.TabIndex = 77;
+            // 
+            // addQuantityBox
+            // 
+            this.addQuantityBox.Location = new System.Drawing.Point(15, 550);
+            this.addQuantityBox.Name = "addQuantityBox";
+            this.addQuantityBox.Size = new System.Drawing.Size(131, 20);
+            this.addQuantityBox.TabIndex = 76;
+            // 
+            // addTechButton
+            // 
+            this.addTechButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.addTechButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.addTechButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addTechButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.addTechButton.Location = new System.Drawing.Point(436, 430);
+            this.addTechButton.Name = "addTechButton";
+            this.addTechButton.Size = new System.Drawing.Size(100, 24);
+            this.addTechButton.TabIndex = 75;
+            this.addTechButton.Text = "Add Tech";
+            this.addTechButton.UseVisualStyleBackColor = false;
+            this.addTechButton.Click += new System.EventHandler(this.addTechButton_Click);
+            // 
+            // addShiftBox
+            // 
+            this.addShiftBox.FormattingEnabled = true;
+            this.addShiftBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.addShiftBox.Location = new System.Drawing.Point(15, 403);
+            this.addShiftBox.Name = "addShiftBox";
+            this.addShiftBox.Size = new System.Drawing.Size(131, 21);
+            this.addShiftBox.TabIndex = 74;
+            // 
+            // addUserDateTime
+            // 
+            this.addUserDateTime.CustomFormat = "\"MM-dd-yyyy\"";
+            this.addUserDateTime.Location = new System.Drawing.Point(275, 404);
+            this.addUserDateTime.Name = "addUserDateTime";
+            this.addUserDateTime.Size = new System.Drawing.Size(131, 20);
+            this.addUserDateTime.TabIndex = 73;
+            // 
+            // addTimeTextBox
+            // 
+            this.addTimeTextBox.Location = new System.Drawing.Point(145, 404);
+            this.addTimeTextBox.Name = "addTimeTextBox";
+            this.addTimeTextBox.Size = new System.Drawing.Size(131, 20);
+            this.addTimeTextBox.TabIndex = 72;
+            // 
+            // addUserBox
+            // 
+            this.addUserBox.FormattingEnabled = true;
+            this.addUserBox.Location = new System.Drawing.Point(405, 403);
+            this.addUserBox.Name = "addUserBox";
+            this.addUserBox.Size = new System.Drawing.Size(131, 21);
+            this.addUserBox.TabIndex = 70;
             // 
             // stateComboBox
             // 
@@ -204,7 +314,7 @@ namespace AutomationTechLog
             this.complaintLabel.AutoSize = true;
             this.complaintLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.complaintLabel.ForeColor = System.Drawing.Color.Black;
-            this.complaintLabel.Location = new System.Drawing.Point(13, 43);
+            this.complaintLabel.Location = new System.Drawing.Point(13, 37);
             this.complaintLabel.Name = "complaintLabel";
             this.complaintLabel.Size = new System.Drawing.Size(70, 15);
             this.complaintLabel.TabIndex = 60;
@@ -215,7 +325,7 @@ namespace AutomationTechLog
             // 
             this.complaintTextBox.BackColor = System.Drawing.SystemColors.Info;
             this.complaintTextBox.ForeColor = System.Drawing.Color.OrangeRed;
-            this.complaintTextBox.Location = new System.Drawing.Point(12, 61);
+            this.complaintTextBox.Location = new System.Drawing.Point(12, 55);
             this.complaintTextBox.Multiline = true;
             this.complaintTextBox.Name = "complaintTextBox";
             this.complaintTextBox.Size = new System.Drawing.Size(524, 65);
@@ -227,7 +337,7 @@ namespace AutomationTechLog
             this.causeLabel.AutoSize = true;
             this.causeLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.causeLabel.ForeColor = System.Drawing.Color.Black;
-            this.causeLabel.Location = new System.Drawing.Point(14, 126);
+            this.causeLabel.Location = new System.Drawing.Point(14, 120);
             this.causeLabel.Name = "causeLabel";
             this.causeLabel.Size = new System.Drawing.Size(46, 15);
             this.causeLabel.TabIndex = 58;
@@ -238,7 +348,7 @@ namespace AutomationTechLog
             // 
             this.causeTextBox.BackColor = System.Drawing.SystemColors.Info;
             this.causeTextBox.ForeColor = System.Drawing.Color.OrangeRed;
-            this.causeTextBox.Location = new System.Drawing.Point(12, 144);
+            this.causeTextBox.Location = new System.Drawing.Point(12, 138);
             this.causeTextBox.Multiline = true;
             this.causeTextBox.Name = "causeTextBox";
             this.causeTextBox.Size = new System.Drawing.Size(524, 65);
@@ -250,7 +360,7 @@ namespace AutomationTechLog
             this.correctionLabel.AutoSize = true;
             this.correctionLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.correctionLabel.ForeColor = System.Drawing.Color.Black;
-            this.correctionLabel.Location = new System.Drawing.Point(14, 209);
+            this.correctionLabel.Location = new System.Drawing.Point(14, 203);
             this.correctionLabel.Name = "correctionLabel";
             this.correctionLabel.Size = new System.Drawing.Size(72, 15);
             this.correctionLabel.TabIndex = 56;
@@ -263,7 +373,7 @@ namespace AutomationTechLog
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deleteButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.deleteButton.Location = new System.Drawing.Point(332, 507);
+            this.deleteButton.Location = new System.Drawing.Point(338, 603);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(63, 24);
             this.deleteButton.TabIndex = 55;
@@ -276,7 +386,7 @@ namespace AutomationTechLog
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cancelButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.cancelButton.Location = new System.Drawing.Point(237, 507);
+            this.cancelButton.Location = new System.Drawing.Point(243, 603);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(63, 24);
             this.cancelButton.TabIndex = 54;
@@ -290,12 +400,13 @@ namespace AutomationTechLog
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.saveButton.Location = new System.Drawing.Point(142, 507);
+            this.saveButton.Location = new System.Drawing.Point(148, 603);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(63, 24);
             this.saveButton.TabIndex = 53;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // partsLabel
             // 
@@ -303,7 +414,7 @@ namespace AutomationTechLog
             this.partsLabel.AutoSize = true;
             this.partsLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partsLabel.ForeColor = System.Drawing.Color.Black;
-            this.partsLabel.Location = new System.Drawing.Point(19, 414);
+            this.partsLabel.Location = new System.Drawing.Point(19, 458);
             this.partsLabel.Name = "partsLabel";
             this.partsLabel.Size = new System.Drawing.Size(56, 15);
             this.partsLabel.TabIndex = 52;
@@ -316,7 +427,7 @@ namespace AutomationTechLog
             this.techsLabel.AutoSize = true;
             this.techsLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.techsLabel.ForeColor = System.Drawing.Color.Black;
-            this.techsLabel.Location = new System.Drawing.Point(17, 295);
+            this.techsLabel.Location = new System.Drawing.Point(19, 289);
             this.techsLabel.Name = "techsLabel";
             this.techsLabel.Size = new System.Drawing.Size(57, 15);
             this.techsLabel.TabIndex = 51;
@@ -327,7 +438,7 @@ namespace AutomationTechLog
             // 
             this.correctionTextBox.BackColor = System.Drawing.SystemColors.Info;
             this.correctionTextBox.ForeColor = System.Drawing.Color.OrangeRed;
-            this.correctionTextBox.Location = new System.Drawing.Point(12, 227);
+            this.correctionTextBox.Location = new System.Drawing.Point(12, 221);
             this.correctionTextBox.Multiline = true;
             this.correctionTextBox.Name = "correctionTextBox";
             this.correctionTextBox.Size = new System.Drawing.Size(524, 65);
@@ -339,7 +450,7 @@ namespace AutomationTechLog
             this.modifiedLabel.AutoSize = true;
             this.modifiedLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modifiedLabel.ForeColor = System.Drawing.Color.Black;
-            this.modifiedLabel.Location = new System.Drawing.Point(13, 534);
+            this.modifiedLabel.Location = new System.Drawing.Point(6, 626);
             this.modifiedLabel.Name = "modifiedLabel";
             this.modifiedLabel.Size = new System.Drawing.Size(147, 19);
             this.modifiedLabel.TabIndex = 49;
@@ -348,25 +459,29 @@ namespace AutomationTechLog
             // 
             // partsGrid
             // 
+            this.partsGrid.AllowUserToAddRows = false;
+            this.partsGrid.AllowUserToDeleteRows = false;
             this.partsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.partsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.partsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.partsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.partsGrid.Location = new System.Drawing.Point(16, 430);
+            this.partsGrid.Location = new System.Drawing.Point(16, 476);
             this.partsGrid.Name = "partsGrid";
-            this.partsGrid.Size = new System.Drawing.Size(524, 70);
+            this.partsGrid.Size = new System.Drawing.Size(524, 68);
             this.partsGrid.TabIndex = 2;
             // 
             // userGrid
             // 
+            this.userGrid.AllowUserToAddRows = false;
+            this.userGrid.AllowUserToDeleteRows = false;
             this.userGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.userGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.userGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userGrid.GridColor = System.Drawing.SystemColors.Desktop;
-            this.userGrid.Location = new System.Drawing.Point(16, 315);
+            this.userGrid.Location = new System.Drawing.Point(12, 307);
             this.userGrid.Name = "userGrid";
-            this.userGrid.Size = new System.Drawing.Size(524, 92);
+            this.userGrid.Size = new System.Drawing.Size(524, 89);
             this.userGrid.TabIndex = 1;
             this.userGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGrid_CellClick);
             // 
@@ -375,7 +490,7 @@ namespace AutomationTechLog
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(548, 609);
+            this.ClientSize = new System.Drawing.Size(548, 698);
             this.Controls.Add(this.bodyPanel);
             this.Controls.Add(this.titlePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -419,5 +534,15 @@ namespace AutomationTechLog
         private System.Windows.Forms.TextBox assetTextBox;
         private System.Windows.Forms.ComboBox typeComboBox;
         private System.Windows.Forms.ComboBox stateComboBox;
+        private System.Windows.Forms.ComboBox addUserBox;
+        private System.Windows.Forms.TextBox addTimeTextBox;
+        private System.Windows.Forms.DateTimePicker addUserDateTime;
+        private System.Windows.Forms.ComboBox addShiftBox;
+        private System.Windows.Forms.Button addTechButton;
+        private System.Windows.Forms.TextBox addPartNumberBox;
+        private System.Windows.Forms.TextBox addLocationBox;
+        private System.Windows.Forms.TextBox addDescriptionBox;
+        private System.Windows.Forms.TextBox addQuantityBox;
+        private System.Windows.Forms.Button addPartButton;
     }
 }

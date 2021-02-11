@@ -200,25 +200,36 @@ namespace AutomationTechLog
             }
         }
 
-        public int ticketTableUpdate(string iD, string table, string modified, string request, string finished, string category, string status, string comments, string closedBy)
+
+        public int techlogRecordUpdate(int tl_ref, string tl_state, string tl_wotype, string tl_woasset, string tl_wocomplaint, string tl_worootcause, string tl_wocorrection, 
+                                        string tl_genuser, string tl_gendate, string tl_moduser, string tl_moddate)
         {
 
             try
             {
+
+
                 ConnectToDatabase();
-                string strCommand = "Update " + table + " Set Modified=@Modified, Request=@Request, Finished=@Finished, Category=@Category, Status=@Status, Comments=@Comments, ClosedBy=@ClosedBy  WHERE ID=" + iD;
+                string strCommand = "Update TECHLOG Set tl_ref=@tl_ref, tl_state=@tl_state, tl_wotype=@tl_wotype, tl_woasset=@tl_woasset, tl_wocomplaint=@tl_wocomplaint, " +
+                                    "tl_worootcause=@tl_worootcause, tl_wocorrection=@tl_wocorrection, tl_genuser=@tl_genuser, tl_gendate=@tl_gendate, tl_moduser=@tl_moduser, " +
+                                    "tl_moddate=@tl_moddate  WHERE tl_ref=@tl_ref";
+                
                 SQLiteCommand cmdUpdate = new SQLiteCommand();
                 cmdUpdate.Connection = conn;
                 cmdUpdate.CommandType = CommandType.Text;
                 cmdUpdate.CommandText = strCommand;
-                cmdUpdate.Parameters.AddWithValue("@ID", iD);
-                cmdUpdate.Parameters.AddWithValue("@Modified", modified);
-                cmdUpdate.Parameters.AddWithValue("@Finished", finished);
-                cmdUpdate.Parameters.AddWithValue("@Request", request);
-                cmdUpdate.Parameters.AddWithValue("@Category", category);
-                cmdUpdate.Parameters.AddWithValue("@Status", status);
-                cmdUpdate.Parameters.AddWithValue("@Comments", comments);
-                cmdUpdate.Parameters.AddWithValue("@ClosedBy", closedBy);
+                cmdUpdate.Parameters.AddWithValue("@tl_ref", tl_ref);
+                cmdUpdate.Parameters.AddWithValue("@tl_state", tl_state);
+                cmdUpdate.Parameters.AddWithValue("@tl_wotype", tl_wotype);
+                cmdUpdate.Parameters.AddWithValue("@tl_woasset", tl_woasset);
+                cmdUpdate.Parameters.AddWithValue("@tl_wocomplaint", tl_wocomplaint);
+                cmdUpdate.Parameters.AddWithValue("@tl_worootcause", tl_worootcause);
+                cmdUpdate.Parameters.AddWithValue("@tl_wocorrection", tl_wocorrection);
+                cmdUpdate.Parameters.AddWithValue("@tl_genuser", tl_genuser);
+                cmdUpdate.Parameters.AddWithValue("@tl_gendate", tl_gendate);
+                cmdUpdate.Parameters.AddWithValue("@tl_moduser", tl_moduser);
+                cmdUpdate.Parameters.AddWithValue("@tl_moddate", tl_moddate);
+
                 int returnValue = -1;
                 returnValue = cmdUpdate.ExecuteNonQuery();
                 Disconnect();
@@ -232,6 +243,72 @@ namespace AutomationTechLog
             }
 
         }
+
+        public int techlogUserRecordUpdate(int tlu_ref, int tl_ref, string tlu_name, string tlu_time, string tlu_shift, string tlu_date)
+        {
+
+            try
+            {
+
+
+                ConnectToDatabase();
+                string strCommand = "Update TECHLOG_USER Set tlu_ref=@tlu_ref, tl_ref=@tl_ref, tlu_name=@tlu_name, tlu_time=@tlu_time, tlu_shift=@tlu_shift, tlu_date=@tlu_date WHERE tlu_ref=@tlu_ref";
+
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@tlu_ref", tlu_ref);
+                cmdUpdate.Parameters.AddWithValue("@tl_ref", tl_ref);
+                cmdUpdate.Parameters.AddWithValue("@tlu_name", tlu_name);
+                cmdUpdate.Parameters.AddWithValue("@tlu_time", tlu_time);
+                cmdUpdate.Parameters.AddWithValue("@tlu_shift", tlu_shift);
+                cmdUpdate.Parameters.AddWithValue("@tlu_date", tlu_date);
+
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+
+        }
+
+        public int addTechlogUserRecord(int tl_ref, string tlu_shift, string tlu_time, string tlu_date, string tlu_name)
+        {
+
+            try
+            {
+                ConnectToDatabase();
+                string strCommand = "INSERT INTO TECHLOG_USER (tl_ref, tlu_name, tlu_time, tlu_shift, tlu_date) VALUES (@val1,@val2,@val3,@val4,@val5)";
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@val1", tl_ref);
+                cmdUpdate.Parameters.AddWithValue("@val2", tlu_name);
+                cmdUpdate.Parameters.AddWithValue("@val3", tlu_time);
+                cmdUpdate.Parameters.AddWithValue("@val4", tlu_shift);
+                cmdUpdate.Parameters.AddWithValue("@val5", tlu_date);
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+
+        }
+
 
         public int userAddRecord(string table, string name, string email, string tech, string employeeID, string employeePassword)
         {

@@ -217,8 +217,14 @@ namespace AutomationTechLog
             }
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        public void searchButton_Click(object sender, EventArgs e)
         {
+            searchFunction();
+        }
+
+        
+
+        public void searchFunction() {
             DataTable searchedTable = buildOverviewDataTable();
             string builtSQL = buildSQL();
             buildDataGridView(searchedTable, builtSQL);
@@ -403,6 +409,11 @@ namespace AutomationTechLog
             globalUser.chosenRecord = datagridOverview.Rows[e.RowIndex].Cells[0].Value.ToString();
             var updateForm = new UpdateForm(globalUser);
             updateForm.Show();
+            updateForm.FormClosed += new FormClosedEventHandler(UpdateForm_Closed);
+        }
+
+        void UpdateForm_Closed(object sender, FormClosedEventArgs e) {
+            searchFunction();
         }
     }
 }
