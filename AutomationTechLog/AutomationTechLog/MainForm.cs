@@ -35,15 +35,16 @@ namespace AutomationTechLog
                 globalUser.globalEmployeeId = passedRow["tlt_auname"].ToString();
                 globalUser.globalAdmin = passedRow["tlt_isadmin"].ToString();
                 globalUser.globalLead = passedRow["tlt_islead"].ToString();
-                globalUser.globalPartsLead = passedRow["tlt_islead"].ToString();
+                globalUser.globalPartsLead = passedRow["tlt_ispartslead"].ToString();
                 globalUser.globalActive = passedRow["tlt_isactive"].ToString();
                 globalUser.globalPassword = passedRow["tlt_pword"].ToString();
 
             }
+            toolStripCSVButton.Visible = false; ;
+            reportsButton.Visible = false;
 
             string currentTimeFormated = formatDate(currentTime);
-            //string olderThanDateFormatted = formatDate(olderThanDate);
-            string olderThanDateFormatted = "09/12/2020";
+            string olderThanDateFormatted = formatDate(olderThanDate);
             olderDateBox.Text = olderThanDateFormatted;
 
             DataTable searchedTable = buildOverviewDataTable();

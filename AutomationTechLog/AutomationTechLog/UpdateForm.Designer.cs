@@ -29,6 +29,7 @@ namespace AutomationTechLog
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateForm));
             this.titlePanel = new System.Windows.Forms.Panel();
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.generatedTitle = new System.Windows.Forms.Label();
@@ -143,7 +144,7 @@ namespace AutomationTechLog
             this.bodyPanel.Location = new System.Drawing.Point(0, 47);
             this.bodyPanel.Name = "bodyPanel";
             this.bodyPanel.Size = new System.Drawing.Size(548, 651);
-            this.bodyPanel.TabIndex = 1;
+            this.bodyPanel.TabIndex = 0;
             this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
             // 
             // addPartButton
@@ -165,14 +166,14 @@ namespace AutomationTechLog
             this.addPartNumberBox.Location = new System.Drawing.Point(145, 474);
             this.addPartNumberBox.Name = "addPartNumberBox";
             this.addPartNumberBox.Size = new System.Drawing.Size(131, 20);
-            this.addPartNumberBox.TabIndex = 79;
+            this.addPartNumberBox.TabIndex = 11;
             // 
             // addLocationBox
             // 
             this.addLocationBox.Location = new System.Drawing.Point(275, 474);
             this.addLocationBox.Name = "addLocationBox";
             this.addLocationBox.Size = new System.Drawing.Size(131, 20);
-            this.addLocationBox.TabIndex = 78;
+            this.addLocationBox.TabIndex = 12;
             // 
             // addDescriptionBox
             // 
@@ -186,7 +187,7 @@ namespace AutomationTechLog
             this.addQuantityBox.Location = new System.Drawing.Point(15, 474);
             this.addQuantityBox.Name = "addQuantityBox";
             this.addQuantityBox.Size = new System.Drawing.Size(131, 20);
-            this.addQuantityBox.TabIndex = 76;
+            this.addQuantityBox.TabIndex = 10;
             this.addQuantityBox.TextChanged += new System.EventHandler(this.addQuantityBox_TextChanged);
             // 
             // addTechButton
@@ -213,7 +214,7 @@ namespace AutomationTechLog
             this.addShiftBox.Location = new System.Drawing.Point(15, 322);
             this.addShiftBox.Name = "addShiftBox";
             this.addShiftBox.Size = new System.Drawing.Size(131, 21);
-            this.addShiftBox.TabIndex = 74;
+            this.addShiftBox.TabIndex = 6;
             // 
             // addUserDateTime
             // 
@@ -221,14 +222,14 @@ namespace AutomationTechLog
             this.addUserDateTime.Location = new System.Drawing.Point(275, 322);
             this.addUserDateTime.Name = "addUserDateTime";
             this.addUserDateTime.Size = new System.Drawing.Size(131, 20);
-            this.addUserDateTime.TabIndex = 73;
+            this.addUserDateTime.TabIndex = 8;
             // 
             // addTimeTextBox
             // 
             this.addTimeTextBox.Location = new System.Drawing.Point(145, 322);
             this.addTimeTextBox.Name = "addTimeTextBox";
             this.addTimeTextBox.Size = new System.Drawing.Size(131, 20);
-            this.addTimeTextBox.TabIndex = 72;
+            this.addTimeTextBox.TabIndex = 7;
             this.addTimeTextBox.TextChanged += new System.EventHandler(this.addTimeTextBox_TextChanged);
             // 
             // addUserBox
@@ -237,7 +238,7 @@ namespace AutomationTechLog
             this.addUserBox.Location = new System.Drawing.Point(405, 322);
             this.addUserBox.Name = "addUserBox";
             this.addUserBox.Size = new System.Drawing.Size(131, 21);
-            this.addUserBox.TabIndex = 70;
+            this.addUserBox.TabIndex = 9;
             // 
             // stateComboBox
             // 
@@ -248,7 +249,7 @@ namespace AutomationTechLog
             this.stateComboBox.Location = new System.Drawing.Point(60, 14);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(121, 21);
-            this.stateComboBox.TabIndex = 66;
+            this.stateComboBox.TabIndex = 0;
             // 
             // typeComboBox
             // 
@@ -263,14 +264,14 @@ namespace AutomationTechLog
             this.typeComboBox.Location = new System.Drawing.Point(221, 13);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.typeComboBox.TabIndex = 65;
+            this.typeComboBox.TabIndex = 1;
             // 
             // assetTextBox
             // 
             this.assetTextBox.Location = new System.Drawing.Point(405, 14);
             this.assetTextBox.Name = "assetTextBox";
             this.assetTextBox.Size = new System.Drawing.Size(131, 20);
-            this.assetTextBox.TabIndex = 64;
+            this.assetTextBox.TabIndex = 2;
             // 
             // assetLabel
             // 
@@ -332,7 +333,7 @@ namespace AutomationTechLog
             this.complaintTextBox.Multiline = true;
             this.complaintTextBox.Name = "complaintTextBox";
             this.complaintTextBox.Size = new System.Drawing.Size(524, 65);
-            this.complaintTextBox.TabIndex = 59;
+            this.complaintTextBox.TabIndex = 3;
             // 
             // causeLabel
             // 
@@ -355,7 +356,7 @@ namespace AutomationTechLog
             this.causeTextBox.Multiline = true;
             this.causeTextBox.Name = "causeTextBox";
             this.causeTextBox.Size = new System.Drawing.Size(524, 65);
-            this.causeTextBox.TabIndex = 57;
+            this.causeTextBox.TabIndex = 4;
             // 
             // correctionLabel
             // 
@@ -379,7 +380,7 @@ namespace AutomationTechLog
             this.deleteButton.Location = new System.Drawing.Point(338, 603);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(63, 24);
-            this.deleteButton.TabIndex = 55;
+            this.deleteButton.TabIndex = 15;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
@@ -393,7 +394,7 @@ namespace AutomationTechLog
             this.cancelButton.Location = new System.Drawing.Point(243, 603);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(63, 24);
-            this.cancelButton.TabIndex = 54;
+            this.cancelButton.TabIndex = 14;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -407,7 +408,7 @@ namespace AutomationTechLog
             this.saveButton.Location = new System.Drawing.Point(148, 603);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(63, 24);
-            this.saveButton.TabIndex = 53;
+            this.saveButton.TabIndex = 13;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -446,7 +447,7 @@ namespace AutomationTechLog
             this.correctionTextBox.Multiline = true;
             this.correctionTextBox.Name = "correctionTextBox";
             this.correctionTextBox.Size = new System.Drawing.Size(524, 65);
-            this.correctionTextBox.TabIndex = 50;
+            this.correctionTextBox.TabIndex = 5;
             // 
             // modifiedLabel
             // 
@@ -502,9 +503,10 @@ namespace AutomationTechLog
             this.Controls.Add(this.bodyPanel);
             this.Controls.Add(this.titlePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UpdateForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Update Record";
+            this.Text = "ATLog";
             this.titlePanel.ResumeLayout(false);
             this.titlePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();

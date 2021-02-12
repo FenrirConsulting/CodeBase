@@ -351,8 +351,7 @@ namespace AutomationTechLog
             try
             {
                 ConnectToDatabase();
-                string strCommand = "INSERT INTO TECHLOG (tl_ref,tl_state,tl_wotype,tl_woasset,tl_wocomplaint,tl_worootcause,tl_wocorrection,tl_genuser,tl_gendate,tl_moduser,tl_moddate) " +
-                    "VALUES (@val1,@val2,@val3,@val4,@val5,@val6,@val7,@val8,@val9@,@val10,@val11)";
+                string strCommand = "INSERT INTO TECHLOG (tl_ref, tl_state, tl_wotype, tl_woasset, tl_wocomplaint, tl_worootcause, tl_wocorrection, tl_genuser, tl_gendate, tl_moduser, tl_moddate) VALUES (@val1,@val2,@val3,@val4,@val5,@val6,@val7,@val8,@val9,@val10,@val11)";
                 
                 SQLiteCommand cmdUpdate = new SQLiteCommand();
                 cmdUpdate.Connection = conn;

@@ -43,11 +43,25 @@ namespace AutomationTechLog
                 .Select(dr => dr.Field<string>("tlt_name")).ToList();
             addUserBox.DataSource = userList;
 
+            stateComboBox.Text = "Entered";
+            typeComboBox.Text = "Unplanned";
+            assetTextBox.Text = "Enter Asset";
+            complaintTextBox.Text = "Enter Complaint";
+            causeTextBox.Text = "Enter Cause";
+            correctionTextBox.Text = "Enter Correction";
+
+            addShiftBox.Text = "1";
+            addTimeTextBox.Text="10";
+            DateTime dateBox = DateTime.Now;
+            formmatedTime = dateBox.ToString("MM/dd/yyyy");
+            addUserDateTime.Text="";
+
             addUserDateTime.CustomFormat = "MM-dd-yyyy";
             addUserDateTime.Format = DateTimePickerFormat.Custom;
             DateTime currentTime = DateTime.Now;
             formmatedTime = currentTime.ToString("MM/dd/yyyy HH:mm:ss");
             creatingLabel.Text = "Creating record at : " + formmatedTime;
+            addUserBox.Text = globalUser.globalUsername;
         }
 
 
@@ -149,6 +163,7 @@ namespace AutomationTechLog
                                 createRecord();
                                 createPartsRecord();
                                 MessageBox.Show("Added Record Succesfully.");
+                                Close();
                                 break;
                             case DialogResult.No:
                                 break;
@@ -166,6 +181,7 @@ namespace AutomationTechLog
                         case DialogResult.Yes:
                             createRecord();
                             MessageBox.Show("Added Record Succesfully.");
+                            Close();
                             break;
                         case DialogResult.No:
                             break;
@@ -200,7 +216,7 @@ namespace AutomationTechLog
             string tl_moddate = formmatedTime;
 
             DBConn.addTechlogRecord(tl_ref, tl_state, tl_wotype, tl_woasset, tl_wocomplaint, tl_worootcause, tl_wocorrection, tl_genuser, tl_gendate, tl_moduser, tl_moddate);
-            //DBConn.addTechlogUserRecord(tlu_ref, tl_ref, tlu_shift, tlu_time, tlu_date, tlu_name);
+            DBConn.addTechlogUserRecord(tlu_ref, tl_ref, tlu_shift, tlu_time, tlu_date, tlu_name);
 
 
         }

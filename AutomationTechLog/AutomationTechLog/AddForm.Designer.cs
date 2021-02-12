@@ -29,10 +29,19 @@ namespace AutomationTechLog
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddForm));
             this.titlePanel = new System.Windows.Forms.Panel();
             this.creatingRecordLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.bodyPanel = new System.Windows.Forms.Panel();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.timeLabel = new System.Windows.Forms.Label();
+            this.shiftLabel = new System.Windows.Forms.Label();
+            this.descriptionLabel = new System.Windows.Forms.Label();
+            this.locationLabel = new System.Windows.Forms.Label();
+            this.partNumberLabel = new System.Windows.Forms.Label();
+            this.quantityLabel = new System.Windows.Forms.Label();
             this.addPartNumberBox = new System.Windows.Forms.TextBox();
             this.addLocationBox = new System.Windows.Forms.TextBox();
             this.addDescriptionBox = new System.Windows.Forms.TextBox();
@@ -58,14 +67,6 @@ namespace AutomationTechLog
             this.techsLabel = new System.Windows.Forms.Label();
             this.correctionTextBox = new System.Windows.Forms.TextBox();
             this.creatingLabel = new System.Windows.Forms.Label();
-            this.quantityLabel = new System.Windows.Forms.Label();
-            this.partNumberLabel = new System.Windows.Forms.Label();
-            this.locationLabel = new System.Windows.Forms.Label();
-            this.descriptionLabel = new System.Windows.Forms.Label();
-            this.shiftLabel = new System.Windows.Forms.Label();
-            this.timeLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.nameLabel = new System.Windows.Forms.Label();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
@@ -147,36 +148,140 @@ namespace AutomationTechLog
             this.bodyPanel.Location = new System.Drawing.Point(0, 47);
             this.bodyPanel.Name = "bodyPanel";
             this.bodyPanel.Size = new System.Drawing.Size(548, 651);
-            this.bodyPanel.TabIndex = 2;
+            this.bodyPanel.TabIndex = 0;
             this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.ForeColor = System.Drawing.Color.Black;
+            this.nameLabel.Location = new System.Drawing.Point(426, 344);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(84, 19);
+            this.nameLabel.TabIndex = 112;
+            this.nameLabel.Text = "Tech Name";
+            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(295, 344);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 19);
+            this.label3.TabIndex = 111;
+            this.label3.Text = "Date Begun";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // timeLabel
+            // 
+            this.timeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.timeLabel.AutoSize = true;
+            this.timeLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeLabel.ForeColor = System.Drawing.Color.Black;
+            this.timeLabel.Location = new System.Drawing.Point(167, 344);
+            this.timeLabel.Name = "timeLabel";
+            this.timeLabel.Size = new System.Drawing.Size(65, 19);
+            this.timeLabel.TabIndex = 110;
+            this.timeLabel.Text = "Minutes";
+            this.timeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // shiftLabel
+            // 
+            this.shiftLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.shiftLabel.AutoSize = true;
+            this.shiftLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shiftLabel.ForeColor = System.Drawing.Color.Black;
+            this.shiftLabel.Location = new System.Drawing.Point(35, 344);
+            this.shiftLabel.Name = "shiftLabel";
+            this.shiftLabel.Size = new System.Drawing.Size(40, 19);
+            this.shiftLabel.TabIndex = 109;
+            this.shiftLabel.Text = "Shift";
+            this.shiftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // descriptionLabel
+            // 
+            this.descriptionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.descriptionLabel.AutoSize = true;
+            this.descriptionLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionLabel.ForeColor = System.Drawing.Color.Black;
+            this.descriptionLabel.Location = new System.Drawing.Point(426, 454);
+            this.descriptionLabel.Name = "descriptionLabel";
+            this.descriptionLabel.Size = new System.Drawing.Size(86, 19);
+            this.descriptionLabel.TabIndex = 108;
+            this.descriptionLabel.Text = "Description";
+            this.descriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // locationLabel
+            // 
+            this.locationLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.locationLabel.AutoSize = true;
+            this.locationLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locationLabel.ForeColor = System.Drawing.Color.Black;
+            this.locationLabel.Location = new System.Drawing.Point(295, 454);
+            this.locationLabel.Name = "locationLabel";
+            this.locationLabel.Size = new System.Drawing.Size(67, 19);
+            this.locationLabel.TabIndex = 107;
+            this.locationLabel.Text = "Location";
+            this.locationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // partNumberLabel
+            // 
+            this.partNumberLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.partNumberLabel.AutoSize = true;
+            this.partNumberLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.partNumberLabel.ForeColor = System.Drawing.Color.Black;
+            this.partNumberLabel.Location = new System.Drawing.Point(167, 454);
+            this.partNumberLabel.Name = "partNumberLabel";
+            this.partNumberLabel.Size = new System.Drawing.Size(98, 19);
+            this.partNumberLabel.TabIndex = 106;
+            this.partNumberLabel.Text = "Part Number";
+            this.partNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // quantityLabel
+            // 
+            this.quantityLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.quantityLabel.AutoSize = true;
+            this.quantityLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantityLabel.ForeColor = System.Drawing.Color.Black;
+            this.quantityLabel.Location = new System.Drawing.Point(35, 454);
+            this.quantityLabel.Name = "quantityLabel";
+            this.quantityLabel.Size = new System.Drawing.Size(69, 19);
+            this.quantityLabel.TabIndex = 105;
+            this.quantityLabel.Text = "Quantity";
+            this.quantityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // addPartNumberBox
             // 
             this.addPartNumberBox.Location = new System.Drawing.Point(145, 476);
             this.addPartNumberBox.Name = "addPartNumberBox";
             this.addPartNumberBox.Size = new System.Drawing.Size(131, 20);
-            this.addPartNumberBox.TabIndex = 104;
+            this.addPartNumberBox.TabIndex = 11;
             // 
             // addLocationBox
             // 
             this.addLocationBox.Location = new System.Drawing.Point(275, 476);
             this.addLocationBox.Name = "addLocationBox";
             this.addLocationBox.Size = new System.Drawing.Size(131, 20);
-            this.addLocationBox.TabIndex = 103;
+            this.addLocationBox.TabIndex = 12;
             // 
             // addDescriptionBox
             // 
             this.addDescriptionBox.Location = new System.Drawing.Point(405, 476);
             this.addDescriptionBox.Name = "addDescriptionBox";
             this.addDescriptionBox.Size = new System.Drawing.Size(131, 20);
-            this.addDescriptionBox.TabIndex = 102;
+            this.addDescriptionBox.TabIndex = 13;
             // 
             // addQuantityBox
             // 
             this.addQuantityBox.Location = new System.Drawing.Point(15, 476);
             this.addQuantityBox.Name = "addQuantityBox";
             this.addQuantityBox.Size = new System.Drawing.Size(131, 20);
-            this.addQuantityBox.TabIndex = 101;
+            this.addQuantityBox.TabIndex = 10;
             this.addQuantityBox.TextChanged += new System.EventHandler(this.addQuantityBox_TextChanged);
             // 
             // addShiftBox
@@ -189,7 +294,7 @@ namespace AutomationTechLog
             this.addShiftBox.Location = new System.Drawing.Point(12, 366);
             this.addShiftBox.Name = "addShiftBox";
             this.addShiftBox.Size = new System.Drawing.Size(131, 21);
-            this.addShiftBox.TabIndex = 100;
+            this.addShiftBox.TabIndex = 6;
             // 
             // addUserDateTime
             // 
@@ -197,14 +302,14 @@ namespace AutomationTechLog
             this.addUserDateTime.Location = new System.Drawing.Point(272, 366);
             this.addUserDateTime.Name = "addUserDateTime";
             this.addUserDateTime.Size = new System.Drawing.Size(131, 20);
-            this.addUserDateTime.TabIndex = 99;
+            this.addUserDateTime.TabIndex = 8;
             // 
             // addTimeTextBox
             // 
             this.addTimeTextBox.Location = new System.Drawing.Point(142, 366);
             this.addTimeTextBox.Name = "addTimeTextBox";
             this.addTimeTextBox.Size = new System.Drawing.Size(131, 20);
-            this.addTimeTextBox.TabIndex = 98;
+            this.addTimeTextBox.TabIndex = 7;
             this.addTimeTextBox.TextChanged += new System.EventHandler(this.addTimeTextBox_TextChanged);
             // 
             // addUserBox
@@ -213,7 +318,7 @@ namespace AutomationTechLog
             this.addUserBox.Location = new System.Drawing.Point(402, 366);
             this.addUserBox.Name = "addUserBox";
             this.addUserBox.Size = new System.Drawing.Size(131, 21);
-            this.addUserBox.TabIndex = 97;
+            this.addUserBox.TabIndex = 9;
             // 
             // stateComboBox
             // 
@@ -224,7 +329,7 @@ namespace AutomationTechLog
             this.stateComboBox.Location = new System.Drawing.Point(78, 9);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(102, 21);
-            this.stateComboBox.TabIndex = 96;
+            this.stateComboBox.TabIndex = 0;
             // 
             // typeComboBox
             // 
@@ -238,14 +343,14 @@ namespace AutomationTechLog
             this.typeComboBox.Location = new System.Drawing.Point(238, 11);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(111, 21);
-            this.typeComboBox.TabIndex = 95;
+            this.typeComboBox.TabIndex = 1;
             // 
             // assetTextBox
             // 
             this.assetTextBox.Location = new System.Drawing.Point(410, 12);
             this.assetTextBox.Name = "assetTextBox";
             this.assetTextBox.Size = new System.Drawing.Size(123, 20);
-            this.assetTextBox.TabIndex = 94;
+            this.assetTextBox.TabIndex = 2;
             // 
             // assetLabel
             // 
@@ -307,7 +412,7 @@ namespace AutomationTechLog
             this.complaintTextBox.Multiline = true;
             this.complaintTextBox.Name = "complaintTextBox";
             this.complaintTextBox.Size = new System.Drawing.Size(524, 65);
-            this.complaintTextBox.TabIndex = 89;
+            this.complaintTextBox.TabIndex = 3;
             // 
             // causeLabel
             // 
@@ -330,7 +435,7 @@ namespace AutomationTechLog
             this.causeTextBox.Multiline = true;
             this.causeTextBox.Name = "causeTextBox";
             this.causeTextBox.Size = new System.Drawing.Size(524, 65);
-            this.causeTextBox.TabIndex = 87;
+            this.causeTextBox.TabIndex = 4;
             // 
             // correctionLabel
             // 
@@ -354,7 +459,7 @@ namespace AutomationTechLog
             this.cancelButton.Location = new System.Drawing.Point(332, 544);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(88, 40);
-            this.cancelButton.TabIndex = 85;
+            this.cancelButton.TabIndex = 15;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -368,7 +473,7 @@ namespace AutomationTechLog
             this.saveButton.Location = new System.Drawing.Point(107, 544);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(88, 40);
-            this.saveButton.TabIndex = 84;
+            this.saveButton.TabIndex = 14;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -407,7 +512,7 @@ namespace AutomationTechLog
             this.correctionTextBox.Multiline = true;
             this.correctionTextBox.Name = "correctionTextBox";
             this.correctionTextBox.Size = new System.Drawing.Size(524, 65);
-            this.correctionTextBox.TabIndex = 81;
+            this.correctionTextBox.TabIndex = 5;
             // 
             // creatingLabel
             // 
@@ -422,110 +527,6 @@ namespace AutomationTechLog
             this.creatingLabel.Text = "Creating Record at";
             this.creatingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // quantityLabel
-            // 
-            this.quantityLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.quantityLabel.AutoSize = true;
-            this.quantityLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantityLabel.ForeColor = System.Drawing.Color.Black;
-            this.quantityLabel.Location = new System.Drawing.Point(35, 454);
-            this.quantityLabel.Name = "quantityLabel";
-            this.quantityLabel.Size = new System.Drawing.Size(69, 19);
-            this.quantityLabel.TabIndex = 105;
-            this.quantityLabel.Text = "Quantity";
-            this.quantityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // partNumberLabel
-            // 
-            this.partNumberLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.partNumberLabel.AutoSize = true;
-            this.partNumberLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.partNumberLabel.ForeColor = System.Drawing.Color.Black;
-            this.partNumberLabel.Location = new System.Drawing.Point(167, 454);
-            this.partNumberLabel.Name = "partNumberLabel";
-            this.partNumberLabel.Size = new System.Drawing.Size(98, 19);
-            this.partNumberLabel.TabIndex = 106;
-            this.partNumberLabel.Text = "Part Number";
-            this.partNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // locationLabel
-            // 
-            this.locationLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.locationLabel.AutoSize = true;
-            this.locationLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locationLabel.ForeColor = System.Drawing.Color.Black;
-            this.locationLabel.Location = new System.Drawing.Point(295, 454);
-            this.locationLabel.Name = "locationLabel";
-            this.locationLabel.Size = new System.Drawing.Size(67, 19);
-            this.locationLabel.TabIndex = 107;
-            this.locationLabel.Text = "Location";
-            this.locationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // descriptionLabel
-            // 
-            this.descriptionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel.Location = new System.Drawing.Point(426, 454);
-            this.descriptionLabel.Name = "descriptionLabel";
-            this.descriptionLabel.Size = new System.Drawing.Size(86, 19);
-            this.descriptionLabel.TabIndex = 108;
-            this.descriptionLabel.Text = "Description";
-            this.descriptionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // shiftLabel
-            // 
-            this.shiftLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.shiftLabel.AutoSize = true;
-            this.shiftLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shiftLabel.ForeColor = System.Drawing.Color.Black;
-            this.shiftLabel.Location = new System.Drawing.Point(35, 344);
-            this.shiftLabel.Name = "shiftLabel";
-            this.shiftLabel.Size = new System.Drawing.Size(40, 19);
-            this.shiftLabel.TabIndex = 109;
-            this.shiftLabel.Text = "Shift";
-            this.shiftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // timeLabel
-            // 
-            this.timeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.timeLabel.AutoSize = true;
-            this.timeLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeLabel.ForeColor = System.Drawing.Color.Black;
-            this.timeLabel.Location = new System.Drawing.Point(167, 344);
-            this.timeLabel.Name = "timeLabel";
-            this.timeLabel.Size = new System.Drawing.Size(65, 19);
-            this.timeLabel.TabIndex = 110;
-            this.timeLabel.Text = "Minutes";
-            this.timeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(295, 344);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 19);
-            this.label3.TabIndex = 111;
-            this.label3.Text = "Date Begun";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.ForeColor = System.Drawing.Color.Black;
-            this.nameLabel.Location = new System.Drawing.Point(426, 344);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(84, 19);
-            this.nameLabel.TabIndex = 112;
-            this.nameLabel.Text = "Tech Name";
-            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,9 +536,10 @@ namespace AutomationTechLog
             this.Controls.Add(this.bodyPanel);
             this.Controls.Add(this.titlePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddForm";
+            this.Text = "ATLog";
             this.titlePanel.ResumeLayout(false);
             this.titlePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();

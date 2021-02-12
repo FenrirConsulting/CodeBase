@@ -107,7 +107,12 @@ namespace AutomationTechLog
             partsGrid.Columns["tlp_description"].HeaderText = "Description";
 
 
-            if (globalUser.globalLead != "True") { deleteButton.Enabled = false; deleteButton.Visible = false; }
+            deleteButton.Enabled = false; deleteButton.Visible = false;
+            addUserBox.Text = globalUser.globalUsername;
+
+            if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True") { deleteButton.Enabled = true; deleteButton.Visible = true; }
+
+
 
         }
 
@@ -498,7 +503,7 @@ namespace AutomationTechLog
         {
             if (e.Button == MouseButtons.Right) {
 
-                if (globalUser.globalLead == "True" || globalUser.globalAdmin == "True") {
+                if (globalUser.globalLead == "True" || globalUser.globalAdmin == "True" || globalUser.globalPartsLead == "True") {
                     int selectedRow = (int)userGrid.Rows[e.RowIndex].Cells[0].Value;
                     userGrid.Rows[e.RowIndex].Selected = true;
 
@@ -542,7 +547,7 @@ namespace AutomationTechLog
             if (e.Button == MouseButtons.Right)
             {
 
-                if (globalUser.globalLead == "True" || globalUser.globalAdmin == "True")
+                if (globalUser.globalLead == "True" || globalUser.globalAdmin == "True" || globalUser.globalPartsLead == "True")
                 {
                     int selectedRow = (int)partsGrid.Rows[e.RowIndex].Cells[0].Value;
                     partsGrid.Rows[e.RowIndex].Selected = true;

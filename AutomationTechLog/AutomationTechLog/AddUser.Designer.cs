@@ -29,6 +29,7 @@ namespace AutomationTechLog
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUser));
             this.titlePanel = new System.Windows.Forms.Panel();
             this.titleLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.PictureBox();
@@ -133,7 +134,7 @@ namespace AutomationTechLog
             this.shiftBox.Location = new System.Drawing.Point(269, 95);
             this.shiftBox.Name = "shiftBox";
             this.shiftBox.Size = new System.Drawing.Size(52, 21);
-            this.shiftBox.TabIndex = 104;
+            this.shiftBox.TabIndex = 2;
             // 
             // adminCheckBox
             // 
@@ -142,7 +143,7 @@ namespace AutomationTechLog
             this.adminCheckBox.Location = new System.Drawing.Point(12, 226);
             this.adminCheckBox.Name = "adminCheckBox";
             this.adminCheckBox.Size = new System.Drawing.Size(55, 17);
-            this.adminCheckBox.TabIndex = 103;
+            this.adminCheckBox.TabIndex = 6;
             this.adminCheckBox.Text = "Admin";
             this.adminCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -151,7 +152,7 @@ namespace AutomationTechLog
             this.userIDBox.Location = new System.Drawing.Point(155, 96);
             this.userIDBox.Name = "userIDBox";
             this.userIDBox.Size = new System.Drawing.Size(95, 20);
-            this.userIDBox.TabIndex = 97;
+            this.userIDBox.TabIndex = 1;
             this.userIDBox.TextChanged += new System.EventHandler(this.userIDBox_TextChanged);
             // 
             // partsLeadCheckBox
@@ -161,7 +162,7 @@ namespace AutomationTechLog
             this.partsLeadCheckBox.Location = new System.Drawing.Point(12, 164);
             this.partsLeadCheckBox.Name = "partsLeadCheckBox";
             this.partsLeadCheckBox.Size = new System.Drawing.Size(77, 17);
-            this.partsLeadCheckBox.TabIndex = 102;
+            this.partsLeadCheckBox.TabIndex = 4;
             this.partsLeadCheckBox.Text = "Parts Lead";
             this.partsLeadCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -172,7 +173,7 @@ namespace AutomationTechLog
             this.activeCheck.Location = new System.Drawing.Point(12, 133);
             this.activeCheck.Name = "activeCheck";
             this.activeCheck.Size = new System.Drawing.Size(56, 17);
-            this.activeCheck.TabIndex = 99;
+            this.activeCheck.TabIndex = 3;
             this.activeCheck.Text = "Active";
             this.activeCheck.UseVisualStyleBackColor = true;
             // 
@@ -183,7 +184,7 @@ namespace AutomationTechLog
             this.leadCheckBox.Location = new System.Drawing.Point(12, 195);
             this.leadCheckBox.Name = "leadCheckBox";
             this.leadCheckBox.Size = new System.Drawing.Size(50, 17);
-            this.leadCheckBox.TabIndex = 101;
+            this.leadCheckBox.TabIndex = 5;
             this.leadCheckBox.Text = "Lead";
             this.leadCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -193,7 +194,7 @@ namespace AutomationTechLog
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
             this.passwordBox.Size = new System.Drawing.Size(132, 20);
-            this.passwordBox.TabIndex = 100;
+            this.passwordBox.TabIndex = 7;
             // 
             // passwordLabel
             // 
@@ -225,7 +226,7 @@ namespace AutomationTechLog
             this.confirmPasswordBox.Name = "confirmPasswordBox";
             this.confirmPasswordBox.PasswordChar = '*';
             this.confirmPasswordBox.Size = new System.Drawing.Size(132, 20);
-            this.confirmPasswordBox.TabIndex = 109;
+            this.confirmPasswordBox.TabIndex = 8;
             // 
             // createUserButton
             // 
@@ -236,7 +237,7 @@ namespace AutomationTechLog
             this.createUserButton.Location = new System.Drawing.Point(324, 213);
             this.createUserButton.Name = "createUserButton";
             this.createUserButton.Size = new System.Drawing.Size(100, 24);
-            this.createUserButton.TabIndex = 110;
+            this.createUserButton.TabIndex = 9;
             this.createUserButton.Text = "Create User";
             this.createUserButton.UseVisualStyleBackColor = false;
             this.createUserButton.Click += new System.EventHandler(this.createUserButton_Click);
@@ -246,7 +247,7 @@ namespace AutomationTechLog
             this.usernameBox.Location = new System.Drawing.Point(12, 95);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(119, 20);
-            this.usernameBox.TabIndex = 111;
+            this.usernameBox.TabIndex = 0;
             // 
             // AddUser
             // 
@@ -271,9 +272,10 @@ namespace AutomationTechLog
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.titlePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddUser";
+            this.Text = "ATLog";
             this.titlePanel.ResumeLayout(false);
             this.titlePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();

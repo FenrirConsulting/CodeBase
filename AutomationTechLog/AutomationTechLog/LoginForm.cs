@@ -34,7 +34,7 @@ namespace AutomationTechLog
             InitializeComponent();
 
 
-
+            testButton.Visible = false;
 
         }
 

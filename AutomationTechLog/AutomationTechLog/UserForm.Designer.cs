@@ -111,7 +111,7 @@ namespace AutomationTechLog
             this.updateUserButton.Location = new System.Drawing.Point(346, 78);
             this.updateUserButton.Name = "updateUserButton";
             this.updateUserButton.Size = new System.Drawing.Size(100, 24);
-            this.updateUserButton.TabIndex = 94;
+            this.updateUserButton.TabIndex = 2;
             this.updateUserButton.Text = "Update";
             this.updateUserButton.UseVisualStyleBackColor = false;
             this.updateUserButton.Click += new System.EventHandler(this.updateUserButton_Click);
@@ -153,7 +153,7 @@ namespace AutomationTechLog
             this.createUserButton.Location = new System.Drawing.Point(272, 113);
             this.createUserButton.Name = "createUserButton";
             this.createUserButton.Size = new System.Drawing.Size(100, 24);
-            this.createUserButton.TabIndex = 93;
+            this.createUserButton.TabIndex = 4;
             this.createUserButton.Text = "Create User";
             this.createUserButton.UseVisualStyleBackColor = false;
             this.createUserButton.Click += new System.EventHandler(this.createUserButton_Click);
@@ -167,7 +167,7 @@ namespace AutomationTechLog
             this.deleteUserButton.Location = new System.Drawing.Point(20, 113);
             this.deleteUserButton.Name = "deleteUserButton";
             this.deleteUserButton.Size = new System.Drawing.Size(100, 24);
-            this.deleteUserButton.TabIndex = 92;
+            this.deleteUserButton.TabIndex = 3;
             this.deleteUserButton.Text = "Delete User";
             this.deleteUserButton.UseVisualStyleBackColor = false;
             this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
@@ -190,7 +190,7 @@ namespace AutomationTechLog
             this.adminPasswordConfirmBox.Name = "adminPasswordConfirmBox";
             this.adminPasswordConfirmBox.PasswordChar = '*';
             this.adminPasswordConfirmBox.Size = new System.Drawing.Size(95, 20);
-            this.adminPasswordConfirmBox.TabIndex = 87;
+            this.adminPasswordConfirmBox.TabIndex = 1;
             // 
             // adminResetButton
             // 
@@ -201,7 +201,7 @@ namespace AutomationTechLog
             this.adminResetButton.Location = new System.Drawing.Point(272, 62);
             this.adminResetButton.Name = "adminResetButton";
             this.adminResetButton.Size = new System.Drawing.Size(100, 24);
-            this.adminResetButton.TabIndex = 88;
+            this.adminResetButton.TabIndex = 2;
             this.adminResetButton.Text = "Reset Password";
             this.adminResetButton.UseVisualStyleBackColor = false;
             this.adminResetButton.Click += new System.EventHandler(this.adminResetButton_Click);
@@ -212,7 +212,7 @@ namespace AutomationTechLog
             this.adminPasswordResetBox.Name = "adminPasswordResetBox";
             this.adminPasswordResetBox.PasswordChar = '*';
             this.adminPasswordResetBox.Size = new System.Drawing.Size(95, 20);
-            this.adminPasswordResetBox.TabIndex = 89;
+            this.adminPasswordResetBox.TabIndex = 0;
             // 
             // adminConfirmPassLabel
             // 
@@ -292,7 +292,7 @@ namespace AutomationTechLog
             this.userSelectBox.Location = new System.Drawing.Point(14, 78);
             this.userSelectBox.Name = "userSelectBox";
             this.userSelectBox.Size = new System.Drawing.Size(121, 21);
-            this.userSelectBox.TabIndex = 87;
+            this.userSelectBox.TabIndex = 0;
             this.userSelectBox.SelectedIndexChanged += new System.EventHandler(this.userSelectBox_SelectedIndexChanged);
             // 
             // adminCheckBox
@@ -311,7 +311,7 @@ namespace AutomationTechLog
             this.userIDBox.Name = "userIDBox";
             this.userIDBox.ReadOnly = true;
             this.userIDBox.Size = new System.Drawing.Size(95, 20);
-            this.userIDBox.TabIndex = 86;
+            this.userIDBox.TabIndex = 1;
             // 
             // partsLeadCheckBox
             // 
@@ -378,7 +378,7 @@ namespace AutomationTechLog
             this.passwordResetButton.Location = new System.Drawing.Point(346, 75);
             this.passwordResetButton.Name = "passwordResetButton";
             this.passwordResetButton.Size = new System.Drawing.Size(100, 24);
-            this.passwordResetButton.TabIndex = 82;
+            this.passwordResetButton.TabIndex = 2;
             this.passwordResetButton.Text = "Reset Password";
             this.passwordResetButton.UseVisualStyleBackColor = false;
             this.passwordResetButton.Click += new System.EventHandler(this.passwordResetButton_Click);
@@ -413,7 +413,7 @@ namespace AutomationTechLog
             this.resetBox.Name = "resetBox";
             this.resetBox.PasswordChar = '*';
             this.resetBox.Size = new System.Drawing.Size(95, 20);
-            this.resetBox.TabIndex = 83;
+            this.resetBox.TabIndex = 0;
             this.resetBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.resetBox_KeyPress);
             // 
             // confirmResetBox
@@ -422,7 +422,7 @@ namespace AutomationTechLog
             this.confirmResetBox.Name = "confirmResetBox";
             this.confirmResetBox.PasswordChar = '*';
             this.confirmResetBox.Size = new System.Drawing.Size(95, 20);
-            this.confirmResetBox.TabIndex = 81;
+            this.confirmResetBox.TabIndex = 1;
             this.confirmResetBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.confirmResetBox_KeyPress);
             // 
             // titlePanel
@@ -473,7 +473,7 @@ namespace AutomationTechLog
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UserForm";
+            this.Text = "ATLog";
             this.bodyPanel.ResumeLayout(false);
             this.leadPanel.ResumeLayout(false);
             this.leadPanel.PerformLayout();
