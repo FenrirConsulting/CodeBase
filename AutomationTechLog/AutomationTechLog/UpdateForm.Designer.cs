@@ -152,40 +152,42 @@ namespace AutomationTechLog
             this.addPartButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addPartButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addPartButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.addPartButton.Location = new System.Drawing.Point(436, 577);
+            this.addPartButton.Location = new System.Drawing.Point(436, 444);
             this.addPartButton.Name = "addPartButton";
             this.addPartButton.Size = new System.Drawing.Size(100, 24);
             this.addPartButton.TabIndex = 80;
             this.addPartButton.Text = "Add Part";
             this.addPartButton.UseVisualStyleBackColor = false;
+            this.addPartButton.Click += new System.EventHandler(this.addPartButton_Click);
             // 
             // addPartNumberBox
             // 
-            this.addPartNumberBox.Location = new System.Drawing.Point(145, 550);
+            this.addPartNumberBox.Location = new System.Drawing.Point(145, 474);
             this.addPartNumberBox.Name = "addPartNumberBox";
             this.addPartNumberBox.Size = new System.Drawing.Size(131, 20);
             this.addPartNumberBox.TabIndex = 79;
             // 
             // addLocationBox
             // 
-            this.addLocationBox.Location = new System.Drawing.Point(275, 550);
+            this.addLocationBox.Location = new System.Drawing.Point(275, 474);
             this.addLocationBox.Name = "addLocationBox";
             this.addLocationBox.Size = new System.Drawing.Size(131, 20);
             this.addLocationBox.TabIndex = 78;
             // 
             // addDescriptionBox
             // 
-            this.addDescriptionBox.Location = new System.Drawing.Point(405, 550);
+            this.addDescriptionBox.Location = new System.Drawing.Point(405, 474);
             this.addDescriptionBox.Name = "addDescriptionBox";
             this.addDescriptionBox.Size = new System.Drawing.Size(131, 20);
             this.addDescriptionBox.TabIndex = 77;
             // 
             // addQuantityBox
             // 
-            this.addQuantityBox.Location = new System.Drawing.Point(15, 550);
+            this.addQuantityBox.Location = new System.Drawing.Point(15, 474);
             this.addQuantityBox.Name = "addQuantityBox";
             this.addQuantityBox.Size = new System.Drawing.Size(131, 20);
             this.addQuantityBox.TabIndex = 76;
+            this.addQuantityBox.TextChanged += new System.EventHandler(this.addQuantityBox_TextChanged);
             // 
             // addTechButton
             // 
@@ -193,7 +195,7 @@ namespace AutomationTechLog
             this.addTechButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addTechButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addTechButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.addTechButton.Location = new System.Drawing.Point(436, 430);
+            this.addTechButton.Location = new System.Drawing.Point(436, 292);
             this.addTechButton.Name = "addTechButton";
             this.addTechButton.Size = new System.Drawing.Size(100, 24);
             this.addTechButton.TabIndex = 75;
@@ -208,7 +210,7 @@ namespace AutomationTechLog
             "1",
             "2",
             "3"});
-            this.addShiftBox.Location = new System.Drawing.Point(15, 403);
+            this.addShiftBox.Location = new System.Drawing.Point(15, 322);
             this.addShiftBox.Name = "addShiftBox";
             this.addShiftBox.Size = new System.Drawing.Size(131, 21);
             this.addShiftBox.TabIndex = 74;
@@ -216,22 +218,23 @@ namespace AutomationTechLog
             // addUserDateTime
             // 
             this.addUserDateTime.CustomFormat = "\"MM-dd-yyyy\"";
-            this.addUserDateTime.Location = new System.Drawing.Point(275, 404);
+            this.addUserDateTime.Location = new System.Drawing.Point(275, 322);
             this.addUserDateTime.Name = "addUserDateTime";
             this.addUserDateTime.Size = new System.Drawing.Size(131, 20);
             this.addUserDateTime.TabIndex = 73;
             // 
             // addTimeTextBox
             // 
-            this.addTimeTextBox.Location = new System.Drawing.Point(145, 404);
+            this.addTimeTextBox.Location = new System.Drawing.Point(145, 322);
             this.addTimeTextBox.Name = "addTimeTextBox";
             this.addTimeTextBox.Size = new System.Drawing.Size(131, 20);
             this.addTimeTextBox.TabIndex = 72;
+            this.addTimeTextBox.TextChanged += new System.EventHandler(this.addTimeTextBox_TextChanged);
             // 
             // addUserBox
             // 
             this.addUserBox.FormattingEnabled = true;
-            this.addUserBox.Location = new System.Drawing.Point(405, 403);
+            this.addUserBox.Location = new System.Drawing.Point(405, 322);
             this.addUserBox.Name = "addUserBox";
             this.addUserBox.Size = new System.Drawing.Size(131, 21);
             this.addUserBox.TabIndex = 70;
@@ -379,6 +382,7 @@ namespace AutomationTechLog
             this.deleteButton.TabIndex = 55;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // cancelButton
             // 
@@ -414,7 +418,7 @@ namespace AutomationTechLog
             this.partsLabel.AutoSize = true;
             this.partsLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partsLabel.ForeColor = System.Drawing.Color.Black;
-            this.partsLabel.Location = new System.Drawing.Point(19, 458);
+            this.partsLabel.Location = new System.Drawing.Point(17, 444);
             this.partsLabel.Name = "partsLabel";
             this.partsLabel.Size = new System.Drawing.Size(56, 15);
             this.partsLabel.TabIndex = 52;
@@ -427,7 +431,7 @@ namespace AutomationTechLog
             this.techsLabel.AutoSize = true;
             this.techsLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.techsLabel.ForeColor = System.Drawing.Color.Black;
-            this.techsLabel.Location = new System.Drawing.Point(19, 289);
+            this.techsLabel.Location = new System.Drawing.Point(14, 292);
             this.techsLabel.Name = "techsLabel";
             this.techsLabel.Size = new System.Drawing.Size(57, 15);
             this.techsLabel.TabIndex = 51;
@@ -465,10 +469,12 @@ namespace AutomationTechLog
             this.partsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.partsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.partsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.partsGrid.Location = new System.Drawing.Point(16, 476);
+            this.partsGrid.Location = new System.Drawing.Point(12, 500);
             this.partsGrid.Name = "partsGrid";
             this.partsGrid.Size = new System.Drawing.Size(524, 68);
             this.partsGrid.TabIndex = 2;
+            this.partsGrid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.partsGrid_CellMouseClick);
+            this.partsGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.partsGrid_CellValidating);
             // 
             // userGrid
             // 
@@ -479,11 +485,13 @@ namespace AutomationTechLog
             this.userGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
             this.userGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.userGrid.GridColor = System.Drawing.SystemColors.Desktop;
-            this.userGrid.Location = new System.Drawing.Point(12, 307);
+            this.userGrid.Location = new System.Drawing.Point(15, 349);
             this.userGrid.Name = "userGrid";
             this.userGrid.Size = new System.Drawing.Size(524, 89);
             this.userGrid.TabIndex = 1;
             this.userGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGrid_CellClick);
+            this.userGrid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.userGrid_CellMouseClick);
+            this.userGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.userGrid_CellValidating);
             // 
             // UpdateForm
             // 

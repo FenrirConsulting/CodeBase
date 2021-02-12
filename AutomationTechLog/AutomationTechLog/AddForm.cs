@@ -15,10 +15,42 @@ namespace AutomationTechLog
 {
     public partial class AddForm : Form
     {
-        public AddForm()
+
+        sqlLiteMethods DBConn = new sqlLiteMethods();
+        DateTimePicker oDateTimePicker = new DateTimePicker();
+        DataTable TECHLOGTable = new DataTable();
+        DataTable TECHLOGUserTable = new DataTable();
+        DataTable TECHLOGPartsTable = new DataTable();
+        int creatingRecord;
+        string formmatedTime; 
+
+        GlobalUser globalUser;
+        public AddForm(GlobalUser passedUser)
         {
             InitializeComponent();
+            globalUser = passedUser;
+            buildTables();
         }
+
+        private void buildTables() {
+
+            creatingRecord = DBConn.primaryKeyHighestValue("TECHLOG", "tl_ref") +1;
+            string message = globalUser.globalUsername + " is creating Record #" + creatingRecord.ToString();
+            creatingRecordLabel.Text = message;
+
+            DataTable UserlistTable = DBConn.getTable("TECHLOG_TECHS");
+            List<String> userList = UserlistTable.Rows.OfType<DataRow>()
+                .Select(dr => dr.Field<string>("tlt_name")).ToList();
+            addUserBox.DataSource = userList;
+
+            addUserDateTime.CustomFormat = "MM-dd-yyyy";
+            addUserDateTime.Format = DateTimePickerFormat.Custom;
+            DateTime currentTime = DateTime.Now;
+            formmatedTime = currentTime.ToString("MM/dd/yyyy HH:mm:ss");
+            creatingLabel.Text = "Creating record at : " + formmatedTime;
+        }
+
+
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -65,6 +97,124 @@ namespace AutomationTechLog
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void addTimeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(addTimeTextBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                addTimeTextBox.Text = addTimeTextBox.Text.Remove(addTimeTextBox.Text.Length - 1);
+            }
+        }
+
+        private void addQuantityBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(addQuantityBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                addQuantityBox.Text = addQuantityBox.Text.Remove(addQuantityBox.Text.Length - 1);
+            }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+
+            if (stateComboBox.Text == "" || typeComboBox.Text == "" || assetTextBox.Text == "" || addShiftBox.Text == "" || addTimeTextBox.Text == "" || addUserBox.Text == "" ||
+                complaintTextBox.Text == "" || causeTextBox.Text == "" || correctionTextBox.Text == "" || addUserDateTime.Text == "")
+            {
+                MessageBox.Show("Please finish filling out all required fields for Record and Tech details.");
+            }
+            else 
+            {
+                if (addQuantityBox.Text != "" || addPartNumberBox.Text != "" || addDescriptionBox.Text != "" || addLocationBox.Text != "")
+                {
+                    if (addQuantityBox.Text == "" || addPartNumberBox.Text == "" || addDescriptionBox.Text == "" || addLocationBox.Text == "")
+                    {
+                        MessageBox.Show("Please finish filling out all required fields for Parts details.");
+                    }
+                    else
+                    {
+                        DialogResult dr2 = MessageBox.Show("Create this Record?",
+                        "Confirm Create Record", MessageBoxButtons.YesNo);
+
+                        switch (dr2)
+                        {
+                            case DialogResult.Yes:
+                                createRecord();
+                                createPartsRecord();
+                                MessageBox.Show("Added Record Succesfully.");
+                                break;
+                            case DialogResult.No:
+                                break;
+
+                        }
+                    }
+                }
+                else 
+                {
+                    DialogResult dr = MessageBox.Show("Create this Record?",
+                        "Confirm Create Record", MessageBoxButtons.YesNo);
+
+                    switch (dr)
+                    {
+                        case DialogResult.Yes:
+                            createRecord();
+                            MessageBox.Show("Added Record Succesfully.");
+                            break;
+                        case DialogResult.No:
+                            break;
+
+                    }
+                }
+
+            }
+
+        }
+
+        private void createRecord() {
+
+            int tlu_ref = DBConn.primaryKeyHighestValue("TECHLOG_USER", "tlu_ref") + 1;
+            int tl_ref = creatingRecord;
+
+            string tlu_shift = addShiftBox.Text;
+            string tlu_time = addTimeTextBox.Text;
+            string tlu_date = addUserDateTime.Text;
+            string tlu_name = addUserBox.Text;
+
+
+            string tl_state = stateComboBox.Text;
+            string tl_wotype = typeComboBox.Text;
+            string tl_woasset = assetTextBox.Text;
+            string tl_wocomplaint = complaintTextBox.Text;
+            string tl_worootcause = causeTextBox.Text;
+            string tl_wocorrection = correctionTextBox.Text;
+            string tl_genuser = globalUser.globalUsername;
+            string tl_gendate = formmatedTime;
+            string tl_moduser = globalUser.globalUsername;
+            string tl_moddate = formmatedTime;
+
+            DBConn.addTechlogRecord(tl_ref, tl_state, tl_wotype, tl_woasset, tl_wocomplaint, tl_worootcause, tl_wocorrection, tl_genuser, tl_gendate, tl_moduser, tl_moddate);
+            //DBConn.addTechlogUserRecord(tlu_ref, tl_ref, tlu_shift, tlu_time, tlu_date, tlu_name);
+
+
+        }
+
+        private void createPartsRecord() {
+
+            int tl_ref = creatingRecord;
+            int tlp_ref = DBConn.primaryKeyHighestValue("TECHLOG_PARTS", "tlp_ref") + 1;
+            int tlp_qnty = Int32.Parse(addQuantityBox.Text);
+            string tlp_partnumber = addPartNumberBox.Text;
+            string tlp_location = addLocationBox.Text;
+            string tlp_description = addDescriptionBox.Text;
+
+            DBConn.addTechlogPartsRecord(tlp_ref, tl_ref, tlp_qnty, tlp_partnumber, tlp_location, tlp_description);
         }
     }
 }

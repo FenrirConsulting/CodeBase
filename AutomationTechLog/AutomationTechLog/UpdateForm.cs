@@ -24,13 +24,14 @@ namespace AutomationTechLog
         string modDate = "";
         int techsCount = 0;
         int partsCount = 0;
+        ContextMenu techContextMenu = new ContextMenu();
+        ContextMenu partsContextMenu = new ContextMenu();
 
         GlobalUser globalUser;
         public UpdateForm(GlobalUser passedUser)
         {
             globalUser = passedUser;
             InitializeComponent();
-
             buildTables();
         }
 
@@ -214,7 +215,7 @@ namespace AutomationTechLog
             DataTable filledTable = new DataTable();
             filledTable.Columns.Add("tlp_ref", typeof(int));
             filledTable.Columns.Add("tl_ref", typeof(int));
-            filledTable.Columns.Add("tlp_qnty", typeof(string));
+            filledTable.Columns.Add("tlp_qnty", typeof(int));
             filledTable.Columns.Add("tlp_partnumber", typeof(string));
             filledTable.Columns.Add("tlp_location", typeof(string));
             filledTable.Columns.Add("tlp_description", typeof(string));
@@ -400,27 +401,278 @@ namespace AutomationTechLog
 
             }
 
+            foreach (DataGridViewRow currentRow in partsGrid.Rows) {
+
+                if (currentRow.Index <= partsCount)
+                {
+                    if (currentRow.Cells["tlp_ref"].Value != null)
+                    {
+                        int tlp_ref = (int)currentRow.Cells["tlp_ref"].Value;
+                        int tl_ref = (int)currentRow.Cells["tl_ref"].Value;
+                        int tlp_qnty = (int)currentRow.Cells["tlp_qnty"].Value;
+                        string tlp_partnumber = currentRow.Cells["tlp_partnumber"].Value.ToString();
+                        string tlp_location = currentRow.Cells["tlp_location"].Value.ToString();
+                        string tlp_description = currentRow.Cells["tlp_description"].Value.ToString();
+
+                        DBConn.techlogPartsRecordUpdate(tlp_ref, tl_ref, tlp_qnty, tlp_partnumber, tlp_location, tlp_description);
+                    }
+                }
+
+            }
+
+            updateModDate();
+            refreshTable();
+
+        }
+
+
+
+        private void addTechButton_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dr = MessageBox.Show("Add this tech?",
+            "Confirm Add", MessageBoxButtons.YesNo);
+
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    if (globalUser.chosenRecord != null && addShiftBox.Text != "" && addTimeTextBox.Text != "" && addUserDateTime.Text != "" && addUserBox.Text != "")
+                    {
+
+                        int tlu_ref = DBConn.primaryKeyHighestValue("TECHLOG_USER", "tlu_ref") + 1;
+                        int tl_ref = Int32.Parse(globalUser.chosenRecord);
+                        string tlu_shift = addShiftBox.Text;
+                        string tlu_time = addTimeTextBox.Text; 
+                        string tlu_date = addUserDateTime.Text; 
+                        string tlu_name = addUserBox.Text; 
+
+                        DBConn.addTechlogUserRecord(tlu_ref, tl_ref, tlu_shift, tlu_time, tlu_date, tlu_name);
+                        updateModDate();
+                    }
+                    else {
+                        MessageBox.Show("Error, record not added. Fill out all fields correctly.");
+                    }
+                    refreshTable();
+                    break;
+                case DialogResult.No:
+                    break;
+
+            }
+
+        }
+
+        private void addPartButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Add this part?",
+           "Confirm Add", MessageBoxButtons.YesNo);
+
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    if (globalUser.chosenRecord != null && addQuantityBox.Text != "" && addPartNumberBox.Text != "" && addLocationBox.Text != "" && addDescriptionBox.Text != "")
+                    {
+
+                        int tlp_ref = DBConn.primaryKeyHighestValue("TECHLOG_PARTS", "tlp_ref") + 1;
+                        int tl_ref = Int32.Parse(globalUser.chosenRecord);
+                        int tlp_qnty = Int32.Parse(addQuantityBox.Text);
+                        string tlp_partnumber = addPartNumberBox.Text;
+                        string tlp_location = addLocationBox.Text;
+                        string tlp_description = addDescriptionBox.Text;
+
+                        DBConn.addTechlogPartsRecord(tlp_ref, tl_ref, tlp_qnty, tlp_partnumber, tlp_location, tlp_description);
+                        updateModDate();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error, record not added. Fill out all fields correctly.");
+                    }
+                    refreshTable();
+                    break;
+                case DialogResult.No:
+                    break;
+
+            }
+        }
+
+        private void userGrid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) {
+
+                if (globalUser.globalLead == "True" || globalUser.globalAdmin == "True") {
+                    int selectedRow = (int)userGrid.Rows[e.RowIndex].Cells[0].Value;
+                    userGrid.Rows[e.RowIndex].Selected = true;
+
+                    MenuItem deleteItem = new MenuItem();
+
+                    deleteItem.Text = "Delete Tech Entry";
+                    techContextMenu.MenuItems.Add(deleteItem);
+                    deleteItem.Click += new System.EventHandler((s, f) => TechMenuItemNew_Click(s, f, selectedRow));
+
+                    techContextMenu.Show(userGrid, new Point(e.X, e.Y));
+                }
+            }
+        }
+
+        private void TechMenuItemNew_Click(Object sender, System.EventArgs e, int selectedRow)
+        {
+
+            DialogResult dr = MessageBox.Show("Delete this tech?",
+            "Confirm Deletion", MessageBoxButtons.YesNo);
+
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    DBConn.deleteRecord("TECHLOG_USER", "tlu_ref", selectedRow);
+                    techContextMenu.MenuItems.Clear();
+                    userGrid.ClearSelection();
+                    updateModDate();
+                    refreshTable();
+                    break;
+                case DialogResult.No:
+                    techContextMenu.MenuItems.Clear();
+                    userGrid.ClearSelection();
+                    break;
+
+            }
+
+        }
+
+        private void partsGrid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+
+                if (globalUser.globalLead == "True" || globalUser.globalAdmin == "True")
+                {
+                    int selectedRow = (int)partsGrid.Rows[e.RowIndex].Cells[0].Value;
+                    partsGrid.Rows[e.RowIndex].Selected = true;
+
+                    MenuItem deleteItem = new MenuItem();
+                    deleteItem.Text = "Delete Parts Entry";
+                    partsContextMenu.MenuItems.Add(deleteItem);
+                    deleteItem.Click += new System.EventHandler((s, f) => PartsMenuItemNew_Click(s, f, selectedRow));
+
+                    partsContextMenu.Show(partsGrid, new Point(e.X, e.Y));
+                }
+            }
+        }
+
+        private void PartsMenuItemNew_Click(Object sender, System.EventArgs e, int selectedRow)
+        {
+
+            DialogResult dr = MessageBox.Show("Delete this part?",
+            "Confirm Deletion", MessageBoxButtons.YesNo);
+
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    DBConn.deleteRecord("TECHLOG_PARTS", "tlp_ref", selectedRow);
+                    partsContextMenu.MenuItems.Clear();
+                    partsGrid.ClearSelection();
+                    updateModDate();
+                    refreshTable();
+                    break;
+                case DialogResult.No:
+                    partsContextMenu.MenuItems.Clear();
+                    partsGrid.ClearSelection();
+                    break;
+
+            }
+
+        }
+
+
+        private void refreshTable() {
+
             userGrid.DataSource = null;
             userGrid.Rows.Clear();
             partsGrid.DataSource = null;
             partsGrid.Rows.Clear();
             buildTables();
-
         }
 
-        private void addTechButton_Click(object sender, EventArgs e)
+        private void userGrid_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            if (globalUser.chosenRecord != null && addShiftBox.Text != null && addTimeTextBox.Text != null && addUserDateTime.Text != null && addUserBox.Text != null) {
+            if (e.ColumnIndex == 3 || e.ColumnIndex == 4) // 1 should be your column index
+            {
+                int i;
 
-                int tl_ref = Int32.Parse(globalUser.chosenRecord);
-                string tlu_shift = addShiftBox.Text;
-                string tlu_time = addTimeTextBox.Text;
-                string tlu_date = addUserDateTime.Text;
-                string tlu_name = addUserBox.Text;
-
-                DBConn.addTechlogUserRecord(tl_ref, tlu_shift, tlu_time, tlu_date, tlu_name);
+                if (!int.TryParse(Convert.ToString(e.FormattedValue), out i))
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Please enter only numbers.");
+                }
+                else
+                {
+                    // the input is numeric 
+                }
             }
+        }
 
+        private void partsGrid_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.ColumnIndex == 2 || e.ColumnIndex == 3) // 1 should be your column index
+            {
+                int i;
+
+                if (!int.TryParse(Convert.ToString(e.FormattedValue), out i))
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Please enter only numbers.");
+                }
+                else
+                {
+                    // the input is numeric 
+                }
+            }
+        }
+
+        private void addTimeTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(addTimeTextBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                addTimeTextBox.Text = addTimeTextBox.Text.Remove(addTimeTextBox.Text.Length - 1);
+            }
+        }
+
+        private void addQuantityBox_TextChanged(object sender, EventArgs e)
+        {
+            if (System.Text.RegularExpressions.Regex.IsMatch(addQuantityBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                addQuantityBox.Text = addQuantityBox.Text.Remove(addQuantityBox.Text.Length - 1);
+            }
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Delete this whole record?",
+            "Confirm Deletion", MessageBoxButtons.YesNo);
+
+            int selectedRow = Int32.Parse(globalUser.chosenRecord);
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    DBConn.deleteRecord("TECHLOG", "tl_ref", selectedRow);
+                    DBConn.deleteRecord("TECHLOG_USER", "tl_ref", selectedRow);
+                    DBConn.deleteRecord("TECHLOG_PARTS", "tl_ref", selectedRow);
+                    MessageBox.Show("Record Deleted");
+                    Close();
+                    break;
+                case DialogResult.No:
+                    break;
+
+            }
+        }
+
+        private void updateModDate() {
+
+            DateTime currentTime = DateTime.Now;
+            int tl_ref = Int32.Parse(globalUser.chosenRecord);
+            string tl_moduser = globalUser.globalUsername;
+            string tl_moddate = currentTime.ToString("MM/dd/yyyy HH:mm:ss");
+            DBConn.techlogModDateUpdate(tl_ref, tl_moduser, tl_moddate);
         }
     }
 }

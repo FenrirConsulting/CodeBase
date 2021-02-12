@@ -56,7 +56,6 @@
             this.searchLikeComboBox = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.searchButton = new System.Windows.Forms.ToolStripButton();
-            this.cancelSearchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripCSVButton = new System.Windows.Forms.ToolStripButton();
             this.datagridOverview = new System.Windows.Forms.DataGridView();
             this.titlePanel.SuspendLayout();
@@ -80,7 +79,7 @@
             this.titlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titlePanel.Location = new System.Drawing.Point(0, 0);
             this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(969, 37);
+            this.titlePanel.Size = new System.Drawing.Size(1196, 37);
             this.titlePanel.TabIndex = 0;
             this.titlePanel.DoubleClick += new System.EventHandler(this.titlePanel_DoubleClick);
             this.titlePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseMove);
@@ -91,7 +90,7 @@
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.titleLabel.Location = new System.Drawing.Point(362, 5);
+            this.titleLabel.Location = new System.Drawing.Point(476, 5);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(245, 26);
             this.titleLabel.TabIndex = 46;
@@ -123,7 +122,7 @@
             // 
             this.closeButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.closeButton.Image = global::AutomationTechLog.Properties.Resources.exit;
-            this.closeButton.Location = new System.Drawing.Point(885, 0);
+            this.closeButton.Location = new System.Drawing.Point(1112, 0);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(28, 37);
             this.closeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -135,7 +134,7 @@
             // 
             this.resizeButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.resizeButton.Image = global::AutomationTechLog.Properties.Resources.resizeIcon;
-            this.resizeButton.Location = new System.Drawing.Point(913, 0);
+            this.resizeButton.Location = new System.Drawing.Point(1140, 0);
             this.resizeButton.Name = "resizeButton";
             this.resizeButton.Size = new System.Drawing.Size(28, 37);
             this.resizeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -147,7 +146,7 @@
             // 
             this.minimizeButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.minimizeButton.Image = global::AutomationTechLog.Properties.Resources.minimizeIcon;
-            this.minimizeButton.Location = new System.Drawing.Point(941, 0);
+            this.minimizeButton.Location = new System.Drawing.Point(1168, 0);
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(28, 37);
             this.minimizeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -173,7 +172,7 @@
             this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonPanel.Location = new System.Drawing.Point(0, 37);
             this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(969, 51);
+            this.buttonPanel.Size = new System.Drawing.Size(1196, 51);
             this.buttonPanel.TabIndex = 1;
             // 
             // olderDateBox
@@ -194,7 +193,7 @@
             this.legendLabel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.legendLabel4.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.legendLabel4.ForeColor = System.Drawing.Color.Black;
-            this.legendLabel4.Location = new System.Drawing.Point(873, 25);
+            this.legendLabel4.Location = new System.Drawing.Point(992, 24);
             this.legendLabel4.Name = "legendLabel4";
             this.legendLabel4.Size = new System.Drawing.Size(68, 17);
             this.legendLabel4.TabIndex = 45;
@@ -221,7 +220,7 @@
             this.legendLabel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.legendLabel3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.legendLabel3.ForeColor = System.Drawing.Color.Black;
-            this.legendLabel3.Location = new System.Drawing.Point(805, 25);
+            this.legendLabel3.Location = new System.Drawing.Point(924, 24);
             this.legendLabel3.Name = "legendLabel3";
             this.legendLabel3.Size = new System.Drawing.Size(68, 17);
             this.legendLabel3.TabIndex = 44;
@@ -244,7 +243,7 @@
             this.legendLabel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.legendLabel2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.legendLabel2.ForeColor = System.Drawing.Color.Black;
-            this.legendLabel2.Location = new System.Drawing.Point(873, 8);
+            this.legendLabel2.Location = new System.Drawing.Point(992, 7);
             this.legendLabel2.Name = "legendLabel2";
             this.legendLabel2.Size = new System.Drawing.Size(68, 17);
             this.legendLabel2.TabIndex = 43;
@@ -256,7 +255,7 @@
             this.legendLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.legendLabel1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.legendLabel1.ForeColor = System.Drawing.Color.Black;
-            this.legendLabel1.Location = new System.Drawing.Point(805, 8);
+            this.legendLabel1.Location = new System.Drawing.Point(924, 7);
             this.legendLabel1.Name = "legendLabel1";
             this.legendLabel1.Size = new System.Drawing.Size(68, 17);
             this.legendLabel1.TabIndex = 42;
@@ -339,11 +338,10 @@
             this.searchLikeComboBox,
             this.toolStripSearchTextBox,
             this.searchButton,
-            this.cancelSearchButton,
             this.toolStripCSVButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 88);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(969, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1196, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -398,7 +396,6 @@
             // 
             this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
@@ -414,17 +411,6 @@
             this.searchButton.Text = "toolStripButton1";
             this.searchButton.ToolTipText = "Run Current Search";
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // cancelSearchButton
-            // 
-            this.cancelSearchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.cancelSearchButton.Image = global::AutomationTechLog.Properties.Resources.Stop;
-            this.cancelSearchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cancelSearchButton.Name = "cancelSearchButton";
-            this.cancelSearchButton.Size = new System.Drawing.Size(23, 22);
-            this.cancelSearchButton.Text = "toolStripButton2";
-            this.cancelSearchButton.ToolTipText = "Cancel Current Search";
-            this.cancelSearchButton.Click += new System.EventHandler(this.cancelSearchButton_Click);
             // 
             // toolStripCSVButton
             // 
@@ -445,7 +431,7 @@
             this.datagridOverview.Location = new System.Drawing.Point(0, 113);
             this.datagridOverview.Name = "datagridOverview";
             this.datagridOverview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridOverview.Size = new System.Drawing.Size(969, 506);
+            this.datagridOverview.Size = new System.Drawing.Size(1196, 558);
             this.datagridOverview.TabIndex = 3;
             this.datagridOverview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridOverview_CellDoubleClick);
             this.datagridOverview.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.datagridOverview_CellFormatting);
@@ -456,7 +442,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.ClientSize = new System.Drawing.Size(969, 619);
+            this.ClientSize = new System.Drawing.Size(1196, 671);
             this.Controls.Add(this.datagridOverview);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.buttonPanel);
@@ -509,7 +495,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripTypeLabel;
         private System.Windows.Forms.ToolStripTextBox toolStripSearchTextBox;
         private System.Windows.Forms.ToolStripButton searchButton;
-        private System.Windows.Forms.ToolStripButton cancelSearchButton;
         private System.Windows.Forms.ToolStripButton toolStripCSVButton;
         private System.Windows.Forms.DataGridView datagridOverview;
         private System.Windows.Forms.Label olderDateBox;
