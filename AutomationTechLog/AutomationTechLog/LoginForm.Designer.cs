@@ -99,13 +99,13 @@
             // 
             this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.titleLabel.Location = new System.Drawing.Point(170, 80);
+            this.titleLabel.Location = new System.Drawing.Point(441, 237);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(245, 26);
+            this.titleLabel.Size = new System.Drawing.Size(141, 13);
             this.titleLabel.TabIndex = 40;
-            this.titleLabel.Text = "Automation Technician Log";
+            this.titleLabel.Text = "Written by Christopher Olson";
             // 
             // cancelButton
             // 

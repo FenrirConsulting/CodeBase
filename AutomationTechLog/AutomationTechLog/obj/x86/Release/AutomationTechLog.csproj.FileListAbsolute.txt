@@ -109,3 +109,4 @@ D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\ATLog.exe
 D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\ATLog.pdb
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.exe
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.pdb
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojAssemblyReference.cache
