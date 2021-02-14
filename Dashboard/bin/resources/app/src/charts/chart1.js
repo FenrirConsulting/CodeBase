@@ -1,7 +1,7 @@
 window.$ = window.jQuery = require('../resources/chart.js');
 window.$ = window.jQuery = require('../resources/d3.js');
 window.$ = window.jQuery = require('../resources/canvasJS.js'); 
-setTimeout(function(){location.href="../news/news1.html";},20 * 1000);
+//setTimeout(function(){location.href="../news/news1.html";},20 * 1000);
 const path = require('path');
 const fs = require('fs');
 const config = require('../resources/config.json');
@@ -140,9 +140,11 @@ myChart.update();
 }
 
 d3.text(doc).then(function(text){
-    var fixedData = d3.csvParse(text.split('\n').slice(1).join('\n'));
+
+    var psv = d3.dsvFormat(";");
+    var fixedData = psv.parse(text.split('\n').slice(1).join('\n'));
     d3.text(doc2).then(function(text){
-        var fixedData2 = d3.csvParse(text.split('\n').slice(1).join('\n'));
+        var fixedData2 = psv.parse(text.split('\n').slice(1).join('\n'));
         
         makeChart(fixedData, fixedData2)
     })
@@ -151,11 +153,13 @@ d3.text(doc).then(function(text){
 
 
 
+
 function makeChart(data, data2) {
 
 
     data = data.splice(0, data.length - 1);
     data.splice(0,1);
+
     data2 = data2.splice(0, data2.length - 1);
     data2.splice(0,1);
     var str = ":00:00";
@@ -170,8 +174,8 @@ function makeChart(data, data2) {
 
     const repackArray = data2.map(data2 => ({
         date2: data2["Date"].split(" ")[0],
-        time2: data2["Date"].match(/^(\S+)\s(.*)/).slice(2),
-        data4: data2["Totes from Rep"].replace(/,/g, '')
+        time2: data2["Hour"], //.match(/^(\S+)\s(.*)/).slice(2),
+        data4: data2["Total Cases"].replace(/,/g, '')
     }));
 
 
@@ -186,10 +190,22 @@ function makeChart(data, data2) {
         timeLabel[i][0] = tempString;
     }
 
+
     for (var i = 0; i < timeLabel2.length; i++) {
-        var str = ":00:00";
-        var tempString = timeLabel2[i].toString().replace(str, "");
-        timeLabel2[i][0] = tempString;
+
+        var timeHalf = false;
+
+        var tempString = timeLabel2[i].toString();
+        var tempValue = parseInt(tempString);
+
+        if (tempValue > 0  && tempValue < 12){ timeframe = false;};
+        if (tempValue > 12  && tempValue < 25){ tempValue = tempValue - 12; timeframe = true ;};
+
+        if (timeframe == false ) { tempString = tempValue.toString() + " AM";}
+        if (timeframe == true) { tempString = tempValue.toString() + " PM";}
+        
+        console.log(tempString);
+        timeLabel2[i] = tempString;
     }
     
 

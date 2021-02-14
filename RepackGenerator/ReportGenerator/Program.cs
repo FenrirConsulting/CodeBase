@@ -41,7 +41,7 @@ namespace ReportGenerator
             //string absolutePath = "\\\\rfl6dpspw2c\\CVS-CLIENT-RT\\abl\\runtime\\bin\\";
             string bmisFile = "BMIS.exe";
             string bmisProgram = "BMIS.exe";
-            string savedFile = "Overview.csv";
+            string savedFile = "Repack.csv";
            
             string pathSelection = clientPath + bmisFile;
             if (Directory.Exists(clientPath))
@@ -114,7 +114,7 @@ namespace ReportGenerator
                    sampleReportElement,
                    statisticsButtonElement;
 
-            string selectedReport = "WR002: System Performance Overview";
+            string selectedReport = "REP-002: Repack Performance - Hourly";
 
             mainFormElement = automation.setParentElement("BMIS V3.4.9");
 

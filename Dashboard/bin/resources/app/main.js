@@ -47,7 +47,7 @@ app.on('ready', () => {
     if (username == "dpsPicker" || username == "DPSBoard" || hostname == "DPSPERFBOARD") {
         userCheck = 1
     };
-    if (username == "DPSBoardB" || hostname == "DPSPERFBOARDB") {
+    if (username == "DPSBoardB" || hostname == "DPSBOARDB") {
         userCheck = 2
     };
 
@@ -55,7 +55,7 @@ app.on('ready', () => {
     if (username == "CasesBoard" || hostname == "CASESPERFBOARD") {
         userCheck = 3
     };
-    if (username == "CasesBoardB" || hostname == "CASESPERFBOARDB") {
+    if (username == "CasesBoardB" || hostname == "CASESBOARDB") {
         userCheck = 4
     };
 
@@ -125,11 +125,11 @@ app.on('ready', () => {
             break;
 
         case 8 :
-            windowLauncher(news2HTML);
+            windowLauncher(chart1HTML);
             break; 
 
         default:
-            dashLauncher(news2HTML); 
+            dashLauncher(chart1HTML); 
     }
 
     function dashLauncher(fileName){
