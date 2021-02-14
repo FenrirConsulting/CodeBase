@@ -28,6 +28,7 @@ namespace ReportGenerator
         {
             Program programMethods = new Program();
             AutomationMethods automation = new AutomationMethods();
+            AutomationMethods automation2 = new AutomationMethods();
             string programPath = System.IO.Directory.GetCurrentDirectory();
             string reportPath = programPath + "\\Reports\\";
 
@@ -38,10 +39,14 @@ namespace ReportGenerator
           
             string clientPath = "X:\\abl\\runtime\\bin\\";
             string serverPath = "R:\\abl\\runtime\\bin\\";
-            //string absolutePath = "\\\\rfl6dpspw2c\\CVS-CLIENT-RT\\abl\\runtime\\bin\\";
+            //string absolutePath = "\\\\rfl6dpsapw1v\\WMS-CLIENT\\abl\\runtime\\bin\\";
             string bmisFile = "BMIS.exe";
             string bmisProgram = "BMIS.exe";
-            string savedFile = "Overview.csv";
+            string savedFileOverview = "Overview.csv";
+            string overviewReport = "WR002: System Performance Overview"; 
+            string savedFileRepack = "Repack.csv";
+            string repackReport = "REP-002: Repack Performance - Hourly";
+            int time = 0;
            
             string pathSelection = clientPath + bmisFile;
             if (Directory.Exists(clientPath))
@@ -59,15 +64,22 @@ namespace ReportGenerator
 
 
             Console.WriteLine("Opening BMIS");
+
+            for (time =5; time > 0; time--){
+                Console.WriteLine("Opening in: " + time.ToString() + " seconds.");
+                Thread.Sleep(1000);
+            }
+
+
             Process.Start(pathSelection);
             Thread.Sleep(3000);
             programMethods.loginMethod(automation, programMethods);
             Thread.Sleep(3000);
-            programMethods.grabReport(automation, programMethods);
+            programMethods.grabReport(automation, programMethods, overviewReport);
             Thread.Sleep(15000);
-            programMethods.exportFile(automation, programMethods, reportPath, savedFile);
-            programMethods.saveFile(automation, programMethods, reportPath, savedFile);
-            programMethods.closeBMIS();
+            programMethods.exportFile(automation, programMethods, reportPath, savedFileOverview);
+            programMethods.closeBMIS(automation2, programMethods, pathSelection, reportPath, repackReport, savedFileRepack);
+
         }
 
         public void loginMethod(AutomationMethods automation, Program programMethods)
@@ -106,7 +118,7 @@ namespace ReportGenerator
         }
 
 
-        private void grabReport(AutomationMethods automation, Program programMethods)
+        private void grabReport(AutomationMethods automation, Program programMethods, string selectedReport)
         {
 
             AutomationElement
@@ -114,7 +126,6 @@ namespace ReportGenerator
                    sampleReportElement,
                    statisticsButtonElement;
 
-            string selectedReport = "WR002: System Performance Overview";
 
             mainFormElement = automation.setParentElement("BMIS V3.4.9");
 
@@ -245,13 +256,12 @@ namespace ReportGenerator
                 Thread.Sleep(200);
                 SendKeys.SendWait("{ENTER}");
 
-                programMethods.closeBMIS();
             }
 
 
         }
 
-        private void closeBMIS()
+        private void closeBMIS(AutomationMethods automation2, Program programMethods, string pathSelection, string reportPath, string repackReport, string savedFileRepack)
         {
 
             Thread.Sleep(4000);
@@ -262,16 +272,237 @@ namespace ReportGenerator
 
                 SendKeys.SendWait("%{F4}");
                 Thread.Sleep(1000);
-                System.Environment.Exit(1);
             }
             catch (Exception ex)
             {
                 
             }
 
+            int time = 0;
+
+            for (time = 10; time > 0; time--)
+            {
+                Console.WriteLine(time.ToString() + " seconds left until opening Repack");
+                Thread.Sleep(1000);
+
+   
+            }
+
+            Process.Start(pathSelection);
+            Thread.Sleep(3000);
+            programMethods.loginMethod(automation2, programMethods);
+            Thread.Sleep(3000);
+            programMethods.grabReport(automation2, programMethods, repackReport);
+            Thread.Sleep(15000);
+            programMethods.exportFile(automation2, programMethods, reportPath, savedFileRepack);
+            programMethods.closeBMIS2();
+
+
         }
 
-    
+
+        public void loginMethod2(AutomationMethods automation, Program programMethods)
+        {
+
+            AutomationElement
+               loginFormElement2,
+                loginUserElement2,
+                loginOkButton2,
+                loginPassElement2;
+
+
+            string username = "20031";
+            string password = "1337";
+            loginFormElement2 = automation.setParentElement("Log on BMIS");
+
+
+            loginUserElement2 = automation.setChildElementById(loginFormElement2, "4", true);
+            loginPassElement2 = automation.setChildElementById(loginFormElement2, "5", true);
+            loginOkButton2 = automation.setChildElementById(loginFormElement2, "8", true);
+            automation.setValue(loginUserElement2, username);
+            automation.setValue(loginPassElement2, password);
+
+            try
+            {
+
+                automation.invokeButtonPress(loginOkButton2);
+            }
+
+            catch (Exception ex)
+            {
+                programMethods.generalErrorMessage();
+            }
+
+
+        }
+
+
+        private void grabReport2(AutomationMethods automation, Program programMethods, string selectedReport)
+        {
+
+            AutomationElement
+                   mainFormElement2,
+                   sampleReportElement2,
+                   statisticsButtonElement2;
+
+
+            mainFormElement2 = automation.setParentElement("BMIS V3.4.9");
+
+            int loopCount = 0;
+            do
+            {
+                sampleReportElement2 = automation.setChildElementByName(mainFormElement2, selectedReport, true);
+                loopCount++;
+                Thread.Sleep(1000);
+            } while (sampleReportElement2 == null && loopCount < 5);
+
+
+
+            statisticsButtonElement2 = automation.setChildElementByName(mainFormElement2, "F2 Statistics", true);
+            automation.selectItem(sampleReportElement2);
+            Thread.Sleep(1000);
+            SendKeys.SendWait("{ENTER}");
+        }
+
+        private void exportFile2(AutomationMethods automation, Program programMethods, string reportPath, string savedFile)
+        {
+
+            AutomationElement
+                mainFormElement2,
+                exportButton2,
+                exportAsComboBox2,
+                okButton2;
+
+            mainFormElement2 = automation.setParentElement("BMIS V3.4.9");
+
+            int count = 0;
+            do
+            {
+                exportButton2 = automation.setChildElementByName(mainFormElement2, "Export", true);
+                count++;
+                Thread.Sleep(1000);
+
+            } while (exportButton2 == null & count < 10);
+
+            automation.invokeButtonPress(exportButton2);
+
+            Thread.Sleep(500);
+
+            count = 0;
+            do
+            {
+                exportAsComboBox2 = automation.setChildElementByName(mainFormElement2, "Export as", true);
+                count++;
+                Thread.Sleep(1000);
+
+            } while (exportAsComboBox2 == null & count < 10);
+
+
+            if (exportAsComboBox2 != null)
+            {
+                SendKeys.SendWait("{UP}");
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait(" ");
+                okButton2 = automation.setChildElementByName(mainFormElement2, "F2 Ok", true);
+                automation.invokeButtonPress(okButton2);
+                saveFile(automation, programMethods, reportPath, savedFile);
+            }
+
+
+
+        }
+
+        private void saveFile2(AutomationMethods automation, Program programMethods, string reportPath, string savedFile)
+        {
+
+            Thread.Sleep(1000);
+
+
+            AutomationElement
+                    mainFormElement2,
+                    saveWindow2;
+
+            mainFormElement2 = automation.setParentElement("BMIS V3.4.9");
+            int loopcount = 0;
+            do
+            {
+                loopcount++;
+                saveWindow2 = automation.setChildElementByName(mainFormElement2, "Save As", true);
+                Thread.Sleep(500);
+            } while (saveWindow2 == null && loopcount < 5);
+
+            if (saveWindow2 != null)
+            {
+                SendKeys.SendWait(savedFile);
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{ENTER}");
+                SendKeys.SendWait(reportPath);
+                Thread.Sleep(1000);
+                SendKeys.SendWait("{ENTER}");
+                Thread.Sleep(1000);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200)
+                    ;
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{ENTER}");
+                Thread.Sleep(2000);
+                SendKeys.SendWait("{LEFT}");
+                Thread.Sleep(200);
+                SendKeys.SendWait("{ENTER}");
+
+            }
+
+
+        }
+
+        private void closeBMIS2()
+        {
+
+            Thread.Sleep(4000);
+
+
+            try
+            {
+
+                SendKeys.SendWait("%{F4}");
+                Thread.Sleep(1000);
+                System.Environment.Exit(1);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
+
 
         public void generalErrorMessage()
         {

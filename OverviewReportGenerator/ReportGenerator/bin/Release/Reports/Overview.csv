@@ -1,5 +1,5 @@
 sep=;
  ;Date;Pick OL;Miss OL;Miss EA *;DPS Pick EA *;DPS Miss OL;DPS Miss EA;CPS Pick Case *;CPS Miss OL;CPS Miss EA;MPS Pick Case *;MPS Miss OL;MPS Miss EA;PAL to Rep *;PAL from Rep;Totes from Rep;Totes Outbound *
-1;2/13/2021 7:00:00 AM;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0
-2;2/13/2021 8:00:00 AM;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0
- Total; ;"0";"0";"0";"0";"0";"0";"0";"0";"0";"0";"0";"0";"0";"0";"2";"0"
+1;2/14/2021 7:00:00 AM;0;2;18;0;2;18;0;0;0;0;0;0;0;0;0;0
+2;2/14/2021 8:00:00 AM;2;0;0;3;0;0;0;0;0;0;0;0;0;0;0;1
+ Total; ;"2";"2";"18";"3";"2";"18";"0";"0";"0";"0";"0";"0";"0";"0";"0";"1"
