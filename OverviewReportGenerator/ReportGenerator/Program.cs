@@ -75,6 +75,7 @@ namespace ReportGenerator
             Thread.Sleep(3000);
             programMethods.loginMethod(automation, programMethods);
             Thread.Sleep(3000);
+            
             programMethods.grabReport(automation, programMethods, overviewReport);
             Thread.Sleep(15000);
             programMethods.exportFile(automation, programMethods, reportPath, savedFileOverview);
@@ -292,9 +293,8 @@ namespace ReportGenerator
             Thread.Sleep(3000);
             programMethods.loginMethod(automation2, programMethods);
             Thread.Sleep(3000);
-            programMethods.grabReport(automation2, programMethods, repackReport);
-            Thread.Sleep(15000);
-            programMethods.exportFile(automation2, programMethods, reportPath, savedFileRepack);
+            programMethods.grabReport2(automation2, programMethods, repackReport);
+            programMethods.exportFile2(automation2, programMethods, reportPath, savedFileRepack);
             programMethods.closeBMIS2();
 
 
@@ -356,8 +356,6 @@ namespace ReportGenerator
                 Thread.Sleep(1000);
             } while (sampleReportElement2 == null && loopCount < 5);
 
-
-
             statisticsButtonElement2 = automation.setChildElementByName(mainFormElement2, "F2 Statistics", true);
             automation.selectItem(sampleReportElement2);
             Thread.Sleep(1000);
@@ -370,10 +368,60 @@ namespace ReportGenerator
             AutomationElement
                 mainFormElement2,
                 exportButton2,
+                refreshButton,
                 exportAsComboBox2,
                 okButton2;
 
             mainFormElement2 = automation.setParentElement("BMIS V3.4.9");
+
+            Thread.Sleep(8000);
+
+
+            SendKeys.SendWait("{TAB}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{TAB}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{TAB}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{TAB}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{TAB}");
+            SendKeys.SendWait("{TAB}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{TAB}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{RIGHT}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{RIGHT}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{UP}");
+            Thread.Sleep(300);
+
+
+            SendKeys.SendWait("{TAB}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{TAB}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{RIGHT}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{RIGHT}");
+            Thread.Sleep(300);
+            SendKeys.SendWait("{UP}");
+            Thread.Sleep(300);
+
+
+            int count2 = 0;
+            do
+            {
+                refreshButton = automation.setChildElementByName(mainFormElement2, "Refresh", true);
+                count2++;
+                Thread.Sleep(1000);
+
+            } while (refreshButton == null & count2 < 10);
+
+            automation.invokeButtonPress(refreshButton);
+
+            Thread.Sleep(5000);
 
             int count = 0;
             do

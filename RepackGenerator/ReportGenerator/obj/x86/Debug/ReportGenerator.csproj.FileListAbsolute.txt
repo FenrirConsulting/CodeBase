@@ -1,4 +1,0 @@
-c:\users\c067460\documents\visual studio 2010\Projects\ReportGenerator\ReportGenerator\bin\Debug\ReportGenerator.exe
-c:\users\c067460\documents\visual studio 2010\Projects\ReportGenerator\ReportGenerator\bin\Debug\ReportGenerator.pdb
-c:\users\c067460\documents\visual studio 2010\Projects\ReportGenerator\ReportGenerator\obj\x86\Debug\ReportGenerator.exe
-c:\users\c067460\documents\visual studio 2010\Projects\ReportGenerator\ReportGenerator\obj\x86\Debug\ReportGenerator.pdb

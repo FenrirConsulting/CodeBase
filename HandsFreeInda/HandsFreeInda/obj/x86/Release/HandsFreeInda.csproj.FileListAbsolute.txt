@@ -16,3 +16,14 @@ C:\Users\COlson\Documents\Visual Studio 2010\Projects\HandsFreeInda\HandsFreeInd
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.MainForm.resources
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.Properties.Resources.resources
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.csproj.GenerateResource.Cache
+C:\Users\COlson\Documents\Visual Studio 2010\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.csprojResolveAssemblyReference.cache
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\bin\Release\HandsFreeInda.exe
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\bin\Release\HandsFreeInda.pdb
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.Clock.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.Instructions.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.MainForm.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.Properties.Resources.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.csproj.GenerateResource.cache
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.csproj.CoreCompileInputs.cache
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.exe
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.pdb

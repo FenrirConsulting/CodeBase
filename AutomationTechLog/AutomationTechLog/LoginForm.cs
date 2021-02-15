@@ -1,11 +1,4 @@
-﻿/*
-    Written by Christopher Olson 
-    For CVS Health
-    February 12th, 2021
-*/
-
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,7 +34,7 @@ namespace AutomationTechLog
             InitializeComponent();
 
 
-            testButton.Visible = false;
+
 
         }
 
@@ -75,78 +68,42 @@ namespace AutomationTechLog
 
             string userID = usernameBox.Text;
             string userPass = passwordBox.Text;
+            string tableSelection = "TECHLOG_TECHS";
+            DataTable userTable = new DataTable();
+            userTable = DBConn.getTable(tableSelection);
+            string queryCommand = "tlt_auname = '" + userID + "'";
+            DataRow[] result = userTable.Select(queryCommand);
 
-            if (userID == "Odin" && userPass == "Ragnarok") {
+            if (result != null && result.Count() > 0)
+            {
 
-                DataTable usersTable = new DataTable();
-
-                usersTable.Columns.Add("tlt_name");
-                usersTable.Columns.Add("tlt_shift");
-                usersTable.Columns.Add("tlt_islead");
-                usersTable.Columns.Add("tlt_isadmin");
-                usersTable.Columns.Add("tlt_ispartslead");
-                usersTable.Columns.Add("tlt_isactive");
-                usersTable.Columns.Add("tlt_pword");
-                usersTable.Columns.Add("tlt_auname");
-
-                DataRow userRow = usersTable.NewRow();
-
-                userRow["tlt_name"] = "Secret Admin";
-                userRow["tlt_shift"] = "1";
-                userRow["tlt_islead"] = "True";
-                userRow["tlt_isadmin"] = "True";
-                userRow["tlt_ispartslead"] = "True";
-                userRow["tlt_isactive"] = "True";
-                userRow["tlt_pword"] = "Ragnarok";
-                userRow["tlt_auname"] = "Odin";
-                usersTable.Rows.Add(userRow);
-
-                openMainForm(userRow);
-
-            }
-            else { 
-
-                string tableSelection = "TECHLOG_TECHS";
-                DataTable userTable = new DataTable();
-                userTable = DBConn.getTable(tableSelection);
-                string queryCommand = "tlt_auname = '" + userID + "'";
-                DataRow[] result = userTable.Select(queryCommand);
-
-                if (result != null && result.Count() > 0)
+                foreach (DataRow row in result)
                 {
+                    string tempUser = row["tlt_auname"].ToString();
+                    string tempPass = row["tlt_pword"].ToString();
 
-                   foreach (DataRow row in result)
+                    if (userPass == tempPass)
                     {
-                       string tempUser = row["tlt_auname"].ToString();
-                       string tempPass = row["tlt_pword"].ToString();
-
-                       if (userPass == tempPass)
-                        {
-                            string username = row["tlt_name"].ToString();
-                           nameLabel.Text = "Welcome: " + username;
-                           DataRow passedRow = row;
-                          openMainForm(passedRow);
-                        }
-
-                      else
-                       {
-                          MessageBox.Show("Wrong Password, Please try Again.");
-                         nameLabel.Text = "";
-                       }
-
+                        string username = row["tlt_name"].ToString();
+                        nameLabel.Text = "Welcome: " + username;
+                        DataRow passedRow = row;
+                        openMainForm(passedRow);
                     }
-                }
 
-                else
-                {
+                    else
+                    {
+                        MessageBox.Show("Wrong Password, Please try Again.");
+                        nameLabel.Text = "";
+                    }
+
+                }
+            }
+
+            else
+            {
                 MessageBox.Show("Username not found. Please re-enter.");
                 nameLabel.Text = "";
-                }
-            
             }
-
-
-            
 
         }
 

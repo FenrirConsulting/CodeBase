@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.usernameBox = new System.Windows.Forms.TextBox();
@@ -38,7 +37,7 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.testButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +48,7 @@
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
             this.passwordBox.Size = new System.Drawing.Size(159, 20);
-            this.passwordBox.TabIndex = 1;
+            this.passwordBox.TabIndex = 36;
             this.passwordBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordBox_KeyDown);
             // 
             // passwordLabel
@@ -70,7 +69,7 @@
             this.usernameBox.Location = new System.Drawing.Point(213, 130);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(159, 20);
-            this.usernameBox.TabIndex = 0;
+            this.usernameBox.TabIndex = 35;
             this.usernameBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usernameBox_KeyDown);
             // 
             // usernameLabel
@@ -99,13 +98,13 @@
             // 
             this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.titleLabel.Location = new System.Drawing.Point(441, 237);
+            this.titleLabel.Location = new System.Drawing.Point(170, 80);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(141, 13);
+            this.titleLabel.Size = new System.Drawing.Size(245, 26);
             this.titleLabel.TabIndex = 40;
-            this.titleLabel.Text = "Written by Christopher Olson";
+            this.titleLabel.Text = "Automation Technician Log";
             // 
             // cancelButton
             // 
@@ -116,7 +115,7 @@
             this.cancelButton.Location = new System.Drawing.Point(403, 165);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(98, 28);
-            this.cancelButton.TabIndex = 3;
+            this.cancelButton.TabIndex = 42;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -130,7 +129,7 @@
             this.okButton.Location = new System.Drawing.Point(403, 122);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(98, 28);
-            this.okButton.TabIndex = 2;
+            this.okButton.TabIndex = 41;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = false;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -145,19 +144,19 @@
             this.nameLabel.Size = new System.Drawing.Size(0, 20);
             this.nameLabel.TabIndex = 43;
             // 
-            // testButton
+            // button1
             // 
-            this.testButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
-            this.testButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.testButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.testButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.testButton.Location = new System.Drawing.Point(12, 213);
-            this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(98, 28);
-            this.testButton.TabIndex = 44;
-            this.testButton.Text = "TestLogin";
-            this.testButton.UseVisualStyleBackColor = false;
-            this.testButton.Click += new System.EventHandler(this.button1_Click);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.button1.Location = new System.Drawing.Point(12, 213);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 28);
+            this.button1.TabIndex = 44;
+            this.button1.Text = "TestLogin";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // LoginForm
             // 
@@ -165,7 +164,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(585, 252);
-            this.Controls.Add(this.testButton);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
@@ -176,10 +175,9 @@
             this.Controls.Add(this.usernameBox);
             this.Controls.Add(this.usernameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ATLog";
+            this.Text = "LoginForm";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -197,6 +195,6 @@
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.Button testButton;
+        private System.Windows.Forms.Button button1;
     }
 }

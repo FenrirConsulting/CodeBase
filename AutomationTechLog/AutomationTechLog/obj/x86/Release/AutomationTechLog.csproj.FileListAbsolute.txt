@@ -92,21 +92,19 @@ D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServe
 D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\LocalDatabase.db
 D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\x64\SQLite.Interop.dll
 D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\x86\SQLite.Interop.dll
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\AutomationTechLog.exe
+D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\AutomationTechLog.pdb
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.LoginForm.resources
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.MainForm.resources
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.Properties.Resources.resources
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.GenerateResource.cache
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CoreCompileInputs.cache
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CopyComplete
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.exe
+D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.pdb
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UpdateForm.resources
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddForm.resources
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UserForm.resources
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddForm.resources
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UpdateForm.resources
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UserForm.resources
-D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddUser.resources
-D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\ATLog.exe
-D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\ATLog.pdb
-D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.exe
-D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.pdb
-D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojAssemblyReference.cache

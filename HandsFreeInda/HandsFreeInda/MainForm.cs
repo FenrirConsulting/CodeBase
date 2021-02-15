@@ -57,8 +57,9 @@ namespace HandsFreeInda
         string computerName = System.Environment.GetEnvironmentVariable("COMPUTERNAME");
         string folder = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
 
+        string localPath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\ErrorLogs\\";
         string clientPath = "X:\\ISShare\\Applications\\INDAHandsFree\\ErrorLogs\\";
-        string serverPath = "\\\\rfl6dpspw2c\\CVS-CLIENT-RT\\ISShare\\Applications\\INDAHandsFree\\ErrorLogs\\";
+        string serverPath = "R:\\ISShare\\Applications\\INDAHandsFree\\ErrorLogs\\";
 
         System.Windows.Forms.Timer textTimer;
         System.Windows.Forms.Timer clockTimer = null;
@@ -126,6 +127,7 @@ namespace HandsFreeInda
             workScreenFormElement = null;
             loginFormElement = null;
 
+
             textTimer = new System.Windows.Forms.Timer();
             textTimer.Interval = 800;
             textTimer.Tick += new EventHandler(textTimer_Tick);
@@ -136,10 +138,10 @@ namespace HandsFreeInda
             clockTimer.Tick += new EventHandler(clockTimer_Tick);
             clockTimer.Enabled = true;
 
-            idleTimer = new System.Windows.Forms.Timer();
-            idleTimer.Interval = 1000;
-            idleTimer.Tick += new EventHandler(idleTimer_Tick);
-            idleTimer.Enabled = true;
+            //idleTimer = new System.Windows.Forms.Timer();
+            //idleTimer.Interval = 1000;
+            //idleTimer.Tick += new EventHandler(idleTimer_Tick);
+            //idleTimer.Enabled = true;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -179,6 +181,12 @@ namespace HandsFreeInda
                     username = "00" + username;
                 }
 
+                if (username == "1986934") {
+
+                    password = "0" + password;
+                
+                }
+
                 if (password.Length < 4)
                 {
 
@@ -207,8 +215,8 @@ namespace HandsFreeInda
                 }
                 catch (Exception ex)
                 {
-                    errorLog(ex, username);
-                    generalErrorMessage();
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
                     indaExitFocus();
                 }
 
@@ -226,13 +234,13 @@ namespace HandsFreeInda
             }
             catch (Exception ex)
             {
-                errorLog(ex, username);
-                generalErrorMessage();
+                //errorLog(ex, username);
+                //generalErrorMessage();
                 indaExitFocus();
                 return;
             }
 
-            Thread.Sleep(1500);
+            Thread.Sleep(2500);
 
             try
             {
@@ -241,8 +249,8 @@ namespace HandsFreeInda
 
             catch (Exception ex)
             {
-                errorLog(ex, username);
-                generalErrorMessage();
+                //errorLog(ex, username);
+                //generalErrorMessage();
                 indaExitFocus();
                 return;
             }
@@ -271,8 +279,8 @@ namespace HandsFreeInda
             catch (Exception ex)
             {
 
-                errorLog(ex, username);
-                generalErrorMessage();
+                //errorLog(ex, username);
+                //generalErrorMessage();
                 return;
             }
 
@@ -280,7 +288,7 @@ namespace HandsFreeInda
 
             if (loginFormElement == null)
             {
-                generalErrorMessage();
+                //generalErrorMessage();
                 indaExitFocus();
                 return;
             }
@@ -305,8 +313,8 @@ namespace HandsFreeInda
 
             catch (Exception ex)
             {
-                errorLog(ex, username);
-                generalErrorMessage();
+                //errorLog(ex, username);
+                //generalErrorMessage();
                 return;
             }
 
@@ -324,8 +332,8 @@ namespace HandsFreeInda
 
                 catch (Exception ex)
                 {
-                    errorLog(ex, username);
-                    generalErrorMessage();
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
                     indaExitFocus();
                     return;
                 }
@@ -361,7 +369,7 @@ namespace HandsFreeInda
 
             else
             {
-                generalErrorMessage();
+                //generalErrorMessage();
                 indaExitFocus();
                 return;
             }
@@ -384,13 +392,13 @@ namespace HandsFreeInda
                 flagCheck = automation.enabledCheck(workScreenInForDay);
                 if (workScreenInForDay == null || workScreenFormElement == null)
                 {
-                    generalErrorMessage();
+                    //generalErrorMessage();
 
                 }
 
                 else if (flagCheck == false)
                 {
-                    clockInErrorMessage();
+                    //clockInErrorMessage();
                     indaExitFocus();
                 }
 
@@ -426,13 +434,13 @@ namespace HandsFreeInda
                     catch (ElementNotEnabledException ex)
                     {
                         errorLog(ex, username);
-                        clockInErrorMessage();
+                        //clockInErrorMessage();
                         indaExitFocus();
                     }
                     catch (Exception ex)
                     {
                         errorLog(ex, username);
-                        generalErrorMessage();
+                        //generalErrorMessage();
                         indaExitFocus();
                     }
 
@@ -442,8 +450,8 @@ namespace HandsFreeInda
 
             catch (Exception ex)
             {
-                errorLog(ex, username);
-                generalErrorMessage();
+                //errorLog(ex, username);
+                //generalErrorMessage();
                 indaExitFocus();
             }
 
@@ -487,7 +495,7 @@ namespace HandsFreeInda
 
                 if (flagCheck == false || workScreenOutForDay == null)
                 {
-                    clockOutErrorMessage();
+                    //clockOutErrorMessage();
                 }
                 else
                 {
@@ -502,14 +510,14 @@ namespace HandsFreeInda
 
                     catch (ElementNotEnabledException ex)
                     {
-                        errorLog(ex, username);
-                        clockOutErrorMessage();
+                        //errorLog(ex, username);
+                        //clockOutErrorMessage();
                     }
 
                     catch (Exception ex)
                     {
-                        errorLog(ex, username);
-                        generalErrorMessage();
+                        //errorLog(ex, username);
+                        //generalErrorMessage();
                     }
 
                 }
@@ -517,8 +525,8 @@ namespace HandsFreeInda
             }
             catch (Exception ex)
             {
-                errorLog(ex, username);
-                generalErrorMessage();
+                //errorLog(ex, username);
+                //generalErrorMessage();
             }
 
             indaExitFocus();
@@ -540,7 +548,18 @@ namespace HandsFreeInda
 
             try
             {
+
+                foreach (Process proc in Process.GetProcessesByName("INDA.exe"))
+                {
+                    proc.Kill();
+                }
+
                 foreach (Process proc in Process.GetProcessesByName("INDA"))
+                {
+                    proc.Kill();
+                }
+
+                foreach (Process proc in Process.GetProcessesByName("VNC Remote Control Panel"))
                 {
                     proc.Kill();
                 }
@@ -548,9 +567,10 @@ namespace HandsFreeInda
             }
             catch (Exception ex)
             {
-                errorLog(ex, username);
-                generalErrorMessage();
+                //errorLog(ex, username);
+                //generalErrorMessage();
             }
+
 
             userBox.Focus();
             this.BringToFront();
@@ -595,13 +615,17 @@ namespace HandsFreeInda
         public void runINDA()
         {
 
-            if (File.Exists("R:\\atl\\runtime\\bin\\INDA.exe"))
+            if (File.Exists("X:\\atl\\runtime\\bin\\backup\\INDA.exe"))
             {
-                Process.Start("R:\\atl\\runtime\\bin\\INDA.exe");
+                Process.Start("X:\\atl\\runtime\\bin\\backup\\INDA.exe");
             }
-            else if (File.Exists("\\\\rfl6dpspw2c\\CVS-CLIENT-RT\\ISShare\\Applications\\INDAHandsFree\\INDA.exe"))
+            else if (File.Exists("R:\\abl\\runtime\\bin\\INDA.exe"))
             {
-                Process.Start("\\\\rfl6dpspw2c\\CVS-CLIENT-RT\\ISShare\\Applications\\INDAHandsFree\\INDA.exe");
+                Process.Start("R:\\abl\\runtime\\bin\\INDA.exe");
+            }
+            else if (File.Exists("\\\\rfl6dpsapw1v\\WMS-RT\\ISShare\\Applications\\INDAHandsFree\\INDA.exe"))
+            {
+                Process.Start("\\\\rfl6dpsapw1v\\WMS-RT\\ISShare\\Applications\\INDAHandsFree\\INDA.exe");
             }
             else
             {
@@ -614,6 +638,7 @@ namespace HandsFreeInda
         {
             try
             {
+                
                 foreach (Process proc in Process.GetProcessesByName("INDA.exe"))
                 {
                     proc.Kill();
@@ -624,12 +649,17 @@ namespace HandsFreeInda
                     proc.Kill();
                 }
 
+                foreach (Process proc in Process.GetProcessesByName("VNC Remote Control Panel"))
+                {
+                    proc.Kill();
+                }
+
             }
 
             catch (Exception ex)
             {
-                errorLog(ex, username);
-                MessageBox.Show(ex.Message);
+                //errorLog(ex, username);
+                //MessageBox.Show(ex.Message);
             }
 
             workScreenFormElement = null;
@@ -801,9 +831,13 @@ namespace HandsFreeInda
                 serverFile = clientPath + todayLog;
                 localLogFile = folder + "\\" + todayLog;
             }
-            if (Directory.Exists(serverPath))
+            else if (Directory.Exists(serverPath))
             {
                 serverFile = serverPath + todayLog;
+            }
+            else 
+            {
+                serverFile = localPath + todayLog;
             }
 
             if (Directory.Exists(clientPath))
@@ -827,7 +861,7 @@ namespace HandsFreeInda
                 }
             }
 
-            if (Directory.Exists(clientPath) || Directory.Exists(serverPath))
+            if (Directory.Exists(clientPath) || Directory.Exists(serverPath) || Directory.Exists(localPath))
             {
                 using (StreamWriter writer = new StreamWriter(serverFile, true))
                 {
@@ -865,10 +899,13 @@ namespace HandsFreeInda
                 localLogFile = folder + "\\" + todayLog;
                 serverFile = clientPath + todayLog;
             }
-
-            if (Directory.Exists(serverPath))
+            else if (Directory.Exists(serverPath))
             {
                 serverFile = serverPath + todayLog;
+            }
+            else 
+            {
+                serverFile = localPath + todayLog;
             }
 
             if (Directory.Exists(clientPath))
@@ -895,7 +932,7 @@ namespace HandsFreeInda
                 }
             }
 
-            if (Directory.Exists(serverPath))
+            if (Directory.Exists(serverPath) || Directory.Exists(localPath))
             {
 
                 if (File.Exists(serverFile))
@@ -950,14 +987,14 @@ namespace HandsFreeInda
 
                 catch (ElementNotEnabledException ex)
                 {
-                    errorLog(ex, username);
-                    generalErrorMessage();
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
                 }
 
                 catch (Exception ex)
                 {
-                    errorLog(ex, username);
-                    generalErrorMessage();
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
                 }
 
             }
@@ -993,14 +1030,14 @@ namespace HandsFreeInda
 
                 catch (ElementNotEnabledException ex)
                 {
-                    errorLog(ex, username);
-                    generalErrorMessage();
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
                 }
 
                 catch (Exception ex)
                 {
-                    errorLog(ex, username);
-                    generalErrorMessage();
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
                 }
 
             }
@@ -1037,14 +1074,14 @@ namespace HandsFreeInda
 
                 catch (ElementNotEnabledException ex)
                 {
-                    errorLog(ex, username);
-                    generalErrorMessage();
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
                 }
 
                 catch (Exception ex)
                 {
-                    errorLog(ex, username);
-                    generalErrorMessage();
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
                 }
 
             }
@@ -1080,14 +1117,14 @@ namespace HandsFreeInda
 
                 catch (ElementNotEnabledException ex)
                 {
-                    errorLog(ex, username);
-                    generalErrorMessage();
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
                 }
 
                 catch (Exception ex)
                 {
-                    errorLog(ex, username);
-                    generalErrorMessage();
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
                 }
 
             }
@@ -1095,18 +1132,6 @@ namespace HandsFreeInda
             indaExitFocus();
         }
 
-        private void mapDrivesBUtton_Click(object sender, EventArgs e)
-        {
-            if (Directory.Exists("C:\\Witron\\Pco\\"))
-            {
-                Process.Start("C:\\Witron\\Pco\\MapNetDrives.cmd");
-            }
-
-            else {
-                MessageBox.Show("Net Drives Not Found");
-            }
-
-        }
 
     }
 }
