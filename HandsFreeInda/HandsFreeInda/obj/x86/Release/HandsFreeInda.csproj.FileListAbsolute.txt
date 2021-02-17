@@ -27,3 +27,11 @@ C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInd
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.csproj.CoreCompileInputs.cache
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.exe
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.pdb
+D:\CodeBase\HandsFreeInda\HandsFreeInda\bin\Release\HandsFreeInda.exe
+D:\CodeBase\HandsFreeInda\HandsFreeInda\bin\Release\HandsFreeInda.pdb
+D:\CodeBase\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.MainForm.resources
+D:\CodeBase\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.Properties.Resources.resources
+D:\CodeBase\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.csproj.GenerateResource.cache
+D:\CodeBase\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.csproj.CoreCompileInputs.cache
+D:\CodeBase\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.exe
+D:\CodeBase\HandsFreeInda\HandsFreeInda\obj\x86\Release\HandsFreeInda.pdb

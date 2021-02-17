@@ -26,7 +26,6 @@ namespace HandsFreeInda
 
     public partial class MainForm : Form
     {
-        Instructions instructionForm = new Instructions();
         AutomationMethods automation = new AutomationMethods();
 
         // Named elements for Automation use in other methods
@@ -45,10 +44,10 @@ namespace HandsFreeInda
         jobCodeElement,
         workScreenOutForDay;
 
-        int idleCount = 0;
         int delayCount = 0;
+        int idleCount = 0;
 
-        string indaProgram = "";
+        string indaProgram = "R:\\abl\\runtime\\bin\\INDA.exe";
         string username = "";
         string password = "";
         string jobCode = "";
@@ -62,39 +61,20 @@ namespace HandsFreeInda
         System.Windows.Forms.Timer textTimer;
         System.Windows.Forms.Timer clockTimer = null;
 
-        // Allows moving the application around by holding mouse button.
-        private const int WM_NCHITTEST = 0x84;
-        private const int HT_CLIENT = 0x1;
-        private const int HT_CAPTION = 0x2;
-        protected override void WndProc(ref Message m)
-        {
-            base.WndProc(ref m);
-            if (m.Msg == WM_NCHITTEST) m.Result = (IntPtr)(HT_CAPTION);
-        }
-
-        // Prepared mouse event to move to the Userbox and click. Resets Cursor position and idle timers.
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        static extern bool SetCursorPos(int x, int y);
-
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
-
-        public const int MOUSEEVENTF_LEFTDOWN = 0x02;
-        public const int MOUSEEVENTF_LEFTUP = 0x04;
-
         public MainForm()
         {
-            indaProgram = folder + "\\INDA.exe";
-            InitializeComponent();
 
+            InitializeComponent();
             workScreenFormElement = null;
             loginFormElement = null;
 
-
+            // Waits .8 seconds from last text entered into the text bar to start parsing the entered barcode.
             textTimer = new System.Windows.Forms.Timer();
             textTimer.Interval = 800;
             textTimer.Tick += new EventHandler(textTimer_Tick);
 
+
+            // Sets the clock
             dateLabel.Text = DateTime.UtcNow.ToString("MM-dd-yyyy");
             clockTimer = new System.Windows.Forms.Timer();
             clockTimer.Interval = 1000;
@@ -110,16 +90,50 @@ namespace HandsFreeInda
             this.BringToFront();
         }
 
+        void clockTimer_Tick(object sender, EventArgs e)
+        {
+
+            clockLabel.Text = DateTime.Now.ToString("h:mm:ss tt");
+        }
+
+        private void userBox_TextChanged(object sender, KeyEventArgs e)
+        {
+            textTimer.Start();
+        }
+
+        // Timer tracks how long since last character enters Input field, to make sure entire string is entered before launching Login function.
+        private void textTimer_Tick(Object sender, EventArgs e)
+        {
+            if (userBox.Focused)
+            {
+                textTimer.Stop(); //No disposing required, just stop the timer.
+                idleCount = 0;
+                splitBarcode();
+            }
+        }
+
         // Splits the userBox string into 4 parts: User , Password, Job Code, and Check Character for Function Switch
         private void splitBarcode()
         {
 
-            if (userBox.Text.Contains(","))
+            string[] str_split;
+
+            if (userBox.Text.Contains(",") && userBox.Text.Length > 14)
             {
-                string[] str_split = userBox.Text.Split(",".ToCharArray());
-                username = str_split[0];
-                password = str_split[1];
-                jobCode = str_split[2];
+
+                try
+                {
+                    str_split = userBox.Text.Split(",".ToCharArray());
+                    username = str_split[0];
+                    password = str_split[1];
+                    jobCode = str_split[2];
+                }
+
+                catch {
+                    userBox.Text = "";
+                    return;
+                }
+
 
                 clearFields();
 
@@ -134,10 +148,11 @@ namespace HandsFreeInda
                     username = "00" + username;
                 }
 
-                if (username == "1986934" ) {
+                if (username == "1986934")
+                {
 
                     password = "0" + password;
-                
+
                 }
 
                 if (password.Length < 4)
@@ -173,16 +188,39 @@ namespace HandsFreeInda
                 }
 
             }
+            else {
+
+                userBox.Text = "";
+                idleCount = 0;
+            }
 
         }
 
         // Opens INDA program, and uses Check variable to determine which clock function is performed
         private void INDAstart()
         {
+            bool foundFile = false;
+            idleCount = 0;
 
             try
             {
-                runINDA();
+
+                if (File.Exists("R:\\abl\\runtime\\bin\\INDA.exe"))
+                {
+                    Process.Start("R:\\abl\\runtime\\bin\\INDA.exe");
+                    foundFile = true;
+                }
+                else if (File.Exists(indaProgram))
+                {
+                    Process.Start(indaProgram);
+                    foundFile = true;
+                }
+                else
+                {
+                    foundFile = false;
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -193,17 +231,26 @@ namespace HandsFreeInda
 
             Thread.Sleep(2500);
 
-            try
+            if (foundFile == true)
             {
-                indaLogin();
-            }
 
-            catch (Exception ex)
-            {
-                //errorLog(ex, username);
-                //generalErrorMessage();
+                try
+                {
+                    indaLogin();
+                }
+
+                catch (Exception ex)
+                {
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
+                    return;
+                }
+            }
+            else {
                 return;
             }
+
+
         }
 
         // Variables sent in to log into INDA
@@ -211,7 +258,6 @@ namespace HandsFreeInda
         {
 
             idleCount = 0;
-
             bool flagCheck = false;
 
             try
@@ -223,7 +269,6 @@ namespace HandsFreeInda
                 cancelButton = automation.setChildElementId(loginFormElement, "6", true);
                 automation.setValue(usernameElement, username);
                 automation.invokeButtonPress(okButton);
-
             }
 
             catch (Exception ex)
@@ -239,7 +284,7 @@ namespace HandsFreeInda
             if (loginFormElement == null)
             {
                 //generalErrorMessage();
-                indaExitFocus(loginFormElement);
+                indaExitFocus();
                 return;
             }
 
@@ -252,13 +297,11 @@ namespace HandsFreeInda
 
                 do
                 {
-
                     Thread.Sleep(500);
                     passwordElement = automation.setChildElementId(loginFormElement, "1", false);
                     flagCheck = automation.enabledCheck(passwordElement);
                     passwordCheck++;
                 } while (flagCheck == false && passwordCheck < 2); // Waits up to 2 seconds to see the Password Element. 
-
             }
 
             catch (Exception ex)
@@ -284,15 +327,22 @@ namespace HandsFreeInda
                 {
                     //errorLog(ex, username);
                     //generalErrorMessage();
-                    indaExitFocus(loginFormElement);
+                    indaExitFocus();
                     return;
                 }
 
                 Thread.Sleep(500);
 
-                if (check == "~")
+
+                // Searches for the Work Form Element to move forward with the loop. Otherwise closes out and resets.
+                workScreenFormElement = automation.setParentElementWithTime("Indirect Activity Selection | ");
+
+                if (workScreenFormElement != null)
                 {
                     indaClockin();
+                }
+                else {
+                    indaExitFocus();
                 }
 
             }
@@ -300,7 +350,7 @@ namespace HandsFreeInda
             else
             {
                 //generalErrorMessage();
-                indaExitFocus(loginFormElement);
+                indaExitFocus();
                 return;
             }
 
@@ -310,84 +360,62 @@ namespace HandsFreeInda
         private void indaClockin()
         {
 
+            bool flagCheck = false;
             try
             {
-
                 // Sets the 3 main elements needed to clock in. 
-                workScreenFormElement = automation.setParentElementWithTime("Indirect Activity Selection | ");
                 workScreenInForDay = automation.setChildElementName(workScreenFormElement, "IN-FOR-DAY", false);
                 workScreenStartButton = automation.setChildElementId(workScreenFormElement, "17", true);
 
-                bool flagCheck = false;
+                
                 flagCheck = automation.enabledCheck(workScreenInForDay);
-                if (workScreenInForDay == null || workScreenFormElement == null)
-                {
-                    //generalErrorMessage();
-
-                }
-
-
-                else if (flagCheck == false)
-                {
-                    //clockInErrorMessage();
-                    indaExitFocus(workScreenFormElement);
-                }
-
-                else
-                {
-                    try
-                    {
-                        Thread.Sleep(500);
-                        automation.selectRadioButton(workScreenInForDay);
-                        automation.invokeButtonPress(workScreenStartButton);
-
-                        if (jobCode == "D03ST" || jobCode == "D06SE" || jobCode == "D11ST" || jobCode == "D11SE")
-                        {
-
-                            indaExitFocus(workScreenFormElement);
-                        }
-
-                        else if (username == "2003" || username == "20031")
-                        {
-
-                            indaExitFocus(workScreenFormElement);
-                        }
-
-                        else
-                        {
-                            indaExitFocus(workScreenFormElement);
-                        }
-
-                    }
-                    catch (ElementNotEnabledException ex)
-                    {
-                        //errorLog(ex, username);
-                        //clockInErrorMessage();
-                        indaExitFocus(workScreenFormElement);
-                    }
-                    catch (Exception ex)
-                    {
-                        //errorLog(ex, username);
-                        //generalErrorMessage();
-                        indaExitFocus(workScreenFormElement);
-                    }
-
-                }
-
             }
-
             catch (Exception ex)
             {
                 //errorLog(ex, username);
                 //generalErrorMessage();
-                indaExitFocus(workScreenFormElement);
+                indaExitFocus();
+            }
+
+            if (workScreenInForDay == null || workScreenFormElement == null)
+            {
+                //generalErrorMessage();
+                indaExitFocus();
+            }
+            else if (flagCheck == false)
+            {
+                //clockInErrorMessage();
+                indaExitFocus();
+            }
+            else
+            {
+                try
+                {
+                    Thread.Sleep(500);
+                    automation.selectRadioButton(workScreenInForDay);
+                    automation.invokeButtonPress(workScreenStartButton);
+                    Thread.Sleep(500);
+                    indaExitFocus();
+                }
+                catch (ElementNotEnabledException ex)
+                {
+                    //errorLog(ex, username);
+                    //clockInErrorMessage();
+                    indaExitFocus();
+                }
+                catch (Exception ex)
+                {
+                    //errorLog(ex, username);
+                    //generalErrorMessage();
+                    indaExitFocus();
+                }
             }
 
         }
 
 
         // After the loop finishes this makes sure the userBox field is reselected for subsequent users
-        private void indaExitFocus(AutomationElement parentElement)
+        private void indaExitFocus()
         {
 
             username = "";
@@ -395,11 +423,9 @@ namespace HandsFreeInda
             jobCode = "";
             parsedPassword = "";
             check = "";
+            clearFields();
             Thread.Sleep(1000);
-
-            killINDA(workScreenFormElement);
-
-
+            killINDA();
         }
 
         // Empties the userBox text box for next user.
@@ -410,52 +436,7 @@ namespace HandsFreeInda
             manualPassword.Text = "";
         }
 
-        // Timer tracks how long since last character enters Input field, to make sure entire string is entered before launching Login function.
-        private void textTimer_Tick(Object sender, EventArgs e)
-        {
-            if (userBox.Focused)
-            {
-                textTimer.Stop(); //No disposing required, just stop the timer.
-                idleCount = 0;
-                splitBarcode();
-
-            }
-        }
-
-        void clockTimer_Tick(object sender, EventArgs e)
-        {
-
-            clockLabel.Text = DateTime.Now.ToString("h:mm:ss tt");
-        }
-
-        private void userBox_TextChanged(object sender, KeyEventArgs e)
-        {
-            textTimer.Start();
-        }
-
-        public void runINDA()
-        {
-
-            if (File.Exists("X:\\atl\\runtime\\bin\\backup\\INDA.exe"))
-            {
-                Process.Start("X:\\atl\\runtime\\bin\\backup\\INDA.exe");
-            }
-            else if (File.Exists("R:\\abl\\runtime\\bin\\INDA.exe"))
-            {
-                Process.Start("R:\\abl\\runtime\\bin\\INDA.exe");
-            }
-            else if (File.Exists("\\\\rfl6dpsapw1v\\WMS-RT\\ISShare\\Applications\\INDAHandsFree\\INDA.exe"))
-            {
-                Process.Start("\\\\rfl6dpsapw1v\\WMS-RT\\ISShare\\Applications\\INDAHandsFree\\INDA.exe");
-            }
-            else
-            {
-                Process.Start(indaProgram);
-            }
-
-        }
-
-        public void killINDA(AutomationElement parentElement)
+        public void killINDA()
         {
             try
             {
@@ -466,12 +447,20 @@ namespace HandsFreeInda
                     proc.Kill();
                 }
                 */
+                if (workScreenFormElement != null) {
 
-                automation.closeElement(parentElement);
+                    automation.closeElement(workScreenFormElement);
+                    Thread.Sleep(500);
+                }
 
-                Thread.Sleep(2000);
 
-                SendKeys.SendWait("{ESC}");
+                if (loginFormElement != null)
+                {
+
+                    automation.closeElement(loginFormElement);
+                    Thread.Sleep(500);
+                }
+
             }
 
             catch (Exception ex)
@@ -480,14 +469,9 @@ namespace HandsFreeInda
                 //MessageBox.Show(ex.Message);
             }
 
- 
-
+            clearFields();
             workScreenFormElement = null;
             loginFormElement = null;
-            userBox.Focus();
-            this.BringToFront();
-
-            Thread.Sleep(1000);
             userBox.Focus();
             this.BringToFront();
         }
@@ -517,11 +501,13 @@ namespace HandsFreeInda
         // Button and click events
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            killINDA();
             this.Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            killINDA();
             this.Close();
         }
 
@@ -529,7 +515,7 @@ namespace HandsFreeInda
         {
             delayCount = 0;
             idleCount = 0;
-            runINDA();
+            INDAstart();
         }
 
         private void manualPunchButton_Click(object sender, EventArgs e)
@@ -703,6 +689,26 @@ namespace HandsFreeInda
             }
 
         }
+
+        // Allows moving the application around by holding mouse button.
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST) m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+        // Prepared mouse event to move to the Userbox and click. Resets Cursor position and idle timers.
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        static extern bool SetCursorPos(int x, int y);
+
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
+
+        public const int MOUSEEVENTF_LEFTDOWN = 0x02;
+        public const int MOUSEEVENTF_LEFTUP = 0x04;
 
     }
 }

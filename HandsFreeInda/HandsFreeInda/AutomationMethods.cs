@@ -35,7 +35,7 @@ namespace HandsFreeInda
                 Thread.Sleep(100);
 
             }
-            while (elementParent == null && ct < 20);
+            while (elementParent == null && ct < 30);
 
             return elementParent;
         }
@@ -117,11 +117,11 @@ namespace HandsFreeInda
                 Thread.Sleep(100);
 
             }
-            while (elementParent == null && ct < 20);
+            while (elementParent == null && ct < 30);
 
-            if (elementParent == null && ct == 20)
+            if (elementParent == null && ct == 30)
             {
-                MessageBox.Show("EmptyElement");
+                //MessageBox.Show("EmptyElement");
             }
 
             return elementParent;
@@ -143,11 +143,11 @@ namespace HandsFreeInda
                 Thread.Sleep(100);
 
             }
-            while (elementParent == null && ct < 20);
+            while (elementParent == null && ct < 30);
 
-            if (elementParent == null && ct == 20)
+            if (elementParent == null && ct == 30)
             {
-                MessageBox.Show("EmptyElement");
+                //MessageBox.Show("EmptyElement");
             }
 
             Thread.Sleep(500);
@@ -179,7 +179,7 @@ namespace HandsFreeInda
                 }
                 Thread.Sleep(100);
             }
-            while (elementCheck == false && ct < 10);
+            while (elementCheck == false && ct < 20);
 
             return childElement;
         }
@@ -207,7 +207,7 @@ namespace HandsFreeInda
                 }
                 Thread.Sleep(100);
             }
-            while (elementCheck == false && ct < 10);
+            while (elementCheck == false && ct < 20);
 
             return childElement;
         }

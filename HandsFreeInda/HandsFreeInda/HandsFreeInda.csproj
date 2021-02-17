@@ -55,18 +55,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutomationMethods.cs" />
-    <Compile Include="Clock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Clock.Designer.cs">
-      <DependentUpon>Clock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Instructions.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Instructions.Designer.cs">
-      <DependentUpon>Instructions.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,12 +63,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Clock.resx">
-      <DependentUpon>Clock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Instructions.resx">
-      <DependentUpon>Instructions.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,7 +88,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Piano.jpg" />
     <Content Include="Pumpkin.png" />
     <Content Include="snowflakeLogo.png" />
     <Content Include="Turkey.png" />
