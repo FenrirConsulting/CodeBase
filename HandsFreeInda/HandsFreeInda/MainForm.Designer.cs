@@ -55,6 +55,7 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.clockLabel = new System.Windows.Forms.Label();
             this.mainPanelBox = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainPanelBox.SuspendLayout();
@@ -324,6 +325,7 @@
             // 
             this.mainPanelBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mainPanelBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mainPanelBox.Controls.Add(this.label1);
             this.mainPanelBox.Controls.Add(this.pictureBox2);
             this.mainPanelBox.Controls.Add(this.dateLabel);
             this.mainPanelBox.Controls.Add(this.manualINDA);
@@ -350,6 +352,16 @@
             this.mainPanelBox.Name = "mainPanelBox";
             this.mainPanelBox.Size = new System.Drawing.Size(933, 480);
             this.mainPanelBox.TabIndex = 28;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.label1.Location = new System.Drawing.Point(835, 460);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 18);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Version 02_16";
             // 
             // MainForm
             // 
@@ -405,6 +417,7 @@
         private System.Windows.Forms.Label dateLabel;
         private System.Windows.Forms.Label clockLabel;
         private System.Windows.Forms.Panel mainPanelBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 

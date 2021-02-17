@@ -256,6 +256,51 @@ namespace HandsFreeInda
             return check;
 
         }
+        public void closeElement(AutomationElement sentElement)
+        {
+
+            WindowPattern foundPattern = GetWindowPattern(sentElement);
+            closeWindow(foundPattern);
+        }
+
+
+        private void closeWindow(WindowPattern windowPattern)
+        {
+            try
+            {
+                windowPattern.Close();
+            }
+            catch (InvalidOperationException)
+            {
+                // object is not able to perform the requested action
+                return;
+            }
+        }
+
+
+        private WindowPattern GetWindowPattern(AutomationElement targetControl)
+        {
+            WindowPattern windowPattern = null;
+
+            try
+            {
+                windowPattern =
+                    targetControl.GetCurrentPattern(WindowPattern.Pattern)
+                    as WindowPattern;
+            }
+            catch (InvalidOperationException)
+            {
+                // object doesn't support the WindowPattern control pattern
+                return null;
+            }
+            // Make sure the element is usable.
+            if (false == windowPattern.WaitForInputIdle(10000))
+            {
+                // Object not responding in a timely manner
+                return null;
+            }
+            return windowPattern;
+        }
 
     }
 }

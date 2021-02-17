@@ -56,14 +56,11 @@ namespace HandsFreeInda
         string check = "";
         string computerName = System.Environment.GetEnvironmentVariable("COMPUTERNAME");
         string folder = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
-
         string localPath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\ErrorLogs\\";
-        string clientPath = "X:\\ISShare\\Applications\\INDAHandsFree\\ErrorLogs\\";
-        string serverPath = "R:\\ISShare\\Applications\\INDAHandsFree\\ErrorLogs\\";
+        string serverPath = "\\\\rfl6dpsapw1v\\wms-rt\\ISShare\\Applications\\INDAHandsFree\\ErrorLogs\\";
 
         System.Windows.Forms.Timer textTimer;
         System.Windows.Forms.Timer clockTimer = null;
-        System.Windows.Forms.Timer idleTimer;
 
         // Allows moving the application around by holding mouse button.
         private const int WM_NCHITTEST = 0x84;
@@ -85,40 +82,6 @@ namespace HandsFreeInda
         public const int MOUSEEVENTF_LEFTDOWN = 0x02;
         public const int MOUSEEVENTF_LEFTUP = 0x04;
 
-        //Sets an idle timer. After a specified amount of time it triggers an idle action, and every X amount of time therafter until the userBox is altered again.
-        private void idleTimer_Tick(Object sender, EventArgs e)
-        {
-            idleCount++;
-
-            if (idleCount > 20)
-            {
-                delayCount++;
-
-                // Refocuses the userBox, closes existing INDA processes, and sends a click event to keep Remote session open.
-                if (delayCount == 60 || delayCount == 1)
-                {
-
-                    if (workScreenFormElement == null && loginFormElement == null)
-                    {
-                        killINDA();
-                        userBox.Focus();
-                        this.BringToFront();
-                        userBox.Select();
-                        SendKeys.Send("{ENTER}");
-                        System.Windows.Forms.Cursor.Position = PointToScreen(new Point(userBox.Location.X, userBox.Location.Y));
-                        mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0); //make left button down
-                        mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0); //make left button up
-                        if (delayCount != 1)
-                        {
-                            delayCount = 0;
-                        }
-                    }
-
-                }
-            }
-
-        }
-
         public MainForm()
         {
             indaProgram = folder + "\\INDA.exe";
@@ -138,23 +101,13 @@ namespace HandsFreeInda
             clockTimer.Tick += new EventHandler(clockTimer_Tick);
             clockTimer.Enabled = true;
 
-            //idleTimer = new System.Windows.Forms.Timer();
-            //idleTimer.Interval = 1000;
-            //idleTimer.Tick += new EventHandler(idleTimer_Tick);
-            //idleTimer.Enabled = true;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Hide INDA Manual Button
             hideButton();
-
-            //instructionForm.StartPosition = FormStartPosition.Manual;
-            //instructionForm.Show();
-
             userBox.Focus();
             this.BringToFront();
-
         }
 
         // Splits the userBox string into 4 parts: User , Password, Job Code, and Check Character for Function Switch
@@ -181,7 +134,7 @@ namespace HandsFreeInda
                     username = "00" + username;
                 }
 
-                if (username == "1986934") {
+                if (username == "1986934" ) {
 
                     password = "0" + password;
                 
@@ -217,7 +170,6 @@ namespace HandsFreeInda
                 {
                     //errorLog(ex, username);
                     //generalErrorMessage();
-                    indaExitFocus();
                 }
 
             }
@@ -236,7 +188,6 @@ namespace HandsFreeInda
             {
                 //errorLog(ex, username);
                 //generalErrorMessage();
-                indaExitFocus();
                 return;
             }
 
@@ -251,7 +202,6 @@ namespace HandsFreeInda
             {
                 //errorLog(ex, username);
                 //generalErrorMessage();
-                indaExitFocus();
                 return;
             }
         }
@@ -289,7 +239,7 @@ namespace HandsFreeInda
             if (loginFormElement == null)
             {
                 //generalErrorMessage();
-                indaExitFocus();
+                indaExitFocus(loginFormElement);
                 return;
             }
 
@@ -334,7 +284,7 @@ namespace HandsFreeInda
                 {
                     //errorLog(ex, username);
                     //generalErrorMessage();
-                    indaExitFocus();
+                    indaExitFocus(loginFormElement);
                     return;
                 }
 
@@ -344,33 +294,13 @@ namespace HandsFreeInda
                 {
                     indaClockin();
                 }
-                if (check == "*")
-                {
-                    indaClockout();
-                }
-                if (check == "$")
-                {
-                    indaLunchIn();
-                }
-                if (check == "@")
-                {
-                    indaLunchOut();
-                }
-                if (check == "%")
-                {
-                    indaBreakIn();
-                }
-                if (check == "&")
-                {
-                    indaBreakOut();
-                }
 
             }
 
             else
             {
                 //generalErrorMessage();
-                indaExitFocus();
+                indaExitFocus(loginFormElement);
                 return;
             }
 
@@ -396,10 +326,11 @@ namespace HandsFreeInda
 
                 }
 
+
                 else if (flagCheck == false)
                 {
                     //clockInErrorMessage();
-                    indaExitFocus();
+                    indaExitFocus(workScreenFormElement);
                 }
 
                 else
@@ -413,35 +344,32 @@ namespace HandsFreeInda
                         if (jobCode == "D03ST" || jobCode == "D06SE" || jobCode == "D11ST" || jobCode == "D11SE")
                         {
 
-                            indaExitFocus();
+                            indaExitFocus(workScreenFormElement);
                         }
 
                         else if (username == "2003" || username == "20031")
                         {
-                            if (jobCode != "")
-                            {
-                                jobCodeEntry();
-                            }
-                            indaExitFocus();
+
+                            indaExitFocus(workScreenFormElement);
                         }
 
                         else
                         {
-                            indaExitFocus();
+                            indaExitFocus(workScreenFormElement);
                         }
 
                     }
                     catch (ElementNotEnabledException ex)
                     {
-                        errorLog(ex, username);
+                        //errorLog(ex, username);
                         //clockInErrorMessage();
-                        indaExitFocus();
+                        indaExitFocus(workScreenFormElement);
                     }
                     catch (Exception ex)
                     {
-                        errorLog(ex, username);
+                        //errorLog(ex, username);
                         //generalErrorMessage();
-                        indaExitFocus();
+                        indaExitFocus(workScreenFormElement);
                     }
 
                 }
@@ -452,88 +380,14 @@ namespace HandsFreeInda
             {
                 //errorLog(ex, username);
                 //generalErrorMessage();
-                indaExitFocus();
+                indaExitFocus(workScreenFormElement);
             }
 
         }
 
-        private void jobCodeEntry()
-        {
-
-            otherButtonElement = automation.setChildElementId(workScreenFormElement, "14", false);
-            automation.selectRadioButton(otherButtonElement);
-            jobCodeElement = automation.setChildElementId(workScreenFormElement, "13", false);
-
-            bool flagCheck = false;
-            flagCheck = automation.enabledCheck(jobCodeElement);
-            if (flagCheck == true && jobCodeElement != null)
-            {
-                automation.setValue(jobCodeElement, jobCode);
-                automation.invokeButtonPress(workScreenStartButton);
-                Thread.Sleep(1000);
-                indaExitFocus();
-            }
-            else
-            {
-                jobCodeErrorMessage();
-            }
-
-        }
-
-        // INDA Clock Out
-        private void indaClockout()
-        {
-
-            try
-            {
-                workScreenFormElement = automation.setParentElementWithTime("Indirect Activity Selection | ");
-                workScreenOutForDay = automation.setChildElementId(workScreenFormElement, "11", false);
-                workScreenStartButton = automation.setChildElementId(workScreenFormElement, "17", true);
-
-                bool flagCheck = false;
-                flagCheck = automation.enabledCheck(workScreenOutForDay);
-
-                if (flagCheck == false || workScreenOutForDay == null)
-                {
-                    //clockOutErrorMessage();
-                }
-                else
-                {
-
-                    try
-                    {
-                        Thread.Sleep(500);
-                        automation.selectRadioButton(workScreenOutForDay);
-                        Thread.Sleep(500);
-                        automation.invokeButtonPress(workScreenStartButton);
-                    }
-
-                    catch (ElementNotEnabledException ex)
-                    {
-                        //errorLog(ex, username);
-                        //clockOutErrorMessage();
-                    }
-
-                    catch (Exception ex)
-                    {
-                        //errorLog(ex, username);
-                        //generalErrorMessage();
-                    }
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                //errorLog(ex, username);
-                //generalErrorMessage();
-            }
-
-            indaExitFocus();
-        }
 
         // After the loop finishes this makes sure the userBox field is reselected for subsequent users
-        private void indaExitFocus()
+        private void indaExitFocus(AutomationElement parentElement)
         {
 
             username = "";
@@ -543,41 +397,8 @@ namespace HandsFreeInda
             check = "";
             Thread.Sleep(1000);
 
-            workScreenFormElement = null;
-            loginFormElement = null;
+            killINDA(workScreenFormElement);
 
-            try
-            {
-
-                foreach (Process proc in Process.GetProcessesByName("INDA.exe"))
-                {
-                    proc.Kill();
-                }
-
-                foreach (Process proc in Process.GetProcessesByName("INDA"))
-                {
-                    proc.Kill();
-                }
-
-                foreach (Process proc in Process.GetProcessesByName("VNC Remote Control Panel"))
-                {
-                    proc.Kill();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                //errorLog(ex, username);
-                //generalErrorMessage();
-            }
-
-
-            userBox.Focus();
-            this.BringToFront();
-
-            Thread.Sleep(1000);
-            userBox.Focus();
-            this.BringToFront();
 
         }
 
@@ -634,26 +455,23 @@ namespace HandsFreeInda
 
         }
 
-        public void killINDA()
+        public void killINDA(AutomationElement parentElement)
         {
             try
             {
-                
-                foreach (Process proc in Process.GetProcessesByName("INDA.exe"))
-                {
-                    proc.Kill();
-                }
 
+                /*
                 foreach (Process proc in Process.GetProcessesByName("INDA"))
                 {
                     proc.Kill();
                 }
+                */
 
-                foreach (Process proc in Process.GetProcessesByName("VNC Remote Control Panel"))
-                {
-                    proc.Kill();
-                }
+                automation.closeElement(parentElement);
 
+                Thread.Sleep(2000);
+
+                SendKeys.SendWait("{ESC}");
             }
 
             catch (Exception ex)
@@ -662,8 +480,14 @@ namespace HandsFreeInda
                 //MessageBox.Show(ex.Message);
             }
 
+ 
+
             workScreenFormElement = null;
             loginFormElement = null;
+            userBox.Focus();
+            this.BringToFront();
+
+            Thread.Sleep(1000);
             userBox.Focus();
             this.BringToFront();
         }
@@ -693,13 +517,11 @@ namespace HandsFreeInda
         // Button and click events
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            killINDA();
             this.Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            killINDA();
             this.Close();
         }
 
@@ -822,46 +644,11 @@ namespace HandsFreeInda
 
             string today = DateTime.Today.ToString("MM'_'dd'_'yyyy");
             string todayLog = "ErrorLog" + today + ".txt";
-            string localLogFile = "";
+            serverFile = serverPath + todayLog;
 
             // Checks to see if either the X:\ or Server Paths are available to find log file folders
 
-            if (Directory.Exists(clientPath))
-            {
-                serverFile = clientPath + todayLog;
-                localLogFile = folder + "\\" + todayLog;
-            }
-            else if (Directory.Exists(serverPath))
-            {
-                serverFile = serverPath + todayLog;
-            }
-            else 
-            {
-                serverFile = localPath + todayLog;
-            }
-
-            if (Directory.Exists(clientPath))
-            {
-                using (StreamWriter writer = new StreamWriter(localLogFile, true))
-                {
-                    writer.WriteLine("-----------------------------------------------------------------------------");
-                    writer.WriteLine("Date : " + DateTime.Now.ToString());
-                    writer.WriteLine("User : " + user);
-                    writer.WriteLine("Hostname : " + computerName);
-                    writer.WriteLine();
-
-                    if (ex != null)
-                    {
-                        writer.WriteLine(ex.GetType().FullName);
-                        writer.WriteLine("Message : " + ex.Message);
-                        writer.WriteLine("StackTrace : " + ex.StackTrace);
-
-                        //ex = ex.InnerException;
-                    }
-                }
-            }
-
-            if (Directory.Exists(clientPath) || Directory.Exists(serverPath) || Directory.Exists(localPath))
+            if (Directory.Exists(serverPath))
             {
                 using (StreamWriter writer = new StreamWriter(serverFile, true))
                 {
@@ -882,7 +669,6 @@ namespace HandsFreeInda
 
                 }
             }
-
         }
 
         // Opens logs with button click. Writes a new file if there is none for the day.
@@ -890,47 +676,7 @@ namespace HandsFreeInda
         {
             string today = DateTime.Today.ToString("MM'-'dd'-'yyyy");
             string todayLog = "ErrorLog" + today + ".txt";
-            string localLogFile = "";
-            string serverFile = "";
-
-            // Checks to see if either the X:\ or Server Paths are available to find log file folders
-            if (Directory.Exists(clientPath))
-            {
-                localLogFile = folder + "\\" + todayLog;
-                serverFile = clientPath + todayLog;
-            }
-            else if (Directory.Exists(serverPath))
-            {
-                serverFile = serverPath + todayLog;
-            }
-            else 
-            {
-                serverFile = localPath + todayLog;
-            }
-
-            if (Directory.Exists(clientPath))
-            {
-
-                if (File.Exists(localLogFile))
-                {
-                    Process.Start(localLogFile);
-                }
-                else
-                {
-
-                    using (StreamWriter writer = new StreamWriter(localLogFile, true))
-                    {
-                        writer.WriteLine("-----------------------------------------------------------------------------");
-                        writer.WriteLine("Date : " + DateTime.Now.ToString());
-                        writer.WriteLine("User : " + username);
-                        writer.WriteLine("Hostname : " + computerName);
-                        writer.WriteLine();
-                    }
-
-                    Process.Start(localLogFile);
-
-                }
-            }
+            string serverFile = serverPath + todayLog;
 
             if (Directory.Exists(serverPath) || Directory.Exists(localPath))
             {
@@ -957,181 +703,6 @@ namespace HandsFreeInda
             }
 
         }
-
-        // Currently unused methods
-        // INDA Lunch In
-        private void indaLunchIn()
-        {
-            workScreenFormElement = automation.setParentElementWithTime("Indirect Activity Selection | ");
-            lunchButtonElement = automation.setChildElementId(workScreenFormElement, "18", false);
-            workScreenStartButton = automation.setChildElementId(workScreenFormElement, "17", true);
-
-            bool flagCheck = false;
-            flagCheck = automation.enabledCheck(lunchButtonElement);
-
-            if (flagCheck == false || lunchButtonElement == null)
-            {
-                generalErrorMessage();
-            }
-
-            else
-            {
-
-                try
-                {
-                    Thread.Sleep(500);
-                    automation.selectRadioButton(lunchButtonElement);
-                    Thread.Sleep(500);
-                    automation.invokeButtonPress(workScreenStartButton);
-                }
-
-                catch (ElementNotEnabledException ex)
-                {
-                    //errorLog(ex, username);
-                    //generalErrorMessage();
-                }
-
-                catch (Exception ex)
-                {
-                    //errorLog(ex, username);
-                    //generalErrorMessage();
-                }
-
-            }
-
-            indaExitFocus();
-        }
-
-        // INDA Lunch Out
-        private void indaLunchOut()
-        {
-            workScreenFormElement = automation.setParentElementWithTime("Indirect Activity Selection | ");
-            lunchButtonElement = automation.setChildElementId(workScreenFormElement, "18", false);
-            workScreenEndButton = automation.setChildElementId(workScreenFormElement, "16", true);
-
-            bool flagCheck = false;
-            flagCheck = automation.enabledCheck(lunchButtonElement);
-
-            if (flagCheck == false || lunchButtonElement == null)
-            {
-                generalErrorMessage();
-            }
-
-            else
-            {
-
-                try
-                {
-                    Thread.Sleep(500);
-                    automation.selectRadioButton(lunchButtonElement);
-                    Thread.Sleep(500);
-                    automation.invokeButtonPress(workScreenEndButton);
-                }
-
-                catch (ElementNotEnabledException ex)
-                {
-                    //errorLog(ex, username);
-                    //generalErrorMessage();
-                }
-
-                catch (Exception ex)
-                {
-                    //errorLog(ex, username);
-                    //generalErrorMessage();
-                }
-
-            }
-
-            indaExitFocus();
-
-        }
-
-        // INDA Break In
-        private void indaBreakIn()
-        {
-            workScreenFormElement = automation.setParentElementWithTime("Indirect Activity Selection | ");
-            breakButtonElement = automation.setChildElementId(workScreenFormElement, "15", false);
-            workScreenStartButton = automation.setChildElementId(workScreenFormElement, "17", true);
-
-            bool flagCheck = false;
-            flagCheck = automation.enabledCheck(breakButtonElement);
-
-            if (flagCheck == false || breakButtonElement == null)
-            {
-                generalErrorMessage();
-            }
-
-            else
-            {
-
-                try
-                {
-                    Thread.Sleep(500);
-                    automation.selectRadioButton(breakButtonElement);
-                    Thread.Sleep(500);
-                    automation.invokeButtonPress(workScreenStartButton);
-                }
-
-                catch (ElementNotEnabledException ex)
-                {
-                    //errorLog(ex, username);
-                    //generalErrorMessage();
-                }
-
-                catch (Exception ex)
-                {
-                    //errorLog(ex, username);
-                    //generalErrorMessage();
-                }
-
-            }
-
-            indaExitFocus();
-        }
-
-        // INDA Break Out
-        private void indaBreakOut()
-        {
-            workScreenFormElement = automation.setParentElementWithTime("Indirect Activity Selection | ");
-            breakButtonElement = automation.setChildElementId(workScreenFormElement, "15", false);
-            workScreenEndButton = automation.setChildElementId(workScreenFormElement, "16", true);
-
-            bool flagCheck = false;
-            flagCheck = automation.enabledCheck(workScreenEndButton);
-
-            if (flagCheck == false || workScreenEndButton == null)
-            {
-                generalErrorMessage();
-            }
-
-            else
-            {
-
-                try
-                {
-                    Thread.Sleep(500);
-                    automation.selectRadioButton(breakButtonElement);
-                    Thread.Sleep(500);
-                    automation.invokeButtonPress(workScreenEndButton);
-                }
-
-                catch (ElementNotEnabledException ex)
-                {
-                    //errorLog(ex, username);
-                    //generalErrorMessage();
-                }
-
-                catch (Exception ex)
-                {
-                    //errorLog(ex, username);
-                    //generalErrorMessage();
-                }
-
-            }
-
-            indaExitFocus();
-        }
-
 
     }
 }

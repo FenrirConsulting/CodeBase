@@ -1,7 +1,7 @@
 window.$ = window.jQuery = require('../resources/chart.js');
 window.$ = window.jQuery = require('../resources/d3.js');
 window.$ = window.jQuery = require('../resources/canvasJS.js'); 
-setTimeout(function(){location.href="../news/news1.html";},20 * 1000);
+//setTimeout(function(){location.href="../news/news1.html";},20 * 1000);
 const path = require('path');
 const fs = require('fs');
 const config = require('../resources/config.json');
@@ -216,7 +216,7 @@ function makeChart(data, data2) {
 
     finalDate = (dateLabel.length - 1);
     document.getElementById("Date").innerHTML = dateLabel[finalDate];
-
+    data4length = data4.length;
     
     for( var i = 0; i < data1.length; i++ ){
         dpsRunningTotal += parseInt( data1[i], 10 ); //don't forget to add the base
@@ -230,10 +230,13 @@ function makeChart(data, data2) {
         cpsRunningTotal += parseInt( data3[i], 10 ); //don't forget to add the base
     }
 
+    console.log(repackRunningTotal);
     for( var i = 0; i < data2.length; i++ ){
+
         repackRunningTotal += parseInt( data4[i], 10 ); //don't forget to add the base
+        console.log(repackRunningTotal);
     }
-    
+
   
     Chart1 = new Chart('chart', {
 
