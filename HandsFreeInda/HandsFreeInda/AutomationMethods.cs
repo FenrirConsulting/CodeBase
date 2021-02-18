@@ -197,7 +197,13 @@ namespace HandsFreeInda
             {
                 if (parentElement != null)
                 {
-                    childElement = parentElement.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.NameProperty, nameProperty));
+                    try {
+                        childElement = parentElement.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.NameProperty, nameProperty));
+                    }
+                    catch (Exception ex){
+                        return childElement = null;
+                    }
+                    
                 }
                 elementCheck = enabledCheck(childElement);
                 ct++;

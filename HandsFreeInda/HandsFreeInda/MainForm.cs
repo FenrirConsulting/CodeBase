@@ -30,10 +30,12 @@ namespace HandsFreeInda
 
         // Named elements for Automation use in other methods
         AutomationElement loginFormElement,
+        loginFormCloseElement,
         usernameElement,
         passwordElement,
         okButton,
         cancelButton,
+        cancelButtonClose,
         workScreenFormElement,
         workScreenInForDay,
         workScreenStartButton,
@@ -53,7 +55,7 @@ namespace HandsFreeInda
         string jobCode = "";
         string parsedPassword = "";
         string check = "";
-        string computerName = System.Environment.GetEnvironmentVariable("COMPUTERNAME");
+        string computerName = System.Environment.GetEnvironmentVariable("USERNAME", EnvironmentVariableTarget.User);
         string folder = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName);
         string localPath = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\ErrorLogs\\";
         string serverPath = "\\\\rfl6dpsapw1v\\wms-rt\\ISShare\\Applications\\INDAHandsFree\\ErrorLogs\\";
@@ -183,7 +185,7 @@ namespace HandsFreeInda
                 }
                 catch (Exception ex)
                 {
-                    //errorLog(ex, username);
+                    errorLog(ex, username);
                     //generalErrorMessage();
                 }
 
@@ -224,7 +226,7 @@ namespace HandsFreeInda
             }
             catch (Exception ex)
             {
-                //errorLog(ex, username);
+                errorLog(ex, username);
                 //generalErrorMessage();
                 return;
             }
@@ -241,7 +243,7 @@ namespace HandsFreeInda
 
                 catch (Exception ex)
                 {
-                    //errorLog(ex, username);
+                    errorLog(ex, username);
                     //generalErrorMessage();
                     return;
                 }
@@ -252,6 +254,9 @@ namespace HandsFreeInda
 
 
         }
+
+
+       
 
         // Variables sent in to log into INDA
         private void indaLogin()
@@ -267,6 +272,7 @@ namespace HandsFreeInda
                 usernameElement = automation.setChildElementId(loginFormElement, "3", true);
                 okButton = automation.setChildElementId(loginFormElement, "7", true);
                 cancelButton = automation.setChildElementId(loginFormElement, "6", true);
+                cancelButton = automation.setChildElementId(loginFormElement, "6", true);
                 automation.setValue(usernameElement, username);
                 automation.invokeButtonPress(okButton);
             }
@@ -274,7 +280,7 @@ namespace HandsFreeInda
             catch (Exception ex)
             {
 
-                //errorLog(ex, username);
+                errorLog(ex, username);
                 //generalErrorMessage();
                 return;
             }
@@ -306,7 +312,7 @@ namespace HandsFreeInda
 
             catch (Exception ex)
             {
-                //errorLog(ex, username);
+                errorLog(ex, username);
                 //generalErrorMessage();
                 return;
             }
@@ -325,7 +331,7 @@ namespace HandsFreeInda
 
                 catch (Exception ex)
                 {
-                    //errorLog(ex, username);
+                    errorLog(ex, username);
                     //generalErrorMessage();
                     indaExitFocus();
                     return;
@@ -360,55 +366,71 @@ namespace HandsFreeInda
         private void indaClockin()
         {
 
-            bool flagCheck = false;
+            bool clockCheck = false;
             try
             {
                 // Sets the 3 main elements needed to clock in. 
                 workScreenInForDay = automation.setChildElementName(workScreenFormElement, "IN-FOR-DAY", false);
                 workScreenStartButton = automation.setChildElementId(workScreenFormElement, "17", true);
-
-                
-                flagCheck = automation.enabledCheck(workScreenInForDay);
+                clockCheck = automation.enabledCheck(workScreenInForDay);
             }
             catch (Exception ex)
             {
-                //errorLog(ex, username);
+                errorLog(ex, username);
                 //generalErrorMessage();
                 indaExitFocus();
             }
 
-            if (workScreenInForDay == null || workScreenFormElement == null)
+            if (workScreenFormElement == null)
             {
                 //generalErrorMessage();
-                indaExitFocus();
-            }
-            else if (flagCheck == false)
-            {
-                //clockInErrorMessage();
                 indaExitFocus();
             }
             else
             {
-                try
-                {
-                    Thread.Sleep(500);
-                    automation.selectRadioButton(workScreenInForDay);
-                    automation.invokeButtonPress(workScreenStartButton);
-                    Thread.Sleep(500);
-                    indaExitFocus();
+                
+
+                if( clockCheck == false) {
+                    clockInErrorMessage();
+                    workScreenFormElement = null;
+                    loginFormElement = null;
+                    loginFormCloseElement = null;
+                    username = "";
+                    password = "";
+                    jobCode = "";
+                    parsedPassword = "";
+                    check = "";
+                    clearFields();
                 }
-                catch (ElementNotEnabledException ex)
-                {
-                    //errorLog(ex, username);
-                    //clockInErrorMessage();
-                    indaExitFocus();
+
+                else {
+
+                    try
+                    {
+                        Thread.Sleep(500);
+                        automation.selectRadioButton(workScreenInForDay);
+                        automation.invokeButtonPress(workScreenStartButton);
+                        Thread.Sleep(500);
+                        indaExitFocus();
+                    }
+                    catch (ElementNotEnabledException ex)
+                    {
+                        errorLog(ex, username);
+                        //clockInErrorMessage();
+                        indaExitFocus();
+                    }
+                    catch (Exception ex)
+                    {
+                        errorLog(ex, username);
+                        //generalErrorMessage();
+                        indaExitFocus();
+                    }
+
                 }
-                catch (Exception ex)
-                {
-                    //errorLog(ex, username);
-                    //generalErrorMessage();
-                    indaExitFocus();
-                }
+
+  
+
+
             }
 
         }
@@ -441,6 +463,8 @@ namespace HandsFreeInda
             try
             {
 
+                
+
                 /*
                 foreach (Process proc in Process.GetProcessesByName("INDA"))
                 {
@@ -450,14 +474,24 @@ namespace HandsFreeInda
                 if (workScreenFormElement != null) {
 
                     automation.closeElement(workScreenFormElement);
+                    loginFormCloseElement = automation.setParentElement("Welcome To Indirect Activity (INDA)");
                     Thread.Sleep(500);
                 }
 
 
+                if (loginFormCloseElement != null)
+                {
+                    
+                    cancelButtonClose = automation.setChildElementId(loginFormCloseElement, "6", true);
+                    automation.invokeButtonPress(cancelButtonClose);
+                    Thread.Sleep(500);
+                }
+
                 if (loginFormElement != null)
                 {
 
-                    automation.closeElement(loginFormElement);
+                    cancelButton = automation.setChildElementId(loginFormElement, "6", true);
+                    automation.invokeButtonPress(cancelButton);
                     Thread.Sleep(500);
                 }
 
@@ -465,13 +499,14 @@ namespace HandsFreeInda
 
             catch (Exception ex)
             {
-                //errorLog(ex, username);
+                errorLog(ex, username);
                 //MessageBox.Show(ex.Message);
             }
 
             clearFields();
             workScreenFormElement = null;
             loginFormElement = null;
+            loginFormCloseElement = null;
             userBox.Focus();
             this.BringToFront();
         }
@@ -602,6 +637,15 @@ namespace HandsFreeInda
             }
         }
 
+        private void mainPanelBox_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else this.WindowState = FormWindowState.Maximized;
+        }
+
         private void clockOutErrorMessage()
         {
             MessageBox.Show("ALREADY CLOCKED OUT. PLEASE CLOCK IN THEN BACK OUT.", "ALREADY CLOCKED OUT ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
@@ -625,68 +669,89 @@ namespace HandsFreeInda
         // Writes error log to both local and server location.
         private void errorLog(Exception ex, string user)
         {
-
-            string serverFile = "";
-
-            string today = DateTime.Today.ToString("MM'_'dd'_'yyyy");
-            string todayLog = "ErrorLog" + today + ".txt";
-            serverFile = serverPath + todayLog;
-
-            // Checks to see if either the X:\ or Server Paths are available to find log file folders
-
-            if (Directory.Exists(serverPath))
+            try
             {
-                using (StreamWriter writer = new StreamWriter(serverFile, true))
+                string serverFile = "";
+
+                string today = DateTime.Today.ToString("MM'_'dd'_'yyyy");
+                string todayLog = "ErrorLog" + today + ".txt";
+                serverFile = serverPath + todayLog;
+
+                // Checks to see if either the X:\ or Server Paths are available to find log file folders
+
+                if (Directory.Exists(serverPath))
                 {
-                    writer.WriteLine("-----------------------------------------------------------------------------");
-                    writer.WriteLine("Date : " + DateTime.Now.ToString());
-                    writer.WriteLine("User : " + user);
-                    writer.WriteLine("Hostname : " + computerName);
-                    writer.WriteLine();
-
-                    while (ex != null)
+                    using (StreamWriter writer = new StreamWriter(serverFile, true))
                     {
-                        writer.WriteLine(ex.GetType().FullName);
-                        writer.WriteLine("Message : " + ex.Message);
-                        writer.WriteLine("StackTrace : " + ex.StackTrace);
+                        writer.WriteLine("-----------------------------------------------------------------------------");
+                        writer.WriteLine("Date : " + DateTime.Now.ToString());
+                        writer.WriteLine("User : " + user);
+                        writer.WriteLine("Hostname : " + computerName);
+                        writer.WriteLine();
 
-                        ex = ex.InnerException;
+                        while (ex != null)
+                        {
+                            writer.WriteLine(ex.GetType().FullName);
+                            writer.WriteLine("Message : " + ex.Message);
+                            writer.WriteLine("StackTrace : " + ex.StackTrace);
+
+                            ex = ex.InnerException;
+                        }
+
                     }
-
                 }
             }
+
+            catch (Exception ex2)
+            { 
+            
+            
+            }
+
+           
         }
 
         // Opens logs with button click. Writes a new file if there is none for the day.
         private void logButton_Click_1(object sender, EventArgs e)
         {
-            string today = DateTime.Today.ToString("MM'-'dd'-'yyyy");
-            string todayLog = "ErrorLog" + today + ".txt";
-            string serverFile = serverPath + todayLog;
 
-            if (Directory.Exists(serverPath) || Directory.Exists(localPath))
+            try
             {
+                string today = DateTime.Today.ToString("MM'-'dd'-'yyyy");
+                string todayLog = "ErrorLog" + today + ".txt";
+                string serverFile = serverPath + todayLog;
 
-                if (File.Exists(serverFile))
-                {
-                    Process.Start(serverFile);
-                }
-                else
+                if (Directory.Exists(serverPath) || Directory.Exists(localPath))
                 {
 
-                    using (StreamWriter writer = new StreamWriter(serverFile, true))
+                    if (File.Exists(serverFile))
                     {
-                        writer.WriteLine("-----------------------------------------------------------------------------");
-                        writer.WriteLine("Date : " + DateTime.Now.ToString());
-                        writer.WriteLine("User : " + username);
-                        writer.WriteLine("Hostname : " + computerName);
-                        writer.WriteLine();
+                        Process.Start(serverFile);
                     }
+                    else
+                    {
 
-                    Process.Start(serverFile);
+                        using (StreamWriter writer = new StreamWriter(serverFile, true))
+                        {
+                            writer.WriteLine("-----------------------------------------------------------------------------");
+                            writer.WriteLine("Date : " + DateTime.Now.ToString());
+                            writer.WriteLine("User : " + username);
+                            writer.WriteLine("Hostname : " + computerName);
+                            writer.WriteLine();
+                        }
 
+                        Process.Start(serverFile);
+
+                    }
                 }
             }
+
+            catch (Exception ex2){ 
+            
+            
+            }
+
+            
 
         }
 

@@ -352,6 +352,7 @@
             this.mainPanelBox.Name = "mainPanelBox";
             this.mainPanelBox.Size = new System.Drawing.Size(933, 480);
             this.mainPanelBox.TabIndex = 28;
+            this.mainPanelBox.DoubleClick += new System.EventHandler(this.mainPanelBox_DoubleClick);
             // 
             // label1
             // 
@@ -361,7 +362,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 18);
             this.label1.TabIndex = 28;
-            this.label1.Text = "Version 02_16";
+            this.label1.Text = "Version 02_17";
             // 
             // MainForm
             // 
