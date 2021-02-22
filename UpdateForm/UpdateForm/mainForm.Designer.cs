@@ -69,22 +69,45 @@
             this.label20 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.repackHours = new System.Windows.Forms.TextBox();
-            this.cpsHours = new System.Windows.Forms.TextBox();
-            this.mpsHours = new System.Windows.Forms.TextBox();
-            this.dpsHours = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.repackHourlyGoalBox = new System.Windows.Forms.TextBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.repackTotalBox = new System.Windows.Forms.TextBox();
             this.label65 = new System.Windows.Forms.Label();
+            this.repackHours = new System.Windows.Forms.TextBox();
+            this.label69 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.cpsHourlyGoalBox = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.cpsTotalBox = new System.Windows.Forms.TextBox();
             this.label66 = new System.Windows.Forms.Label();
+            this.cpsHours = new System.Windows.Forms.TextBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.mpsTotalBox = new System.Windows.Forms.TextBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.mpsHours = new System.Windows.Forms.TextBox();
             this.label67 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.mpsHourlyGoalBox = new System.Windows.Forms.TextBox();
+            this.hiddenPanel = new System.Windows.Forms.Panel();
             this.repackEmployeesBox = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.hoursBox = new System.Windows.Forms.TextBox();
             this.cpsEmployeesBox = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
             this.mpsEmplyoeesBox = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
             this.dpsEmployeesBox = new System.Windows.Forms.TextBox();
             this.label61 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.dpsHours = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.dpsTotalBox = new System.Windows.Forms.TextBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.dpsHourlyGoalBox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label26 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -156,16 +179,6 @@
             this.textBox48 = new System.Windows.Forms.TextBox();
             this.textBox49 = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.hoursBox = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.repackTotalBox = new System.Windows.Forms.TextBox();
-            this.cpsTotalBox = new System.Windows.Forms.TextBox();
-            this.mpsTotalBox = new System.Windows.Forms.TextBox();
-            this.dpsTotalBox = new System.Windows.Forms.TextBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.updateButton2 = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
@@ -174,18 +187,15 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.repackHourlyGoalBox = new System.Windows.Forms.TextBox();
-            this.cpsHourlyGoalBox = new System.Windows.Forms.TextBox();
-            this.mpsHourlyGoalBox = new System.Windows.Forms.TextBox();
-            this.dpsHourlyGoalBox = new System.Windows.Forms.TextBox();
-            this.label69 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.hiddenPanel.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -669,44 +679,15 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.tabPage2.Controls.Add(this.repackHourlyGoalBox);
-            this.tabPage2.Controls.Add(this.cpsHourlyGoalBox);
-            this.tabPage2.Controls.Add(this.mpsHourlyGoalBox);
-            this.tabPage2.Controls.Add(this.dpsHourlyGoalBox);
-            this.tabPage2.Controls.Add(this.label69);
-            this.tabPage2.Controls.Add(this.label70);
-            this.tabPage2.Controls.Add(this.label71);
-            this.tabPage2.Controls.Add(this.label72);
-            this.tabPage2.Controls.Add(this.repackHours);
-            this.tabPage2.Controls.Add(this.cpsHours);
-            this.tabPage2.Controls.Add(this.mpsHours);
-            this.tabPage2.Controls.Add(this.dpsHours);
-            this.tabPage2.Controls.Add(this.label65);
-            this.tabPage2.Controls.Add(this.label66);
-            this.tabPage2.Controls.Add(this.label67);
-            this.tabPage2.Controls.Add(this.label68);
-            this.tabPage2.Controls.Add(this.repackEmployeesBox);
-            this.tabPage2.Controls.Add(this.cpsEmployeesBox);
-            this.tabPage2.Controls.Add(this.mpsEmplyoeesBox);
-            this.tabPage2.Controls.Add(this.dpsEmployeesBox);
-            this.tabPage2.Controls.Add(this.label61);
-            this.tabPage2.Controls.Add(this.label62);
-            this.tabPage2.Controls.Add(this.label63);
-            this.tabPage2.Controls.Add(this.label64);
+            this.tabPage2.Controls.Add(this.panel5);
+            this.tabPage2.Controls.Add(this.panel8);
+            this.tabPage2.Controls.Add(this.panel7);
+            this.tabPage2.Controls.Add(this.hiddenPanel);
+            this.tabPage2.Controls.Add(this.panel6);
             this.tabPage2.Controls.Add(this.panel4);
             this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Controls.Add(this.panel3);
             this.tabPage2.Controls.Add(this.panel1);
-            this.tabPage2.Controls.Add(this.hoursBox);
-            this.tabPage2.Controls.Add(this.label60);
-            this.tabPage2.Controls.Add(this.repackTotalBox);
-            this.tabPage2.Controls.Add(this.cpsTotalBox);
-            this.tabPage2.Controls.Add(this.mpsTotalBox);
-            this.tabPage2.Controls.Add(this.dpsTotalBox);
-            this.tabPage2.Controls.Add(this.label59);
-            this.tabPage2.Controls.Add(this.label58);
-            this.tabPage2.Controls.Add(this.label57);
-            this.tabPage2.Controls.Add(this.label56);
             this.tabPage2.Controls.Add(this.label55);
             this.tabPage2.Controls.Add(this.updateButton2);
             this.tabPage2.Controls.Add(this.label21);
@@ -719,37 +700,47 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Daily Workload";
             // 
-            // repackHours
+            // panel5
             // 
-            this.repackHours.Location = new System.Drawing.Point(1133, 460);
-            this.repackHours.Name = "repackHours";
-            this.repackHours.Size = new System.Drawing.Size(61, 27);
-            this.repackHours.TabIndex = 138;
-            this.repackHours.TextChanged += new System.EventHandler(this.repackHours_TextChanged);
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.repackHourlyGoalBox);
+            this.panel5.Controls.Add(this.label59);
+            this.panel5.Controls.Add(this.repackTotalBox);
+            this.panel5.Controls.Add(this.label65);
+            this.panel5.Controls.Add(this.repackHours);
+            this.panel5.Controls.Add(this.label69);
+            this.panel5.Location = new System.Drawing.Point(809, 498);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(420, 95);
+            this.panel5.TabIndex = 150;
             // 
-            // cpsHours
+            // repackHourlyGoalBox
             // 
-            this.cpsHours.Location = new System.Drawing.Point(1133, 415);
-            this.cpsHours.Name = "cpsHours";
-            this.cpsHours.Size = new System.Drawing.Size(61, 27);
-            this.cpsHours.TabIndex = 137;
-            this.cpsHours.TextChanged += new System.EventHandler(this.cpsHours_TextChanged);
+            this.repackHourlyGoalBox.Location = new System.Drawing.Point(232, 61);
+            this.repackHourlyGoalBox.Name = "repackHourlyGoalBox";
+            this.repackHourlyGoalBox.Size = new System.Drawing.Size(94, 27);
+            this.repackHourlyGoalBox.TabIndex = 146;
             // 
-            // mpsHours
+            // label59
             // 
-            this.mpsHours.Location = new System.Drawing.Point(1133, 370);
-            this.mpsHours.Name = "mpsHours";
-            this.mpsHours.Size = new System.Drawing.Size(61, 27);
-            this.mpsHours.TabIndex = 136;
-            this.mpsHours.TextChanged += new System.EventHandler(this.mpsHours_TextChanged);
+            this.label59.AutoSize = true;
+            this.label59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label59.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label59.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label59.Location = new System.Drawing.Point(4, 8);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(93, 19);
+            this.label59.TabIndex = 112;
+            this.label59.Text = "Repack Goal";
             // 
-            // dpsHours
+            // repackTotalBox
             // 
-            this.dpsHours.Location = new System.Drawing.Point(1133, 325);
-            this.dpsHours.Name = "dpsHours";
-            this.dpsHours.Size = new System.Drawing.Size(61, 27);
-            this.dpsHours.TabIndex = 135;
-            this.dpsHours.TextChanged += new System.EventHandler(this.dpsHours_TextChanged);
+            this.repackTotalBox.Location = new System.Drawing.Point(98, 8);
+            this.repackTotalBox.Name = "repackTotalBox";
+            this.repackTotalBox.Size = new System.Drawing.Size(94, 27);
+            this.repackTotalBox.TabIndex = 116;
+            this.repackTotalBox.TextChanged += new System.EventHandler(this.repackTotalBox_TextChanged);
             // 
             // label65
             // 
@@ -758,11 +749,74 @@
             this.label65.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label65.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label65.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label65.Location = new System.Drawing.Point(1022, 454);
+            this.label65.Location = new System.Drawing.Point(201, 8);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(102, 19);
             this.label65.TabIndex = 134;
             this.label65.Text = "Repack Hours";
+            // 
+            // repackHours
+            // 
+            this.repackHours.Location = new System.Drawing.Point(311, 8);
+            this.repackHours.Name = "repackHours";
+            this.repackHours.Size = new System.Drawing.Size(94, 27);
+            this.repackHours.TabIndex = 138;
+            this.repackHours.TextChanged += new System.EventHandler(this.repackHours_TextChanged);
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label69.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label69.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label69.Location = new System.Drawing.Point(83, 56);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(143, 19);
+            this.label69.TabIndex = 142;
+            this.label69.Text = "Repack Hourly Goal";
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel8.Controls.Add(this.cpsHourlyGoalBox);
+            this.panel8.Controls.Add(this.label58);
+            this.panel8.Controls.Add(this.cpsTotalBox);
+            this.panel8.Controls.Add(this.label66);
+            this.panel8.Controls.Add(this.cpsHours);
+            this.panel8.Controls.Add(this.label70);
+            this.panel8.Location = new System.Drawing.Point(809, 356);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(420, 95);
+            this.panel8.TabIndex = 149;
+            // 
+            // cpsHourlyGoalBox
+            // 
+            this.cpsHourlyGoalBox.Location = new System.Drawing.Point(232, 61);
+            this.cpsHourlyGoalBox.Name = "cpsHourlyGoalBox";
+            this.cpsHourlyGoalBox.Size = new System.Drawing.Size(94, 27);
+            this.cpsHourlyGoalBox.TabIndex = 145;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label58.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label58.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label58.Location = new System.Drawing.Point(21, 11);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(69, 19);
+            this.label58.TabIndex = 111;
+            this.label58.Text = "CPS Goal";
+            // 
+            // cpsTotalBox
+            // 
+            this.cpsTotalBox.Location = new System.Drawing.Point(98, 11);
+            this.cpsTotalBox.Name = "cpsTotalBox";
+            this.cpsTotalBox.Size = new System.Drawing.Size(94, 27);
+            this.cpsTotalBox.TabIndex = 115;
+            this.cpsTotalBox.TextChanged += new System.EventHandler(this.cpsTotalBox_TextChanged);
             // 
             // label66
             // 
@@ -771,11 +825,75 @@
             this.label66.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label66.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label66.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label66.Location = new System.Drawing.Point(1022, 412);
+            this.label66.Location = new System.Drawing.Point(201, 11);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(78, 19);
             this.label66.TabIndex = 133;
             this.label66.Text = "CPS Hours";
+            // 
+            // cpsHours
+            // 
+            this.cpsHours.Location = new System.Drawing.Point(311, 11);
+            this.cpsHours.Name = "cpsHours";
+            this.cpsHours.Size = new System.Drawing.Size(94, 27);
+            this.cpsHours.TabIndex = 137;
+            this.cpsHours.TextChanged += new System.EventHandler(this.cpsHours_TextChanged);
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label70.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label70.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label70.Location = new System.Drawing.Point(102, 58);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(119, 19);
+            this.label70.TabIndex = 141;
+            this.label70.Text = "CPS Hourly Goal";
+            // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel7.Controls.Add(this.mpsTotalBox);
+            this.panel7.Controls.Add(this.label57);
+            this.panel7.Controls.Add(this.mpsHours);
+            this.panel7.Controls.Add(this.label67);
+            this.panel7.Controls.Add(this.label71);
+            this.panel7.Controls.Add(this.mpsHourlyGoalBox);
+            this.panel7.Location = new System.Drawing.Point(810, 214);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(420, 95);
+            this.panel7.TabIndex = 148;
+            // 
+            // mpsTotalBox
+            // 
+            this.mpsTotalBox.Location = new System.Drawing.Point(97, 12);
+            this.mpsTotalBox.Name = "mpsTotalBox";
+            this.mpsTotalBox.Size = new System.Drawing.Size(94, 27);
+            this.mpsTotalBox.TabIndex = 114;
+            this.mpsTotalBox.TextChanged += new System.EventHandler(this.mpsTotalBox_TextChanged);
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label57.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label57.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label57.Location = new System.Drawing.Point(3, 12);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(75, 19);
+            this.label57.TabIndex = 110;
+            this.label57.Text = "MPS Goal";
+            // 
+            // mpsHours
+            // 
+            this.mpsHours.Location = new System.Drawing.Point(310, 12);
+            this.mpsHours.Name = "mpsHours";
+            this.mpsHours.Size = new System.Drawing.Size(94, 27);
+            this.mpsHours.TabIndex = 136;
+            this.mpsHours.TextChanged += new System.EventHandler(this.mpsHours_TextChanged);
             // 
             // label67
             // 
@@ -784,95 +902,69 @@
             this.label67.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label67.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label67.Location = new System.Drawing.Point(1022, 373);
+            this.label67.Location = new System.Drawing.Point(209, 12);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(84, 19);
             this.label67.TabIndex = 132;
             this.label67.Text = "MPS Hours";
             // 
-            // label68
+            // label71
             // 
-            this.label68.AutoSize = true;
-            this.label68.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label68.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label68.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label68.Location = new System.Drawing.Point(1022, 328);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(80, 19);
-            this.label68.TabIndex = 131;
-            this.label68.Text = "DPS Hours";
+            this.label71.AutoSize = true;
+            this.label71.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label71.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label71.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label71.Location = new System.Drawing.Point(93, 56);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(125, 19);
+            this.label71.TabIndex = 140;
+            this.label71.Text = "MPS Hourly Goal";
+            // 
+            // mpsHourlyGoalBox
+            // 
+            this.mpsHourlyGoalBox.Location = new System.Drawing.Point(231, 53);
+            this.mpsHourlyGoalBox.Name = "mpsHourlyGoalBox";
+            this.mpsHourlyGoalBox.Size = new System.Drawing.Size(94, 27);
+            this.mpsHourlyGoalBox.TabIndex = 144;
+            // 
+            // hiddenPanel
+            // 
+            this.hiddenPanel.Controls.Add(this.repackEmployeesBox);
+            this.hiddenPanel.Controls.Add(this.label60);
+            this.hiddenPanel.Controls.Add(this.label64);
+            this.hiddenPanel.Controls.Add(this.hoursBox);
+            this.hiddenPanel.Controls.Add(this.cpsEmployeesBox);
+            this.hiddenPanel.Controls.Add(this.label63);
+            this.hiddenPanel.Controls.Add(this.mpsEmplyoeesBox);
+            this.hiddenPanel.Controls.Add(this.label62);
+            this.hiddenPanel.Controls.Add(this.dpsEmployeesBox);
+            this.hiddenPanel.Controls.Add(this.label61);
+            this.hiddenPanel.Location = new System.Drawing.Point(813, 603);
+            this.hiddenPanel.Name = "hiddenPanel";
+            this.hiddenPanel.Size = new System.Drawing.Size(426, 137);
+            this.hiddenPanel.TabIndex = 148;
             // 
             // repackEmployeesBox
             // 
-            this.repackEmployeesBox.Location = new System.Drawing.Point(947, 455);
+            this.repackEmployeesBox.Location = new System.Drawing.Point(357, 102);
             this.repackEmployeesBox.Name = "repackEmployeesBox";
             this.repackEmployeesBox.Size = new System.Drawing.Size(61, 27);
             this.repackEmployeesBox.TabIndex = 130;
-            this.repackEmployeesBox.TextChanged += new System.EventHandler(this.repackEmployeesBox_TextChanged);
             // 
-            // cpsEmployeesBox
+            // label60
             // 
-            this.cpsEmployeesBox.Location = new System.Drawing.Point(947, 410);
-            this.cpsEmployeesBox.Name = "cpsEmployeesBox";
-            this.cpsEmployeesBox.Size = new System.Drawing.Size(61, 27);
-            this.cpsEmployeesBox.TabIndex = 129;
-            this.cpsEmployeesBox.TextChanged += new System.EventHandler(this.cpsEmployeesBox_TextChanged);
-            // 
-            // mpsEmplyoeesBox
-            // 
-            this.mpsEmplyoeesBox.Location = new System.Drawing.Point(947, 365);
-            this.mpsEmplyoeesBox.Name = "mpsEmplyoeesBox";
-            this.mpsEmplyoeesBox.Size = new System.Drawing.Size(61, 27);
-            this.mpsEmplyoeesBox.TabIndex = 128;
-            this.mpsEmplyoeesBox.TextChanged += new System.EventHandler(this.mpsEmplyoeesBox_TextChanged);
-            // 
-            // dpsEmployeesBox
-            // 
-            this.dpsEmployeesBox.Location = new System.Drawing.Point(947, 320);
-            this.dpsEmployeesBox.Name = "dpsEmployeesBox";
-            this.dpsEmployeesBox.Size = new System.Drawing.Size(61, 27);
-            this.dpsEmployeesBox.TabIndex = 127;
-            this.dpsEmployeesBox.TextChanged += new System.EventHandler(this.dpsEmployeesBox_TextChanged);
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label61.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label61.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label61.Location = new System.Drawing.Point(795, 454);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(143, 19);
-            this.label61.TabIndex = 126;
-            this.label61.Text = "Repack : Employees";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label62.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label62.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label62.Location = new System.Drawing.Point(795, 412);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(119, 19);
-            this.label62.TabIndex = 125;
-            this.label62.Text = "CPS : Employees";
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label63.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label63.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label63.Location = new System.Drawing.Point(795, 373);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(125, 19);
-            this.label63.TabIndex = 124;
-            this.label63.Text = "MPS : Employees";
+            this.label60.AutoSize = true;
+            this.label60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label60.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label60.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label60.Location = new System.Drawing.Point(9, 95);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(129, 19);
+            this.label60.TabIndex = 117;
+            this.label60.Text = "Production Hours";
+            this.label60.Click += new System.EventHandler(this.label60_Click);
             // 
             // label64
             // 
@@ -881,11 +973,154 @@
             this.label64.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label64.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label64.Location = new System.Drawing.Point(795, 328);
+            this.label64.Location = new System.Drawing.Point(9, 61);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(121, 19);
             this.label64.TabIndex = 123;
             this.label64.Text = "DPS : Employees";
+            // 
+            // hoursBox
+            // 
+            this.hoursBox.Location = new System.Drawing.Point(144, 95);
+            this.hoursBox.Name = "hoursBox";
+            this.hoursBox.Size = new System.Drawing.Size(61, 27);
+            this.hoursBox.TabIndex = 118;
+            // 
+            // cpsEmployeesBox
+            // 
+            this.cpsEmployeesBox.Location = new System.Drawing.Point(357, 57);
+            this.cpsEmployeesBox.Name = "cpsEmployeesBox";
+            this.cpsEmployeesBox.Size = new System.Drawing.Size(61, 27);
+            this.cpsEmployeesBox.TabIndex = 129;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label63.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label63.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label63.Location = new System.Drawing.Point(208, 20);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(125, 19);
+            this.label63.TabIndex = 124;
+            this.label63.Text = "MPS : Employees";
+            // 
+            // mpsEmplyoeesBox
+            // 
+            this.mpsEmplyoeesBox.Location = new System.Drawing.Point(357, 12);
+            this.mpsEmplyoeesBox.Name = "mpsEmplyoeesBox";
+            this.mpsEmplyoeesBox.Size = new System.Drawing.Size(61, 27);
+            this.mpsEmplyoeesBox.TabIndex = 128;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label62.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label62.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label62.Location = new System.Drawing.Point(208, 59);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(119, 19);
+            this.label62.TabIndex = 125;
+            this.label62.Text = "CPS : Employees";
+            // 
+            // dpsEmployeesBox
+            // 
+            this.dpsEmployeesBox.Location = new System.Drawing.Point(144, 53);
+            this.dpsEmployeesBox.Name = "dpsEmployeesBox";
+            this.dpsEmployeesBox.Size = new System.Drawing.Size(61, 27);
+            this.dpsEmployeesBox.TabIndex = 127;
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label61.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label61.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label61.Location = new System.Drawing.Point(208, 101);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(143, 19);
+            this.label61.TabIndex = 126;
+            this.label61.Text = "Repack : Employees";
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.dpsHours);
+            this.panel6.Controls.Add(this.label56);
+            this.panel6.Controls.Add(this.dpsTotalBox);
+            this.panel6.Controls.Add(this.label68);
+            this.panel6.Controls.Add(this.label72);
+            this.panel6.Controls.Add(this.dpsHourlyGoalBox);
+            this.panel6.Location = new System.Drawing.Point(811, 72);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(420, 95);
+            this.panel6.TabIndex = 147;
+            // 
+            // dpsHours
+            // 
+            this.dpsHours.Location = new System.Drawing.Point(309, 13);
+            this.dpsHours.Name = "dpsHours";
+            this.dpsHours.Size = new System.Drawing.Size(94, 27);
+            this.dpsHours.TabIndex = 135;
+            this.dpsHours.TextChanged += new System.EventHandler(this.dpsHours_TextChanged);
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label56.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label56.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label56.Location = new System.Drawing.Point(2, 13);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(71, 19);
+            this.label56.TabIndex = 109;
+            this.label56.Text = "DPS Goal";
+            // 
+            // dpsTotalBox
+            // 
+            this.dpsTotalBox.Location = new System.Drawing.Point(96, 12);
+            this.dpsTotalBox.Name = "dpsTotalBox";
+            this.dpsTotalBox.Size = new System.Drawing.Size(94, 27);
+            this.dpsTotalBox.TabIndex = 113;
+            this.dpsTotalBox.TextChanged += new System.EventHandler(this.dpsTotalBox_TextChanged);
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label68.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label68.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label68.Location = new System.Drawing.Point(208, 13);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(80, 19);
+            this.label68.TabIndex = 131;
+            this.label68.Text = "DPS Hours";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
+            this.label72.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label72.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
+            this.label72.Location = new System.Drawing.Point(95, 55);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(121, 19);
+            this.label72.TabIndex = 139;
+            this.label72.Text = "DPS Hourly Goal";
+            // 
+            // dpsHourlyGoalBox
+            // 
+            this.dpsHourlyGoalBox.Location = new System.Drawing.Point(230, 52);
+            this.dpsHourlyGoalBox.Name = "dpsHourlyGoalBox";
+            this.dpsHourlyGoalBox.Size = new System.Drawing.Size(94, 27);
+            this.dpsHourlyGoalBox.TabIndex = 143;
             // 
             // panel4
             // 
@@ -1661,106 +1896,6 @@
             this.label52.TabIndex = 101;
             this.label52.Text = "SKU\'s :";
             // 
-            // hoursBox
-            // 
-            this.hoursBox.Location = new System.Drawing.Point(947, 266);
-            this.hoursBox.Name = "hoursBox";
-            this.hoursBox.Size = new System.Drawing.Size(61, 27);
-            this.hoursBox.TabIndex = 118;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label60.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label60.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label60.Location = new System.Drawing.Point(795, 266);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(129, 19);
-            this.label60.TabIndex = 117;
-            this.label60.Text = "Production Hours";
-            // 
-            // repackTotalBox
-            // 
-            this.repackTotalBox.Location = new System.Drawing.Point(947, 219);
-            this.repackTotalBox.Name = "repackTotalBox";
-            this.repackTotalBox.Size = new System.Drawing.Size(94, 27);
-            this.repackTotalBox.TabIndex = 116;
-            // 
-            // cpsTotalBox
-            // 
-            this.cpsTotalBox.Location = new System.Drawing.Point(947, 172);
-            this.cpsTotalBox.Name = "cpsTotalBox";
-            this.cpsTotalBox.Size = new System.Drawing.Size(94, 27);
-            this.cpsTotalBox.TabIndex = 115;
-            // 
-            // mpsTotalBox
-            // 
-            this.mpsTotalBox.Location = new System.Drawing.Point(947, 125);
-            this.mpsTotalBox.Name = "mpsTotalBox";
-            this.mpsTotalBox.Size = new System.Drawing.Size(94, 27);
-            this.mpsTotalBox.TabIndex = 114;
-            // 
-            // dpsTotalBox
-            // 
-            this.dpsTotalBox.Location = new System.Drawing.Point(947, 78);
-            this.dpsTotalBox.Name = "dpsTotalBox";
-            this.dpsTotalBox.Size = new System.Drawing.Size(94, 27);
-            this.dpsTotalBox.TabIndex = 113;
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label59.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label59.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label59.Location = new System.Drawing.Point(795, 219);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(93, 19);
-            this.label59.TabIndex = 112;
-            this.label59.Text = "Repack Goal";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label58.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label58.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label58.Location = new System.Drawing.Point(795, 173);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(69, 19);
-            this.label58.TabIndex = 111;
-            this.label58.Text = "CPS Goal";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label57.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label57.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label57.Location = new System.Drawing.Point(795, 131);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(75, 19);
-            this.label57.TabIndex = 110;
-            this.label57.Text = "MPS Goal";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label56.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label56.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label56.Location = new System.Drawing.Point(795, 86);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(71, 19);
-            this.label56.TabIndex = 109;
-            this.label56.Text = "DPS Goal";
-            // 
             // label55
             // 
             this.label55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
@@ -1855,86 +1990,6 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // repackHourlyGoalBox
-            // 
-            this.repackHourlyGoalBox.Location = new System.Drawing.Point(947, 650);
-            this.repackHourlyGoalBox.Name = "repackHourlyGoalBox";
-            this.repackHourlyGoalBox.Size = new System.Drawing.Size(61, 27);
-            this.repackHourlyGoalBox.TabIndex = 146;
-            // 
-            // cpsHourlyGoalBox
-            // 
-            this.cpsHourlyGoalBox.Location = new System.Drawing.Point(947, 605);
-            this.cpsHourlyGoalBox.Name = "cpsHourlyGoalBox";
-            this.cpsHourlyGoalBox.Size = new System.Drawing.Size(61, 27);
-            this.cpsHourlyGoalBox.TabIndex = 145;
-            // 
-            // mpsHourlyGoalBox
-            // 
-            this.mpsHourlyGoalBox.Location = new System.Drawing.Point(947, 560);
-            this.mpsHourlyGoalBox.Name = "mpsHourlyGoalBox";
-            this.mpsHourlyGoalBox.Size = new System.Drawing.Size(61, 27);
-            this.mpsHourlyGoalBox.TabIndex = 144;
-            // 
-            // dpsHourlyGoalBox
-            // 
-            this.dpsHourlyGoalBox.Location = new System.Drawing.Point(947, 515);
-            this.dpsHourlyGoalBox.Name = "dpsHourlyGoalBox";
-            this.dpsHourlyGoalBox.Size = new System.Drawing.Size(61, 27);
-            this.dpsHourlyGoalBox.TabIndex = 143;
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label69.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label69.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label69.Location = new System.Drawing.Point(795, 645);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(143, 19);
-            this.label69.TabIndex = 142;
-            this.label69.Text = "Repack Hourly Goal";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label70.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label70.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label70.Location = new System.Drawing.Point(795, 603);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(119, 19);
-            this.label70.TabIndex = 141;
-            this.label70.Text = "CPS Hourly Goal";
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label71.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label71.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label71.Location = new System.Drawing.Point(795, 564);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(125, 19);
-            this.label71.TabIndex = 140;
-            this.label71.Text = "MPS Hourly Goal";
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.label72.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.label72.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.label72.Location = new System.Drawing.Point(795, 519);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(121, 19);
-            this.label72.TabIndex = 139;
-            this.label72.Text = "DPS Hourly Goal";
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1954,6 +2009,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.hiddenPanel.ResumeLayout(false);
+            this.hiddenPanel.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -2127,6 +2192,11 @@
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel hiddenPanel;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel5;
     }
 }
 

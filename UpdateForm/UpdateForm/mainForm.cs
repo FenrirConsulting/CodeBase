@@ -60,6 +60,7 @@ namespace UpdateForm
 
             lines = File.ReadAllLines(warehouseUpdate);
             workloadLines = File.ReadAllLines(dailyWorkload);
+            hiddenPanel.Visible = false;
 
 
         }
@@ -186,83 +187,77 @@ namespace UpdateForm
             }
         }
 
-        private void dpsEmployeesBox_TextChanged(object sender, EventArgs e)
-        {
-            int total = convertToInt(dpsTotalBox.Text);
-            int employees = convertToInt(dpsEmployeesBox.Text);
-            int hours = convertToInt(dpsHours.Text);
-            int hourlyGoal = 0;
-            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
-            dpsHourlyGoalBox.Text = hourlyGoal.ToString();
-        }
+
 
         private void dpsHours_TextChanged(object sender, EventArgs e)
         {
             int total = convertToInt(dpsTotalBox.Text);
-            int employees = convertToInt(dpsEmployeesBox.Text);
             int hours = convertToInt(dpsHours.Text);
             int hourlyGoal = 0;
-            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            if (hours != 0) { hourlyGoal = total / hours; }
             dpsHourlyGoalBox.Text = hourlyGoal.ToString();
         }
 
-        private void mpsEmplyoeesBox_TextChanged(object sender, EventArgs e)
+        private void dpsTotalBox_TextChanged(object sender, EventArgs e)
         {
-            int total = convertToInt(mpsTotalBox.Text);
-            int employees = convertToInt(mpsEmplyoeesBox.Text);
-            int hours = convertToInt(mpsHours.Text);
+            int total = convertToInt(dpsTotalBox.Text);
+            int hours = convertToInt(dpsHours.Text);
             int hourlyGoal = 0;
-            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
-            mpsHourlyGoalBox.Text = hourlyGoal.ToString();
+            if (hours != 0) { hourlyGoal = total / hours; }
+            dpsHourlyGoalBox.Text = hourlyGoal.ToString();
         }
 
         private void mpsHours_TextChanged(object sender, EventArgs e)
         {
             int total = convertToInt(mpsTotalBox.Text);
-            int employees = convertToInt(mpsEmplyoeesBox.Text);
             int hours = convertToInt(mpsHours.Text);
             int hourlyGoal = 0;
-            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            if ( hours != 0) { hourlyGoal = total / hours; }
             mpsHourlyGoalBox.Text = hourlyGoal.ToString();
         }
 
-        private void cpsEmployeesBox_TextChanged(object sender, EventArgs e)
+        private void mpsTotalBox_TextChanged(object sender, EventArgs e)
         {
-            int total = convertToInt(cpsTotalBox.Text);
-            int employees = convertToInt(cpsEmployeesBox.Text);
-            int hours = convertToInt(cpsHours.Text);
+            int total = convertToInt(mpsTotalBox.Text);
+            int hours = convertToInt(mpsHours.Text);
             int hourlyGoal = 0;
-            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
-            cpsHourlyGoalBox.Text = hourlyGoal.ToString();
+            if (hours != 0) { hourlyGoal = total / hours; }
+            mpsHourlyGoalBox.Text = hourlyGoal.ToString();
         }
 
         private void cpsHours_TextChanged(object sender, EventArgs e)
         {
             int total = convertToInt(cpsTotalBox.Text);
-            int employees = convertToInt(cpsEmployeesBox.Text);
             int hours = convertToInt(cpsHours.Text);
             int hourlyGoal = 0;
-            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            if ( hours != 0) { hourlyGoal = total / hours; }
             cpsHourlyGoalBox.Text = hourlyGoal.ToString();
         }
 
-        private void repackEmployeesBox_TextChanged(object sender, EventArgs e)
+        private void cpsTotalBox_TextChanged(object sender, EventArgs e)
         {
-            int total = convertToInt(repackTotalBox.Text);
-            int employees = convertToInt(repackEmployeesBox.Text);
-            int hours = convertToInt(repackHours.Text);
+            int total = convertToInt(cpsTotalBox.Text);
+            int hours = convertToInt(cpsHours.Text);
             int hourlyGoal = 0;
-            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
-            repackHourlyGoalBox.Text = hourlyGoal.ToString();
+            if (hours != 0) { hourlyGoal = total / hours; }
+            cpsHourlyGoalBox.Text = hourlyGoal.ToString();
         }
 
         private void repackHours_TextChanged(object sender, EventArgs e)
         {
             int total = convertToInt(repackTotalBox.Text);
-            int employees = convertToInt(repackEmployeesBox.Text);
             int hours = convertToInt(repackHours.Text);
             int hourlyGoal = 0;
-            if (employees != 0 && hours != 0) { hourlyGoal = total / hours; }
+            if (hours != 0) { hourlyGoal = total / hours; }
+            repackHourlyGoalBox.Text = hourlyGoal.ToString();
+        }
+
+        private void repackTotalBox_TextChanged(object sender, EventArgs e)
+        {
+            int total = convertToInt(repackTotalBox.Text);
+            int hours = convertToInt(repackHours.Text);
+            int hourlyGoal = 0;
+            if (hours != 0) { hourlyGoal = total / hours; }
             repackHourlyGoalBox.Text = hourlyGoal.ToString();
         }
 
@@ -282,6 +277,11 @@ namespace UpdateForm
 
                 return 0; // Or any other default value.
             }
+
+        private void label60_Click(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }
