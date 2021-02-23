@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+    Written by Christopher Olson 
+    For CVS Health
+    February 12th, 2021
+*/
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +23,6 @@ namespace AutomationTechLog
     public partial class MainForm : Form 
     {
         sqlLiteMethods DBConn = new sqlLiteMethods();
-        string username = "";
         int rowCount = 0;
         int selectedRow = 0;
 
@@ -36,14 +42,16 @@ namespace AutomationTechLog
                 globalUser.globalEmployeeId = passedRow["tlt_auname"].ToString();
                 globalUser.globalAdmin = passedRow["tlt_isadmin"].ToString();
                 globalUser.globalLead = passedRow["tlt_islead"].ToString();
+                globalUser.globalPartsLead = passedRow["tlt_ispartslead"].ToString();
                 globalUser.globalActive = passedRow["tlt_isactive"].ToString();
                 globalUser.globalPassword = passedRow["tlt_pword"].ToString();
 
             }
+            toolStripCSVButton.Visible = false; ;
+            reportsButton.Visible = false;
 
             string currentTimeFormated = formatDate(currentTime);
-            //string olderThanDateFormatted = formatDate(olderThanDate);
-            string olderThanDateFormatted = "09/12/2020";
+            string olderThanDateFormatted = formatDate(olderThanDate);
             olderDateBox.Text = olderThanDateFormatted;
 
             DataTable searchedTable = buildOverviewDataTable();
@@ -389,13 +397,14 @@ namespace AutomationTechLog
 
         private void addNewButton_Click(object sender, EventArgs e)
         {
-            var addForm = new AddForm();
+            var addForm = new AddForm(globalUser);
             addForm.Show();
+            addForm.FormClosed += new FormClosedEventHandler(addForm_Closed);
         }
 
         private void usersButton_Click(object sender, EventArgs e)
         {
-            var userForm = new UserForm();
+            var userForm = new UserForm(globalUser);
             userForm.Show();
         }
 
@@ -410,6 +419,10 @@ namespace AutomationTechLog
             var updateForm = new UpdateForm(globalUser);
             updateForm.Show();
             updateForm.FormClosed += new FormClosedEventHandler(UpdateForm_Closed);
+        }
+
+        void addForm_Closed(object sender, FormClosedEventArgs e) {
+            searchFunction();
         }
 
         void UpdateForm_Closed(object sender, FormClosedEventArgs e) {

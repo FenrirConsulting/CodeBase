@@ -18,6 +18,10 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Globalization;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 
 
 class Program
@@ -25,6 +29,8 @@ class Program
     // Dll call required to make inserting into keys window behave correctly
     [DllImport("User32.dll")]
     static extern int SetForegroundWindow(IntPtr point);
+  
+
 
     static void Main(string[] args)
     {
@@ -64,8 +70,12 @@ class Program
         string path = documents + @"\info.txt";
 
         // Checks for the credentials file in User\Documents, creates a new one if not present
-        if (File.Exists(path) == false) { 
-                 
+        if (File.Exists(path) == false) {
+
+
+            Application.EnableVisualStyles();
+            Application.Run(new Startup.CredentialsForm());
+
             createCredentials(ref currentUser, path);
             selectionMenu(ref currentUser, path);
             writeFile(ref currentUser, path);        
@@ -139,6 +149,10 @@ class Program
         Console.WriteLine("For the first run of this program, you must provide user settings.");
         Console.WriteLine("Please provide your WMS credentials to auto-launch with:");
         Console.WriteLine("Enter WMS User ID #");
+
+        //Application.EnableVisualStyles();
+        //Application.Run(new Startup.CredentialsForm());
+
         currentUser.user = Console.ReadLine();
         goodDigits = currentUser.user.All(char.IsDigit);
         length = currentUser.user.Length;
@@ -468,7 +482,7 @@ class Program
         }
 
         else {
-            Process.Start("R:\\abl\\runtime\\bin\\CPS_start.bat");
+            Process.Start("R:\\abl\\runtime\\bin\\CPS_start2.bat");
             Thread.Sleep(1000);
             myCredentials(ref currentUser);
             Thread.Sleep(1000);
@@ -487,7 +501,7 @@ class Program
         }
 
         else {
-            Process.Start("R:\\abl\\runtime\\bin\\MFC_DPS.bat");
+            Process.Start("R:\\abl\\runtime\\bin\\MFC_DPS2.bat");
             Thread.Sleep(1000);
             myCredentials(ref currentUser);
             Thread.Sleep(1000);
@@ -505,7 +519,7 @@ class Program
             Thread.Sleep(1000);
         }
         else {
-            Process.Start("R:\\abl\\runtime\\bin\\DSERVICE_start.bat");
+            Process.Start("R:\\abl\\runtime\\bin\\DSERVICE_start2.bat");
             Thread.Sleep(1000);
             myCredentials(ref currentUser);
             Thread.Sleep(1000);
@@ -525,7 +539,7 @@ class Program
         }
         else
         {
-            Process.Start("R:\\abl\\runtime\\bin\\BMIS_start.bat");
+            Process.Start("R:\\abl\\runtime\\bin\\BMIS_start2.bat");
             Thread.Sleep(1000);
             myCredentials(ref currentUser);
             Thread.Sleep(1000);
@@ -545,7 +559,7 @@ class Program
         }
         else
         {
-            Process.Start("R:\\abl\\runtime\\bin\\LBS_start.bat");
+            Process.Start("R:\\abl\\runtime\\bin\\LBS_start2.bat");
             Thread.Sleep(1000);
             myCredentials(ref currentUser);
             Thread.Sleep(1000);
@@ -564,7 +578,7 @@ class Program
         }
         else
         {
-            Process.Start("R:\\abl\\runtime\\bin\\MFC_CPS.bat");
+            Process.Start("R:\\abl\\runtime\\bin\\MFC_CPS2.bat");
             Thread.Sleep(1000);
             myCredentials(ref currentUser);
             Thread.Sleep(1000);
