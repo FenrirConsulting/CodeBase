@@ -30,9 +30,6 @@ header{
     font-weight: bold;
     font-family: Helvetica;
     color: rgb(241,75,53);
-    text-shadow: 0 0 3px #000;
-    -moz-text-shadow: 0 0 3px #000;
-    -webkit-text-shadow: 0 0 3px #000;
 }
 
 .title, .date {
@@ -62,8 +59,6 @@ span {
     font-weight: bold;
     font-family: Helvetica;
     color: rgb(241,75,53);
-    text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2),
-        0px -5px 35px rgba(255, 255, 255, 0.3);
   }
 
   .odd,.even{

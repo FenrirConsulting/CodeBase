@@ -224,9 +224,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
             this.label1.Location = new System.Drawing.Point(10, 78);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 19);
+            this.label1.Size = new System.Drawing.Size(36, 19);
             this.label1.TabIndex = 16;
-            this.label1.Text = "RX:";
+            this.label1.Text = "CW:";
             // 
             // updateButton
             // 
@@ -336,9 +336,9 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
             this.label6.Location = new System.Drawing.Point(10, 386);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 19);
+            this.label6.Size = new System.Drawing.Size(75, 19);
             this.label6.TabIndex = 21;
-            this.label6.Text = "OTCHS";
+            this.label6.Text = "Comment";
             // 
             // textBox6
             // 
@@ -1249,7 +1249,7 @@
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(30, 19);
             this.label27.TabIndex = 61;
-            this.label27.Text = "P7:";
+            this.label27.Text = "P4:";
             // 
             // textBox25
             // 

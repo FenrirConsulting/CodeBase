@@ -51,9 +51,10 @@ html, body {
 
 .results_wrapper {
     height : 100%;
+    text-align: left;
+    margin-left: 15px;
     display:grid;
     grid-template-rows: 25% 25% 25% 25%;
-    margin:auto;
     color : rgb(241,75,53);
 }
 

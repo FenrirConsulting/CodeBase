@@ -72,7 +72,7 @@ app.on('ready', () => {
         userCheck = 7
     };
 
-    if (hostname == "IBMM715MJ0622BP" || hostname == "PCITREPORT" || hostname =="ITTEST"){
+    if (hostname == "IBMM715MJ0622BP" || hostname == "PCITREPORT" || username=="rfl6wmsdom\\kfrye" || username=="rfl6wmsdom\\PCITHUBCONTROL"){
         userCheck = 8;
     };
 
@@ -91,7 +91,7 @@ app.on('ready', () => {
             break;
 
         case 4:
-            windowLauncher(mod2BHTML);  
+            windowLauncher(news1HTML); 
             break;
 
         case 5:
@@ -129,7 +129,7 @@ app.on('ready', () => {
             break; 
 
         default:
-            dashLauncher(chart1HTML); 
+            dashLauncher(dashHTML); 
     }
 
     function dashLauncher(fileName){
