@@ -44,18 +44,35 @@
             this.resetPanel = new System.Windows.Forms.Panel();
             this.lbsCheck = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mfcdpsCheck = new System.Windows.Forms.CheckBox();
+            this.pcoCheck = new System.Windows.Forms.CheckBox();
+            this.avisCheck = new System.Windows.Forms.CheckBox();
+            this.mfccpsCheck = new System.Windows.Forms.CheckBox();
+            this.bmisCheck = new System.Windows.Forms.CheckBox();
+            this.dserviceCheck = new System.Windows.Forms.CheckBox();
+            this.cpsCheck = new System.Windows.Forms.CheckBox();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.panel1.SuspendLayout();
             this.resetPanel.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -107,6 +124,7 @@
             this.okButton.TabIndex = 47;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = false;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // passwordBox
             // 
@@ -210,7 +228,7 @@
             this.lbsCheck.AutoSize = true;
             this.lbsCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbsCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.lbsCheck.Location = new System.Drawing.Point(87, 41);
+            this.lbsCheck.Location = new System.Drawing.Point(48, 41);
             this.lbsCheck.Name = "lbsCheck";
             this.lbsCheck.Size = new System.Drawing.Size(62, 24);
             this.lbsCheck.TabIndex = 88;
@@ -220,102 +238,204 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Info;
-            this.panel2.Controls.Add(this.checkBox7);
-            this.panel2.Controls.Add(this.checkBox6);
-            this.panel2.Controls.Add(this.checkBox5);
-            this.panel2.Controls.Add(this.checkBox4);
-            this.panel2.Controls.Add(this.checkBox3);
-            this.panel2.Controls.Add(this.checkBox2);
-            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.pictureBox8);
+            this.panel2.Controls.Add(this.pictureBox7);
+            this.panel2.Controls.Add(this.pictureBox6);
+            this.panel2.Controls.Add(this.pictureBox5);
+            this.panel2.Controls.Add(this.pictureBox4);
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.pictureBox2);
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.mfcdpsCheck);
+            this.panel2.Controls.Add(this.pcoCheck);
+            this.panel2.Controls.Add(this.avisCheck);
+            this.panel2.Controls.Add(this.mfccpsCheck);
+            this.panel2.Controls.Add(this.bmisCheck);
+            this.panel2.Controls.Add(this.dserviceCheck);
+            this.panel2.Controls.Add(this.cpsCheck);
             this.panel2.Controls.Add(this.lbsCheck);
             this.panel2.Location = new System.Drawing.Point(88, 253);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(728, 150);
             this.panel2.TabIndex = 88;
             // 
-            // checkBox1
+            // pictureBox8
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.checkBox1.Location = new System.Drawing.Point(87, 86);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(63, 24);
-            this.checkBox1.TabIndex = 89;
-            this.checkBox1.Text = "CPS";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(692, 72);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(26, 37);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 103;
+            this.pictureBox8.TabStop = false;
             // 
-            // checkBox2
+            // pictureBox7
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.checkBox2.Location = new System.Drawing.Point(243, 86);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(100, 24);
-            this.checkBox2.TabIndex = 90;
-            this.checkBox2.Text = "DService";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(493, 71);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(26, 37);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 102;
+            this.pictureBox7.TabStop = false;
             // 
-            // checkBox3
+            // pictureBox6
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.checkBox3.Location = new System.Drawing.Point(243, 41);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(65, 24);
-            this.checkBox3.TabIndex = 91;
-            this.checkBox3.Text = "MPS";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(302, 72);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(26, 37);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 101;
+            this.pictureBox6.TabStop = false;
             // 
-            // checkBox4
+            // pictureBox5
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.checkBox4.Location = new System.Drawing.Point(385, 86);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(110, 24);
-            this.checkBox4.TabIndex = 92;
-            this.checkBox4.Text = "MFC_CPS";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(116, 72);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(26, 37);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 100;
+            this.pictureBox5.TabStop = false;
             // 
-            // checkBox5
+            // pictureBox4
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.checkBox5.Location = new System.Drawing.Point(535, 41);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(70, 24);
-            this.checkBox5.TabIndex = 93;
-            this.checkBox5.Text = "AVIS";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(493, 28);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(26, 37);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 99;
+            this.pictureBox4.TabStop = false;
             // 
-            // checkBox6
+            // pictureBox3
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.checkBox6.Location = new System.Drawing.Point(535, 86);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(107, 24);
-            this.checkBox6.TabIndex = 94;
-            this.checkBox6.Text = "PCO View";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(270, 28);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(26, 37);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 98;
+            this.pictureBox3.TabStop = false;
             // 
-            // checkBox7
+            // pictureBox2
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.checkBox7.Location = new System.Drawing.Point(385, 41);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(111, 24);
-            this.checkBox7.TabIndex = 95;
-            this.checkBox7.Text = "MFC_DPS";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(116, 28);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(26, 37);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 97;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(655, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(26, 37);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 96;
+            this.pictureBox1.TabStop = false;
+            // 
+            // mfcdpsCheck
+            // 
+            this.mfcdpsCheck.AutoSize = true;
+            this.mfcdpsCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mfcdpsCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.mfcdpsCheck.Location = new System.Drawing.Point(376, 41);
+            this.mfcdpsCheck.Name = "mfcdpsCheck";
+            this.mfcdpsCheck.Size = new System.Drawing.Size(111, 24);
+            this.mfcdpsCheck.TabIndex = 95;
+            this.mfcdpsCheck.Text = "MFC_DPS";
+            this.mfcdpsCheck.UseVisualStyleBackColor = true;
+            // 
+            // pcoCheck
+            // 
+            this.pcoCheck.AutoSize = true;
+            this.pcoCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pcoCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.pcoCheck.Location = new System.Drawing.Point(579, 85);
+            this.pcoCheck.Name = "pcoCheck";
+            this.pcoCheck.Size = new System.Drawing.Size(107, 24);
+            this.pcoCheck.TabIndex = 94;
+            this.pcoCheck.Text = "PCO View";
+            this.pcoCheck.UseVisualStyleBackColor = true;
+            // 
+            // avisCheck
+            // 
+            this.avisCheck.AutoSize = true;
+            this.avisCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.avisCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.avisCheck.Location = new System.Drawing.Point(579, 41);
+            this.avisCheck.Name = "avisCheck";
+            this.avisCheck.Size = new System.Drawing.Size(70, 24);
+            this.avisCheck.TabIndex = 93;
+            this.avisCheck.Text = "AVIS";
+            this.avisCheck.UseVisualStyleBackColor = true;
+            // 
+            // mfccpsCheck
+            // 
+            this.mfccpsCheck.AutoSize = true;
+            this.mfccpsCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mfccpsCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.mfccpsCheck.Location = new System.Drawing.Point(377, 85);
+            this.mfccpsCheck.Name = "mfccpsCheck";
+            this.mfccpsCheck.Size = new System.Drawing.Size(110, 24);
+            this.mfccpsCheck.TabIndex = 92;
+            this.mfccpsCheck.Text = "MFC_CPS";
+            this.mfccpsCheck.UseVisualStyleBackColor = true;
+            // 
+            // bmisCheck
+            // 
+            this.bmisCheck.AutoSize = true;
+            this.bmisCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bmisCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.bmisCheck.Location = new System.Drawing.Point(196, 41);
+            this.bmisCheck.Name = "bmisCheck";
+            this.bmisCheck.Size = new System.Drawing.Size(72, 24);
+            this.bmisCheck.TabIndex = 91;
+            this.bmisCheck.Text = "BMIS";
+            this.bmisCheck.UseVisualStyleBackColor = true;
+            // 
+            // dserviceCheck
+            // 
+            this.dserviceCheck.AutoSize = true;
+            this.dserviceCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dserviceCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.dserviceCheck.Location = new System.Drawing.Point(196, 85);
+            this.dserviceCheck.Name = "dserviceCheck";
+            this.dserviceCheck.Size = new System.Drawing.Size(100, 24);
+            this.dserviceCheck.TabIndex = 90;
+            this.dserviceCheck.Text = "DService";
+            this.dserviceCheck.UseVisualStyleBackColor = true;
+            // 
+            // cpsCheck
+            // 
+            this.cpsCheck.AutoSize = true;
+            this.cpsCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpsCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.cpsCheck.Location = new System.Drawing.Point(46, 85);
+            this.cpsCheck.Name = "cpsCheck";
+            this.cpsCheck.Size = new System.Drawing.Size(63, 24);
+            this.cpsCheck.TabIndex = 89;
+            this.cpsCheck.Text = "CPS";
+            this.cpsCheck.UseVisualStyleBackColor = true;
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cancelButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.cancelButton.Location = new System.Drawing.Point(12, 188);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(98, 28);
+            this.cancelButton.TabIndex = 89;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // CredentialsForm
             // 
@@ -323,6 +443,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(905, 450);
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.resetPanel);
             this.Controls.Add(this.panel1);
@@ -340,6 +461,14 @@
             this.resetPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -361,12 +490,21 @@
         private System.Windows.Forms.Panel resetPanel;
         private System.Windows.Forms.CheckBox lbsCheck;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox mfcdpsCheck;
+        private System.Windows.Forms.CheckBox pcoCheck;
+        private System.Windows.Forms.CheckBox avisCheck;
+        private System.Windows.Forms.CheckBox mfccpsCheck;
+        private System.Windows.Forms.CheckBox bmisCheck;
+        private System.Windows.Forms.CheckBox dserviceCheck;
+        private System.Windows.Forms.CheckBox cpsCheck;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button cancelButton;
     }
 }

@@ -10,14 +10,23 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Diagnostics;
 using System.Globalization;
+using System.Security.Cryptography;
 
 namespace Startup
 {
     public partial class CredentialsForm : Form
     {
-        public CredentialsForm()
+        Program newProgram = new Program();
+
+
+        string passedPath = "";
+        Startup.UserCredentials currentUser = new Startup.UserCredentials();
+
+        public CredentialsForm(Startup.UserCredentials passedUser, string path)
         {
             InitializeComponent();
+            currentUser = passedUser;
+            passedPath = path;
         }
 
         // The below code allows moving around the window by holding left click on the title panel.
@@ -58,5 +67,105 @@ namespace Startup
             }
         }
 
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            if (passwordBox.Text == "" || repeatPasswordBox.Text == "" || usernameBox.Text == "")
+            {
+                MessageBox.Show("Please fill out username and password fields.");
+            }
+            else {
+
+                if (passwordBox.Text != repeatPasswordBox.Text)
+                {
+                    MessageBox.Show("Passwords do not match. Please re-enter passwords.");
+                }
+                else {
+
+                    sendChoices();
+                }
+            }
+        }
+
+        public void sendChoices() {
+
+            currentUser.user = usernameBox.Text;
+            currentUser.pass = passwordBox.Text;
+            currentUser.LBS =  lbsCheck.Checked;
+            currentUser.CPS = cpsCheck.Checked;
+            currentUser.DPS = dserviceCheck.Checked;
+            currentUser.BMIS = bmisCheck.Checked;
+            currentUser.MFCDPS = mfcdpsCheck.Checked;
+            currentUser.MFCCPS = mfccpsCheck.Checked;
+            currentUser.AVIS = avisCheck.Checked;
+            currentUser.PCO = pcoCheck.Checked;
+
+            writeFile();
+
+            Close();
+        }
+
+        public void writeFile()
+        {
+
+            var menuList = new List<string>();
+
+            if (currentUser.CPS == true) { menuList.Add("CPS"); }
+            if (currentUser.LBS == true) { menuList.Add("LBS"); }
+            if (currentUser.BMIS == true) { menuList.Add("BMIS"); }
+            if (currentUser.MFCDPS == true) { menuList.Add("MFCDPS"); }
+            if (currentUser.MFCCPS == true) { menuList.Add("MFCCPS"); }
+            if (currentUser.AVIS == true) { menuList.Add("AVIS"); }
+            if (currentUser.INDA == true) { menuList.Add("INDA"); }
+            if (currentUser.REMOTEMANAGER == true) { menuList.Add("REMOTEMANAGER"); }
+            if (currentUser.LOGCRAWLER == true) { menuList.Add("LOGCRAWLER"); }
+            if (currentUser.MAPDRIVES == true) { menuList.Add("MAPDRIVES"); }
+            if (currentUser.DPS == true) { menuList.Add("DPS"); }
+            if (currentUser.PCO == true) { menuList.Add("PCO"); }
+
+            var menuArray = menuList.ToArray();
+
+
+            FileStream file = File.Create(passedPath); file.Dispose();
+
+            using (StreamWriter writetext = new StreamWriter(passedPath))
+            {
+                writetext.WriteLine(currentUser.user);
+                writetext.WriteLine(currentUser.pass);
+                foreach (string s in menuArray)
+                    writetext.WriteLine(s);
+            }
+            file.Close();
+            string key = "#CVS2575";
+            EncryptFile(passedPath, key);
+        }
+
+        static void EncryptFile(string path, string key)
+        {
+
+            byte[] plainContent = File.ReadAllBytes(path);
+            using (var DES = new DESCryptoServiceProvider())
+            {
+                DES.IV = Encoding.UTF8.GetBytes(key);
+                DES.Key = Encoding.UTF8.GetBytes(key);
+                DES.Mode = CipherMode.CBC;
+                DES.Padding = PaddingMode.PKCS7;
+
+                using (var memStream = new MemoryStream())
+                {
+                    CryptoStream cryptoStream = new CryptoStream(memStream, DES.CreateEncryptor(), CryptoStreamMode.Write);
+                    cryptoStream.Write(plainContent, 0, plainContent.Length);
+                    cryptoStream.FlushFinalBlock();
+                    File.WriteAllBytes(path, memStream.ToArray());
+                }
+
+            }
+
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
+
 }

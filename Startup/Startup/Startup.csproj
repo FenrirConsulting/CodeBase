@@ -50,8 +50,13 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationClientsideProviders" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutomationMethods.cs" />
     <Compile Include="CredentialsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,10 +70,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UserCredentials.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="avis.ico" />
+    <Content Include="BMIS.ico" />
     <Content Include="Doom.ico" />
+    <Content Include="DService.ico" />
     <Content Include="exit.png" />
+    <Content Include="lbs.ico" />
+    <Content Include="mfc_cps.ico" />
+    <Content Include="mfc_dps.ico" />
+    <Content Include="pcoview.ico" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CredentialsForm.resx">
