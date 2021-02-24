@@ -1,7 +1,7 @@
 window.$ = window.jQuery = require('../resources/chart.js');
 window.$ = window.jQuery = require('../resources/d3.js');
 window.$ = window.jQuery = require('../resources/canvasJS.js'); 
-setTimeout(function(){location.href="../news/news1.html";},20 * 1000);
+//setTimeout(function(){location.href="../news/news1.html";},45 * 1000);
 const path = require('path');
 const fs = require('fs');
 const config = require('../resources/config.json');

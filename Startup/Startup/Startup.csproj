@@ -75,6 +75,7 @@
   <ItemGroup>
     <Content Include="avis.ico" />
     <Content Include="BMIS.ico" />
+    <Content Include="CPS.png" />
     <Content Include="Doom.ico" />
     <Content Include="DService.ico" />
     <Content Include="exit.png" />

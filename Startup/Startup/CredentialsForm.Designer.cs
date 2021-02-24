@@ -262,7 +262,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(692, 72);
+            this.pictureBox8.Location = new System.Drawing.Point(692, 89);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(26, 37);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -272,7 +272,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(493, 71);
+            this.pictureBox7.Location = new System.Drawing.Point(493, 88);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(26, 37);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -282,7 +282,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(302, 72);
+            this.pictureBox6.Location = new System.Drawing.Point(302, 89);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(26, 37);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -292,7 +292,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(116, 72);
+            this.pictureBox5.Location = new System.Drawing.Point(116, 89);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(26, 37);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -356,7 +356,7 @@
             this.pcoCheck.AutoSize = true;
             this.pcoCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pcoCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.pcoCheck.Location = new System.Drawing.Point(579, 85);
+            this.pcoCheck.Location = new System.Drawing.Point(579, 102);
             this.pcoCheck.Name = "pcoCheck";
             this.pcoCheck.Size = new System.Drawing.Size(107, 24);
             this.pcoCheck.TabIndex = 94;
@@ -380,7 +380,7 @@
             this.mfccpsCheck.AutoSize = true;
             this.mfccpsCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mfccpsCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.mfccpsCheck.Location = new System.Drawing.Point(377, 85);
+            this.mfccpsCheck.Location = new System.Drawing.Point(377, 102);
             this.mfccpsCheck.Name = "mfccpsCheck";
             this.mfccpsCheck.Size = new System.Drawing.Size(110, 24);
             this.mfccpsCheck.TabIndex = 92;
@@ -404,7 +404,7 @@
             this.dserviceCheck.AutoSize = true;
             this.dserviceCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dserviceCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.dserviceCheck.Location = new System.Drawing.Point(196, 85);
+            this.dserviceCheck.Location = new System.Drawing.Point(196, 102);
             this.dserviceCheck.Name = "dserviceCheck";
             this.dserviceCheck.Size = new System.Drawing.Size(100, 24);
             this.dserviceCheck.TabIndex = 90;
@@ -416,7 +416,7 @@
             this.cpsCheck.AutoSize = true;
             this.cpsCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpsCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.cpsCheck.Location = new System.Drawing.Point(46, 85);
+            this.cpsCheck.Location = new System.Drawing.Point(46, 102);
             this.cpsCheck.Name = "cpsCheck";
             this.cpsCheck.Size = new System.Drawing.Size(63, 24);
             this.cpsCheck.TabIndex = 89;

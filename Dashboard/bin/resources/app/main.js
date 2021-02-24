@@ -129,7 +129,7 @@ app.on('ready', () => {
             break; 
 
         default:
-            dashLauncher(dashHTML); 
+            dashLauncher(chart1HTML); 
     }
 
     function dashLauncher(fileName){

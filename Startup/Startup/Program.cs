@@ -83,10 +83,43 @@ namespace Startup {
             Console.WriteLine("*****************************************************");
             Console.WriteLine("*****************************************************");
             Console.WriteLine("");
+            Console.WriteLine("Checking for mapped Drives.");
+
+            int driveWait = 0;
+            bool foundDrive = false;
+
+            do
+            {
+                driveWait++;
+                if ((File.Exists("R:\\abl\\runtime\\bin\\LBS_start2.bat") == true))
+                {
+                    foundDrive = true;
+                }
+                Thread.Sleep(1000);
+
+                if (driveWait == 10) {
+
+                    Console.WriteLine("Mapped Drive not found, exiting program in:");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("4");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("3");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("2");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("1");
+                    Thread.Sleep(1000);
+                    Environment.Exit(0);
+                }
+
+            } while (foundDrive == false);
+
+
+
+
             Console.WriteLine("Checking for existing user settings.");
             string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string path = documents + @"\info.txt";
-
             // Checks for the credentials file in User\Documents, creates a new one if not present
             if (File.Exists(path) == false)
             {
@@ -180,7 +213,6 @@ namespace Startup {
         {
 
 
-
             if (currentUser.LBS == true) { startLBS(currentUser, automation); }
             if (currentUser.CPS == true) { startCPS(currentUser, automation); }
             if (currentUser.DPS == true) { startDSERVICE(currentUser, automation); }
@@ -190,21 +222,6 @@ namespace Startup {
             if (currentUser.PCO == true) { startPCOVIEW(currentUser, automation); }
             if (currentUser.AVIS == true) { startAVIS(); }
 
-
-        }
-
-        // Used to push Credentials to selected program, and then fills fields with username & password.
-        public static void myCredentials(Startup.UserCredentials currentUser, AutomationMethods automation)
-        {
-            string us = currentUser.user;
-            string ps = currentUser.pass;
-
-
-            Thread.Sleep(1500);
-            SendKeys.SendWait(us);
-            SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait(ps);
-            SendKeys.SendWait("{ENTER}");
 
         }
 
@@ -257,155 +274,387 @@ namespace Startup {
         // LBS Option.
         public static void startLBS(Startup.UserCredentials currentUser, AutomationMethods automation)
         {
-            if (File.Exists("C:\\Witron\\PCO\\MapNetDrives.cmd") == true)
+            if (File.Exists("R:\\abl\\runtime\\bin\\LBS_start2.bat") == true)
             {
-                Process.Start("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\LBS.lnk");
-                Thread.Sleep(1000);
-                myCredentials(currentUser,automation);
-                Thread.Sleep(1000);
-            }
-            else
-            {
+
                 Process.Start("R:\\abl\\runtime\\bin\\LBS_start2.bat");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
+
+                AutomationElement
+                lbsForm,
+                lbsUser,
+                lbsPass,
+                lbsOk;
+
+                string username = currentUser.user;
+                string password = currentUser.pass;
+
+                lbsForm = automation.setParentElement("Log on LBS");
+
+                if (lbsForm != null)
+                {
+
+                    lbsUser = automation.setChildElementById(lbsForm, "4", true);
+                    lbsPass = automation.setChildElementById(lbsForm, "5", true);
+                    lbsOk = automation.setChildElementById(lbsForm, "8", true);
+                    automation.setValue(lbsUser, username);
+                    automation.setValue(lbsPass, password);
+
+                    try
+                    {
+
+                        automation.invokeButtonPress(lbsOk);
+                    }
+
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    Thread.Sleep(2000);
+
+                }
+                else {
+
+                    return;
+                }
+            }
+            else {
+
+                return;
             }
         }
 
         // CPS Option.
         public static void startCPS(Startup.UserCredentials currentUser, AutomationMethods automation)
         {
-            if (File.Exists("C:\\Witron\\PCO\\MapNetDrives.cmd") == true)
-            {
-                Process.Start("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\CPS.lnk");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
-            }
-
-            else
+            if (File.Exists("R:\\abl\\runtime\\bin\\CPS_start2.bat") == true)
             {
                 Process.Start("R:\\abl\\runtime\\bin\\CPS_start2.bat");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
+
+                AutomationElement
+                cpsForm,
+                cpsUser,
+                cpsPass,
+                cpsOk;
+
+                string username = currentUser.user;
+                string password = currentUser.pass;
+
+                cpsForm = automation.setParentElement("Log on cps");
+
+                if (cpsForm != null)
+                {
+
+                    cpsUser = automation.setChildElementById(cpsForm, "4", true);
+                    cpsPass = automation.setChildElementById(cpsForm, "5", true);
+                    cpsOk = automation.setChildElementById(cpsForm, "8", true);
+                    automation.setValue(cpsUser, username);
+                    automation.setValue(cpsPass, password);
+
+                    try
+                    {
+
+                        automation.invokeButtonPress(cpsOk);
+                    }
+
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    Thread.Sleep(2000);
+
+                }
+                else
+                {
+
+                    return;
+                }
+            }
+            else
+            {
+
+                return;
             }
         }
 
         // DSERVICE Option.
         public static void startDSERVICE(Startup.UserCredentials currentUser, AutomationMethods automation)
         {
-            if (File.Exists("C:\\Witron\\PCO\\MapNetDrives.cmd") == true)
+            if (File.Exists("R:\\abl\\runtime\\bin\\DSERVICE_start2.bat") == true)
             {
-                Process.Start("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\DPS.lnk");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
+                Process.Start("R:\\abl\\runtime\\bin\\DSERVICE_start2.bat");
+                AutomationElement
+                dpsForm,
+                dpsUser,
+                dpsPass,
+                dpsOk;
+
+                string username = currentUser.user;
+                string password = currentUser.pass;
+
+                dpsForm = automation.setParentElement("Log on dservice");
+
+                if (dpsForm != null)
+                {
+
+                    dpsUser = automation.setChildElementById(dpsForm, "4", true);
+                    dpsPass = automation.setChildElementById(dpsForm, "5", true);
+                    dpsOk = automation.setChildElementById(dpsForm, "8", true);
+                    automation.setValue(dpsUser, username);
+                    automation.setValue(dpsPass, password);
+
+                    try
+                    {
+
+                        automation.invokeButtonPress(dpsOk);
+                    }
+
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    Thread.Sleep(2000);
+
+                }
+                else
+                {
+
+                    return;
+                }
             }
             else
             {
-                Process.Start("R:\\abl\\runtime\\bin\\DSERVICE_start2.bat");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
-            }
 
+                return;
+            }
         }
 
         // BMIS Option.
         public static void startBMIS(Startup.UserCredentials currentUser, AutomationMethods automation)
         {
-            if (File.Exists("C:\\Witron\\PCO\\MapNetDrives.cmd") == true)
+            if (File.Exists("R:\\abl\\runtime\\bin\\BMIS_start2.bat") == true)
             {
-                Process.Start("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\BMIS.lnk");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
+                Process.Start("R:\\abl\\runtime\\bin\\BMIS_start2.bat");
+                AutomationElement
+                bmisForm,
+                bmisUser,
+                bmisPass,
+                bmisOk;
+
+                string username = currentUser.user;
+                string password = currentUser.pass;
+
+                bmisForm = automation.setParentElement("Log on BMIS");
+
+                if (bmisForm != null)
+                {
+
+                    bmisUser = automation.setChildElementById(bmisForm, "4", true);
+                    bmisPass = automation.setChildElementById(bmisForm, "5", true);
+                    bmisOk = automation.setChildElementById(bmisForm, "8", true);
+                    automation.setValue(bmisUser, username);
+                    automation.setValue(bmisPass, password);
+
+                    try
+                    {
+
+                        automation.invokeButtonPress(bmisOk);
+                    }
+
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    Thread.Sleep(2000);
+
+                }
+                else
+                {
+
+                    return;
+                }
             }
             else
             {
-                Process.Start("R:\\abl\\runtime\\bin\\BMIS_start2.bat");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
-            }
 
+                return;
+            }
         }
 
         // MFC DPS Option.
         public static void startMFCDPS(Startup.UserCredentials currentUser, AutomationMethods automation)
         {
-            if (File.Exists("C:\\Witron\\PCO\\MapNetDrives.cmd") == true)
+            if (File.Exists("R:\\abl\\runtime\\bin\\MFC_DPS2.bat") == true)
             {
-                Process.Start("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\MFC_DPS.lnk");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
-            }
+               Process.Start("R:\\abl\\runtime\\bin\\MFC_DPS2.bat");
+               AutomationElement
+               mfcdpsForm,
+               mfcdpsUser,
+               mfcdpsPass,
+               mfcdpsOk;
 
+                string username = currentUser.user;
+                string password = currentUser.pass;
+
+                mfcdpsForm = automation.setParentElement("Log on mfc");
+
+                if (mfcdpsForm != null)
+                {
+
+                    mfcdpsUser = automation.setChildElementById(mfcdpsForm, "4", true);
+                    mfcdpsPass = automation.setChildElementById(mfcdpsForm, "5", true);
+                    mfcdpsOk = automation.setChildElementById(mfcdpsForm, "8", true);
+                    automation.setValue(mfcdpsUser, username);
+                    automation.setValue(mfcdpsPass, password);
+
+                    try
+                    {
+
+                        automation.invokeButtonPress(mfcdpsOk);
+                    }
+
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    Thread.Sleep(2000);
+
+                }
+                else
+                {
+
+                    return;
+                }
+            }
             else
             {
-                Process.Start("R:\\abl\\runtime\\bin\\MFC_DPS2.bat");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
+
+                return;
             }
         }
 
         // MFC CPS Option.
         public static void startMFCCPS(Startup.UserCredentials currentUser, AutomationMethods automation)
         {
-            if (File.Exists("C:\\Witron\\PCO\\MapNetDrives.cmd") == true)
+            if (File.Exists("R:\\abl\\runtime\\bin\\MFC_CPS2.bat") == true)
             {
-                Process.Start("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\MFC_CPS.lnk");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
+                Process.Start("R:\\abl\\runtime\\bin\\MFC_CPS2.bat");
+                AutomationElement
+               mfccpsForm,
+               mfccpsUser,
+               mfccpsPass,
+               mfccpsOk;
+
+                string username = currentUser.user;
+                string password = currentUser.pass;
+
+                mfccpsForm = automation.setParentElement("Log on mfc");
+
+                if (mfccpsForm != null)
+                {
+
+                    mfccpsUser = automation.setChildElementById(mfccpsForm, "4", true);
+                    mfccpsPass = automation.setChildElementById(mfccpsForm, "5", true);
+                    mfccpsOk = automation.setChildElementById(mfccpsForm, "8", true);
+                    automation.setValue(mfccpsUser, username);
+                    automation.setValue(mfccpsPass, password);
+
+                    try
+                    {
+
+                        automation.invokeButtonPress(mfccpsOk);
+                    }
+
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    Thread.Sleep(2000);
+
+                }
+                else
+                {
+
+                    return;
+                }
             }
             else
             {
-                Process.Start("R:\\abl\\runtime\\bin\\MFC_CPS2.bat");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
+
+                return;
             }
         }
 
         // PCO View Option.
         public static void startPCOVIEW(Startup.UserCredentials currentUser, AutomationMethods automation)
         {
-
-            if (File.Exists("C:\\Witron\\PCO\\MapNetDrives.cmd") == true)
-            {
-                Process.Start("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\PCO View.lnk");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
-            }
-
-            else
+            if (File.Exists("R:\\asl\\runtime\\bin\\pcoview.exe") == true)
             {
                 Process.Start("R:\\asl\\runtime\\bin\\pcoview.exe");
-                Thread.Sleep(1000);
-                myCredentials(currentUser, automation);
-                Thread.Sleep(1000);
-            }
+                AutomationElement
+              pcoForm,
+              pcoUser,
+              pcoPass,
+              pcoOk;
 
+                string username = currentUser.user;
+                string password = currentUser.pass;
+
+                pcoForm = automation.setParentElement("PCO View Login");
+
+                if (pcoForm != null)
+                {
+
+                    pcoUser = automation.setChildElementById(pcoForm, "1019", true);
+                    pcoPass = automation.setChildElementById(pcoForm, "1020", true);
+                    pcoOk = automation.setChildElementById(pcoForm, "1", true);
+                    automation.setValue(pcoUser, username);
+                    automation.setValue(pcoPass, password);
+
+                    try
+                    {
+
+                        automation.invokeButtonPress(pcoOk);
+                    }
+
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    Thread.Sleep(2000);
+
+                }
+                else
+                {
+
+                    return;
+                }
+            }
+            else
+            {
+
+                return;
+            }
         }
 
         // Avis Option.
         public static void startAVIS()
         {
-            if (File.Exists("C:\\Witron\\PCO\\MapNetDrives.cmd") == true)
+            if (File.Exists("R:\\atl\\runtime\\bin\\AVIS.exe") == true)
             {
-                Process.Start("C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\AVIS.lnk");
+                Process.Start("R:\\atl\\runtime\\bin\\AVIS.exe");
                 Thread.Sleep(2000);
             }
             else
             {
-                Process.Start("R:\\atl\\runtime\\bin\\AVIS.exe");
-                Thread.Sleep(2000);
+                return;
             }
         }
 
