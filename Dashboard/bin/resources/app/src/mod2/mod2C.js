@@ -163,6 +163,8 @@ function readData1() {
             changeColor(td[7], valueCheck);
             var valueCheck = parseInt(td[8].innerHTML, 10);
             changeColor(td[8], valueCheck);
+            var valueCheck = parseInt(td[9].innerHTML, 10);
+            changeColor(td[9], valueCheck);
             var valueCheck = parseFloat(td[10].innerHTML, 10);
             changeColor(td[10], valueCheck);
 
