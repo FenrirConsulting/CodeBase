@@ -428,5 +428,11 @@ namespace AutomationTechLog
         void UpdateForm_Closed(object sender, FormClosedEventArgs e) {
             searchFunction();
         }
+
+        private void partsButton_Click(object sender, EventArgs e)
+        {
+            var partsForm = new PartsOverview();
+            partsForm.Show();
+        }
     }
 }

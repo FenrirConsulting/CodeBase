@@ -59,6 +59,7 @@
             this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripCSVButton = new System.Windows.Forms.ToolStripButton();
             this.datagridOverview = new System.Windows.Forms.DataGridView();
+            this.partsButton = new System.Windows.Forms.Button();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).BeginInit();
@@ -158,6 +159,7 @@
             // buttonPanel
             // 
             this.buttonPanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buttonPanel.Controls.Add(this.partsButton);
             this.buttonPanel.Controls.Add(this.olderDateBox);
             this.buttonPanel.Controls.Add(this.legendLabel4);
             this.buttonPanel.Controls.Add(this.usersButton);
@@ -397,6 +399,7 @@
             // 
             this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
@@ -439,6 +442,20 @@
             this.datagridOverview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridOverview_CellDoubleClick);
             this.datagridOverview.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.datagridOverview_CellFormatting);
             this.datagridOverview.SelectionChanged += new System.EventHandler(this.datagridOverview_SelectionChanged);
+            // 
+            // partsButton
+            // 
+            this.partsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.partsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.partsButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.partsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.partsButton.Location = new System.Drawing.Point(715, 7);
+            this.partsButton.Name = "partsButton";
+            this.partsButton.Size = new System.Drawing.Size(158, 33);
+            this.partsButton.TabIndex = 47;
+            this.partsButton.Text = "Parts Management";
+            this.partsButton.UseVisualStyleBackColor = false;
+            this.partsButton.Click += new System.EventHandler(this.partsButton_Click);
             // 
             // MainForm
             // 
@@ -502,5 +519,6 @@
         private System.Windows.Forms.ToolStripButton toolStripCSVButton;
         private System.Windows.Forms.DataGridView datagridOverview;
         private System.Windows.Forms.Label olderDateBox;
+        private System.Windows.Forms.Button partsButton;
     }
 }
