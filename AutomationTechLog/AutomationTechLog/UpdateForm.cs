@@ -116,6 +116,8 @@ namespace AutomationTechLog
 
             deleteButton.Enabled = false; deleteButton.Visible = false;
             addUserBox.Text = globalUser.globalUsername;
+            string currentUserSelection = selectedRow["tl_genuser"].ToString();
+            if (currentUserSelection == globalUser.globalUsername) { deleteButton.Visible = true; deleteButton.Enabled = true; }
 
             if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True") { deleteButton.Enabled = true; deleteButton.Visible = true; }
 
@@ -375,6 +377,7 @@ namespace AutomationTechLog
                 DateTime currentTime = DateTime.Now;
                 DataRow currentRow = TECHLOGTable.Rows[0];
 
+                string tl_moddate = currentTime.ToString("MM/dd/yyyy HH:mm:ss");
                 int tl_ref = (int)currentRow["tl_ref"];
                 string tl_state = stateComboBox.Text;
                 string tl_wotype = typeComboBox.Text;
@@ -385,7 +388,13 @@ namespace AutomationTechLog
                 string tl_genuser = currentRow["tl_genuser"].ToString();
                 string tl_gendate = currentRow["tl_gendate"].ToString();
                 string tl_moduser = modUser;
-                string tl_moddate = currentTime.ToString("MM/dd/yyyy HH:mm:ss");
+
+                if (additionalComplaintsBox.Text != "") { tl_wocomplaint = tl_wocomplaint + Environment.NewLine + Environment.NewLine + additionalComplaintsBox.Text + Environment.NewLine +" - Added By: " + globalUser.globalUsername + " at " + tl_moddate;  }
+                if (additionalCausesBox.Text != "") { tl_worootcause = tl_worootcause + Environment.NewLine + Environment.NewLine + additionalCausesBox.Text + Environment.NewLine + " - Added By: " + globalUser.globalUsername + " at " + tl_moddate; }
+                if (additionalCorrectionsBox.Text != "") { tl_wocorrection = tl_wocorrection + Environment.NewLine + Environment.NewLine + additionalCorrectionsBox.Text + Environment.NewLine + " - Added By: " + globalUser.globalUsername + " at " + tl_moddate; }
+
+
+                
 
                 DBConn.techlogRecordUpdate(tl_ref, tl_state, tl_wotype, tl_woasset, tl_wocomplaint, tl_worootcause, tl_wocorrection, tl_genuser, tl_gendate, tl_moduser,tl_moddate);
 
@@ -600,6 +609,9 @@ namespace AutomationTechLog
             userGrid.Rows.Clear();
             partsGrid.DataSource = null;
             partsGrid.Rows.Clear();
+            additionalComplaintsBox.Text = "";
+            additionalCausesBox.Text = "";
+            additionalCorrectionsBox.Text = "";
             buildTables();
         }
 
@@ -686,5 +698,6 @@ namespace AutomationTechLog
             string tl_moddate = currentTime.ToString("MM/dd/yyyy HH:mm:ss");
             DBConn.techlogModDateUpdate(tl_ref, tl_moduser, tl_moddate);
         }
+
     }
 }

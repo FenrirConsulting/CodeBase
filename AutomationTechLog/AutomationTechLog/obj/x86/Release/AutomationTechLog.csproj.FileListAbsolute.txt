@@ -65,16 +65,12 @@ C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\Automati
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\System.Data.SQLite.xml
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.dll
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\LocalDatabase.db
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\AutomationTechLog.exe
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\AutomationTechLog.pdb
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.LoginForm.resources
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.MainForm.resources
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.Properties.Resources.resources
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.GenerateResource.cache
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CoreCompileInputs.cache
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CopyComplete
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.exe
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.pdb
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojResolveAssemblyReference.cache
 D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SQLite.dll
 D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.Entity.dll
@@ -110,3 +106,8 @@ D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\ATLog.pdb
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.exe
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.pdb
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojAssemblyReference.cache
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\ATLog.exe
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\ATLog.pdb
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddUser.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.exe
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.pdb
