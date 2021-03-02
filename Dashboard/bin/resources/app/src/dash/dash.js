@@ -12,9 +12,7 @@
   var casesBoardAShutdownPath = path.resolve(__dirname, '../resources/CASESPERFBOARDSHUTDOWN.BAT')
   var casesBoardBShutdownPath = path.resolve(__dirname, '../resources/CASESBOARDBSHUTDOWN.BAT')
 
-  new customTitlebar.Titlebar({
-    backgroundColor: customTitlebar.Color.fromHex('#000')
-  });
+
 
   // Loads in the config.JSON file to the editor
   let rawData = fs.readFileSync(path.resolve(__dirname, '../resources/config.json'));
@@ -130,7 +128,8 @@
       path.resolve(__dirname, config.dashboard.pageTen),
       path.resolve(__dirname, config.dashboard.pageEleven),
       path.resolve(__dirname, config.dashboard.pageThirteen),
-      path.resolve(__dirname, config.dashboard.pageFourteen)
+      path.resolve(__dirname, config.dashboard.pageFourteen),
+      path.resolve(__dirname, config.dashboard.pageFifteen)
     ];
 
     document.getElementById("page1").innerHTML = config.mod1A.mainTitle;
@@ -146,6 +145,7 @@
     document.getElementById("page11").innerHTML = config.test.mainTitle;
     document.getElementById("page12").innerHTML = config.template.mainTitle;
     document.getElementById("page13").innerHTML = config.dashboard.jsonTitle;
+    document.getElementById("page14").innerHTML = config.mod2C.mainTitle;
 
     return (pages);
 
@@ -167,7 +167,8 @@
       document.getElementById("button10"),
       document.getElementById("button11"),
       document.getElementById("button12"),
-      document.getElementById("button13")
+      document.getElementById("button13"),
+      document.getElementById("button14")
     ]
 
 
@@ -235,6 +236,11 @@
     buttons[12].addEventListener('click', () => {
 
       hiddenEditor();
+    });
+
+    buttons[13].addEventListener('click', () => {
+      document.getElementById("webviewFrame").src = pages[13];
+      hiddenPage();
     });
 
     dpsBoardAButton = document.getElementById("dpsBoardAButton");
@@ -401,4 +407,9 @@
     } else if (e.which === 116) {
       location.reload();
     }
+  });
+
+
+  new customTitlebar.Titlebar({
+    backgroundColor: customTitlebar.Color.fromHex('#000')
   });
