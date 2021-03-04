@@ -91,6 +91,12 @@
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalUser.cs" />
+    <Compile Include="LocationsOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LocationsOverview.Designer.cs">
+      <DependentUpon>LocationsOverview.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocationsOverview.resx">
+      <DependentUpon>LocationsOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

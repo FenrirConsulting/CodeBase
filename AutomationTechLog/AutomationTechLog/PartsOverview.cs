@@ -15,6 +15,56 @@ namespace AutomationTechLog
 {
     public partial class PartsOverview : Form
     {
+        sqlLiteMethods DBConn = new sqlLiteMethods();
+        DataTable TECHLOGInventoryTable = new DataTable();
+        GlobalUser globalUser;
+
+        public PartsOverview(GlobalUser passedUser)
+        {
+            globalUser = passedUser;
+            InitializeComponent();
+            buildTables();
+        }
+
+
+
+
+        public void buildTables() {
+
+            TECHLOGInventoryTable = buildPartsTable();
+            partsGrid.DataSource = TECHLOGInventoryTable;
+        }
+
+        public DataTable buildPartsTable()
+        {
+
+            DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY"); ;
+
+            DataTable filledTable = new DataTable();
+            filledTable.Columns.Add("tlinv_ref", typeof(int));
+            filledTable.Columns.Add("tlinv_partnumber", typeof(string));
+            filledTable.Columns.Add("tlloc_locid", typeof(string));
+            filledTable.Columns.Add("tlinv_qty", typeof(int));
+            filledTable.Columns.Add("tlinv_desc", typeof(string));
+
+            var query =
+            from dt1 in TECHLOGInvTable.AsEnumerable()
+
+            select filledTable.LoadDataRow(new object[]
+            {
+                dt1.Field<int>("tlinv_ref"),
+                dt1.Field<string>("tlinv_partnumber"),
+                dt1.Field<string>("tlloc_locid"),
+                dt1.Field<int>("tlinv_qty"),
+                dt1.Field<string>("tlinv_desc")
+            }, false);
+            query.CopyToDataTable();
+
+
+            return filledTable;
+        }
+
+        // Buttons and functions general to forms in applications. 
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -48,14 +98,27 @@ namespace AutomationTechLog
             }
         }
 
-        public PartsOverview()
-        {
-            InitializeComponent();
-        }
-
         private void closeButton_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+        private void locationsButton_Click(object sender, EventArgs e)
+        {
+            var locationForm = new LocationsOverview(globalUser);
+            locationForm.Show();
+
+        }
+
+        private void titlePanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.titlePanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
+        }
+
+        private void bodyPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.bodyPanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
+        }
+
     }
 }

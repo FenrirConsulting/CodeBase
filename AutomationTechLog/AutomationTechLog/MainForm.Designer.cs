@@ -37,6 +37,7 @@
             this.resizeButton = new System.Windows.Forms.PictureBox();
             this.minimizeButton = new System.Windows.Forms.PictureBox();
             this.buttonPanel = new System.Windows.Forms.Panel();
+            this.partsButton = new System.Windows.Forms.Button();
             this.olderDateBox = new System.Windows.Forms.Label();
             this.legendLabel4 = new System.Windows.Forms.Label();
             this.usersButton = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripCSVButton = new System.Windows.Forms.ToolStripButton();
             this.datagridOverview = new System.Windows.Forms.DataGridView();
-            this.partsButton = new System.Windows.Forms.Button();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).BeginInit();
@@ -83,6 +83,7 @@
             this.titlePanel.Name = "titlePanel";
             this.titlePanel.Size = new System.Drawing.Size(1196, 37);
             this.titlePanel.TabIndex = 0;
+            this.titlePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.titlePanel_Paint);
             this.titlePanel.DoubleClick += new System.EventHandler(this.titlePanel_DoubleClick);
             this.titlePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseMove);
             // 
@@ -177,6 +178,20 @@
             this.buttonPanel.Name = "buttonPanel";
             this.buttonPanel.Size = new System.Drawing.Size(1196, 51);
             this.buttonPanel.TabIndex = 1;
+            // 
+            // partsButton
+            // 
+            this.partsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.partsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.partsButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.partsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.partsButton.Location = new System.Drawing.Point(715, 7);
+            this.partsButton.Name = "partsButton";
+            this.partsButton.Size = new System.Drawing.Size(158, 33);
+            this.partsButton.TabIndex = 47;
+            this.partsButton.Text = "Parts Management";
+            this.partsButton.UseVisualStyleBackColor = false;
+            this.partsButton.Click += new System.EventHandler(this.partsButton_Click);
             // 
             // olderDateBox
             // 
@@ -442,20 +457,7 @@
             this.datagridOverview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridOverview_CellDoubleClick);
             this.datagridOverview.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.datagridOverview_CellFormatting);
             this.datagridOverview.SelectionChanged += new System.EventHandler(this.datagridOverview_SelectionChanged);
-            // 
-            // partsButton
-            // 
-            this.partsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
-            this.partsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.partsButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.partsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.partsButton.Location = new System.Drawing.Point(715, 7);
-            this.partsButton.Name = "partsButton";
-            this.partsButton.Size = new System.Drawing.Size(158, 33);
-            this.partsButton.TabIndex = 47;
-            this.partsButton.Text = "Parts Management";
-            this.partsButton.UseVisualStyleBackColor = false;
-            this.partsButton.Click += new System.EventHandler(this.partsButton_Click);
+            this.datagridOverview.Paint += new System.Windows.Forms.PaintEventHandler(this.datagridOverview_Paint);
             // 
             // MainForm
             // 

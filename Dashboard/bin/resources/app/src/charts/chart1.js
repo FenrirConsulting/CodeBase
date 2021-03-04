@@ -199,6 +199,7 @@ function makeChart(data, data2) {
         var tempValue = parseInt(tempString);
 
         if (tempValue > 0  && tempValue < 12){ timeframe = false;};
+		if (tempValue == 12) {timeframe = true;}
         if (tempValue > 12  && tempValue < 25){ tempValue = tempValue - 12; timeframe = true ;};
 
         if (timeframe == false ) { tempString = tempValue.toString() + " AM";}

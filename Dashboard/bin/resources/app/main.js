@@ -68,7 +68,7 @@ app.on('ready', () => {
     };
 
     
-    if (username == "c067460" || username =="rfl6wmsdom\\c067460") {
+    if (username == "c067460" || username =="COlson" || username == "GABenjamin") {
         userCheck = 7
     };
 
@@ -121,7 +121,7 @@ app.on('ready', () => {
             //windowLauncher(tempHTML);
             //windowLauncher(jsonHTML);
             //windowLauncher(dashHTML);
-            dashLauncher(chart1HTML); 
+            dashLauncher(dashHTML); 
             break;
 
         case 8 :

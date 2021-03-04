@@ -431,8 +431,20 @@ namespace AutomationTechLog
 
         private void partsButton_Click(object sender, EventArgs e)
         {
-            var partsForm = new PartsOverview();
+            var partsForm = new PartsOverview(globalUser);
             partsForm.Show();
+        }
+
+     
+
+        private void titlePanel_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void datagridOverview_Paint(object sender, PaintEventArgs e)
+        {
+          
         }
     }
 }
