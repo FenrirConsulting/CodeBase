@@ -446,5 +446,15 @@ namespace AutomationTechLog
         {
           
         }
+
+        private void toolStripClearButton_Click(object sender, EventArgs e)
+        {
+            ownerComboBox.Text = "";
+            ownerComboBox.SelectedIndex = -1;
+            searchLikeComboBox.Text = "";
+            searchLikeComboBox.SelectedIndex = -1;
+            toolStripSearchTextBox.Text = "";
+            searchFunction();
+        }
     }
 }

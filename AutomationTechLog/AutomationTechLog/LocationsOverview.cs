@@ -17,17 +17,55 @@ namespace AutomationTechLog
     public partial class LocationsOverview : Form
     {
         sqlLiteMethods DBConn = new sqlLiteMethods();
-        DataTable TECHLOGInventoryTable = new DataTable();
+        DataTable TECHLOGLocationsTable = new DataTable();
         GlobalUser globalUser;
 
         public LocationsOverview(GlobalUser passedUser)
         {
             globalUser = passedUser;
             InitializeComponent();
+            buildTables();
         }
 
-        
+        public void buildTables()
+        {
 
+            TECHLOGLocationsTable = buildPartsTable();
+            locationsGrid.DataSource = TECHLOGLocationsTable;
+
+            locationsGrid.Columns["tlloc_ref"].Visible = false;
+            locationsGrid.Columns["tlloc_locid"].HeaderText = "Location";
+            locationsGrid.Columns["tlloc_desc"].HeaderText = "Location Description";
+            locationsGrid.Columns["tlloc_asgcount"].HeaderText = "Assigned Parts";
+            locationsGrid.RowHeadersWidth = 10;
+        }
+
+        public DataTable buildPartsTable()
+        {
+
+            DataTable TECHLOGLocTable = DBConn.getTable("TECHLOG_LOCATIONS"); ;
+
+            DataTable filledTable = new DataTable();
+            filledTable.Columns.Add("tlloc_ref", typeof(int));
+            filledTable.Columns.Add("tlloc_locid", typeof(string));
+            filledTable.Columns.Add("tlloc_desc", typeof(string));
+            filledTable.Columns.Add("tlloc_asgcount", typeof(string));
+
+            var query =
+            from dt1 in TECHLOGLocTable.AsEnumerable()
+
+            select filledTable.LoadDataRow(new object[]
+            {
+                dt1.Field<int>("tlloc_ref"),
+                dt1.Field<string>("tlloc_locid"),
+                dt1.Field<string>("tlloc_desc"),
+                dt1.Field<string>("tlloc_asgcount")
+            }, false);
+            query.CopyToDataTable();
+
+
+            return filledTable;
+        }
 
         // Buttons and functions general to forms in applications. 
 
@@ -76,6 +114,18 @@ namespace AutomationTechLog
         private void titlePanel_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, this.titlePanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
+        }
+
+        private void locationsGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex == 3)
+            {
+                string temp = e.Value.ToString();
+                if (temp == "0")
+                {
+                    e.Value = "Empty";
+                }
+            }
         }
 
     }

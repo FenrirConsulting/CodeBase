@@ -33,8 +33,11 @@
             this.locationsTitle = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.bodyPanel = new System.Windows.Forms.Panel();
+            this.locationsGrid = new System.Windows.Forms.DataGridView();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
+            this.bodyPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.locationsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -76,12 +79,28 @@
             // 
             // bodyPanel
             // 
+            this.bodyPanel.Controls.Add(this.locationsGrid);
             this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyPanel.Location = new System.Drawing.Point(0, 47);
             this.bodyPanel.Name = "bodyPanel";
             this.bodyPanel.Size = new System.Drawing.Size(800, 403);
             this.bodyPanel.TabIndex = 5;
             this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
+            // 
+            // locationsGrid
+            // 
+            this.locationsGrid.AllowUserToAddRows = false;
+            this.locationsGrid.AllowUserToDeleteRows = false;
+            this.locationsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.locationsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.locationsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.locationsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.locationsGrid.GridColor = System.Drawing.SystemColors.Desktop;
+            this.locationsGrid.Location = new System.Drawing.Point(43, 59);
+            this.locationsGrid.Name = "locationsGrid";
+            this.locationsGrid.Size = new System.Drawing.Size(626, 89);
+            this.locationsGrid.TabIndex = 3;
+            this.locationsGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.locationsGrid_CellFormatting);
             // 
             // LocationsOverview
             // 
@@ -99,6 +118,8 @@
             this.titlePanel.ResumeLayout(false);
             this.titlePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
+            this.bodyPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.locationsGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -109,5 +130,6 @@
         private System.Windows.Forms.Label locationsTitle;
         private System.Windows.Forms.PictureBox closeButton;
         private System.Windows.Forms.Panel bodyPanel;
+        private System.Windows.Forms.DataGridView locationsGrid;
     }
 }

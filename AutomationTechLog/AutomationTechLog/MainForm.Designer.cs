@@ -59,7 +59,9 @@
             this.toolStripSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripCSVButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripClearButton = new System.Windows.Forms.ToolStripButton();
             this.datagridOverview = new System.Windows.Forms.DataGridView();
+            this.likeLabel = new System.Windows.Forms.ToolStripLabel();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).BeginInit();
@@ -354,9 +356,11 @@
             this.toolStripSeparator1,
             this.toolStripSearchLabel,
             this.searchLikeComboBox,
+            this.likeLabel,
             this.toolStripSearchTextBox,
+            this.toolStripCSVButton,
             this.searchButton,
-            this.toolStripCSVButton});
+            this.toolStripClearButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 88);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(1196, 25);
@@ -414,7 +418,6 @@
             // 
             this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
@@ -441,6 +444,17 @@
             this.toolStripCSVButton.Text = "toolStripButton1";
             this.toolStripCSVButton.ToolTipText = "Export to CSV (Excel)";
             // 
+            // toolStripClearButton
+            // 
+            this.toolStripClearButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripClearButton.Image = global::AutomationTechLog.Properties.Resources.Stop;
+            this.toolStripClearButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripClearButton.Name = "toolStripClearButton";
+            this.toolStripClearButton.Size = new System.Drawing.Size(23, 22);
+            this.toolStripClearButton.Text = "toolStripButton1";
+            this.toolStripClearButton.ToolTipText = "Clear Search";
+            this.toolStripClearButton.Click += new System.EventHandler(this.toolStripClearButton_Click);
+            // 
             // datagridOverview
             // 
             this.datagridOverview.AllowUserToAddRows = false;
@@ -458,6 +472,15 @@
             this.datagridOverview.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.datagridOverview_CellFormatting);
             this.datagridOverview.SelectionChanged += new System.EventHandler(this.datagridOverview_SelectionChanged);
             this.datagridOverview.Paint += new System.Windows.Forms.PaintEventHandler(this.datagridOverview_Paint);
+            // 
+            // likeLabel
+            // 
+            this.likeLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.likeLabel.Margin = new System.Windows.Forms.Padding(50, 1, 0, 2);
+            this.likeLabel.Name = "likeLabel";
+            this.likeLabel.Size = new System.Drawing.Size(31, 22);
+            this.likeLabel.Text = "Like:";
+            this.likeLabel.ToolTipText = "Like : ";
             // 
             // MainForm
             // 
@@ -522,5 +545,7 @@
         private System.Windows.Forms.DataGridView datagridOverview;
         private System.Windows.Forms.Label olderDateBox;
         private System.Windows.Forms.Button partsButton;
+        private System.Windows.Forms.ToolStripButton toolStripClearButton;
+        private System.Windows.Forms.ToolStripLabel likeLabel;
     }
 }

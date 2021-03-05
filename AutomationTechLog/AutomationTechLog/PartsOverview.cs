@@ -32,7 +32,30 @@ namespace AutomationTechLog
         public void buildTables() {
 
             TECHLOGInventoryTable = buildPartsTable();
-            partsGrid.DataSource = TECHLOGInventoryTable;
+
+
+            DataView results = new DataView(TECHLOGInventoryTable);
+
+            string builtFilter = "";
+
+            if (searchLikeComboBox.SelectedIndex > -1)
+            {
+                if (searchLikeComboBox.Text == "Part Number") { builtFilter = builtFilter + " tlinv_partnumber = '" + toolStripSearchTextBox.Text + "'" + " AND "; }
+                if (searchLikeComboBox.Text == "Location") { builtFilter = builtFilter + "tlloc_locid = '" + toolStripSearchTextBox.Text + "'" + " AND "; }
+            }
+            if (builtFilter.Length < 5) { builtFilter = builtFilter + " AND "; }
+            builtFilter = builtFilter.Remove(builtFilter.Length - 5);
+            results.RowFilter = builtFilter;
+            results.Sort = "tlinv_partnumber DESC";
+
+            partsGrid.DataSource = results;
+            partsGrid.Columns["tlinv_ref"].Visible = false;
+            partsGrid.Columns["tlinv_partnumber"].HeaderText = "Part Number";
+            partsGrid.Columns["tlloc_locid"].HeaderText = "Location";
+            partsGrid.Columns["tlinv_qty"].HeaderText = "Quantity in Stock";
+            partsGrid.Columns["tlinv_desc"].HeaderText = "Part Description";
+            partsGrid.RowHeadersWidth = 10;
+
         }
 
         public DataTable buildPartsTable()
@@ -120,5 +143,22 @@ namespace AutomationTechLog
             ControlPaint.DrawBorder(e.Graphics, this.bodyPanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
         }
 
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchButton_Click_1(object sender, EventArgs e)
+        {
+            buildTables();
+        }
+
+        private void toolStripClearButton_Click(object sender, EventArgs e)
+        {
+            searchLikeComboBox.Text = "";
+            searchLikeComboBox.SelectedIndex = -1;
+            toolStripSearchTextBox.Text = "";
+            buildTables();
+        }
     }
 }
