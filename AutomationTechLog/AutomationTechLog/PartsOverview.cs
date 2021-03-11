@@ -54,6 +54,7 @@ namespace AutomationTechLog
             partsGrid.Columns["tlloc_locid"].HeaderText = "Location";
             partsGrid.Columns["tlinv_qty"].HeaderText = "Quantity in Stock";
             partsGrid.Columns["tlinv_desc"].HeaderText = "Part Description";
+            partsGrid.Columns["tlinv_partnumber"].ReadOnly = true;
             partsGrid.RowHeadersWidth = 10;
 
         }
@@ -159,6 +160,28 @@ namespace AutomationTechLog
             searchLikeComboBox.SelectedIndex = -1;
             toolStripSearchTextBox.Text = "";
             buildTables();
+        }
+
+        private void partsGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            if (this.selectedDataGrid.DataSource != null)
+            {
+                this.selectedDataGrid.DataSource = null;
+            }
+            else
+            {
+                this.selectedDataGrid.Rows.Clear();
+            }
+            for (int i = 0; i < partsGrid.SelectedRows.Count; i++)
+            {
+                int index = selectedDataGrid.Rows.Add();
+                selectedDataGrid.Rows[index].Cells[0].Value = partsGrid.SelectedRows[i].Cells[0].Value.ToString();
+                selectedDataGrid.Rows[index].Cells[1].Value = partsGrid.SelectedRows[i].Cells[1].Value.ToString();
+                selectedDataGrid.Rows[index].Cells[2].Value = partsGrid.SelectedRows[i].Cells[2].Value.ToString();
+                selectedDataGrid.Rows[index].Cells[3].Value = partsGrid.SelectedRows[i].Cells[3].Value.ToString();
+                selectedDataGrid.Rows[index].Cells[4].Value = partsGrid.SelectedRows[i].Cells[4].Value.ToString();
+
+            }
         }
     }
 }

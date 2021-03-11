@@ -34,10 +34,18 @@
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.bodyPanel = new System.Windows.Forms.Panel();
             this.locationsGrid = new System.Windows.Forms.DataGridView();
+            this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.likeLabel = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.searchButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripClearButton = new System.Windows.Forms.ToolStripButton();
+            this.emptyLocationsLabel = new System.Windows.Forms.ToolStripLabel();
+            this.emptyLocationsButton = new System.Windows.Forms.ToolStripButton();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.locationsGrid)).BeginInit();
+            this.toolStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -79,6 +87,7 @@
             // 
             // bodyPanel
             // 
+            this.bodyPanel.Controls.Add(this.toolStrip);
             this.bodyPanel.Controls.Add(this.locationsGrid);
             this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyPanel.Location = new System.Drawing.Point(0, 47);
@@ -102,6 +111,82 @@
             this.locationsGrid.TabIndex = 3;
             this.locationsGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.locationsGrid_CellFormatting);
             // 
+            // toolStrip
+            // 
+            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.likeLabel,
+            this.toolStripSearchTextBox,
+            this.searchButton,
+            this.toolStripClearButton,
+            this.emptyLocationsLabel,
+            this.emptyLocationsButton});
+            this.toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip.Name = "toolStrip";
+            this.toolStrip.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip.TabIndex = 50;
+            this.toolStrip.Text = "toolStrip1";
+            // 
+            // likeLabel
+            // 
+            this.likeLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.likeLabel.Margin = new System.Windows.Forms.Padding(50, 1, 0, 2);
+            this.likeLabel.Name = "likeLabel";
+            this.likeLabel.Size = new System.Drawing.Size(126, 22);
+            this.likeLabel.Text = "Search Locations Like:";
+            this.likeLabel.ToolTipText = "Like : ";
+            // 
+            // toolStripSearchTextBox
+            // 
+            this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
+            this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
+            this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
+            this.toolStripSearchTextBox.ToolTipText = "Search Criteria";
+            // 
+            // searchButton
+            // 
+            this.searchButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.searchButton.Image = global::AutomationTechLog.Properties.Resources.Search;
+            this.searchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(23, 22);
+            this.searchButton.Text = "toolStripButton1";
+            this.searchButton.ToolTipText = "Run Current Search";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // toolStripClearButton
+            // 
+            this.toolStripClearButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripClearButton.Image = global::AutomationTechLog.Properties.Resources.Stop;
+            this.toolStripClearButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripClearButton.Name = "toolStripClearButton";
+            this.toolStripClearButton.Size = new System.Drawing.Size(23, 22);
+            this.toolStripClearButton.Text = "toolStripButton1";
+            this.toolStripClearButton.ToolTipText = "Clear Search";
+            this.toolStripClearButton.Click += new System.EventHandler(this.toolStripClearButton_Click);
+            // 
+            // emptyLocationsLabel
+            // 
+            this.emptyLocationsLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emptyLocationsLabel.Margin = new System.Windows.Forms.Padding(50, 1, 0, 2);
+            this.emptyLocationsLabel.Name = "emptyLocationsLabel";
+            this.emptyLocationsLabel.Size = new System.Drawing.Size(138, 22);
+            this.emptyLocationsLabel.Text = "Search Empty Locations:";
+            this.emptyLocationsLabel.ToolTipText = "Like : ";
+            // 
+            // emptyLocationsButton
+            // 
+            this.emptyLocationsButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.emptyLocationsButton.Image = global::AutomationTechLog.Properties.Resources.Search;
+            this.emptyLocationsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.emptyLocationsButton.Name = "emptyLocationsButton";
+            this.emptyLocationsButton.Size = new System.Drawing.Size(23, 22);
+            this.emptyLocationsButton.Text = "toolStripButton1";
+            this.emptyLocationsButton.ToolTipText = "Run Current Search";
+            this.emptyLocationsButton.Click += new System.EventHandler(this.emptyLocationsButton_Click);
+            // 
             // LocationsOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,7 +204,10 @@
             this.titlePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             this.bodyPanel.ResumeLayout(false);
+            this.bodyPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.locationsGrid)).EndInit();
+            this.toolStrip.ResumeLayout(false);
+            this.toolStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -131,5 +219,12 @@
         private System.Windows.Forms.PictureBox closeButton;
         private System.Windows.Forms.Panel bodyPanel;
         private System.Windows.Forms.DataGridView locationsGrid;
+        private System.Windows.Forms.ToolStrip toolStrip;
+        private System.Windows.Forms.ToolStripLabel likeLabel;
+        private System.Windows.Forms.ToolStripTextBox toolStripSearchTextBox;
+        private System.Windows.Forms.ToolStripButton searchButton;
+        private System.Windows.Forms.ToolStripButton toolStripClearButton;
+        private System.Windows.Forms.ToolStripLabel emptyLocationsLabel;
+        private System.Windows.Forms.ToolStripButton emptyLocationsButton;
     }
 }

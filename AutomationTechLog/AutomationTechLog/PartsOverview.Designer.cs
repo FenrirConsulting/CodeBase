@@ -30,23 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartsOverview));
             this.titlePanel = new System.Windows.Forms.Panel();
-            this.locationsButton = new System.Windows.Forms.Button();
             this.partsTitle = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.PictureBox();
+            this.locationsButton = new System.Windows.Forms.Button();
             this.bodyPanel = new System.Windows.Forms.Panel();
-            this.partsGrid = new System.Windows.Forms.DataGridView();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripSearchLabel = new System.Windows.Forms.ToolStripLabel();
             this.searchLikeComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.likeLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripClearButton = new System.Windows.Forms.ToolStripButton();
-            this.likeLabel = new System.Windows.Forms.ToolStripLabel();
+            this.partsGrid = new System.Windows.Forms.DataGridView();
+            this.selectedDataGrid = new System.Windows.Forms.DataGridView();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).BeginInit();
             this.toolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -61,20 +63,6 @@
             this.titlePanel.TabIndex = 3;
             this.titlePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.titlePanel_Paint);
             this.titlePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseMove);
-            // 
-            // locationsButton
-            // 
-            this.locationsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
-            this.locationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.locationsButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.locationsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.locationsButton.Location = new System.Drawing.Point(423, 347);
-            this.locationsButton.Name = "locationsButton";
-            this.locationsButton.Size = new System.Drawing.Size(188, 33);
-            this.locationsButton.TabIndex = 48;
-            this.locationsButton.Text = "Locations Management";
-            this.locationsButton.UseVisualStyleBackColor = false;
-            this.locationsButton.Click += new System.EventHandler(this.locationsButton_Click);
             // 
             // partsTitle
             // 
@@ -100,31 +88,32 @@
             this.closeButton.TabStop = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // locationsButton
+            // 
+            this.locationsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.locationsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.locationsButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.locationsButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.locationsButton.Location = new System.Drawing.Point(423, 526);
+            this.locationsButton.Name = "locationsButton";
+            this.locationsButton.Size = new System.Drawing.Size(188, 33);
+            this.locationsButton.TabIndex = 48;
+            this.locationsButton.Text = "Locations Management";
+            this.locationsButton.UseVisualStyleBackColor = false;
+            this.locationsButton.Click += new System.EventHandler(this.locationsButton_Click);
+            // 
             // bodyPanel
             // 
+            this.bodyPanel.Controls.Add(this.selectedDataGrid);
             this.bodyPanel.Controls.Add(this.toolStrip);
             this.bodyPanel.Controls.Add(this.locationsButton);
             this.bodyPanel.Controls.Add(this.partsGrid);
             this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyPanel.Location = new System.Drawing.Point(0, 47);
             this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(647, 411);
+            this.bodyPanel.Size = new System.Drawing.Size(647, 581);
             this.bodyPanel.TabIndex = 4;
             this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
-            // 
-            // partsGrid
-            // 
-            this.partsGrid.AllowUserToAddRows = false;
-            this.partsGrid.AllowUserToDeleteRows = false;
-            this.partsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.partsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.partsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.partsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.partsGrid.GridColor = System.Drawing.SystemColors.Desktop;
-            this.partsGrid.Location = new System.Drawing.Point(36, 28);
-            this.partsGrid.Name = "partsGrid";
-            this.partsGrid.Size = new System.Drawing.Size(575, 89);
-            this.partsGrid.TabIndex = 2;
             // 
             // toolStrip
             // 
@@ -160,10 +149,20 @@
             this.searchLikeComboBox.Size = new System.Drawing.Size(121, 25);
             this.searchLikeComboBox.ToolTipText = "Search Type";
             // 
+            // likeLabel
+            // 
+            this.likeLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.likeLabel.Margin = new System.Windows.Forms.Padding(50, 1, 0, 2);
+            this.likeLabel.Name = "likeLabel";
+            this.likeLabel.Size = new System.Drawing.Size(31, 22);
+            this.likeLabel.Text = "Like:";
+            this.likeLabel.ToolTipText = "Like : ";
+            // 
             // toolStripSearchTextBox
             // 
             this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
@@ -191,21 +190,41 @@
             this.toolStripClearButton.ToolTipText = "Clear Search";
             this.toolStripClearButton.Click += new System.EventHandler(this.toolStripClearButton_Click);
             // 
-            // likeLabel
+            // partsGrid
             // 
-            this.likeLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.likeLabel.Margin = new System.Windows.Forms.Padding(50, 1, 0, 2);
-            this.likeLabel.Name = "likeLabel";
-            this.likeLabel.Size = new System.Drawing.Size(31, 22);
-            this.likeLabel.Text = "Like:";
-            this.likeLabel.ToolTipText = "Like : ";
+            this.partsGrid.AllowUserToAddRows = false;
+            this.partsGrid.AllowUserToDeleteRows = false;
+            this.partsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.partsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.partsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.partsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.partsGrid.GridColor = System.Drawing.SystemColors.Desktop;
+            this.partsGrid.Location = new System.Drawing.Point(36, 28);
+            this.partsGrid.Name = "partsGrid";
+            this.partsGrid.Size = new System.Drawing.Size(575, 235);
+            this.partsGrid.TabIndex = 2;
+            this.partsGrid.SelectionChanged += new System.EventHandler(this.partsGrid_SelectionChanged);
+            // 
+            // selectedDataGrid
+            // 
+            this.selectedDataGrid.AllowUserToAddRows = false;
+            this.selectedDataGrid.AllowUserToDeleteRows = false;
+            this.selectedDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.selectedDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.selectedDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.selectedDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.selectedDataGrid.GridColor = System.Drawing.SystemColors.Desktop;
+            this.selectedDataGrid.Location = new System.Drawing.Point(36, 302);
+            this.selectedDataGrid.Name = "selectedDataGrid";
+            this.selectedDataGrid.Size = new System.Drawing.Size(575, 71);
+            this.selectedDataGrid.TabIndex = 50;
             // 
             // PartsOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(647, 458);
+            this.ClientSize = new System.Drawing.Size(647, 628);
             this.Controls.Add(this.bodyPanel);
             this.Controls.Add(this.titlePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -218,9 +237,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             this.bodyPanel.ResumeLayout(false);
             this.bodyPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,5 +260,6 @@
         private System.Windows.Forms.ToolStripButton searchButton;
         private System.Windows.Forms.ToolStripButton toolStripClearButton;
         private System.Windows.Forms.ToolStripLabel likeLabel;
+        private System.Windows.Forms.DataGridView selectedDataGrid;
     }
 }

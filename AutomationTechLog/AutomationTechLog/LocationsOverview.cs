@@ -24,15 +24,36 @@ namespace AutomationTechLog
         {
             globalUser = passedUser;
             InitializeComponent();
-            buildTables();
+            buildTables(false);
         }
 
-        public void buildTables()
+        public void buildTables(bool emptySwitch)
         {
 
             TECHLOGLocationsTable = buildPartsTable();
-            locationsGrid.DataSource = TECHLOGLocationsTable;
 
+            DataView results = new DataView(TECHLOGLocationsTable);
+
+            string builtFilter = "";
+
+            if (toolStripSearchTextBox.Text != "")
+            {
+
+                builtFilter = builtFilter + " tlloc_locid = '" + toolStripSearchTextBox.Text + "'" + " AND ";
+
+            }
+
+            if (emptySwitch == true) {
+                builtFilter = builtFilter + " tlloc_asgcount = '" + "0" + "'" + " AND ";
+            }
+
+            if (builtFilter.Length < 5) { builtFilter = builtFilter + " AND "; }
+            builtFilter = builtFilter.Remove(builtFilter.Length - 5);
+
+            results.RowFilter = builtFilter;
+            results.Sort = "tlloc_locid DESC";
+
+            locationsGrid.DataSource = results;
             locationsGrid.Columns["tlloc_ref"].Visible = false;
             locationsGrid.Columns["tlloc_locid"].HeaderText = "Location";
             locationsGrid.Columns["tlloc_desc"].HeaderText = "Location Description";
@@ -128,5 +149,21 @@ namespace AutomationTechLog
             }
         }
 
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            buildTables(false);
+        }
+
+        private void toolStripClearButton_Click(object sender, EventArgs e)
+        {
+            toolStripSearchTextBox.Text = "";
+            buildTables(false);
+        }
+
+        private void emptyLocationsButton_Click(object sender, EventArgs e)
+        {
+            toolStripSearchTextBox.Text = "";
+            buildTables(true);
+        }
     }
 }
