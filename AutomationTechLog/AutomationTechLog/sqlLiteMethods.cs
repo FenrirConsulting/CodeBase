@@ -278,6 +278,40 @@ namespace AutomationTechLog
 
         }
 
+        public int techlogPartsInventoryRecordUpdate(int tlinv_ref, string tlinv_partnumber, string tlloc_locid, int tlinv_qty, string tlinv_desc)
+        {
+
+            try
+            {
+
+                ConnectToDatabase();
+                string strCommand = "Update TECHLOG_PARTSINVENTORY Set tlinv_partnumber=@tlinv_partnumber, tlloc_locid=@tlloc_locid, tlinv_qty=@tlinv_qty, tlinv_desc=@tlinv_desc WHERE tlinv_ref=@tlinv_ref";
+
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@tlinv_ref", tlinv_ref);
+                cmdUpdate.Parameters.AddWithValue("@tlinv_partnumber", tlinv_partnumber);
+                cmdUpdate.Parameters.AddWithValue("@tlloc_locid", tlloc_locid);
+                cmdUpdate.Parameters.AddWithValue("@tlinv_qty", tlinv_qty);
+                cmdUpdate.Parameters.AddWithValue("@tlinv_desc", tlinv_desc);
+
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                MessageBox.Show("Part Updated.");
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+
+        }
+
         public int techlogTechsRecordUpdate(string tlt_name, string tlt_shift, string tlt_islead, string tlt_isadmin, string tlt_ispartslead,string tlt_isactive, string tlt_auname)
         {
 
@@ -468,6 +502,37 @@ namespace AutomationTechLog
                 int returnValue = -1;
                 returnValue = cmdUpdate.ExecuteNonQuery();
                 MessageBox.Show("User added succesfully.");
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+
+        }
+
+        public int addTechlogPartsInventoryRecord(int tlinv_ref, string tlinv_partnumber, string tlloc_locid, int tlinv_qty, string tlinv_desc)
+        {
+
+            try
+            {
+                ConnectToDatabase();
+                string strCommand = "INSERT INTO TECHLOG_PARTSINVENTORY (tlinv_ref, tlinv_partnumber, tlloc_locid, tlinv_qty, tlinv_desc) VALUES (@val1,@val2,@val3,@val4,@val5)";
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@val1", tlinv_ref);
+                cmdUpdate.Parameters.AddWithValue("@val2", tlinv_partnumber);
+                cmdUpdate.Parameters.AddWithValue("@val3", tlloc_locid);
+                cmdUpdate.Parameters.AddWithValue("@val4", tlinv_qty);
+                cmdUpdate.Parameters.AddWithValue("@val5", tlinv_desc);
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                MessageBox.Show("Part added succesfully.");
                 Disconnect();
                 return returnValue;
             }

@@ -18,7 +18,7 @@ namespace AutomationTechLog
         sqlLiteMethods DBConn = new sqlLiteMethods();
         DataTable TECHLOGInventoryTable = new DataTable();
         GlobalUser globalUser;
-
+        int selectedRecord;
         public PartsOverview(GlobalUser passedUser)
         {
             globalUser = passedUser;
@@ -56,6 +56,12 @@ namespace AutomationTechLog
             partsGrid.Columns["tlinv_desc"].HeaderText = "Part Description";
             partsGrid.Columns["tlinv_partnumber"].ReadOnly = true;
             partsGrid.RowHeadersWidth = 10;
+
+            DataTable locationListTable = DBConn.getTable("TECHLOG_LOCATIONS");
+            List<String> locationList = locationListTable.Rows.OfType<DataRow>()
+                .Select(dr => dr.Field<string>("tlloc_locid")).ToList();
+            locationList.Insert(0, "Unassigned");
+            locationTextBox.DataSource = locationList;
 
         }
 
@@ -164,24 +170,80 @@ namespace AutomationTechLog
 
         private void partsGrid_SelectionChanged(object sender, EventArgs e)
         {
-            if (this.selectedDataGrid.DataSource != null)
+            if (partsGrid.SelectedRows.Count > 0)
             {
-                this.selectedDataGrid.DataSource = null;
+                string partNumber = partsGrid.SelectedRows[0].Cells["tlinv_partnumber"].Value.ToString();
+                string location = partsGrid.SelectedRows[0].Cells["tlloc_locid"].Value.ToString();
+                string quantity = partsGrid.SelectedRows[0].Cells["tlinv_qty"].Value.ToString();
+                string description = partsGrid.SelectedRows[0].Cells["tlinv_desc"].Value.ToString();
+                selectedRecord = Int32.Parse(partsGrid.SelectedRows[0].Cells["tlinv_ref"].Value.ToString());
+                partNumberTextBox.Text = partNumber;
+                locationTextBox.Text = location;
+                quantityTextBox.Text = quantity;
+                descriptionTextBox.Text = description;
             }
-            else
-            {
-                this.selectedDataGrid.Rows.Clear();
-            }
-            for (int i = 0; i < partsGrid.SelectedRows.Count; i++)
-            {
-                int index = selectedDataGrid.Rows.Add();
-                selectedDataGrid.Rows[index].Cells[0].Value = partsGrid.SelectedRows[i].Cells[0].Value.ToString();
-                selectedDataGrid.Rows[index].Cells[1].Value = partsGrid.SelectedRows[i].Cells[1].Value.ToString();
-                selectedDataGrid.Rows[index].Cells[2].Value = partsGrid.SelectedRows[i].Cells[2].Value.ToString();
-                selectedDataGrid.Rows[index].Cells[3].Value = partsGrid.SelectedRows[i].Cells[3].Value.ToString();
-                selectedDataGrid.Rows[index].Cells[4].Value = partsGrid.SelectedRows[i].Cells[4].Value.ToString();
+        }
 
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            var addPartsForm = new AddPart();
+            addPartsForm.Show();
+            addPartsForm.FormClosed += new FormClosedEventHandler(addPartsForm_Closed);
+        }
+
+        void addPartsForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            buildTables();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr2 = MessageBox.Show("Delete this Part?",
+                "Confirm Delete Part", MessageBoxButtons.YesNo);
+
+            switch (dr2)
+            {
+                case DialogResult.Yes:
+                    deletePartRecord();
+                    break;
+                case DialogResult.No:
+                    break;
             }
+        }
+
+        private void deletePartRecord() {
+            DBConn.deleteRecord("TECHLOG_PARTSINVENTORY", "tlinv_ref", selectedRecord);
+            buildTables();
+        }
+
+        private void quantityTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr2 = MessageBox.Show("Update this Part?",
+                "Confirm Update Part", MessageBoxButtons.YesNo);
+
+            switch (dr2)
+            {
+                case DialogResult.Yes:
+                    updatePartRecord();
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+        }
+
+        private void updatePartRecord() {
+            string tlinv_partnumber = partNumberTextBox.Text;
+            string tlloc_locid = locationTextBox.Text;
+            int tlinv_qty = Int32.Parse(quantityTextBox.Text);
+            string tlinv_desc = descriptionTextBox.Text;
+
+            DBConn.techlogPartsInventoryRecordUpdate(selectedRecord, tlinv_partnumber, tlloc_locid, tlinv_qty, tlinv_desc);
+            buildTables();
         }
     }
 }
