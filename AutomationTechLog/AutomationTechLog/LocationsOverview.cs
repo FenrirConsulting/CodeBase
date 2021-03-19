@@ -19,6 +19,7 @@ namespace AutomationTechLog
         sqlLiteMethods DBConn = new sqlLiteMethods();
         DataTable TECHLOGLocationsTable = new DataTable();
         GlobalUser globalUser;
+        int selectedRecord;
 
         public LocationsOverview(GlobalUser passedUser)
         {
@@ -30,7 +31,7 @@ namespace AutomationTechLog
         public void buildTables(bool emptySwitch)
         {
 
-            TECHLOGLocationsTable = buildPartsTable();
+            TECHLOGLocationsTable = buildLocationsTable();
 
             DataView results = new DataView(TECHLOGLocationsTable);
 
@@ -61,7 +62,7 @@ namespace AutomationTechLog
             locationsGrid.RowHeadersWidth = 10;
         }
 
-        public DataTable buildPartsTable()
+        public DataTable buildLocationsTable()
         {
 
             DataTable TECHLOGLocTable = DBConn.getTable("TECHLOG_LOCATIONS"); ;
@@ -164,6 +165,59 @@ namespace AutomationTechLog
         {
             toolStripSearchTextBox.Text = "";
             buildTables(true);
+        }
+
+        private void workPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.workPanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
+        }
+
+        private void locationsGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            if (locationsGrid.SelectedRows.Count > 0) {
+
+                string locationNumber = locationsGrid.SelectedRows[0].Cells["tlloc_locid"].Value.ToString();
+                string locationDescription = locationsGrid.SelectedRows[0].Cells["tlloc_desc"].Value.ToString();
+                string assignedCount = locationsGrid.SelectedRows[0].Cells["tlloc_asgcount"].Value.ToString();
+                selectedRecord = Int32.Parse(locationsGrid.SelectedRows[0].Cells["tlloc_ref"].Value.ToString());
+
+                countLabel.Text = assignedCount;
+                locationNumberTextBox.Text = locationNumber;
+                descriptionTextBox.Text = locationDescription;
+            }
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            var addLocation = new AddLocation();
+            addLocation.Show();
+            addLocation.FormClosed += new FormClosedEventHandler(addLocationForm_Closed);
+        }
+
+        void addLocationForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            buildTables(false);
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr2 = MessageBox.Show("Delete this Location?",
+               "Confirm Delete Location?", MessageBoxButtons.YesNo);
+
+            switch (dr2)
+            {
+                case DialogResult.Yes:
+                    deleteLocationRecord();
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+        }
+
+        private void deleteLocationRecord() {
+
+            DBConn.deleteRecord("TECHLOG_LOCATIONS", "tlloc_ref", selectedRecord);
+            buildTables(false);
         }
     }
 }

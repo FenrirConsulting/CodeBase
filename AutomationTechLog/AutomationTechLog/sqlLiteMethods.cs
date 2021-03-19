@@ -545,6 +545,37 @@ namespace AutomationTechLog
 
         }
 
+        public int addLocationsRecord(int tlloc_ref, string tlloc_locid, string tlloc_desc, string tlloc_asgcount)
+        {
+
+            try
+            {
+                ConnectToDatabase();
+                string strCommand = "INSERT INTO TECHLOG_LOCATIONS (tlloc_ref, tlloc_locid, tlloc_desc, tlloc_asgcount) VALUES (@val1,@val2,@val3,@val4)";
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@val1", tlloc_ref);
+                cmdUpdate.Parameters.AddWithValue("@val2", tlloc_locid);
+                cmdUpdate.Parameters.AddWithValue("@val3", tlloc_desc);
+                cmdUpdate.Parameters.AddWithValue("@val4", tlloc_asgcount);
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                MessageBox.Show("Location added succesfully.");
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+
+        }
+
+
         public int resetPassword(string tlt_pword, string tlt_auname) {
 
             try

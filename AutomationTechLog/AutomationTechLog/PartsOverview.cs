@@ -245,5 +245,10 @@ namespace AutomationTechLog
             DBConn.techlogPartsInventoryRecordUpdate(selectedRecord, tlinv_partnumber, tlloc_locid, tlinv_qty, tlinv_desc);
             buildTables();
         }
+
+        private void workPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.workPanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
+        }
     }
 }

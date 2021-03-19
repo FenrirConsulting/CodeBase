@@ -34,8 +34,8 @@
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.locationsButton = new System.Windows.Forms.Button();
             this.bodyPanel = new System.Windows.Forms.Panel();
+            this.workPanel = new System.Windows.Forms.Panel();
             this.addButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.locationTextBox = new System.Windows.Forms.ComboBox();
             this.updateButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.workPanel.SuspendLayout();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).BeginInit();
             this.SuspendLayout();
@@ -116,7 +116,7 @@
             // 
             // bodyPanel
             // 
-            this.bodyPanel.Controls.Add(this.panel1);
+            this.bodyPanel.Controls.Add(this.workPanel);
             this.bodyPanel.Controls.Add(this.toolStrip);
             this.bodyPanel.Controls.Add(this.partsGrid);
             this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -126,13 +126,34 @@
             this.bodyPanel.TabIndex = 4;
             this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
             // 
+            // workPanel
+            // 
+            this.workPanel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.workPanel.Controls.Add(this.addButton);
+            this.workPanel.Controls.Add(this.locationTextBox);
+            this.workPanel.Controls.Add(this.updateButton);
+            this.workPanel.Controls.Add(this.deleteButton);
+            this.workPanel.Controls.Add(this.label2);
+            this.workPanel.Controls.Add(this.partNumberTextBox);
+            this.workPanel.Controls.Add(this.label1);
+            this.workPanel.Controls.Add(this.descriptionTextBox);
+            this.workPanel.Controls.Add(this.quantityLabel);
+            this.workPanel.Controls.Add(this.quantityTextBox);
+            this.workPanel.Controls.Add(this.locationLabel);
+            this.workPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.workPanel.Location = new System.Drawing.Point(0, 305);
+            this.workPanel.Name = "workPanel";
+            this.workPanel.Size = new System.Drawing.Size(647, 276);
+            this.workPanel.TabIndex = 54;
+            this.workPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.workPanel_Paint);
+            // 
             // addButton
             // 
             this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.addButton.Location = new System.Drawing.Point(231, 231);
+            this.addButton.Location = new System.Drawing.Point(229, 231);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(188, 33);
             this.addButton.TabIndex = 56;
@@ -140,33 +161,13 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.panel1.Controls.Add(this.addButton);
-            this.panel1.Controls.Add(this.locationTextBox);
-            this.panel1.Controls.Add(this.updateButton);
-            this.panel1.Controls.Add(this.deleteButton);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.partNumberTextBox);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.descriptionTextBox);
-            this.panel1.Controls.Add(this.quantityLabel);
-            this.panel1.Controls.Add(this.quantityTextBox);
-            this.panel1.Controls.Add(this.locationLabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 305);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(647, 276);
-            this.panel1.TabIndex = 54;
-            // 
             // locationTextBox
             // 
             this.locationTextBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.locationTextBox.FormattingEnabled = true;
-            this.locationTextBox.Location = new System.Drawing.Point(244, 53);
+            this.locationTextBox.Location = new System.Drawing.Point(251, 53);
             this.locationTextBox.Name = "locationTextBox";
-            this.locationTextBox.Size = new System.Drawing.Size(121, 21);
+            this.locationTextBox.Size = new System.Drawing.Size(131, 21);
             this.locationTextBox.TabIndex = 117;
             // 
             // updateButton
@@ -203,7 +204,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label2.Location = new System.Drawing.Point(120, 19);
+            this.label2.Location = new System.Drawing.Point(127, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 19);
             this.label2.TabIndex = 115;
@@ -211,7 +212,7 @@
             // 
             // partNumberTextBox
             // 
-            this.partNumberTextBox.Location = new System.Drawing.Point(244, 18);
+            this.partNumberTextBox.Location = new System.Drawing.Point(251, 18);
             this.partNumberTextBox.Name = "partNumberTextBox";
             this.partNumberTextBox.ReadOnly = true;
             this.partNumberTextBox.Size = new System.Drawing.Size(131, 20);
@@ -223,7 +224,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label1.Location = new System.Drawing.Point(119, 88);
+            this.label1.Location = new System.Drawing.Point(126, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 19);
             this.label1.TabIndex = 113;
@@ -231,7 +232,7 @@
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(244, 89);
+            this.descriptionTextBox.Location = new System.Drawing.Point(251, 89);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(269, 52);
@@ -243,7 +244,7 @@
             this.quantityLabel.AutoSize = true;
             this.quantityLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quantityLabel.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.quantityLabel.Location = new System.Drawing.Point(391, 53);
+            this.quantityLabel.Location = new System.Drawing.Point(384, 53);
             this.quantityLabel.Name = "quantityLabel";
             this.quantityLabel.Size = new System.Drawing.Size(73, 19);
             this.quantityLabel.TabIndex = 111;
@@ -251,7 +252,7 @@
             // 
             // quantityTextBox
             // 
-            this.quantityTextBox.Location = new System.Drawing.Point(470, 54);
+            this.quantityTextBox.Location = new System.Drawing.Point(463, 54);
             this.quantityTextBox.Name = "quantityTextBox";
             this.quantityTextBox.Size = new System.Drawing.Size(57, 20);
             this.quantityTextBox.TabIndex = 110;
@@ -263,7 +264,7 @@
             this.locationLabel.AutoSize = true;
             this.locationLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locationLabel.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.locationLabel.Location = new System.Drawing.Point(119, 56);
+            this.locationLabel.Location = new System.Drawing.Point(126, 56);
             this.locationLabel.Name = "locationLabel";
             this.locationLabel.Size = new System.Drawing.Size(71, 19);
             this.locationLabel.TabIndex = 109;
@@ -316,6 +317,7 @@
             // 
             this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
@@ -377,8 +379,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             this.bodyPanel.ResumeLayout(false);
             this.bodyPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.workPanel.ResumeLayout(false);
+            this.workPanel.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).EndInit();
@@ -401,7 +403,7 @@
         private System.Windows.Forms.ToolStripButton searchButton;
         private System.Windows.Forms.ToolStripButton toolStripClearButton;
         private System.Windows.Forms.ToolStripLabel likeLabel;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel workPanel;
         private System.Windows.Forms.Label quantityLabel;
         private System.Windows.Forms.TextBox quantityTextBox;
         private System.Windows.Forms.Label locationLabel;
