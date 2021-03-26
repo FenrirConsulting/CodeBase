@@ -68,11 +68,11 @@ app.on('ready', () => {
     };
 
     
-    if (username == "c067460" || username =="COlson" || username == "GABenjamin") {
+    if (username == "c067460" || username =="COlson" || username == "GABenjamin" || hostname == "IBMM715MJ0622BP" ) {
         userCheck = 7
     };
 
-    if (hostname == "IBMM715MJ0622BP" || hostname == "PCITREPORT" || username=="rfl6wmsdom\\kfrye" || username=="rfl6wmsdom\\PCITHUBCONTROL"){
+    if ( hostname == "PCITREPORT" || username=="rfl6wmsdom\\kfrye" || username=="rfl6wmsdom\\PCITHUBCONTROL"){
         userCheck = 8;
     };
 
