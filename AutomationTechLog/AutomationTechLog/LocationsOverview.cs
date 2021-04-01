@@ -194,6 +194,7 @@ namespace AutomationTechLog
             addLocation.FormClosed += new FormClosedEventHandler(addLocationForm_Closed);
         }
 
+
         void addLocationForm_Closed(object sender, FormClosedEventArgs e)
         {
             buildTables(false);
@@ -216,7 +217,8 @@ namespace AutomationTechLog
 
         private void deleteLocationRecord() {
 
-            DBConn.deleteRecord("TECHLOG_LOCATIONS", "tlloc_ref", selectedRecord);
+            DBConn.updateMatchingLocationRecords("TECHLOG_PARTSINVENTORY", "Unassigned", locationNumberTextBox.Text);
+            DBConn.deleteMatchingRecords("TECHLOG_LOCATIONS","tlloc_locid", locationNumberTextBox.Text);
             buildTables(false);
         }
     }

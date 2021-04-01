@@ -19,6 +19,7 @@ namespace AutomationTechLog
         DataTable TECHLOGInventoryTable = new DataTable();
         GlobalUser globalUser;
         int selectedRecord;
+        string selectedLocation;
         public PartsOverview(GlobalUser passedUser)
         {
             globalUser = passedUser;
@@ -60,7 +61,6 @@ namespace AutomationTechLog
             DataTable locationListTable = DBConn.getTable("TECHLOG_LOCATIONS");
             List<String> locationList = locationListTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlloc_locid")).ToList();
-            locationList.Insert(0, "Unassigned");
             locationTextBox.DataSource = locationList;
 
         }
@@ -133,13 +133,6 @@ namespace AutomationTechLog
             Close();
         }
 
-        private void locationsButton_Click(object sender, EventArgs e)
-        {
-            var locationForm = new LocationsOverview(globalUser);
-            locationForm.Show();
-
-        }
-
         private void titlePanel_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, this.titlePanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
@@ -179,6 +172,7 @@ namespace AutomationTechLog
                 selectedRecord = Int32.Parse(partsGrid.SelectedRows[0].Cells["tlinv_ref"].Value.ToString());
                 partNumberTextBox.Text = partNumber;
                 locationTextBox.Text = location;
+                selectedLocation = location;
                 quantityTextBox.Text = quantity;
                 descriptionTextBox.Text = description;
             }
@@ -192,6 +186,18 @@ namespace AutomationTechLog
         }
 
         void addPartsForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            buildTables();
+        }
+
+        private void locationsButton_Click(object sender, EventArgs e)
+        {
+            var locationForm = new LocationsOverview(globalUser);
+            locationForm.Show();
+            locationForm.FormClosed += new FormClosedEventHandler(locationForm_Closed);
+        }
+
+        void locationForm_Closed(object sender, FormClosedEventArgs e)
         {
             buildTables();
         }
@@ -213,6 +219,7 @@ namespace AutomationTechLog
 
         private void deletePartRecord() {
             DBConn.deleteRecord("TECHLOG_PARTSINVENTORY", "tlinv_ref", selectedRecord);
+            updateLocationCount(selectedLocation);
             buildTables();
         }
 
@@ -241,14 +248,26 @@ namespace AutomationTechLog
             string tlloc_locid = locationTextBox.Text;
             int tlinv_qty = Int32.Parse(quantityTextBox.Text);
             string tlinv_desc = descriptionTextBox.Text;
-
             DBConn.techlogPartsInventoryRecordUpdate(selectedRecord, tlinv_partnumber, tlloc_locid, tlinv_qty, tlinv_desc);
+            updateLocationCount(tlloc_locid);
+            updateLocationCount(selectedLocation);
             buildTables();
         }
 
         private void workPanel_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, this.workPanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
+        }
+
+        private void updateLocationCount(string locationID) {
+
+ 
+                string tempString;
+                DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
+                int numberOfRecords = TECHLOGInvTable.Select("tlloc_locid =" + "'"+locationID+"'").Length;
+                tempString = numberOfRecords.ToString();
+                DBConn.updateLocationCount(tempString, locationID);
+            
         }
     }
 }

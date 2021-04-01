@@ -166,6 +166,116 @@ namespace AutomationTechLog
         }
 
 
+        public DataTable getMatchingRecords(string table, string col, string value) {
+
+            try
+            {
+
+                ConnectToDatabase();
+                string strCommand = "SELECT * FROM " + table + " WHERE " + col +"=@Val";
+                SQLiteCommand cmd = new SQLiteCommand(strCommand);
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@Val", value);
+                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+                Disconnect();
+                return dt;
+
+            }
+
+            catch (SQLiteException e)
+            {
+
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return null;
+            }
+
+
+
+        }
+
+        public int deleteMatchingRecords(string table, string col, string value)
+        {
+            ConnectToDatabase();
+
+            try
+            {
+                string strCommand = "DELETE FROM " + table + " WHERE " + col + "=@Val";
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@Val", value);
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+        }
+
+        public int updateMatchingLocationRecords(string table, string updateValue, string matchingValue)
+        {
+            ConnectToDatabase();
+
+            try
+            {
+                string strCommand = "Update TECHLOG_PARTSINVENTORY Set tlloc_locid=@updateValue WHERE tlloc_locid=@matchingValue";
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@updateValue", updateValue);
+                cmdUpdate.Parameters.AddWithValue("@matchingValue", matchingValue);
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+        }
+
+        public int updateLocationCount(string updateValue, string matchingValue)
+        {
+            ConnectToDatabase();
+
+            try
+            {
+                string strCommand = "Update TECHLOG_LOCATIONS Set tlloc_asgcount=@updateValue WHERE tlloc_locid=@matchingValue";
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@updateValue", updateValue);
+                cmdUpdate.Parameters.AddWithValue("@matchingValue", matchingValue);
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+        }
+
+
+
         public int techlogRecordUpdate(int tl_ref, string tl_state, string tl_wotype, string tl_woasset, string tl_wocomplaint, string tl_worootcause, string tl_wocorrection, 
                                         string tl_genuser, string tl_gendate, string tl_moduser, string tl_moddate)
         {
@@ -644,6 +754,8 @@ namespace AutomationTechLog
                 return -1;
             }
         }
+
+
 
         public int deleteUserRecord(string table, string col, string value)
         {
