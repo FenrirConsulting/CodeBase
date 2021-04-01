@@ -39,7 +39,6 @@ namespace ReportGenerator
 
             if (elementParent == null && ct == 70)
             {
-                MessageBox.Show("EmptyElement");
             }
 
             return elementParent;
@@ -66,7 +65,6 @@ namespace ReportGenerator
 
             if (elementParent == null && ct == 20)
             {
-                MessageBox.Show("EmptyElement");
             }
 
             Thread.Sleep(500);
@@ -268,11 +266,9 @@ namespace ReportGenerator
 
             if (check == true)
             {
-                MessageBox.Show("Enabled");
             }
             else
             {
-                MessageBox.Show("Not Enabled");
             }
         }
 
@@ -325,11 +321,11 @@ namespace ReportGenerator
         {
             if (sentElement != null)
             {
-                MessageBox.Show("Success");
+                
             }
             else 
             {
-                MessageBox.Show("Failure");
+                
             }
         
         }

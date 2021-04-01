@@ -372,10 +372,19 @@ namespace ReportGenerator
                 exportAsComboBox2,
                 okButton2;
 
-            mainFormElement2 = automation.setParentElement("BMIS V3.4.9");
+                mainFormElement2 = automation.setParentElement("BMIS V3.4.9");
 
             Thread.Sleep(8000);
 
+            bool dayCheck = false;
+
+            DateTime today = DateTime.Today;
+            if (today.Day == 1)
+            {
+                dayCheck = true;
+                Console.WriteLine("First Day of the Month");
+            }
+
 
             SendKeys.SendWait("{TAB}");
             Thread.Sleep(300);
@@ -392,10 +401,24 @@ namespace ReportGenerator
             Thread.Sleep(300);
             SendKeys.SendWait("{RIGHT}");
             Thread.Sleep(300);
+
+            if (dayCheck == true) {
+                SendKeys.SendWait("{UP}");
+                Thread.Sleep(300);
+            }
+
             SendKeys.SendWait("{RIGHT}");
             Thread.Sleep(300);
-            SendKeys.SendWait("{UP}");
-            Thread.Sleep(300);
+
+            if (dayCheck == true)
+            {
+                SendKeys.SendWait("1");
+                Thread.Sleep(300);
+            }
+            else {
+                SendKeys.SendWait("{UP}");
+                Thread.Sleep(300);
+            }
 
 
             SendKeys.SendWait("{TAB}");
