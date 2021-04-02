@@ -30,11 +30,13 @@ namespace AutomationTechLog
             DataTable locationListTable = DBConn.getTable("TECHLOG_LOCATIONS");
             List<String> locationList = locationListTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlloc_locid")).ToList();
+            locationList.Insert(0, "Unassigned");
             locationComboBox.DataSource = locationList;
 
             DataTable partsListTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
             List<String> partsList = partsListTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlinv_partnumber")).ToList();
+           
 
             var data = partsList.Where(x =>
             {
@@ -131,7 +133,7 @@ namespace AutomationTechLog
             string tlinv_desc = descriptionTextBox.Text;
 
             DBConn.addTechlogPartsInventoryRecord(tlinv_ref, tlinv_partnumber, tlloc_locid, tlinv_qty, tlinv_desc);
-            updateLocationCount(tlloc_locid);
+            if (tlloc_locid != "Unassigned") { updateLocationCount(tlloc_locid); }
         }
 
         private void updateLocationCount(string locationID)

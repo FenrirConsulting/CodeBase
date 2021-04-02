@@ -34,6 +34,7 @@
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.bodyPanel = new System.Windows.Forms.Panel();
             this.workPanel = new System.Windows.Forms.Panel();
+            this.assignedPartsGrid = new System.Windows.Forms.DataGridView();
             this.countLabel = new System.Windows.Forms.Label();
             this.assignedLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
             this.workPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.assignedPartsGrid)).BeginInit();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.locationsGrid)).BeginInit();
             this.SuspendLayout();
@@ -104,13 +106,14 @@
             this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyPanel.Location = new System.Drawing.Point(0, 47);
             this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(645, 581);
+            this.bodyPanel.Size = new System.Drawing.Size(645, 716);
             this.bodyPanel.TabIndex = 5;
             this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
             // 
             // workPanel
             // 
             this.workPanel.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.workPanel.Controls.Add(this.assignedPartsGrid);
             this.workPanel.Controls.Add(this.countLabel);
             this.workPanel.Controls.Add(this.assignedLabel);
             this.workPanel.Controls.Add(this.label1);
@@ -121,11 +124,26 @@
             this.workPanel.Controls.Add(this.locationLabel);
             this.workPanel.Controls.Add(this.locationNumberTextBox);
             this.workPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.workPanel.Location = new System.Drawing.Point(0, 266);
+            this.workPanel.Location = new System.Drawing.Point(0, 280);
             this.workPanel.Name = "workPanel";
-            this.workPanel.Size = new System.Drawing.Size(645, 315);
+            this.workPanel.Size = new System.Drawing.Size(645, 436);
             this.workPanel.TabIndex = 55;
             this.workPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.workPanel_Paint);
+            // 
+            // assignedPartsGrid
+            // 
+            this.assignedPartsGrid.AllowUserToAddRows = false;
+            this.assignedPartsGrid.AllowUserToDeleteRows = false;
+            this.assignedPartsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.assignedPartsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.assignedPartsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.assignedPartsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.assignedPartsGrid.GridColor = System.Drawing.SystemColors.Desktop;
+            this.assignedPartsGrid.Location = new System.Drawing.Point(111, 164);
+            this.assignedPartsGrid.Name = "assignedPartsGrid";
+            this.assignedPartsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.assignedPartsGrid.Size = new System.Drawing.Size(399, 128);
+            this.assignedPartsGrid.TabIndex = 56;
             // 
             // countLabel
             // 
@@ -133,7 +151,7 @@
             this.countLabel.AutoSize = true;
             this.countLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.countLabel.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.countLabel.Location = new System.Drawing.Point(233, 159);
+            this.countLabel.Location = new System.Drawing.Point(495, 142);
             this.countLabel.Name = "countLabel";
             this.countLabel.Size = new System.Drawing.Size(17, 19);
             this.countLabel.TabIndex = 120;
@@ -145,7 +163,7 @@
             this.assignedLabel.AutoSize = true;
             this.assignedLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assignedLabel.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.assignedLabel.Location = new System.Drawing.Point(115, 159);
+            this.assignedLabel.Location = new System.Drawing.Point(377, 142);
             this.assignedLabel.Name = "assignedLabel";
             this.assignedLabel.Size = new System.Drawing.Size(112, 19);
             this.assignedLabel.TabIndex = 119;
@@ -157,7 +175,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label1.Location = new System.Drawing.Point(137, 71);
+            this.label1.Location = new System.Drawing.Point(137, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 19);
             this.label1.TabIndex = 118;
@@ -165,10 +183,10 @@
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(233, 72);
+            this.descriptionTextBox.Location = new System.Drawing.Point(233, 33);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(269, 52);
+            this.descriptionTextBox.Size = new System.Drawing.Size(269, 106);
             this.descriptionTextBox.TabIndex = 117;
             // 
             // addButton
@@ -177,7 +195,7 @@
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.addButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.addButton.Location = new System.Drawing.Point(228, 270);
+            this.addButton.Location = new System.Drawing.Point(210, 371);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(188, 33);
             this.addButton.TabIndex = 56;
@@ -191,12 +209,13 @@
             this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.updateButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.updateButton.Location = new System.Drawing.Point(340, 217);
+            this.updateButton.Location = new System.Drawing.Point(322, 318);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(188, 33);
             this.updateButton.TabIndex = 116;
             this.updateButton.Text = "Update Location";
             this.updateButton.UseVisualStyleBackColor = false;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
             // deleteButton
             // 
@@ -204,7 +223,7 @@
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deleteButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.deleteButton.Location = new System.Drawing.Point(129, 217);
+            this.deleteButton.Location = new System.Drawing.Point(111, 318);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(188, 33);
             this.deleteButton.TabIndex = 55;
@@ -218,7 +237,7 @@
             this.locationLabel.AutoSize = true;
             this.locationLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locationLabel.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.locationLabel.Location = new System.Drawing.Point(70, 6);
+            this.locationLabel.Location = new System.Drawing.Point(70, 8);
             this.locationLabel.Name = "locationLabel";
             this.locationLabel.Size = new System.Drawing.Size(157, 19);
             this.locationLabel.TabIndex = 115;
@@ -260,7 +279,6 @@
             // 
             this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
@@ -320,7 +338,7 @@
             this.locationsGrid.Location = new System.Drawing.Point(3, 28);
             this.locationsGrid.Name = "locationsGrid";
             this.locationsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.locationsGrid.Size = new System.Drawing.Size(639, 232);
+            this.locationsGrid.Size = new System.Drawing.Size(639, 253);
             this.locationsGrid.TabIndex = 3;
             this.locationsGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.locationsGrid_CellFormatting);
             this.locationsGrid.SelectionChanged += new System.EventHandler(this.locationsGrid_SelectionChanged);
@@ -330,7 +348,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(645, 628);
+            this.ClientSize = new System.Drawing.Size(645, 763);
             this.Controls.Add(this.bodyPanel);
             this.Controls.Add(this.titlePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -345,6 +363,7 @@
             this.bodyPanel.PerformLayout();
             this.workPanel.ResumeLayout(false);
             this.workPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.assignedPartsGrid)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.locationsGrid)).EndInit();
@@ -376,5 +395,6 @@
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.Label assignedLabel;
         private System.Windows.Forms.Label countLabel;
+        private System.Windows.Forms.DataGridView assignedPartsGrid;
     }
 }

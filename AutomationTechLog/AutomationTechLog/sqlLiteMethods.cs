@@ -83,6 +83,7 @@ namespace AutomationTechLog
 
         }
 
+
         public DataTable getOverviewTable(string table)
         {
 
@@ -148,7 +149,36 @@ namespace AutomationTechLog
 
         }
 
-        
+        public DataTable getFilteredPartsGrid(string matchValue)
+        {
+
+            try
+            {
+
+                ConnectToDatabase();
+                string strCommand = "SELECT * FROM TECHLOG_PARTSINVENTORY WHERE tlloc_locid=@matchValue";
+                SQLiteCommand cmd = new SQLiteCommand(strCommand);
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@matchValue", matchValue);
+                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+                Disconnect();
+                return dt;
+
+            }
+
+            catch (SQLiteException e)
+            {
+
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return null;
+            }
+
+        }
+
         public DataTable getSelectedRecord(string table, string referenceID) {
 
             ConnectToDatabase();
@@ -221,6 +251,33 @@ namespace AutomationTechLog
                 return -1;
             }
         }
+
+        public int updateMatchingPartsRecords(string updateValue, string matchingValue)
+        {
+            ConnectToDatabase();
+
+            try
+            {
+                string strCommand = "Update TECHLOG_PARTSINVENTORY Set tlloc_locid=@updateValue WHERE tlinv_partnumber=@matchingValue";
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@updateValue", updateValue);
+                cmdUpdate.Parameters.AddWithValue("@matchingValue", matchingValue);
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+        }
+
 
         public int updateMatchingLocationRecords(string table, string updateValue, string matchingValue)
         {
@@ -457,6 +514,35 @@ namespace AutomationTechLog
                 return -1;
             }
 
+        }
+
+        public int locationRecordUpdate(string tlloc_desc, string tlloc_locid)
+        {
+
+            try
+            {
+
+                ConnectToDatabase();
+                string strCommand = "Update TECHLOG_LOCATIONS Set  tlloc_locid=@tlloc_locid, tlloc_desc=@tlloc_desc WHERE tlloc_locid=@tlloc_locid";
+
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@tlloc_locid", tlloc_locid);
+                cmdUpdate.Parameters.AddWithValue("@tlloc_desc", tlloc_desc);
+
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
         }
 
         public int techlogModDateUpdate(int tl_ref, string tl_moduser,string tl_moddate) {

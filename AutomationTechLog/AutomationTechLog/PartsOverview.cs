@@ -61,6 +61,7 @@ namespace AutomationTechLog
             DataTable locationListTable = DBConn.getTable("TECHLOG_LOCATIONS");
             List<String> locationList = locationListTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlloc_locid")).ToList();
+            locationList.Insert(0, "Unassigned");
             locationTextBox.DataSource = locationList;
 
         }
@@ -249,7 +250,7 @@ namespace AutomationTechLog
             int tlinv_qty = Int32.Parse(quantityTextBox.Text);
             string tlinv_desc = descriptionTextBox.Text;
             DBConn.techlogPartsInventoryRecordUpdate(selectedRecord, tlinv_partnumber, tlloc_locid, tlinv_qty, tlinv_desc);
-            updateLocationCount(tlloc_locid);
+            if (tlloc_locid != "Unassigned") { updateLocationCount(tlloc_locid); }
             updateLocationCount(selectedLocation);
             buildTables();
         }

@@ -18,7 +18,9 @@ namespace AutomationTechLog
     {
         sqlLiteMethods DBConn = new sqlLiteMethods();
         DataTable TECHLOGLocationsTable = new DataTable();
+        DataTable TECHLOGPartsTable = new DataTable();
         GlobalUser globalUser;
+        string selectedLocation = "";
         int selectedRecord;
 
         public LocationsOverview(GlobalUser passedUser)
@@ -32,6 +34,10 @@ namespace AutomationTechLog
         {
 
             TECHLOGLocationsTable = buildLocationsTable();
+            TECHLOGPartsTable = buildPartsTable();
+
+
+            populatePartsGrid("");
 
             DataView results = new DataView(TECHLOGLocationsTable);
 
@@ -82,6 +88,35 @@ namespace AutomationTechLog
                 dt1.Field<string>("tlloc_locid"),
                 dt1.Field<string>("tlloc_desc"),
                 dt1.Field<string>("tlloc_asgcount")
+            }, false);
+            query.CopyToDataTable();
+
+
+            return filledTable;
+        }
+
+        public DataTable buildPartsTable()
+        {
+
+            DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY"); ;
+
+            DataTable filledTable = new DataTable();
+            filledTable.Columns.Add("tlinv_ref", typeof(int));
+            filledTable.Columns.Add("tlinv_partnumber", typeof(string));
+            filledTable.Columns.Add("tlloc_locid", typeof(string));
+            filledTable.Columns.Add("tlinv_qty", typeof(int));
+            filledTable.Columns.Add("tlinv_desc", typeof(string));
+
+            var query =
+            from dt1 in TECHLOGInvTable.AsEnumerable()
+
+            select filledTable.LoadDataRow(new object[]
+            {
+                dt1.Field<int>("tlinv_ref"),
+                dt1.Field<string>("tlinv_partnumber"),
+                dt1.Field<string>("tlloc_locid"),
+                dt1.Field<int>("tlinv_qty"),
+                dt1.Field<string>("tlinv_desc")
             }, false);
             query.CopyToDataTable();
 
@@ -180,10 +215,12 @@ namespace AutomationTechLog
                 string locationDescription = locationsGrid.SelectedRows[0].Cells["tlloc_desc"].Value.ToString();
                 string assignedCount = locationsGrid.SelectedRows[0].Cells["tlloc_asgcount"].Value.ToString();
                 selectedRecord = Int32.Parse(locationsGrid.SelectedRows[0].Cells["tlloc_ref"].Value.ToString());
-
+                selectedLocation = locationNumber;
                 countLabel.Text = assignedCount;
                 locationNumberTextBox.Text = locationNumber;
                 descriptionTextBox.Text = locationDescription;
+
+                populatePartsGrid(locationNumber);
             }
         }
 
@@ -194,6 +231,33 @@ namespace AutomationTechLog
             addLocation.FormClosed += new FormClosedEventHandler(addLocationForm_Closed);
         }
 
+        private void populatePartsGrid(string locationNumber) {
+
+            assignedPartsGrid.DataSource = null;
+            DataTable filteredTable = DBConn.getFilteredPartsGrid(locationNumber);
+
+            assignedPartsGrid.DataSource = filteredTable;
+
+            assignedPartsGrid.Columns["tlinv_ref"].Visible = false;
+            assignedPartsGrid.Columns["tlinv_partnumber"].HeaderText = "Part Number";
+            assignedPartsGrid.Columns["tlloc_locid"].Visible = false;
+
+            DataTable locationListTable = DBConn.getTable("TECHLOG_LOCATIONS");
+            List<String> locationList = locationListTable.Rows.OfType<DataRow>()
+                .Select(dr => dr.Field<string>("tlloc_locid")).ToList();
+            locationList.Insert(0, "Unassigned");
+            DataGridViewComboBoxColumn locationListBox = new DataGridViewComboBoxColumn();
+            locationListBox.DataSource = locationList;
+            locationListBox.HeaderText = "Location";
+            locationListBox.Name = "Location";
+            assignedPartsGrid.Columns.Add(locationListBox);
+            assignedPartsGrid.Columns["Location"].DataPropertyName = "tlloc_locid";
+
+            assignedPartsGrid.Columns["tlinv_qty"].Visible = false;
+            assignedPartsGrid.Columns["tlinv_desc"].HeaderText = "Part Description";
+            assignedPartsGrid.RowHeadersWidth = 10;
+
+        }
 
         void addLocationForm_Closed(object sender, FormClosedEventArgs e)
         {
@@ -220,6 +284,50 @@ namespace AutomationTechLog
             DBConn.updateMatchingLocationRecords("TECHLOG_PARTSINVENTORY", "Unassigned", locationNumberTextBox.Text);
             DBConn.deleteMatchingRecords("TECHLOG_LOCATIONS","tlloc_locid", locationNumberTextBox.Text);
             buildTables(false);
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr2 = MessageBox.Show("Update this Location?",
+                "Confirm Update Location?", MessageBoxButtons.YesNo);
+
+            switch (dr2)
+            {
+                case DialogResult.Yes:
+                    updateLocationRecord();
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+        }
+
+        private void updateLocationRecord() {
+
+
+
+                foreach (DataGridViewRow row in assignedPartsGrid.Rows) {
+
+                    string tempLocation = row.Cells["Location"].Value.ToString();
+                    string tlinv_partnumber = row.Cells["tlinv_partnumber"].Value.ToString();
+                    DBConn.updateMatchingPartsRecords(tempLocation, tlinv_partnumber);
+                    if (tempLocation != "Unassigned") { updateLocationCount(tempLocation); }
+                
+            }
+            updateLocationCount(selectedLocation);
+            DBConn.locationRecordUpdate(descriptionTextBox.Text, locationNumberTextBox.Text);
+            buildTables(false);
+
+        }
+
+        private void updateLocationCount(string locationID)
+        {
+
+            string tempString;
+            DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
+            int numberOfRecords = TECHLOGInvTable.Select("tlloc_locid =" + "'" + locationID + "'").Length;
+            tempString = numberOfRecords.ToString();
+            DBConn.updateLocationCount(tempString, locationID);
+
         }
     }
 }
