@@ -279,6 +279,7 @@
             // 
             this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
