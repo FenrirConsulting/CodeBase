@@ -329,5 +329,6 @@ namespace AutomationTechLog
             DBConn.updateLocationCount(tempString, locationID);
 
         }
+
     }
 }
