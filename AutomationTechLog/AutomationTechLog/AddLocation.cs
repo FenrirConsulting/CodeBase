@@ -33,19 +33,16 @@ namespace AutomationTechLog
             List<String> locationsList = locationsListTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlloc_locid")).ToList();
 
-                var data = locationsList.Where(x =>
-                {
-                    decimal temp;
-                    return decimal.TryParse(x, out temp);
-                }).Max(x => Convert.ToDecimal(x));
-                data++;
-                locationTextBox.Text = data.ToString();
-                descriptionTextBox.Text = "";
-          
 
+            int data = locationsList.Where(x => x.Any(Char.IsDigit))
+            .Select(x => int.Parse(new string(x.Where(Char.IsDigit).ToArray())))
+            .DefaultIfEmpty(0).Max();
+
+            data++;
+            locationTextBox.Text = data.ToString();
+            descriptionTextBox.Text = "";
 
         }
-
 
         private void addButton_Click(object sender, EventArgs e)
         {
