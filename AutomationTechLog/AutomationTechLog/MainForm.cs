@@ -32,6 +32,7 @@ namespace AutomationTechLog
         {
             InitializeComponent();
             DateTime currentTime = DateTime.Now;
+            DateTime currentDate = DateTime.Now.AddDays(-2); ;
             DateTime olderThanDate = DateTime.Now.AddDays(-60);
 
             int weekNumber = GetWeekNumber(currentTime);
@@ -51,8 +52,11 @@ namespace AutomationTechLog
             reportsButton.Visible = false;
 
             string currentTimeFormated = formatDate(currentTime);
+            string currentDateFormated = formatDate(currentDate);
             string olderThanDateFormatted = formatDate(olderThanDate);
-            olderDateBox.Text = olderThanDateFormatted;
+            olderDateBox.Text = currentDateFormated;
+            olderRecordsCheckbox.Enabled = false;
+            if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True") { olderRecordsCheckbox.Enabled = true; }
 
             DataTable searchedTable = buildOverviewDataTable();
             string builtSQL = buildSQL();

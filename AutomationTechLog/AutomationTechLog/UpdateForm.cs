@@ -27,6 +27,7 @@ namespace AutomationTechLog
         DataTable TECHLOGTable = new DataTable();
         DataTable TECHLOGUserTable = new DataTable();
         DataTable TECHLOGPartsTable = new DataTable();
+        DataTable TECHLOGInventoryTable = new DataTable();
         string modUser = "";
         string modDate = "";
         int techsCount = 0;
@@ -115,13 +116,34 @@ namespace AutomationTechLog
 
 
             deleteButton.Enabled = false; deleteButton.Visible = false;
+            userGrid.ReadOnly = true;
             addUserBox.Text = globalUser.globalUsername;
+            addUserBox.Enabled = false;
             string currentUserSelection = selectedRow["tl_genuser"].ToString();
             if (currentUserSelection == globalUser.globalUsername) { deleteButton.Visible = true; deleteButton.Enabled = true; }
 
-            if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True") { deleteButton.Enabled = true; deleteButton.Visible = true; }
+            
 
+            if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True") { 
+                deleteButton.Enabled = true; 
+                deleteButton.Visible = true;
+                userGrid.ReadOnly = false;
+                addUserBox.Enabled = true;
+            }
 
+            if (stateComboBox.Text == "Completed") {
+                stateComboBox.Enabled = false;
+                if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True") { 
+                    stateComboBox.Enabled = true;
+                }
+            }
+
+            TECHLOGInventoryTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
+            List<String> partsList = TECHLOGInventoryTable.Rows.OfType<DataRow>()
+                .Select(dr => dr.Field<string>("tlinv_partnumber")).ToList();
+            partsList.Insert(0, "Unlisted");
+            addPartNumberBox.DataSource = partsList;
+            addPartNumberBox.DropDownStyle = ComboBoxStyle.DropDown;
 
         }
 
@@ -635,6 +657,7 @@ namespace AutomationTechLog
 
         private void partsGrid_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
+            /*
             if (e.ColumnIndex == 2 || e.ColumnIndex == 3) // 1 should be your column index
             {
                 int i;
@@ -649,6 +672,7 @@ namespace AutomationTechLog
                     // the input is numeric 
                 }
             }
+            */
         }
 
         private void addTimeTextBox_TextChanged(object sender, EventArgs e)
@@ -699,5 +723,69 @@ namespace AutomationTechLog
             DBConn.techlogModDateUpdate(tl_ref, tl_moduser, tl_moddate);
         }
 
+        private void addPartNumberBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            cb.DroppedDown = true;
+            string strFindStr = "";
+            if (e.KeyChar == (char)8)
+            {
+                if (cb.SelectionStart <= 1)
+                {
+                    cb.Text = "";
+                    return;
+                }
+
+                if (cb.SelectionLength == 0)
+                    strFindStr = cb.Text.Substring(0, cb.Text.Length - 1);
+                else
+                    strFindStr = cb.Text.Substring(0, cb.SelectionStart - 1);
+            }
+            else
+            {
+                if (cb.SelectionLength == 0)
+                    strFindStr = cb.Text + e.KeyChar;
+                else
+                    strFindStr = cb.Text.Substring(0, cb.SelectionStart) + e.KeyChar;
+            }
+            int intIdx = -1;
+            // Search the string in the ComboBox list.
+            intIdx = cb.FindString(strFindStr);
+            if (intIdx != -1)
+            {
+                cb.SelectedText = "";
+                cb.SelectedIndex = intIdx;
+                cb.SelectionStart = strFindStr.Length;
+                cb.SelectionLength = cb.Text.Length;
+                e.Handled = true;
+            }
+            else
+                e.Handled = true;
+        }
+
+        private void addPartNumberBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string tempLocation = "Unassigned";
+            string tempDescription = "No Description";
+
+            foreach (DataRow row in TECHLOGInventoryTable.Rows) {
+
+                if (addPartNumberBox.Text == row["tlinv_partnumber"].ToString())
+                {
+
+                    tempLocation = row["tlloc_locid"].ToString();
+                    tempDescription = row["tlinv_desc"].ToString();
+
+                    addLocationBox.Text = tempLocation;
+                    addDescriptionBox.Text = tempDescription;
+                }
+
+            }
+
+            addLocationBox.Text = tempLocation;
+            addDescriptionBox.Text = tempDescription;
+
+        }
     }
 }

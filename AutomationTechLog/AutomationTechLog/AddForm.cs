@@ -28,6 +28,7 @@ namespace AutomationTechLog
         DataTable TECHLOGTable = new DataTable();
         DataTable TECHLOGUserTable = new DataTable();
         DataTable TECHLOGPartsTable = new DataTable();
+        DataTable TECHLOGInventoryTable = new DataTable();
         int creatingRecord;
         string formmatedTime; 
 
@@ -50,12 +51,13 @@ namespace AutomationTechLog
                 .Select(dr => dr.Field<string>("tlt_name")).ToList();
             addUserBox.DataSource = userList;
 
+
             stateComboBox.Text = "Entered";
             typeComboBox.Text = "Unplanned";
             assetTextBox.Text = "Enter Asset";
-            complaintTextBox.Text = "Enter Complaint";
-            causeTextBox.Text = "Enter Cause";
-            correctionTextBox.Text = "Enter Correction";
+            complaintTextBox.Text = "";
+            causeTextBox.Text = "";
+            correctionTextBox.Text = "";
 
             addShiftBox.Text = "1";
             addTimeTextBox.Text="10";
@@ -69,7 +71,22 @@ namespace AutomationTechLog
             formmatedTime = currentTime.ToString("MM/dd/yyyy HH:mm:ss");
             creatingLabel.Text = "Creating record at : " + formmatedTime;
             addUserBox.Text = globalUser.globalUsername;
+            addUserBox.Enabled = false;
+            if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True")
+            {
+                addUserBox.Enabled = true;
+            }
+
+            TECHLOGInventoryTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
+            List<String> partsList = TECHLOGInventoryTable.Rows.OfType<DataRow>()
+                .Select(dr => dr.Field<string>("tlinv_partnumber")).ToList();
+            partsList.Insert(0, "Unlisted");
+            addPartNumberBox.DataSource = partsList;
+            addPartNumberBox.DropDownStyle = ComboBoxStyle.DropDown;
+
         }
+
+
 
 
 
@@ -238,6 +255,30 @@ namespace AutomationTechLog
             string tlp_description = addDescriptionBox.Text;
 
             DBConn.addTechlogPartsRecord(tlp_ref, tl_ref, tlp_qnty, tlp_partnumber, tlp_location, tlp_description);
+        }
+
+        private void addPartNumberBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tempLocation = "Unassigned";
+            string tempDescription = "No Description";
+
+            foreach (DataRow row in TECHLOGInventoryTable.Rows)
+            {
+
+                if (addPartNumberBox.Text == row["tlinv_partnumber"].ToString())
+                {
+
+                    tempLocation = row["tlloc_locid"].ToString();
+                    tempDescription = row["tlinv_desc"].ToString();
+
+                    addLocationBox.Text = tempLocation;
+                    addDescriptionBox.Text = tempDescription;
+                }
+
+            }
+
+            addLocationBox.Text = tempLocation;
+            addDescriptionBox.Text = tempDescription;
         }
     }
 }

@@ -41,7 +41,6 @@ namespace AutomationTechLog
             this.correctionAdditionLabel = new System.Windows.Forms.Label();
             this.additionalCorrectionsBox = new System.Windows.Forms.TextBox();
             this.addPartButton = new System.Windows.Forms.Button();
-            this.addPartNumberBox = new System.Windows.Forms.TextBox();
             this.addLocationBox = new System.Windows.Forms.TextBox();
             this.addDescriptionBox = new System.Windows.Forms.TextBox();
             this.addQuantityBox = new System.Windows.Forms.TextBox();
@@ -70,6 +69,7 @@ namespace AutomationTechLog
             this.modifiedLabel = new System.Windows.Forms.Label();
             this.partsGrid = new System.Windows.Forms.DataGridView();
             this.userGrid = new System.Windows.Forms.DataGridView();
+            this.addPartNumberBox = new System.Windows.Forms.ComboBox();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
@@ -116,6 +116,7 @@ namespace AutomationTechLog
             // 
             // bodyPanel
             // 
+            this.bodyPanel.Controls.Add(this.addPartNumberBox);
             this.bodyPanel.Controls.Add(this.additionalComplaintsLabel);
             this.bodyPanel.Controls.Add(this.additionalComplaintsBox);
             this.bodyPanel.Controls.Add(this.additionalCauseLabel);
@@ -123,7 +124,6 @@ namespace AutomationTechLog
             this.bodyPanel.Controls.Add(this.correctionAdditionLabel);
             this.bodyPanel.Controls.Add(this.additionalCorrectionsBox);
             this.bodyPanel.Controls.Add(this.addPartButton);
-            this.bodyPanel.Controls.Add(this.addPartNumberBox);
             this.bodyPanel.Controls.Add(this.addLocationBox);
             this.bodyPanel.Controls.Add(this.addDescriptionBox);
             this.bodyPanel.Controls.Add(this.addQuantityBox);
@@ -242,26 +242,23 @@ namespace AutomationTechLog
             this.addPartButton.UseVisualStyleBackColor = false;
             this.addPartButton.Click += new System.EventHandler(this.addPartButton_Click);
             // 
-            // addPartNumberBox
-            // 
-            this.addPartNumberBox.Location = new System.Drawing.Point(145, 592);
-            this.addPartNumberBox.Name = "addPartNumberBox";
-            this.addPartNumberBox.Size = new System.Drawing.Size(131, 20);
-            this.addPartNumberBox.TabIndex = 11;
-            // 
             // addLocationBox
             // 
             this.addLocationBox.Location = new System.Drawing.Point(275, 592);
             this.addLocationBox.Name = "addLocationBox";
+            this.addLocationBox.ReadOnly = true;
             this.addLocationBox.Size = new System.Drawing.Size(131, 20);
             this.addLocationBox.TabIndex = 12;
+            this.addLocationBox.Text = "Unassigned";
             // 
             // addDescriptionBox
             // 
             this.addDescriptionBox.Location = new System.Drawing.Point(405, 592);
             this.addDescriptionBox.Name = "addDescriptionBox";
+            this.addDescriptionBox.ReadOnly = true;
             this.addDescriptionBox.Size = new System.Drawing.Size(131, 20);
             this.addDescriptionBox.TabIndex = 77;
+            this.addDescriptionBox.Text = "Description";
             // 
             // addQuantityBox
             // 
@@ -269,6 +266,7 @@ namespace AutomationTechLog
             this.addQuantityBox.Name = "addQuantityBox";
             this.addQuantityBox.Size = new System.Drawing.Size(131, 20);
             this.addQuantityBox.TabIndex = 10;
+            this.addQuantityBox.Text = "0";
             this.addQuantityBox.TextChanged += new System.EventHandler(this.addQuantityBox_TextChanged);
             // 
             // addTechButton
@@ -560,6 +558,7 @@ namespace AutomationTechLog
             this.partsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.partsGrid.Location = new System.Drawing.Point(12, 627);
             this.partsGrid.Name = "partsGrid";
+            this.partsGrid.ReadOnly = true;
             this.partsGrid.Size = new System.Drawing.Size(524, 68);
             this.partsGrid.TabIndex = 2;
             this.partsGrid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.partsGrid_CellMouseClick);
@@ -581,6 +580,17 @@ namespace AutomationTechLog
             this.userGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGrid_CellClick);
             this.userGrid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.userGrid_CellMouseClick);
             this.userGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.userGrid_CellValidating);
+            // 
+            // addPartNumberBox
+            // 
+            this.addPartNumberBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.addPartNumberBox.FormattingEnabled = true;
+            this.addPartNumberBox.Location = new System.Drawing.Point(145, 592);
+            this.addPartNumberBox.Name = "addPartNumberBox";
+            this.addPartNumberBox.Size = new System.Drawing.Size(131, 21);
+            this.addPartNumberBox.TabIndex = 87;
+            this.addPartNumberBox.SelectedIndexChanged += new System.EventHandler(this.addPartNumberBox_SelectedIndexChanged);
+            this.addPartNumberBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addPartNumberBox_KeyPress);
             // 
             // UpdateForm
             // 
@@ -637,7 +647,6 @@ namespace AutomationTechLog
         private System.Windows.Forms.DateTimePicker addUserDateTime;
         private System.Windows.Forms.ComboBox addShiftBox;
         private System.Windows.Forms.Button addTechButton;
-        private System.Windows.Forms.TextBox addPartNumberBox;
         private System.Windows.Forms.TextBox addLocationBox;
         private System.Windows.Forms.TextBox addDescriptionBox;
         private System.Windows.Forms.TextBox addQuantityBox;
@@ -648,5 +657,6 @@ namespace AutomationTechLog
         private System.Windows.Forms.TextBox additionalCausesBox;
         private System.Windows.Forms.Label additionalComplaintsLabel;
         private System.Windows.Forms.TextBox additionalComplaintsBox;
+        private System.Windows.Forms.ComboBox addPartNumberBox;
     }
 }

@@ -42,7 +42,6 @@ namespace AutomationTechLog
             this.locationLabel = new System.Windows.Forms.Label();
             this.partNumberLabel = new System.Windows.Forms.Label();
             this.quantityLabel = new System.Windows.Forms.Label();
-            this.addPartNumberBox = new System.Windows.Forms.TextBox();
             this.addLocationBox = new System.Windows.Forms.TextBox();
             this.addDescriptionBox = new System.Windows.Forms.TextBox();
             this.addQuantityBox = new System.Windows.Forms.TextBox();
@@ -67,9 +66,12 @@ namespace AutomationTechLog
             this.techsLabel = new System.Windows.Forms.Label();
             this.correctionTextBox = new System.Windows.Forms.TextBox();
             this.creatingLabel = new System.Windows.Forms.Label();
+            this.addPartNumberBox = new System.Windows.Forms.ComboBox();
+            this.partsGrid = new System.Windows.Forms.DataGridView();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -111,6 +113,8 @@ namespace AutomationTechLog
             // 
             // bodyPanel
             // 
+            this.bodyPanel.Controls.Add(this.partsGrid);
+            this.bodyPanel.Controls.Add(this.addPartNumberBox);
             this.bodyPanel.Controls.Add(this.nameLabel);
             this.bodyPanel.Controls.Add(this.label3);
             this.bodyPanel.Controls.Add(this.timeLabel);
@@ -119,7 +123,6 @@ namespace AutomationTechLog
             this.bodyPanel.Controls.Add(this.locationLabel);
             this.bodyPanel.Controls.Add(this.partNumberLabel);
             this.bodyPanel.Controls.Add(this.quantityLabel);
-            this.bodyPanel.Controls.Add(this.addPartNumberBox);
             this.bodyPanel.Controls.Add(this.addLocationBox);
             this.bodyPanel.Controls.Add(this.addDescriptionBox);
             this.bodyPanel.Controls.Add(this.addQuantityBox);
@@ -209,7 +212,7 @@ namespace AutomationTechLog
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionLabel.ForeColor = System.Drawing.Color.Black;
-            this.descriptionLabel.Location = new System.Drawing.Point(426, 454);
+            this.descriptionLabel.Location = new System.Drawing.Point(425, 435);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(86, 19);
             this.descriptionLabel.TabIndex = 108;
@@ -222,7 +225,7 @@ namespace AutomationTechLog
             this.locationLabel.AutoSize = true;
             this.locationLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.locationLabel.ForeColor = System.Drawing.Color.Black;
-            this.locationLabel.Location = new System.Drawing.Point(295, 454);
+            this.locationLabel.Location = new System.Drawing.Point(294, 435);
             this.locationLabel.Name = "locationLabel";
             this.locationLabel.Size = new System.Drawing.Size(67, 19);
             this.locationLabel.TabIndex = 107;
@@ -235,7 +238,7 @@ namespace AutomationTechLog
             this.partNumberLabel.AutoSize = true;
             this.partNumberLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partNumberLabel.ForeColor = System.Drawing.Color.Black;
-            this.partNumberLabel.Location = new System.Drawing.Point(167, 454);
+            this.partNumberLabel.Location = new System.Drawing.Point(166, 435);
             this.partNumberLabel.Name = "partNumberLabel";
             this.partNumberLabel.Size = new System.Drawing.Size(98, 19);
             this.partNumberLabel.TabIndex = 106;
@@ -248,37 +251,34 @@ namespace AutomationTechLog
             this.quantityLabel.AutoSize = true;
             this.quantityLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quantityLabel.ForeColor = System.Drawing.Color.Black;
-            this.quantityLabel.Location = new System.Drawing.Point(35, 454);
+            this.quantityLabel.Location = new System.Drawing.Point(34, 435);
             this.quantityLabel.Name = "quantityLabel";
             this.quantityLabel.Size = new System.Drawing.Size(69, 19);
             this.quantityLabel.TabIndex = 105;
             this.quantityLabel.Text = "Quantity";
             this.quantityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // addPartNumberBox
-            // 
-            this.addPartNumberBox.Location = new System.Drawing.Point(145, 476);
-            this.addPartNumberBox.Name = "addPartNumberBox";
-            this.addPartNumberBox.Size = new System.Drawing.Size(131, 20);
-            this.addPartNumberBox.TabIndex = 11;
-            // 
             // addLocationBox
             // 
-            this.addLocationBox.Location = new System.Drawing.Point(275, 476);
+            this.addLocationBox.Location = new System.Drawing.Point(274, 457);
             this.addLocationBox.Name = "addLocationBox";
+            this.addLocationBox.ReadOnly = true;
             this.addLocationBox.Size = new System.Drawing.Size(131, 20);
             this.addLocationBox.TabIndex = 12;
+            this.addLocationBox.Text = "Unassigned";
             // 
             // addDescriptionBox
             // 
-            this.addDescriptionBox.Location = new System.Drawing.Point(405, 476);
+            this.addDescriptionBox.Location = new System.Drawing.Point(404, 457);
             this.addDescriptionBox.Name = "addDescriptionBox";
+            this.addDescriptionBox.ReadOnly = true;
             this.addDescriptionBox.Size = new System.Drawing.Size(131, 20);
             this.addDescriptionBox.TabIndex = 13;
+            this.addDescriptionBox.Text = "No Description";
             // 
             // addQuantityBox
             // 
-            this.addQuantityBox.Location = new System.Drawing.Point(15, 476);
+            this.addQuantityBox.Location = new System.Drawing.Point(14, 457);
             this.addQuantityBox.Name = "addQuantityBox";
             this.addQuantityBox.Size = new System.Drawing.Size(131, 20);
             this.addQuantityBox.TabIndex = 10;
@@ -456,7 +456,7 @@ namespace AutomationTechLog
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cancelButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.cancelButton.Location = new System.Drawing.Point(332, 544);
+            this.cancelButton.Location = new System.Drawing.Point(332, 580);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(88, 40);
             this.cancelButton.TabIndex = 15;
@@ -470,7 +470,7 @@ namespace AutomationTechLog
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.saveButton.Location = new System.Drawing.Point(107, 544);
+            this.saveButton.Location = new System.Drawing.Point(106, 580);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(88, 40);
             this.saveButton.TabIndex = 14;
@@ -484,7 +484,7 @@ namespace AutomationTechLog
             this.partsLabel.AutoSize = true;
             this.partsLabel.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partsLabel.ForeColor = System.Drawing.Color.Black;
-            this.partsLabel.Location = new System.Drawing.Point(225, 420);
+            this.partsLabel.Location = new System.Drawing.Point(224, 401);
             this.partsLabel.Name = "partsLabel";
             this.partsLabel.Size = new System.Drawing.Size(103, 23);
             this.partsLabel.TabIndex = 83;
@@ -497,7 +497,7 @@ namespace AutomationTechLog
             this.techsLabel.AutoSize = true;
             this.techsLabel.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.techsLabel.ForeColor = System.Drawing.Color.Black;
-            this.techsLabel.Location = new System.Drawing.Point(210, 310);
+            this.techsLabel.Location = new System.Drawing.Point(224, 310);
             this.techsLabel.Name = "techsLabel";
             this.techsLabel.Size = new System.Drawing.Size(105, 23);
             this.techsLabel.TabIndex = 82;
@@ -520,12 +520,36 @@ namespace AutomationTechLog
             this.creatingLabel.AutoSize = true;
             this.creatingLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.creatingLabel.ForeColor = System.Drawing.Color.Black;
-            this.creatingLabel.Location = new System.Drawing.Point(12, 612);
+            this.creatingLabel.Location = new System.Drawing.Point(8, 623);
             this.creatingLabel.Name = "creatingLabel";
             this.creatingLabel.Size = new System.Drawing.Size(135, 19);
             this.creatingLabel.TabIndex = 80;
             this.creatingLabel.Text = "Creating Record at";
             this.creatingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // addPartNumberBox
+            // 
+            this.addPartNumberBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.addPartNumberBox.FormattingEnabled = true;
+            this.addPartNumberBox.Location = new System.Drawing.Point(142, 457);
+            this.addPartNumberBox.Name = "addPartNumberBox";
+            this.addPartNumberBox.Size = new System.Drawing.Size(131, 21);
+            this.addPartNumberBox.TabIndex = 113;
+            this.addPartNumberBox.SelectedIndexChanged += new System.EventHandler(this.addPartNumberBox_SelectedIndexChanged);
+            // 
+            // partsGrid
+            // 
+            this.partsGrid.AllowUserToAddRows = false;
+            this.partsGrid.AllowUserToDeleteRows = false;
+            this.partsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.partsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.partsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.partsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.partsGrid.Location = new System.Drawing.Point(11, 484);
+            this.partsGrid.Name = "partsGrid";
+            this.partsGrid.ReadOnly = true;
+            this.partsGrid.Size = new System.Drawing.Size(524, 68);
+            this.partsGrid.TabIndex = 114;
             // 
             // AddForm
             // 
@@ -545,6 +569,7 @@ namespace AutomationTechLog
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             this.bodyPanel.ResumeLayout(false);
             this.bodyPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.partsGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -555,7 +580,6 @@ namespace AutomationTechLog
         private System.Windows.Forms.Panel titlePanel;
         private System.Windows.Forms.Label creatingRecordLabel;
         private System.Windows.Forms.Panel bodyPanel;
-        private System.Windows.Forms.TextBox addPartNumberBox;
         private System.Windows.Forms.TextBox addLocationBox;
         private System.Windows.Forms.TextBox addDescriptionBox;
         private System.Windows.Forms.TextBox addQuantityBox;
@@ -588,5 +612,7 @@ namespace AutomationTechLog
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label timeLabel;
         private System.Windows.Forms.Label shiftLabel;
+        private System.Windows.Forms.ComboBox addPartNumberBox;
+        private System.Windows.Forms.DataGridView partsGrid;
     }
 }

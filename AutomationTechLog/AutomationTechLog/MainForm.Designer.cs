@@ -56,12 +56,12 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSearchLabel = new System.Windows.Forms.ToolStripLabel();
             this.searchLikeComboBox = new System.Windows.Forms.ToolStripComboBox();
+            this.likeLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSearchTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripCSVButton = new System.Windows.Forms.ToolStripButton();
+            this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripClearButton = new System.Windows.Forms.ToolStripButton();
             this.datagridOverview = new System.Windows.Forms.DataGridView();
-            this.likeLabel = new System.Windows.Forms.ToolStripLabel();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).BeginInit();
@@ -323,8 +323,6 @@
             // olderRecordsCheckbox
             // 
             this.olderRecordsCheckbox.AutoSize = true;
-            this.olderRecordsCheckbox.Checked = true;
-            this.olderRecordsCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.olderRecordsCheckbox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.olderRecordsCheckbox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.olderRecordsCheckbox.Location = new System.Drawing.Point(7, 28);
@@ -414,6 +412,15 @@
             this.searchLikeComboBox.Size = new System.Drawing.Size(121, 25);
             this.searchLikeComboBox.ToolTipText = "Search Type";
             // 
+            // likeLabel
+            // 
+            this.likeLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.likeLabel.Margin = new System.Windows.Forms.Padding(50, 1, 0, 2);
+            this.likeLabel.Name = "likeLabel";
+            this.likeLabel.Size = new System.Drawing.Size(31, 22);
+            this.likeLabel.Text = "Like:";
+            this.likeLabel.ToolTipText = "Like : ";
+            // 
             // toolStripSearchTextBox
             // 
             this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
@@ -422,6 +429,16 @@
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
             this.toolStripSearchTextBox.ToolTipText = "Search Criteria";
+            // 
+            // toolStripCSVButton
+            // 
+            this.toolStripCSVButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripCSVButton.Image = global::AutomationTechLog.Properties.Resources.ExportToExcel_16x;
+            this.toolStripCSVButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripCSVButton.Name = "toolStripCSVButton";
+            this.toolStripCSVButton.Size = new System.Drawing.Size(23, 22);
+            this.toolStripCSVButton.Text = "toolStripButton1";
+            this.toolStripCSVButton.ToolTipText = "Export to CSV (Excel)";
             // 
             // searchButton
             // 
@@ -433,16 +450,6 @@
             this.searchButton.Text = "toolStripButton1";
             this.searchButton.ToolTipText = "Run Current Search";
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // toolStripCSVButton
-            // 
-            this.toolStripCSVButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripCSVButton.Image = global::AutomationTechLog.Properties.Resources.ExportToExcel_16x;
-            this.toolStripCSVButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripCSVButton.Name = "toolStripCSVButton";
-            this.toolStripCSVButton.Size = new System.Drawing.Size(23, 22);
-            this.toolStripCSVButton.Text = "toolStripButton1";
-            this.toolStripCSVButton.ToolTipText = "Export to CSV (Excel)";
             // 
             // toolStripClearButton
             // 
@@ -472,15 +479,6 @@
             this.datagridOverview.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.datagridOverview_CellFormatting);
             this.datagridOverview.SelectionChanged += new System.EventHandler(this.datagridOverview_SelectionChanged);
             this.datagridOverview.Paint += new System.Windows.Forms.PaintEventHandler(this.datagridOverview_Paint);
-            // 
-            // likeLabel
-            // 
-            this.likeLabel.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.likeLabel.Margin = new System.Windows.Forms.Padding(50, 1, 0, 2);
-            this.likeLabel.Name = "likeLabel";
-            this.likeLabel.Size = new System.Drawing.Size(31, 22);
-            this.likeLabel.Text = "Like:";
-            this.likeLabel.ToolTipText = "Like : ";
             // 
             // MainForm
             // 
