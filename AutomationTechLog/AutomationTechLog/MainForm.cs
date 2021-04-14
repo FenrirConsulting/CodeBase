@@ -50,13 +50,17 @@ namespace AutomationTechLog
             }
             toolStripCSVButton.Visible = false; ;
             reportsButton.Visible = false;
+            partsButton.Visible = false;
 
             string currentTimeFormated = formatDate(currentTime);
             string currentDateFormated = formatDate(currentDate);
             string olderThanDateFormatted = formatDate(olderThanDate);
             olderDateBox.Text = currentDateFormated;
             olderRecordsCheckbox.Enabled = false;
-            if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True") { olderRecordsCheckbox.Enabled = true; }
+            if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True") { 
+                olderRecordsCheckbox.Enabled = true;
+                partsButton.Visible = true;
+            }
 
             DataTable searchedTable = buildOverviewDataTable();
             string builtSQL = buildSQL();

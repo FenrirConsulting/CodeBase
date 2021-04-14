@@ -323,6 +323,8 @@
             // olderRecordsCheckbox
             // 
             this.olderRecordsCheckbox.AutoSize = true;
+            this.olderRecordsCheckbox.Checked = true;
+            this.olderRecordsCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.olderRecordsCheckbox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.olderRecordsCheckbox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.olderRecordsCheckbox.Location = new System.Drawing.Point(7, 28);
@@ -425,6 +427,7 @@
             // 
             this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
