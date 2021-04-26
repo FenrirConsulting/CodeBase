@@ -62,6 +62,7 @@
             this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripClearButton = new System.Windows.Forms.ToolStripButton();
             this.datagridOverview = new System.Windows.Forms.DataGridView();
+            this.changesButton = new System.Windows.Forms.Button();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).BeginInit();
@@ -162,6 +163,7 @@
             // buttonPanel
             // 
             this.buttonPanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.buttonPanel.Controls.Add(this.changesButton);
             this.buttonPanel.Controls.Add(this.partsButton);
             this.buttonPanel.Controls.Add(this.olderDateBox);
             this.buttonPanel.Controls.Add(this.legendLabel4);
@@ -483,6 +485,20 @@
             this.datagridOverview.SelectionChanged += new System.EventHandler(this.datagridOverview_SelectionChanged);
             this.datagridOverview.Paint += new System.Windows.Forms.PaintEventHandler(this.datagridOverview_Paint);
             // 
+            // changesButton
+            // 
+            this.changesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.changesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.changesButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changesButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.changesButton.Location = new System.Drawing.Point(1087, 14);
+            this.changesButton.Name = "changesButton";
+            this.changesButton.Size = new System.Drawing.Size(97, 25);
+            this.changesButton.TabIndex = 48;
+            this.changesButton.Text = "Patch Changes";
+            this.changesButton.UseVisualStyleBackColor = false;
+            this.changesButton.Click += new System.EventHandler(this.changesButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,5 +564,6 @@
         private System.Windows.Forms.Button partsButton;
         private System.Windows.Forms.ToolStripButton toolStripClearButton;
         private System.Windows.Forms.ToolStripLabel likeLabel;
+        private System.Windows.Forms.Button changesButton;
     }
 }

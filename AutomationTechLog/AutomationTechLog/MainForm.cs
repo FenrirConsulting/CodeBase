@@ -28,11 +28,24 @@ namespace AutomationTechLog
 
         GlobalUser globalUser = new GlobalUser();
 
+       string patchTitle = "Patch Notes : 04/26/2021";
+
+       string patchChanges =
+       "Note : All software changes come from input of AST Leads. " + Environment.NewLine +
+        Environment.NewLine +
+        "- Adjusted default Hide Records to 7 days past. " + Environment.NewLine +
+        Environment.NewLine +
+        "- Can only select parts from pre-defined list of parts for new or update records. " + Environment.NewLine +
+        Environment.NewLine +
+        "- Technicians can only add themselves to a record, and can no longer change another technician on a given record. " + Environment.NewLine +
+        Environment.NewLine +
+        "- Once a record is set as Completed it can no longer be set back to Entered. " + Environment.NewLine;
+
         public MainForm(DataRow passedRow)
         {
             InitializeComponent();
             DateTime currentTime = DateTime.Now;
-            DateTime currentDate = DateTime.Now.AddDays(-2); ;
+            DateTime currentDate = DateTime.Now.AddDays(-7); ;
             DateTime olderThanDate = DateTime.Now.AddDays(-60);
 
             int weekNumber = GetWeekNumber(currentTime);
@@ -463,6 +476,11 @@ namespace AutomationTechLog
             searchLikeComboBox.SelectedIndex = -1;
             toolStripSearchTextBox.Text = "";
             searchFunction();
+        }
+
+        private void changesButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(patchChanges , patchTitle);
         }
     }
 }
