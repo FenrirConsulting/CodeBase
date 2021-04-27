@@ -34,6 +34,8 @@ namespace AutomationTechLog
             this.creatingRecordLabel = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.bodyPanel = new System.Windows.Forms.Panel();
+            this.partsGrid = new System.Windows.Forms.DataGridView();
+            this.addPartNumberBox = new System.Windows.Forms.ComboBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.timeLabel = new System.Windows.Forms.Label();
@@ -66,8 +68,6 @@ namespace AutomationTechLog
             this.techsLabel = new System.Windows.Forms.Label();
             this.correctionTextBox = new System.Windows.Forms.TextBox();
             this.creatingLabel = new System.Windows.Forms.Label();
-            this.addPartNumberBox = new System.Windows.Forms.ComboBox();
-            this.partsGrid = new System.Windows.Forms.DataGridView();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
@@ -153,6 +153,30 @@ namespace AutomationTechLog
             this.bodyPanel.Size = new System.Drawing.Size(548, 651);
             this.bodyPanel.TabIndex = 0;
             this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
+            // 
+            // partsGrid
+            // 
+            this.partsGrid.AllowUserToAddRows = false;
+            this.partsGrid.AllowUserToDeleteRows = false;
+            this.partsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.partsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.partsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
+            this.partsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.partsGrid.Location = new System.Drawing.Point(11, 484);
+            this.partsGrid.Name = "partsGrid";
+            this.partsGrid.ReadOnly = true;
+            this.partsGrid.Size = new System.Drawing.Size(524, 68);
+            this.partsGrid.TabIndex = 114;
+            // 
+            // addPartNumberBox
+            // 
+            this.addPartNumberBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.addPartNumberBox.FormattingEnabled = true;
+            this.addPartNumberBox.Location = new System.Drawing.Point(142, 457);
+            this.addPartNumberBox.Name = "addPartNumberBox";
+            this.addPartNumberBox.Size = new System.Drawing.Size(131, 21);
+            this.addPartNumberBox.TabIndex = 113;
+            this.addPartNumberBox.SelectedIndexChanged += new System.EventHandler(this.addPartNumberBox_SelectedIndexChanged);
             // 
             // nameLabel
             // 
@@ -265,7 +289,6 @@ namespace AutomationTechLog
             this.addLocationBox.ReadOnly = true;
             this.addLocationBox.Size = new System.Drawing.Size(131, 20);
             this.addLocationBox.TabIndex = 12;
-            this.addLocationBox.Text = "Unassigned";
             // 
             // addDescriptionBox
             // 
@@ -274,7 +297,6 @@ namespace AutomationTechLog
             this.addDescriptionBox.ReadOnly = true;
             this.addDescriptionBox.Size = new System.Drawing.Size(131, 20);
             this.addDescriptionBox.TabIndex = 13;
-            this.addDescriptionBox.Text = "No Description";
             // 
             // addQuantityBox
             // 
@@ -526,30 +548,6 @@ namespace AutomationTechLog
             this.creatingLabel.TabIndex = 80;
             this.creatingLabel.Text = "Creating Record at";
             this.creatingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // addPartNumberBox
-            // 
-            this.addPartNumberBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.addPartNumberBox.FormattingEnabled = true;
-            this.addPartNumberBox.Location = new System.Drawing.Point(142, 457);
-            this.addPartNumberBox.Name = "addPartNumberBox";
-            this.addPartNumberBox.Size = new System.Drawing.Size(131, 21);
-            this.addPartNumberBox.TabIndex = 113;
-            this.addPartNumberBox.SelectedIndexChanged += new System.EventHandler(this.addPartNumberBox_SelectedIndexChanged);
-            // 
-            // partsGrid
-            // 
-            this.partsGrid.AllowUserToAddRows = false;
-            this.partsGrid.AllowUserToDeleteRows = false;
-            this.partsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.partsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.partsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken;
-            this.partsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.partsGrid.Location = new System.Drawing.Point(11, 484);
-            this.partsGrid.Name = "partsGrid";
-            this.partsGrid.ReadOnly = true;
-            this.partsGrid.Size = new System.Drawing.Size(524, 68);
-            this.partsGrid.TabIndex = 114;
             // 
             // AddForm
             // 

@@ -91,9 +91,10 @@ namespace AutomationTechLog
             {
                 ConnectToDatabase();
 
-                string strCommand = "SELECT TECHLOG.*, sum(TECHLOG_USER.tlu_time) as TTime, count(TECHLOG_USER.tlu_name) as CountField " +
-                                    "FROM TECHLOG LEFT JOIN TECHLOG_USER "+
-                                    "ON TECHLOG_USER.tl_ref = TECHLOG.tl_ref "+
+                string strCommand = "SELECT TECHLOG.*, TECHLOG_USER.tlu_time, sum(TECHLOG_USER.tlu_time) as TTime, count(TECHLOG_USER.tlu_name) as CountField, count(TECHLOG_PARTS.tlp_ref) as PartCount " +
+                                    "FROM TECHLOG "+
+                                    "LEFT JOIN TECHLOG_USER ON TECHLOG_USER.tl_ref = TECHLOG.tl_ref " +
+                                    "LEFT JOIN TECHLOG_PARTS ON TECHLOG_PARTS.tl_ref = TECHLOG.tl_ref " +
                                     "GROUP BY TECHLOG.tl_ref";
                 SQLiteCommand cmd = new SQLiteCommand(strCommand);
                 cmd.Connection = conn;

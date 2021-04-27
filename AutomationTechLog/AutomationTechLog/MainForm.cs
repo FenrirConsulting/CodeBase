@@ -117,7 +117,7 @@ namespace AutomationTechLog
         private DataTable buildOverviewDataTable() {
 
             DataTable TECHLOGTable = DBConn.getOverviewTable("TECHLOG");
-            DataTable TECHLOGUserTable = DBConn.getTable("TECHLOG_USER");
+            //DataTable TECHLOGUserTable = DBConn.getTable("TECHLOG_USER");
 
 
             DataTable filledTable = new DataTable();
@@ -135,13 +135,15 @@ namespace AutomationTechLog
             filledTable.Columns.Add("tlu_time", typeof(string));
             filledTable.Columns.Add("TTime", typeof(long));
             filledTable.Columns.Add("CountField", typeof(long));
+            filledTable.Columns.Add("PartCount", typeof(long));
 
 
-            var query = 
+            var query =
             from dt1 in TECHLOGTable.AsEnumerable()
-            join dt2 in TECHLOGUserTable.AsEnumerable()
-            on dt1.Field<int>("tl_ref") equals dt2.Field<int>("tl_ref")
-            
+                //join dt2 in TECHLOGUserTable.AsEnumerable()
+                //on dt1.Field<int>("tl_ref") equals dt2.Field<int>("tl_ref")
+
+
             select filledTable.LoadDataRow(new object[] 
             {
                 dt1.Field<int>("tl_ref"),
@@ -155,14 +157,17 @@ namespace AutomationTechLog
                 dt1.Field<string>("tl_wocorrection"),
                 dt1.Field<string>("tl_moduser"),
                 dt1.Field<string>("tl_moddate"),
-                dt2.Field<string>("tlu_time"),
+                dt1.Field<string>("tlu_time"),
                 dt1.Field<long>("TTime"),
-                dt1.Field<long>("CountField")
+                dt1.Field<long>("CountField"),
+                dt1.Field<long>("PartCount")
                
-            }, false);
+            }, false) ;
+
+
             query.CopyToDataTable();
 
-            
+
             DataTable clonedTable = filledTable.Clone();
             clonedTable.Columns["tl_gendate"].DataType = typeof(DateTime);
             clonedTable.Columns["tl_moddate"].DataType = typeof(DateTime);
@@ -309,6 +314,7 @@ namespace AutomationTechLog
             datagridOverview.Columns["tl_moddate"].Visible = false;
             datagridOverview.Columns["tlu_time"].Visible = false;
             datagridOverview.Columns["TTime"].HeaderText = "Time";
+            datagridOverview.Columns["PartCount"].HeaderText = "Parts Used";
             datagridOverview.Columns["CountField"].Visible = false;
             rowCount = datagridOverview.Rows.Count;
             datagridOverview.RowHeadersWidth = 10;

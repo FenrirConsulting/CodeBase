@@ -81,6 +81,7 @@ namespace AutomationTechLog
             List<String> partsList = TECHLOGInventoryTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlinv_partnumber")).ToList();
             partsList.Insert(0, "Unlisted");
+            partsList.Insert(0, "");
             addPartNumberBox.DataSource = partsList;
             addPartNumberBox.DropDownStyle = ComboBoxStyle.DropDown;
 
@@ -275,10 +276,13 @@ namespace AutomationTechLog
                     addDescriptionBox.Text = tempDescription;
                 }
 
+                if (addPartNumberBox.Text == "Unlisted") {
+                    addLocationBox.Text = "Unassigned";
+                    addDescriptionBox.Text = "No Description";
+                }
+
             }
 
-            addLocationBox.Text = tempLocation;
-            addDescriptionBox.Text = tempDescription;
         }
     }
 }
