@@ -6,23 +6,16 @@
 
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.IO;
-using System.Diagnostics;
 
 namespace AutomationTechLog
 {
     public partial class LoginForm : Form
     {
         public sqlLiteMethods DBConn = new sqlLiteMethods();
-       
+
         // Allows moving window by holding down left mouse button
         private const int WM_NCHITTEST = 0x84;
         private const int HT_CLIENT = 0x1;
@@ -41,7 +34,7 @@ namespace AutomationTechLog
             InitializeComponent();
 
 
-            testButton.Visible = false;
+            testButton.Visible = true;
 
         }
 
@@ -71,12 +64,14 @@ namespace AutomationTechLog
             }
         }
 
-        public void loginCheck() {
+        public void loginCheck()
+        {
 
             string userID = usernameBox.Text;
             string userPass = passwordBox.Text;
 
-            if (userID == "Odin" && userPass == "Ragnarok") {
+            if (userID == "Odin" && userPass == "Ragnarok")
+            {
 
                 DataTable usersTable = new DataTable();
 
@@ -104,7 +99,8 @@ namespace AutomationTechLog
                 openMainForm(userRow);
 
             }
-            else { 
+            else
+            {
 
                 string tableSelection = "TECHLOG_TECHS";
                 DataTable userTable = new DataTable();
@@ -115,38 +111,38 @@ namespace AutomationTechLog
                 if (result != null && result.Count() > 0)
                 {
 
-                   foreach (DataRow row in result)
+                    foreach (DataRow row in result)
                     {
-                       string tempUser = row["tlt_auname"].ToString();
-                       string tempPass = row["tlt_pword"].ToString();
+                        string tempUser = row["tlt_auname"].ToString();
+                        string tempPass = row["tlt_pword"].ToString();
 
-                       if (userPass == tempPass)
+                        if (userPass == tempPass)
                         {
                             string username = row["tlt_name"].ToString();
-                           nameLabel.Text = "Welcome: " + username;
-                           DataRow passedRow = row;
-                          openMainForm(passedRow);
+                            nameLabel.Text = "Welcome: " + username;
+                            DataRow passedRow = row;
+                            openMainForm(passedRow);
                         }
 
-                      else
-                       {
-                          MessageBox.Show("Wrong Password, Please try Again.");
-                         nameLabel.Text = "";
-                       }
+                        else
+                        {
+                            MessageBox.Show("Wrong Password, Please try Again.");
+                            nameLabel.Text = "";
+                        }
 
                     }
                 }
 
                 else
                 {
-                MessageBox.Show("Username not found. Please re-enter.");
-                nameLabel.Text = "";
+                    MessageBox.Show("Username not found. Please re-enter.");
+                    nameLabel.Text = "";
                 }
-            
+
             }
 
 
-            
+
 
         }
 
@@ -158,7 +154,7 @@ namespace AutomationTechLog
             var mainForm = new MainForm(passedRow);
             mainForm.Closed += (s, args) => this.Close();
             mainForm.Show();
-        
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -199,6 +195,6 @@ namespace AutomationTechLog
             }
         }
 
-       
+
     }
 }

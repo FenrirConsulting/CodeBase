@@ -5,9 +5,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.SqlServerCe;
 using System.Data;
 using System.Data.SQLite;
 using System.Windows.Forms;
@@ -92,7 +89,7 @@ namespace AutomationTechLog
                 ConnectToDatabase();
 
                 string strCommand = "SELECT TECHLOG.*, TECHLOG_USER.tlu_time, sum(TECHLOG_USER.tlu_time) as TTime, count(TECHLOG_USER.tlu_name) as CountField, count(TECHLOG_PARTS.tlp_ref) as PartCount " +
-                                    "FROM TECHLOG "+
+                                    "FROM TECHLOG " +
                                     "LEFT JOIN TECHLOG_USER ON TECHLOG_USER.tl_ref = TECHLOG.tl_ref " +
                                     "LEFT JOIN TECHLOG_PARTS ON TECHLOG_PARTS.tl_ref = TECHLOG.tl_ref " +
                                     "GROUP BY TECHLOG.tl_ref";
@@ -180,11 +177,12 @@ namespace AutomationTechLog
 
         }
 
-        public DataTable getSelectedRecord(string table, string referenceID) {
+        public DataTable getSelectedRecord(string table, string referenceID)
+        {
 
             ConnectToDatabase();
 
-            string strCommand = "SELECT * FROM " + table + " WHERE tl_ref=@ID" ;
+            string strCommand = "SELECT * FROM " + table + " WHERE tl_ref=@ID";
             SQLiteCommand cmd = new SQLiteCommand(strCommand);
             cmd.Connection = conn;
             cmd.Parameters.AddWithValue("@ID", referenceID);
@@ -197,13 +195,14 @@ namespace AutomationTechLog
         }
 
 
-        public DataTable getMatchingRecords(string table, string col, string value) {
+        public DataTable getMatchingRecords(string table, string col, string value)
+        {
 
             try
             {
 
                 ConnectToDatabase();
-                string strCommand = "SELECT * FROM " + table + " WHERE " + col +"=@Val";
+                string strCommand = "SELECT * FROM " + table + " WHERE " + col + "=@Val";
                 SQLiteCommand cmd = new SQLiteCommand(strCommand);
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@Val", value);
@@ -279,6 +278,31 @@ namespace AutomationTechLog
             }
         }
 
+        public int confirmPartsRecord(int tl_ref, string tl_partsconfirmed)
+        {
+            ConnectToDatabase();
+
+            try
+            {
+                string strCommand = "Update TECHLOG Set tl_partsconfirmed=@tl_partsconfirmed WHERE tl_ref=@tl_ref";
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@tl_partsconfirmed", tl_partsconfirmed);
+                cmdUpdate.Parameters.AddWithValue("@tl_ref", tl_ref);
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+        }
 
         public int updateMatchingLocationRecords(string table, string updateValue, string matchingValue)
         {
@@ -334,7 +358,7 @@ namespace AutomationTechLog
 
 
 
-        public int techlogRecordUpdate(int tl_ref, string tl_state, string tl_wotype, string tl_woasset, string tl_wocomplaint, string tl_worootcause, string tl_wocorrection, 
+        public int techlogRecordUpdate(int tl_ref, string tl_state, string tl_wotype, string tl_woasset, string tl_wocomplaint, string tl_worootcause, string tl_wocorrection,
                                         string tl_genuser, string tl_gendate, string tl_moduser, string tl_moddate)
         {
 
@@ -346,7 +370,7 @@ namespace AutomationTechLog
                 string strCommand = "Update TECHLOG Set tl_ref=@tl_ref, tl_state=@tl_state, tl_wotype=@tl_wotype, tl_woasset=@tl_woasset, tl_wocomplaint=@tl_wocomplaint, " +
                                     "tl_worootcause=@tl_worootcause, tl_wocorrection=@tl_wocorrection, tl_genuser=@tl_genuser, tl_gendate=@tl_gendate, tl_moduser=@tl_moduser, " +
                                     "tl_moddate=@tl_moddate  WHERE tl_ref=@tl_ref";
-                
+
                 SQLiteCommand cmdUpdate = new SQLiteCommand();
                 cmdUpdate.Connection = conn;
                 cmdUpdate.CommandType = CommandType.Text;
@@ -480,7 +504,7 @@ namespace AutomationTechLog
 
         }
 
-        public int techlogTechsRecordUpdate(string tlt_name, string tlt_shift, string tlt_islead, string tlt_isadmin, string tlt_ispartslead,string tlt_isactive, string tlt_auname)
+        public int techlogTechsRecordUpdate(string tlt_name, string tlt_shift, string tlt_islead, string tlt_isadmin, string tlt_ispartslead, string tlt_isactive, string tlt_auname)
         {
 
             try
@@ -546,7 +570,8 @@ namespace AutomationTechLog
             }
         }
 
-        public int techlogModDateUpdate(int tl_ref, string tl_moduser,string tl_moddate) {
+        public int techlogModDateUpdate(int tl_ref, string tl_moduser, string tl_moddate)
+        {
 
             try
             {
@@ -575,7 +600,7 @@ namespace AutomationTechLog
             }
         }
 
-        public int addTechlogRecord(int tl_ref, string tl_state, string tl_wotype, string tl_woasset, string tl_wocomplaint, 
+        public int addTechlogRecord(int tl_ref, string tl_state, string tl_wotype, string tl_woasset, string tl_wocomplaint,
                                                 string tl_worootcause, string tl_wocorrection, string tl_genuser, string tl_gendate, string tl_moduser, string tl_moddate)
         {
 
@@ -583,14 +608,14 @@ namespace AutomationTechLog
             {
                 ConnectToDatabase();
                 string strCommand = "INSERT INTO TECHLOG (tl_ref, tl_state, tl_wotype, tl_woasset, tl_wocomplaint, tl_worootcause, tl_wocorrection, tl_genuser, tl_gendate, tl_moduser, tl_moddate) VALUES (@val1,@val2,@val3,@val4,@val5,@val6,@val7,@val8,@val9,@val10,@val11)";
-                
+
                 SQLiteCommand cmdUpdate = new SQLiteCommand();
                 cmdUpdate.Connection = conn;
                 cmdUpdate.CommandType = CommandType.Text;
                 cmdUpdate.CommandText = strCommand;
                 cmdUpdate.Parameters.AddWithValue("@val1", tl_ref);
                 cmdUpdate.Parameters.AddWithValue("@val2", tl_state);
-                cmdUpdate.Parameters.AddWithValue("@val3", tl_wotype );
+                cmdUpdate.Parameters.AddWithValue("@val3", tl_wotype);
                 cmdUpdate.Parameters.AddWithValue("@val4", tl_woasset);
                 cmdUpdate.Parameters.AddWithValue("@val5", tl_wocomplaint);
                 cmdUpdate.Parameters.AddWithValue("@val6", tl_worootcause);
@@ -773,7 +798,8 @@ namespace AutomationTechLog
         }
 
 
-        public int resetPassword(string tlt_pword, string tlt_auname) {
+        public int resetPassword(string tlt_pword, string tlt_auname)
+        {
 
             try
             {
@@ -802,10 +828,11 @@ namespace AutomationTechLog
 
         }
 
-        public int primaryKeyHighestValue(string table, string passedKey) {
+        public int primaryKeyHighestValue(string table, string passedKey)
+        {
 
             ConnectToDatabase();
-            string strCommand = "Select Max("+ passedKey + ") From " + table;
+            string strCommand = "Select Max(" + passedKey + ") From " + table;
             SQLiteCommand cmdUpdate = new SQLiteCommand();
             cmdUpdate.Connection = conn;
             cmdUpdate.CommandType = CommandType.Text;
@@ -823,12 +850,12 @@ namespace AutomationTechLog
 
             try
             {
-                string strCommand = "DELETE FROM " + table + " WHERE "+ col + "=@"+ col;
+                string strCommand = "DELETE FROM " + table + " WHERE " + col + "=@" + col;
                 SQLiteCommand cmdUpdate = new SQLiteCommand();
                 cmdUpdate.Connection = conn;
                 cmdUpdate.CommandType = CommandType.Text;
                 cmdUpdate.CommandText = strCommand;
-                cmdUpdate.Parameters.AddWithValue("@"+col, value);
+                cmdUpdate.Parameters.AddWithValue("@" + col, value);
                 int returnValue = -1;
                 returnValue = cmdUpdate.ExecuteNonQuery();
                 Disconnect();

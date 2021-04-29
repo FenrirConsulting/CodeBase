@@ -49,28 +49,6 @@ C:\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\Automati
 \\Rfl6dpspw1p\c$\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CopyComplete
 \\Rfl6dpspw1p\c$\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.exe
 \\Rfl6dpspw1p\c$\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.pdb
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SQLite.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.Entity.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\x64\SQLite.Interop.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\x86\SQLite.Interop.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\Microsoft.Office.Interop.Outlook.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceca35.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlcecompact35.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceer35EN.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceme35.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceoledb35.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceqp35.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlcese35.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlite3.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\System.Data.SQLite.xml
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.dll
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\LocalDatabase.db
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.LoginForm.resources
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.MainForm.resources
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.Properties.Resources.resources
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.GenerateResource.cache
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CoreCompileInputs.cache
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CopyComplete
 C:\Users\COlson\Documents\Visual Studio 2010\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojResolveAssemblyReference.cache
 D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SQLite.dll
 D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.Entity.dll
@@ -97,21 +75,43 @@ D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLo
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UpdateForm.resources
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddForm.resources
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UserForm.resources
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddForm.resources
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UpdateForm.resources
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UserForm.resources
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddUser.resources
 D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\ATLog.exe
 D:\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\ATLog.pdb
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.exe
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.pdb
 D:\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojAssemblyReference.cache
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.Entity.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SQLite.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\x64\SQLite.Interop.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\x86\SQLite.Interop.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\Microsoft.Office.Interop.Outlook.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceca35.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlcecompact35.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceer35EN.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceme35.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceoledb35.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceqp35.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlcese35.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlite3.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\System.Data.SQLite.xml
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.dll
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\LocalDatabase.db
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\ATLog.exe
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\ATLog.pdb
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddForm.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddLocation.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddPart.resources
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddUser.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.LocationsOverview.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.LoginForm.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.MainForm.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.PartsOverview.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.Properties.Resources.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UpdateForm.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UserForm.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.GenerateResource.cache
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CoreCompileInputs.cache
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CopyComplete
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.exe
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.pdb
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.PartsOverview.resources
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.LocationsOverview.resources
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddPart.resources
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddLocation.resources

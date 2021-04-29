@@ -7,16 +7,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.IO;
-using System.Diagnostics;
-using System.Globalization;
+using System.Windows.Forms;
 
 namespace AutomationTechLog
 {
@@ -36,7 +31,7 @@ namespace AutomationTechLog
             DataTable partsListTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
             List<String> partsList = partsListTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlinv_partnumber")).ToList();
-           
+
 
             var data = partsList.Where(x =>
             {
@@ -101,7 +96,8 @@ namespace AutomationTechLog
 
             if (result < 0)
             {
-                if (partNumberTextBox.Text != "") {
+                if (partNumberTextBox.Text != "")
+                {
                     DialogResult dr2 = MessageBox.Show("Create this Part?",
                         "Confirm Create Part", MessageBoxButtons.YesNo);
 
@@ -115,16 +111,19 @@ namespace AutomationTechLog
                             break;
                     }
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Please enter a part number.");
                 }
             }
-            else {
+            else
+            {
                 MessageBox.Show("Part Number Exists, Pick a New Number");
             }
         }
 
-        private void addPartRecord() {
+        private void addPartRecord()
+        {
 
             int tlinv_ref = DBConn.primaryKeyHighestValue("TECHLOG_PARTSINVENTORY", "tlinv_ref") + 1;
             string tlinv_partnumber = partNumberTextBox.Text;
@@ -139,13 +138,13 @@ namespace AutomationTechLog
         private void updateLocationCount(string locationID)
         {
 
-          
-                string tempString;
-                DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
-                int numberOfRecords = TECHLOGInvTable.Select("tlloc_locid =" + locationID).Length;
-                tempString = numberOfRecords.ToString();
-                DBConn.updateLocationCount(tempString, locationID);
-            
+
+            string tempString;
+            DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
+            int numberOfRecords = TECHLOGInvTable.Select("tlloc_locid =" + locationID).Length;
+            tempString = numberOfRecords.ToString();
+            DBConn.updateLocationCount(tempString, locationID);
+
 
         }
 
@@ -159,4 +158,4 @@ namespace AutomationTechLog
             ControlPaint.DrawBorder(e.Graphics, this.bodyPanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
         }
     }
-}   
+}

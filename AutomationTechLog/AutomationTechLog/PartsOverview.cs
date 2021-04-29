@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.IO;
-using System.Diagnostics;
-using System.Globalization;
+using System.Windows.Forms;
 
 namespace AutomationTechLog
 {
@@ -30,7 +25,8 @@ namespace AutomationTechLog
 
 
 
-        public void buildTables() {
+        public void buildTables()
+        {
 
             TECHLOGInventoryTable = buildPartsTable();
 
@@ -41,8 +37,8 @@ namespace AutomationTechLog
 
             if (searchLikeComboBox.SelectedIndex > -1)
             {
-                if (searchLikeComboBox.Text == "Part Number") { builtFilter = builtFilter + " tlinv_partnumber = '" + toolStripSearchTextBox.Text + "'" + " AND "; }
-                if (searchLikeComboBox.Text == "Location") { builtFilter = builtFilter + "tlloc_locid = '" + toolStripSearchTextBox.Text + "'" + " AND "; }
+                if (searchLikeComboBox.Text == "Part Number") { builtFilter = builtFilter + " tlinv_partnumber Like '%" + toolStripSearchTextBox.Text + "%'" + " AND "; }
+                if (searchLikeComboBox.Text == "Location") { builtFilter = builtFilter + "tlloc_locid Like '%" + toolStripSearchTextBox.Text + "%'" + " AND "; }
             }
             if (builtFilter.Length < 5) { builtFilter = builtFilter + " AND "; }
             builtFilter = builtFilter.Remove(builtFilter.Length - 5);
@@ -218,7 +214,8 @@ namespace AutomationTechLog
             }
         }
 
-        private void deletePartRecord() {
+        private void deletePartRecord()
+        {
             DBConn.deleteRecord("TECHLOG_PARTSINVENTORY", "tlinv_ref", selectedRecord);
             updateLocationCount(selectedLocation);
             buildTables();
@@ -244,7 +241,8 @@ namespace AutomationTechLog
             }
         }
 
-        private void updatePartRecord() {
+        private void updatePartRecord()
+        {
             string tlinv_partnumber = partNumberTextBox.Text;
             string tlloc_locid = locationTextBox.Text;
             int tlinv_qty = Int32.Parse(quantityTextBox.Text);
@@ -260,15 +258,16 @@ namespace AutomationTechLog
             ControlPaint.DrawBorder(e.Graphics, this.workPanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
         }
 
-        private void updateLocationCount(string locationID) {
+        private void updateLocationCount(string locationID)
+        {
 
- 
-                string tempString;
-                DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
-                int numberOfRecords = TECHLOGInvTable.Select("tlloc_locid =" + "'"+locationID+"'").Length;
-                tempString = numberOfRecords.ToString();
-                DBConn.updateLocationCount(tempString, locationID);
-            
+
+            string tempString;
+            DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
+            int numberOfRecords = TECHLOGInvTable.Select("tlloc_locid =" + "'" + locationID + "'").Length;
+            tempString = numberOfRecords.ToString();
+            DBConn.updateLocationCount(tempString, locationID);
+
         }
     }
 }

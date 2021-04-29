@@ -7,16 +7,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.IO;
-using System.Diagnostics;
-using System.Globalization;
+using System.Windows.Forms;
 
 namespace AutomationTechLog
 {
@@ -80,7 +75,8 @@ namespace AutomationTechLog
             }
         }
 
-        private void addLocationRecord() {
+        private void addLocationRecord()
+        {
 
             int tlloc_ref = DBConn.primaryKeyHighestValue("TECHLOG_LOCATIONS", "tlloc_ref") + 1;
             string tlloc_locid = locationTextBox.Text;

@@ -7,16 +7,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.IO;
-using System.Diagnostics;
-using System.Globalization;
+using System.Windows.Forms;
 
 namespace AutomationTechLog
 {
@@ -30,7 +25,7 @@ namespace AutomationTechLog
         DataTable TECHLOGPartsTable = new DataTable();
         DataTable TECHLOGInventoryTable = new DataTable();
         int creatingRecord;
-        string formmatedTime; 
+        string formmatedTime;
 
         GlobalUser globalUser;
         public AddForm(GlobalUser passedUser)
@@ -40,9 +35,10 @@ namespace AutomationTechLog
             buildTables();
         }
 
-        private void buildTables() {
+        private void buildTables()
+        {
 
-            creatingRecord = DBConn.primaryKeyHighestValue("TECHLOG", "tl_ref") +1;
+            creatingRecord = DBConn.primaryKeyHighestValue("TECHLOG", "tl_ref") + 1;
             string message = globalUser.globalUsername + " is creating Record #" + creatingRecord.ToString();
             creatingRecordLabel.Text = message;
 
@@ -60,10 +56,10 @@ namespace AutomationTechLog
             correctionTextBox.Text = "";
 
             addShiftBox.Text = "1";
-            addTimeTextBox.Text="10";
+            addTimeTextBox.Text = "10";
             DateTime dateBox = DateTime.Now;
             formmatedTime = dateBox.ToString("MM/dd/yyyy");
-            addUserDateTime.Text="";
+            addUserDateTime.Text = "";
 
             addUserDateTime.CustomFormat = "MM-dd-yyyy";
             addUserDateTime.Format = DateTimePickerFormat.Custom;
@@ -169,7 +165,7 @@ namespace AutomationTechLog
             {
                 MessageBox.Show("Please finish filling out all required fields for Record and Tech details.");
             }
-            else 
+            else
             {
                 if (addQuantityBox.Text != "" || addPartNumberBox.Text != "" || addDescriptionBox.Text != "" || addLocationBox.Text != "")
                 {
@@ -196,7 +192,7 @@ namespace AutomationTechLog
                         }
                     }
                 }
-                else 
+                else
                 {
                     DialogResult dr = MessageBox.Show("Create this Record?",
                         "Confirm Create Record", MessageBoxButtons.YesNo);
@@ -218,7 +214,8 @@ namespace AutomationTechLog
 
         }
 
-        private void createRecord() {
+        private void createRecord()
+        {
 
             int tlu_ref = DBConn.primaryKeyHighestValue("TECHLOG_USER", "tlu_ref") + 1;
             int tl_ref = creatingRecord;
@@ -246,7 +243,8 @@ namespace AutomationTechLog
 
         }
 
-        private void createPartsRecord() {
+        private void createPartsRecord()
+        {
 
             int tl_ref = creatingRecord;
             int tlp_ref = DBConn.primaryKeyHighestValue("TECHLOG_PARTS", "tlp_ref") + 1;
@@ -276,7 +274,8 @@ namespace AutomationTechLog
                     addDescriptionBox.Text = tempDescription;
                 }
 
-                if (addPartNumberBox.Text == "Unlisted") {
+                if (addPartNumberBox.Text == "Unlisted")
+                {
                     addLocationBox.Text = "Unassigned";
                     addDescriptionBox.Text = "No Description";
                 }

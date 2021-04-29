@@ -7,16 +7,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.IO;
-using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace AutomationTechLog
 {
@@ -43,7 +39,8 @@ namespace AutomationTechLog
             buildTables();
         }
 
-        public void buildTables() {
+        public void buildTables()
+        {
 
             string titleBar = globalUser.globalUsername + " viewing record #" + globalUser.chosenRecord;
             generatedTitle.Text = titleBar;
@@ -121,19 +118,27 @@ namespace AutomationTechLog
             addUserBox.Enabled = false;
             string currentUserSelection = selectedRow["tl_genuser"].ToString();
             if (currentUserSelection == globalUser.globalUsername) { deleteButton.Visible = true; deleteButton.Enabled = true; }
+            confirmButton.Visible = false;
 
-            
 
-            if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True") { 
-                deleteButton.Enabled = true; 
+            if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True")
+            {
+                deleteButton.Enabled = true;
                 deleteButton.Visible = true;
                 userGrid.ReadOnly = false;
                 addUserBox.Enabled = true;
+                confirmButton.Visible = true;
             }
 
-            if (stateComboBox.Text == "Completed") {
+            string confirmCheck = selectedRow["tl_partsconfirmed"].ToString();
+
+            if (confirmCheck == "Yes") { confirmButton.Visible = false; }
+
+            if (stateComboBox.Text == "Completed")
+            {
                 stateComboBox.Enabled = false;
-                if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True") { 
+                if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True")
+                {
                     stateComboBox.Enabled = true;
                 }
             }
@@ -147,10 +152,11 @@ namespace AutomationTechLog
 
         }
 
-        public DataTable buildTechlogTable() {
+        public DataTable buildTechlogTable()
+        {
 
             DataTable TECHLOGTable = DBConn.getSelectedRecord("TECHLOG", globalUser.chosenRecord);
-            
+
             DataTable filledTable = new DataTable();
             filledTable.Columns.Add("tl_ref", typeof(int));
             filledTable.Columns.Add("tl_state", typeof(string));
@@ -163,6 +169,7 @@ namespace AutomationTechLog
             filledTable.Columns.Add("tl_gendate", typeof(string));
             filledTable.Columns.Add("tl_moduser", typeof(string));
             filledTable.Columns.Add("tl_moddate", typeof(string));
+            filledTable.Columns.Add("tl_partsconfirmed", typeof(string));
 
             var query =
             from dt1 in TECHLOGTable.AsEnumerable()
@@ -179,7 +186,8 @@ namespace AutomationTechLog
                 dt1.Field<string>("tl_genuser"),
                 dt1.Field<string>("tl_gendate"),
                 dt1.Field<string>("tl_moduser"),
-                dt1.Field<string>("tl_moddate")
+                dt1.Field<string>("tl_moddate"),
+                dt1.Field<string>("tl_partsconfirmed")
 
             }, false);
             query.CopyToDataTable();
@@ -210,7 +218,8 @@ namespace AutomationTechLog
             filledTable.Columns.Add("tlu_date", typeof(string));
 
 
-            if (TECHLOGTable != null && TECHLOGTable.Rows.Count > 0) {
+            if (TECHLOGTable != null && TECHLOGTable.Rows.Count > 0)
+            {
 
                 var query =
                 from dt1 in TECHLOGTable.AsEnumerable()
@@ -256,7 +265,8 @@ namespace AutomationTechLog
             filledTable.Columns.Add("tlp_location", typeof(string));
             filledTable.Columns.Add("tlp_description", typeof(string));
 
-            if (TECHLOGTable != null && TECHLOGTable.Rows.Count>0) {
+            if (TECHLOGTable != null && TECHLOGTable.Rows.Count > 0)
+            {
 
                 var query =
                 from dt1 in TECHLOGTable.AsEnumerable()
@@ -271,7 +281,7 @@ namespace AutomationTechLog
                 dt1.Field<string>("tlp_description")
 
                 }, false);
-                  query.CopyToDataTable();
+                query.CopyToDataTable();
 
             }
 
@@ -334,7 +344,8 @@ namespace AutomationTechLog
 
         private void userGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 5) {
+            if (e.ColumnIndex == 5)
+            {
                 //Initialized a new DateTimePicker Control  
 
                 //Adding DateTimePicker control into DataGridView   
@@ -384,7 +395,8 @@ namespace AutomationTechLog
 
             switch (dr)
             {
-                case DialogResult.Yes: updateRecord();
+                case DialogResult.Yes:
+                    updateRecord();
                     break;
                 case DialogResult.No:
                     break;
@@ -392,7 +404,8 @@ namespace AutomationTechLog
             }
         }
 
-        private void updateRecord() {
+        private void updateRecord()
+        {
 
             foreach (DataRow selectedRow in TECHLOGTable.Rows)
             {
@@ -411,25 +424,30 @@ namespace AutomationTechLog
                 string tl_gendate = currentRow["tl_gendate"].ToString();
                 string tl_moduser = modUser;
 
-                if (additionalComplaintsBox.Text != "") { tl_wocomplaint = tl_wocomplaint + Environment.NewLine + Environment.NewLine + additionalComplaintsBox.Text + Environment.NewLine +" - Added By: " + globalUser.globalUsername + " at " + tl_moddate;  }
+                if (additionalComplaintsBox.Text != "") { tl_wocomplaint = tl_wocomplaint + Environment.NewLine + Environment.NewLine + additionalComplaintsBox.Text + Environment.NewLine + " - Added By: " + globalUser.globalUsername + " at " + tl_moddate; }
                 if (additionalCausesBox.Text != "") { tl_worootcause = tl_worootcause + Environment.NewLine + Environment.NewLine + additionalCausesBox.Text + Environment.NewLine + " - Added By: " + globalUser.globalUsername + " at " + tl_moddate; }
                 if (additionalCorrectionsBox.Text != "") { tl_wocorrection = tl_wocorrection + Environment.NewLine + Environment.NewLine + additionalCorrectionsBox.Text + Environment.NewLine + " - Added By: " + globalUser.globalUsername + " at " + tl_moddate; }
 
 
-                
 
-                DBConn.techlogRecordUpdate(tl_ref, tl_state, tl_wotype, tl_woasset, tl_wocomplaint, tl_worootcause, tl_wocorrection, tl_genuser, tl_gendate, tl_moduser,tl_moddate);
+
+                DBConn.techlogRecordUpdate(tl_ref, tl_state, tl_wotype, tl_woasset, tl_wocomplaint, tl_worootcause, tl_wocorrection, tl_genuser, tl_gendate, tl_moduser, tl_moddate);
 
             }
 
-            foreach (DataGridViewRow currentRow in userGrid.Rows) {
 
-                if (currentRow.Index <= techsCount) {
 
-                    if (currentRow.Cells["tlu_ref"].Value != null) {
+            foreach (DataGridViewRow currentRow in userGrid.Rows)
+            {
+
+                if (currentRow.Index <= techsCount)
+                {
+
+                    if (currentRow.Cells["tlu_ref"].Value != null)
+                    {
                         DateTime currentTime = DateTime.Now;
                         int tlu_ref = (int)currentRow.Cells["tlu_ref"].Value;
-                        int tl_ref  = (int)currentRow.Cells["tl_ref"].Value;
+                        int tl_ref = (int)currentRow.Cells["tl_ref"].Value;
                         string tlu_name = currentRow.Cells["tlu_name"].Value.ToString();
                         string tlu_time = currentRow.Cells["tlu_time"].Value.ToString();
                         string tlu_shift = currentRow.Cells["tlu_shift"].Value.ToString();
@@ -444,7 +462,8 @@ namespace AutomationTechLog
 
             }
 
-            foreach (DataGridViewRow currentRow in partsGrid.Rows) {
+            foreach (DataGridViewRow currentRow in partsGrid.Rows)
+            {
 
                 if (currentRow.Index <= partsCount)
                 {
@@ -485,14 +504,15 @@ namespace AutomationTechLog
                         int tlu_ref = DBConn.primaryKeyHighestValue("TECHLOG_USER", "tlu_ref") + 1;
                         int tl_ref = Int32.Parse(globalUser.chosenRecord);
                         string tlu_shift = addShiftBox.Text;
-                        string tlu_time = addTimeTextBox.Text; 
-                        string tlu_date = addUserDateTime.Text; 
-                        string tlu_name = addUserBox.Text; 
+                        string tlu_time = addTimeTextBox.Text;
+                        string tlu_date = addUserDateTime.Text;
+                        string tlu_name = addUserBox.Text;
 
                         DBConn.addTechlogUserRecord(tlu_ref, tl_ref, tlu_shift, tlu_time, tlu_date, tlu_name);
                         updateModDate();
                     }
-                    else {
+                    else
+                    {
                         MessageBox.Show("Error, record not added. Fill out all fields correctly.");
                     }
                     refreshTable();
@@ -539,9 +559,11 @@ namespace AutomationTechLog
 
         private void userGrid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right) {
+            if (e.Button == MouseButtons.Right)
+            {
 
-                if (globalUser.globalLead == "True" || globalUser.globalAdmin == "True" || globalUser.globalPartsLead == "True") {
+                if (globalUser.globalLead == "True" || globalUser.globalAdmin == "True" || globalUser.globalPartsLead == "True")
+                {
                     int selectedRow = (int)userGrid.Rows[e.RowIndex].Cells[0].Value;
                     userGrid.Rows[e.RowIndex].Selected = true;
 
@@ -625,7 +647,8 @@ namespace AutomationTechLog
         }
 
 
-        private void refreshTable() {
+        private void refreshTable()
+        {
 
             userGrid.DataSource = null;
             userGrid.Rows.Clear();
@@ -714,7 +737,8 @@ namespace AutomationTechLog
             }
         }
 
-        private void updateModDate() {
+        private void updateModDate()
+        {
 
             DateTime currentTime = DateTime.Now;
             int tl_ref = Int32.Parse(globalUser.chosenRecord);
@@ -769,7 +793,8 @@ namespace AutomationTechLog
             string tempLocation = "Unassigned";
             string tempDescription = "No Description";
 
-            foreach (DataRow row in TECHLOGInventoryTable.Rows) {
+            foreach (DataRow row in TECHLOGInventoryTable.Rows)
+            {
 
                 if (addPartNumberBox.Text == row["tlinv_partnumber"].ToString())
                 {
@@ -786,6 +811,25 @@ namespace AutomationTechLog
             addLocationBox.Text = tempLocation;
             addDescriptionBox.Text = tempDescription;
 
+        }
+
+        private void confirmButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Confirm Parts?",
+            "Confirm Parts", MessageBoxButtons.YesNo);
+
+            switch (dr)
+            {
+                case DialogResult.Yes:
+                    string confirm = "Yes";
+                    int tl_ref = Int32.Parse(globalUser.chosenRecord);
+                    DBConn.confirmPartsRecord(tl_ref, confirm);
+                    refreshTable();
+                    break;
+                case DialogResult.No:
+                    break;
+
+            }
         }
     }
 }

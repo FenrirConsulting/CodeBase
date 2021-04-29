@@ -6,17 +6,10 @@
 
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.IO;
-using System.Diagnostics;
-using System.Globalization;
+using System.Windows.Forms;
 
 namespace AutomationTechLog
 {
@@ -106,7 +99,8 @@ namespace AutomationTechLog
             passwordChange();
         }
 
-        private void passwordChange() {
+        private void passwordChange()
+        {
 
             if (globalUser.globalEmployeeId == "Odin")
             {
@@ -148,7 +142,7 @@ namespace AutomationTechLog
 
         private void resetBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)13) 
+            if (e.KeyChar == (char)13)
             {
                 passwordChange();
             }
@@ -165,7 +159,7 @@ namespace AutomationTechLog
         private void userSelectBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataRowView drv = (DataRowView)userSelectBox.SelectedItem;
-            bool isLead = false; if ( drv["tlt_islead"].ToString() == "True") { isLead = true; }
+            bool isLead = false; if (drv["tlt_islead"].ToString() == "True") { isLead = true; }
             bool isActive = false; if (drv["tlt_isactive"].ToString() == "True") { isActive = true; }
             bool isPartsLead = false; if (drv["tlt_ispartslead"].ToString() == "True") { isPartsLead = true; }
             bool isAdmin = false; if (drv["tlt_isadmin"].ToString() == "True") { isAdmin = true; }

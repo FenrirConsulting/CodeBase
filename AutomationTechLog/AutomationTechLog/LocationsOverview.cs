@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.IO;
-using System.Diagnostics;
-using System.Globalization;
+using System.Windows.Forms;
 
 namespace AutomationTechLog
 {
@@ -46,11 +41,12 @@ namespace AutomationTechLog
             if (toolStripSearchTextBox.Text != "")
             {
 
-                builtFilter = builtFilter + " tlloc_locid = '" + toolStripSearchTextBox.Text + "'" + " AND ";
+                builtFilter = builtFilter + " tlloc_locid Like '%" + toolStripSearchTextBox.Text + "%'" + " AND ";
 
             }
 
-            if (emptySwitch == true) {
+            if (emptySwitch == true)
+            {
                 builtFilter = builtFilter + " tlloc_asgcount = '" + "0" + "'" + " AND ";
             }
 
@@ -209,7 +205,8 @@ namespace AutomationTechLog
 
         private void locationsGrid_SelectionChanged(object sender, EventArgs e)
         {
-            if (locationsGrid.SelectedRows.Count > 0) {
+            if (locationsGrid.SelectedRows.Count > 0)
+            {
 
                 string locationNumber = locationsGrid.SelectedRows[0].Cells["tlloc_locid"].Value.ToString();
                 string locationDescription = locationsGrid.SelectedRows[0].Cells["tlloc_desc"].Value.ToString();
@@ -231,7 +228,8 @@ namespace AutomationTechLog
             addLocation.FormClosed += new FormClosedEventHandler(addLocationForm_Closed);
         }
 
-        private void populatePartsGrid(string locationNumber) {
+        private void populatePartsGrid(string locationNumber)
+        {
 
             assignedPartsGrid.DataSource = null;
             DataTable filteredTable = DBConn.getFilteredPartsGrid(locationNumber);
@@ -279,10 +277,11 @@ namespace AutomationTechLog
             }
         }
 
-        private void deleteLocationRecord() {
+        private void deleteLocationRecord()
+        {
 
             DBConn.updateMatchingLocationRecords("TECHLOG_PARTSINVENTORY", "Unassigned", locationNumberTextBox.Text);
-            DBConn.deleteMatchingRecords("TECHLOG_LOCATIONS","tlloc_locid", locationNumberTextBox.Text);
+            DBConn.deleteMatchingRecords("TECHLOG_LOCATIONS", "tlloc_locid", locationNumberTextBox.Text);
             buildTables(false);
         }
 
@@ -301,17 +300,19 @@ namespace AutomationTechLog
             }
         }
 
-        private void updateLocationRecord() {
+        private void updateLocationRecord()
+        {
 
 
 
-                foreach (DataGridViewRow row in assignedPartsGrid.Rows) {
+            foreach (DataGridViewRow row in assignedPartsGrid.Rows)
+            {
 
-                    string tempLocation = row.Cells["Location"].Value.ToString();
-                    string tlinv_partnumber = row.Cells["tlinv_partnumber"].Value.ToString();
-                    DBConn.updateMatchingPartsRecords(tempLocation, tlinv_partnumber);
-                    if (tempLocation != "Unassigned") { updateLocationCount(tempLocation); }
-                
+                string tempLocation = row.Cells["Location"].Value.ToString();
+                string tlinv_partnumber = row.Cells["tlinv_partnumber"].Value.ToString();
+                DBConn.updateMatchingPartsRecords(tempLocation, tlinv_partnumber);
+                if (tempLocation != "Unassigned") { updateLocationCount(tempLocation); }
+
             }
             updateLocationCount(selectedLocation);
             DBConn.locationRecordUpdate(descriptionTextBox.Text, locationNumberTextBox.Text);

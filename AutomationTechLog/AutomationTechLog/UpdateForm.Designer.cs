@@ -70,6 +70,7 @@ namespace AutomationTechLog
             this.modifiedLabel = new System.Windows.Forms.Label();
             this.partsGrid = new System.Windows.Forms.DataGridView();
             this.userGrid = new System.Windows.Forms.DataGridView();
+            this.confirmButton = new System.Windows.Forms.Button();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
@@ -116,6 +117,7 @@ namespace AutomationTechLog
             // 
             // bodyPanel
             // 
+            this.bodyPanel.Controls.Add(this.confirmButton);
             this.bodyPanel.Controls.Add(this.addPartNumberBox);
             this.bodyPanel.Controls.Add(this.additionalComplaintsLabel);
             this.bodyPanel.Controls.Add(this.additionalComplaintsBox);
@@ -472,7 +474,7 @@ namespace AutomationTechLog
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.deleteButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.deleteButton.Location = new System.Drawing.Point(338, 808);
+            this.deleteButton.Location = new System.Drawing.Point(272, 808);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(63, 24);
             this.deleteButton.TabIndex = 15;
@@ -486,7 +488,7 @@ namespace AutomationTechLog
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cancelButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.cancelButton.Location = new System.Drawing.Point(243, 808);
+            this.cancelButton.Location = new System.Drawing.Point(176, 808);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(63, 24);
             this.cancelButton.TabIndex = 14;
@@ -500,7 +502,7 @@ namespace AutomationTechLog
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.saveButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.saveButton.Location = new System.Drawing.Point(148, 808);
+            this.saveButton.Location = new System.Drawing.Point(80, 808);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(63, 24);
             this.saveButton.TabIndex = 13;
@@ -592,6 +594,20 @@ namespace AutomationTechLog
             this.userGrid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.userGrid_CellMouseClick);
             this.userGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.userGrid_CellValidating);
             // 
+            // confirmButton
+            // 
+            this.confirmButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.confirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.confirmButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.confirmButton.Location = new System.Drawing.Point(368, 808);
+            this.confirmButton.Name = "confirmButton";
+            this.confirmButton.Size = new System.Drawing.Size(111, 24);
+            this.confirmButton.TabIndex = 88;
+            this.confirmButton.Text = "Confirm Parts";
+            this.confirmButton.UseVisualStyleBackColor = false;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
+            // 
             // UpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -658,5 +674,6 @@ namespace AutomationTechLog
         private System.Windows.Forms.Label additionalComplaintsLabel;
         private System.Windows.Forms.TextBox additionalComplaintsBox;
         private System.Windows.Forms.ComboBox addPartNumberBox;
+        private System.Windows.Forms.Button confirmButton;
     }
 }

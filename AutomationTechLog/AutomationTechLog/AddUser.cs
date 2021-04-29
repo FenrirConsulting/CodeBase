@@ -6,17 +6,10 @@
 
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using System.IO;
-using System.Diagnostics;
-using System.Globalization;
+using System.Windows.Forms;
 
 namespace AutomationTechLog
 {
@@ -72,11 +65,12 @@ namespace AutomationTechLog
         {
             TECHLOGTechTable = DBConn.getTable("TECHLOG_TECHS");
             bool checkID = false;
-            foreach (DataRow row in TECHLOGTechTable.Rows) 
+            foreach (DataRow row in TECHLOGTechTable.Rows)
             {
                 string rowValue = row["tlt_auname"].ToString();
 
-                if (rowValue == userIDBox.Text) {
+                if (rowValue == userIDBox.Text)
+                {
                     checkID = true;
                 }
             }
@@ -85,19 +79,22 @@ namespace AutomationTechLog
             {
                 MessageBox.Show("Please fill out all fields for new user.");
             }
-            else {
+            else
+            {
 
                 if (checkID == true)
                 {
                     MessageBox.Show("Employee ID Exists, Must be Unique.");
                 }
-                else {
+                else
+                {
 
                     if (passwordBox.Text != confirmPasswordBox.Text)
                     {
                         MessageBox.Show("Passwords do not match, please confirm password.");
                     }
-                    else {
+                    else
+                    {
                         createUser();
                     }
                 }
@@ -105,7 +102,8 @@ namespace AutomationTechLog
             }
         }
 
-        private void createUser() {
+        private void createUser()
+        {
 
 
             DialogResult dr = MessageBox.Show("Confirm Create User?",
