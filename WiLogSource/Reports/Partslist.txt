@@ -1,0 +1,486 @@
+9322 ES Controller	EVS9322-ES
+Servo-Converter	EVS9323-ES
+Servo-Converter	EVS9325-ES
+Servo-Converter	EVS9326-ES
+9327 Controller	EVS9327-ES
+9328 Controller	EVS9328-ES
+9329 Controller	EVS9329-ES
+9330 Controller	EVS9330-ES
+Brake-Module	EMB9352-E
+BUS TERMINAL	2753232
+BUSCOUPLER	2742094
+COMMUNICATIONS PROCESSOR	SSM-BG43D
+abg.CDB420-001 connection device basic	1023885
+REP_1016501 safety-evaulation unit	LE20-2621
+QUINT-PS-3X400-500AC/24DC/5 power	2938594
+QUINT-PS-3X400-500AC/24DC/40 power	2938646
+QUINT-PS/3AC/24DC/20 Rail power supply	2866792
+LE200-IBS_Laser for 125m	2200-40202-Z125
+PSR-SCP-24UC/ESA4/2X1/1X2 emerg.stop rel	2963750
+EMERGENCY TRIPPED DEVICE	2963802
+EMERGENCY TRIPPED DEVICE	2963912
+"Frequency Converter Vector 1,5kW"	E82EV152K4C200
+"Frequency Converter Vector 2,2kW"	E82EV222K4C200
+FREQUENCY CONTROLLER	E82EV751K4C200
+50A 690V 22x58 fuse+annunciator	5014206.50
+IBS-INTERFACE	E82ZAFIC010
+IBS-INTERFACE	EMF2111IB
+WCS-IG110 interface module	187010
+Tast41-IBS-S2T2 keyboard with display	0841/03
+"Control Panel, Portable TAST42"	WIT_10001
+DPS PICK LIGHT (Red/White)	WKS-8848
+DS60-P21111photoelectric prox.switch	1016361
+PHOTOEYE	1019245
+WTB9-3P3461 Reflex switch	1049051
+PLVScanP48-2280-48-2791/32 light curtain	129307
+PLVScanP24-1116-48-2791/32 light curtain	129514
+LIGHT CURTAIN TRANSMITTER	C20S-120103A11
+LIGHT TRANSMITTER	WS27-2D430
+WS/WE34-B430 one-way light barrier PAIR	1019254
+IB-IL-24-DO-16/C compact digital I/O mod	2861056
+abg.CMC400-101 connection module cloning	1023850
+abg.WCS3A-LS221S reader	184113
+SCANNER	CLV421-0010
+CLV420-0910S07 line-scanner	1026635
+SCANNER	1028731
+ZONECONTROLLER non sap	WKS-9034
+SAFETY RELAY	774735
+04DILE contactor relays 4-pole	10256
+AUXILIARY CONTACTOR	10288
+AUXILIARY CONTACTOR	19880
+31DILE contactor relays 4-pole	48912
+40DILE contactor relays 4-pole	10304
+DILM820XHI11SI auxiliary contact	208281
+DILM15-10(24 VDC) contactor	290073
+DIL1M-G load contactor	48605
+abg.DIL2AM-G load contactor	48610
+CONTACTOR	10343
+DILM9-10(24VDC) load contactor	276705
+DILER-22-G(24VDC) mini contactor relay o	10042
+DILM-115 load contactor 24VDC	209765
+FAN SUBASSEMBLY	6ES5981-0HA11
+INFEED TERMINAL	2861069
+"PKZM0-0,63 motor protection"	72733
+PKZM0-1 motor protection	72734
+"PKZM0-0,25-C motor protection"	229670
+DOS-1205-W M12 cable receptacle 5pol.	6009720
+Emerg. Off Relais PSR-SCP-24VDC	72016856
+LIGHT BARRIER non sap	1019229
+Pressure spring D-124	71014905
+Reflector TKS 30x50	16004
+Rotor ( Strapper Head )	71035391
+Clip for Spring D-59440-f	10920581
+Tension spring D-59443-F	10920592
+V-belt 10x6x500 LI	71035353
+Optibelt Super Tx-M=S V-Belt	71035352
+"Sealer head complete CFH-1 9/16 2,9 m/s"	71057928
+GKS04-3M HBR 071C42 Gear motor	15436602
+GKS04-3M HBR 071C42 Gear motor	15436581
+BEVEL GEAR-MOTOR	37015
+Threaded Bolt M 12	58708
+CONNECTING LINK	0710_00632
+FOUR-HOLE FLANGE BEARING non sap	19355
+GST04-1M VBR 090C32 Gearmotor ( 42183 )	15284729
+"LIFTING CYLINDER 4""
+4 inch stroke non sap"	45487
+"Lifting Cylinder LA5 1158"" shaft"	45488
+MDFMABS071-32 AC-Motor	10020792
+PEDESTAL BEARING non sap	24841
+Pressure Spring D-268D	41377H
+"Sensor Reflector Mount Gephardt Loading Station"	6002391
+"Tension spring d=1,25; De=11,2; Lo=61,2"	23845
+Trapeziodal thread worm shaft TR40x7 le	0042137H
+Trapeziodal thread worm shaft TR40x7 ri	0042135H
+Toothed belt 50 AT10 M	19522
+Powergrip HTD 600 8M 20 V-Belt	42677
+V-BELT DISK M. BORDSCH. VERSCHR. non sap	6000784
+LINE BOX non sap	38740
+PEM Clamp Spring	27673
+SELF-ALIGNING ROD COUPLER non sap	45716
+Slide strip 10B-2	48663
+SNAP RING WAVE non sap	16911
+Guide screw M 10x35	46303
+Stabilastic telescopic spring 60/550/60	41779
+"Tension set 30x55, MT=769 NM"	21697
+Venturi nozzle VD-BLP	41870
+BRUSH BORDERS non sap	38198
+PEM element .06 GUIDE SHAFT non sap	42111
+Shaft RD 40	46298
+"Rubber-Metal buffer D=75, H=40, M12x40"	41753
+LOGOPAK Rubber Drive Roller w/Bearings	318-00000-0003
+LOGOPAK Labeller Print Engine	335-00190-0000
+"ROUNDBELT, REWINDING non sap"	828-06430-0000
+"TOOTHED BELT LOGOPAK, MAINDRIVE"	313-00410-0000
+Pressureswitch  S13	312-06110-0000
+Cylinder DSNU 16-300-PPV-A	312-02710-0000
+POWER SUPPLY SP 500-48 non sap	218-01171-0000
+SOLENOID VALVE non sap	163145
+Circle Lift Push Arm ATTACHMENT PIN	164944
+"BEVEL GEAR Mps lift gearbox"	153649
+GKR03-2MHAR-063C42 Gearmotor (132403)	13208738
+GKR03-2 M HAR 063C32 Gear motor	136570
+GKR04-2M SBR 071C42 Gear motor	180980
+BEVEL GEAR MOTOR B 3/2 non sap	00154863
+GST03-2M HBR 063C22BR06N Gearmotor	132674
+GKR03-2 M HAR 063C12 Gear motor	175051
+A5 3 5/4 Bevel spur gearing motor	133508
+Compact Double Collector KDS2/40-7-14HS	168085
+WCS3-CS70-L2 Codebar	184070
+"FLAT BELT (order as 50,000 mm)"	TC-20EF
+GFL06-2 M SCR 090C32 Gear motor	179330
+"FLYER CHAIN FL 1/2""-4X4 (LENGTH: 2530 MM) non sap"	00193481
+Guide Bush	178283
+Brass Slide Plate	185206
+GUIDE RAIL non sap	00185203
+"Slide bar SLE 28X20,6X60-KS"	019485-3 Z 29
+GUIDE ROLLER non sap	00127121
+Guide roller KRV 35 PP	185200
+GKR05-2M VAK 071C42 Gear motor (195181)	15379732
+GST04-2 M VCK 063C42 Gear motor	134653
+GST04-2 MVCK 071C32-LEA Gear motor (131453)	13101839
+GST04-2MVCK071C42 Gearmotor ID:13101859	131253
+ID:13101195  GST04-2MVCK071C42 Gearmotor	133582
+GST05-2M VCK 071C32 Gearmotor (131134)	15353888
+GST05-2M VCK 071C42 Gearmotor	131215
+HELICAL GEAR MOTOR B 3 / 2 non sap	00134677
+LOAD CELL non sap	00193868
+BN 20-RZ Magnetic Switch	23242
+ROUND BELT	73732
+MPV00/H100 BA 70 I=35 Gearbox	160083
+DPS Crane Blocking Device Motor	124989
+Pos. Switch   Z4V10H335-11Z-M20	20691
+Pressure Spring DIN 2076-C;Typ D 339A-01	185234
+Pressure Spring DIN 17223 D-283A-10	17895_MIAS
+V1 Bumper Monitoring Proximity Switch	59844
+SWITCH - PROXIMITY	87768
+1-Way contr.val GRLA1/4-QS8-RS-D	534339
+Round BELT 5 MM ROT LF=390	68116
+Sliding Element Twister	76143
+Tooth Belt Powergrip GT2 960-8MGT-50	75982
+SPUR GEAR MOTOR non sap	00181216
+GST06-2M VCR 090C11 Gear motor	15438668
+GST05-2M VCK 080C32 Gear motor	15438669
+GST04-2M VCK 063C42 BR Gear motor	187157
+"T-Belt 1640 Hab. white H=5,8"	171411
+"T-Belt 1940 H=5,8"	171412
+DPS Mustang Telefork SLC Motor	15025075
+rep_abg.MDFKABS100-22U SERVOMOTOR	174296
+MPS Magnus Lift Motor MCA21X35-RSOF2-B38R-KS5F15N-ROSV	243585
+"MPS Magnus DPS Mustang AP Motor(No Brake)"	243591
+Tooth Belt 25AT10/1350	25902
+"SLC Belt Repack Workstation"	59776
+SLC Belt Tote Erector	92265
+SLC Belt 30AT5/2935 NT-V	63725
+Toothed Belt 32AT10/2940 NT-V (147974)	1035615-2940
+TOOTH BELT	52797
+Circle Lift Push Arm Belt	164574
+TRACK FOR RASM non sap	00185867
+TRACK FOR RASM non sap	00195202
+TRACK FOR RASM non sap	00197153
+V-Belt XPZ562	76405
+WORM GEAR MOTOR 4/5/3 non sap	00133636
+Axle For Disc Spring	169809
+Axle For disc Spring	170159
+"CBU 620 With Rubber"	320555
+BELT non sap	20520_00012
+BELT PULLEY	71863
+Belt Pulley 60.5 With Shaft	55429
+MKSH 8 BA70E-F i=7.5 Gearbox	71423
+Flyer Chain Pin w/snap ring FLANGE END (DPS)	00173765
+Flyer Chain Pin w/double snap rings (MPS Lower)	185232
+Flyer Chain Pin w/double snap rings (MPS Upper)	00185240
+Mounting chain OT KT2004	147157
+CHAIN CONFIGURATION KSAS	159344
+Chain Configuration KSAS NB420 H30 Sch.	169947
+CLUTCH HUB GS 9 non sap	00071645
+Compensator (pre-assembled)	139498
+DPS Mustang Triplex Chain Master Link	35565
+DOS-1204-W M12 cable receptacle 4pol.	6007303
+"Roller D50x1,5 EL=1124 Serie 1700"	193897
+CONVEYOR ROLLER non sap	20310_00029
+SLC Belt End Roller Complete	75972
+MPS Telefork Deviation Roller	185197
+Deflection roll ULR-170x65-10-39-FL523B	193027
+Roller ULS-162x82x175-53-FL1244-SF	92524
+"DRIVE PULLEY 87,5  640m COMPL. non sap (96175)"	292227
+DRIVE PULLEY 87.5  420m COMPLETE non sap (76174)	292226
+Drive roller D=45 cpl.	108448
+Driveshaft With Bearing CPL.	165105
+Driveshaft With Bearing CPL.	165107
+Electric Motor Pulley	134871
+TENSION SPRING	68939
+Ext. Spring 0.8 X 7.1 X 19.2	72674
+Gas-Pressurized Spring Typ 16-4-143-105n	88935
+GAS SHOCK	74297
+"MPS Crane Telefork Gear
+Small (CRA 2-7)"	112615
+"MPS Crane Telefork Gear
+Large (CRA 2-7)(Old Part # 185216)"	624636
+"MPS Crane Telefork Gear Small (CRA1)"	00145725
+"MPS Crane Telefork Gear Large (CRA1)"	001003-4 Z 1
+directon change lift drive	291990
+Impeller 150 + Eccentric Bolt	71068
+Impeller+Console F.Stroke	71066
+Joint Socket CFL 10 M10	61537
+Joint Socket GIL 10 UK	14078
+Joint Socket GIR 10 UK	14069
+Replacement Unit f. Loaf Chain	210712
+External Link 12B-1 3/4 X 7/16 G	21364_TGW
+Perma-Brush 60 X 30	178495
+PINION PROFILE non sap	00195122
+PINION SHAFT  MPS cra1 dept1 drive side	193472
+PINION SHAFT  MPS cra 1 dept1 non drive side	145734
+Pinion Shaft 67-30-30-22-2	185220
+"MPS Magnus Gearbox I 12"	170394
+"DPS Mustang Gearbox I 7"	297774
+Pressure Roll I-Nr. 302919.02.40-02	195163
+PRESSURE SPRING	25131
+COMPRESSION SPRING	63010
+"Pressure Spring 1,60X26,4X85,0"	172332
+NBB4-12GM50-E3-V1 Induktiver Sensor	800737
+NBN4-12GM40-E2-V1 Induktive Sensor	83315
+RACK  TF MPS MAGNUS Cranes 2-7	00193479
+Reflector 20 X 40	74623
+REFLECTOR	15788
+REFLECTOR	1012720
+DPS Telefork Triplex Chain- Lower Fork Drive Chain	166182
+"Hub,Rotex GS28 shaft ID=28mm Key=8mm"	60144
+"Hub,Rotex GS38 shaft ID=35mm Key=10mm"	111624
+"Spider, Rotex GS38 Shore A-GS RED"	117773
+Slipprotector Tape Safety-Walk-B2	00163442_
+abg.Sensormodule LS LE C V10.2	319213
+Sensor Module LS Right C	113903
+Sensormodul LT Left C	113906
+Sensor Module LTF Right C	113907
+Sensor Rail CPL.	143192
+DPS Telefork Rack Lower Fork MIDDLE	147705
+DPS Telefork Rack Lower Fork OUTER	147706
+Sliding Element KT2004	145307
+"Sprocket 3/4"" Z=13 M.Lager"	56930
+Z-Lift Tray for Totes	39730
+Swing hood cpl. left black	111816
+BP 34 Magnet (red/green)	1057553
+Taper Lock Assembly SW17 X 47	23144
+140 GUIDE WHEEL	109022
+"180 Eccentric Guide Wheel Magnus Crane Mustang Crane"	111357
+"350 RUNNING WHEEL Eccentric Shaft"	96182
+Track Wheel 80 With Shaft Ecc.	94855
+Deflection MT wtih bearing	47567
+Wheel With Vulkollan  80 ZK 12	41335
+Bevel Gear Umit GKS09	177569
+Box Nut M6 (Blocking Device DPS Rubber Stopper)	63306
+Brush For IPB 120	42022
+CARBON BRUSH (GROUND)	154453
+CARBON BRUSH (PHASE)	154440
+CHAIN CONFIGURATION KSAS	159342
+CHAIN SET	76893
+Device Spark Plug Z801	61437
+CS-Bearing Flange Floating Bea	86626
+CS-Bearing Flange Fixed Bear	86604
+DISC SPRING 35.5 X 18.3 X 2.0 non sap	14001
+Disc Spring 40 x 20.4 x 1.5	14008
+CURRENT COLLECTOR	168151
+End Flap With Roller NB=620	77775
+GUIDE RAIL	54872
+Conveyor Chain Guide (Nylon Strip)	00177763
+"Guide Rail Stopper 3/4"" Black"	56086
+Guide rail stopper	287479
+Chain Conveyor End Cap (Left)	153811
+Chain Conveyor End Cap (Right)	153812
+Ball Joint Rod End AS 13 L	14064
+Intermediate Roller 25 ST/GL	75966
+LIFT CHAIN non sap	00196169
+LIFTING SHAFT (MUSTANG)	269318
+"PAN CPL. TRAY non sap"	185242
+Perma Grease Gun	56933
+Repack Hydraulic Lift Relay Module V2.1	155466
+Bar Brush RBG 2002	116796
+Roller 30 L=620 60RS-30STI-A10IGM6	80977
+Roller 50X 1.5 KL EL=620 IG.M8	75546
+PALLET TRANSPORT CHAIN	20807
+"Spider,  Rotex GS28 Shore A-GS RED"	60146
+Pallet Stacker Clamp Lift Bushing	172566
+Spherical Washer D13 Type C	26684
+Stop washer 6 mm	13585
+Stopper Flap With Roller	77774
+TIMING BELT PULLY WITH SHAFT	164953
+GKR03-2MHBR-063C32 Gearmotor 3883G 01c-1	13239351
+BEVEL GEAR MOTOR non sap	3883 H 01c-17
+PLAIN BEARING BUSH non sap	3882 G 10a-4
+PLAIN BEARING BUSH non sap	3882 C/E 03-3/G 09-3
+SPUR WHEEL MOTOR non sap	3883 E 01-1
+Spring 1.4 x 13.1 x 77=winding	TOER G 02 4
+"Spring d=1,6 Dm=11,4 n=70 winding"	TOER G 02 2
+UNIVERSAL JOINT non sap	3882 D 09-2
+PRECISION STEEL PIPE non sap	TOER CE032G092
+Conveyor Belt Plain ADH. BW=560	76578
+Deep groove ball bearing 6006 2RS1	12150
+Mounting Chain OT	191676
+Chain Tens Unit	191452
+Chain Link 06B-1 63P	60569
+Speed Roller Drive Chain	76930
+"DISTENCE 11,0 X 15,0 X 3,0"	00010004
+TGW Chain Conveyor Tension Dial	70516
+BEARING SUPPORT TRACK WHEEL	287782
+ROLLER non sap	90692
+Mounting For Support Roller	41622
+Fuse ATQR6 Class CC	72015079
+Slide Attachment VAS 10-T/S	141722
+SCANNER	1028731
+"NBN3-6,5M25-E2-V3 Proximity Switch"	52024
+Roundstrap 5 MM L=418 Polycord	89415
+Flange Disc	140329
+LIGHT BARRIER non sap	2022819
+Pushing Cam Cpl.Leve De Expulcion Compl.	81594
+Bracket For Collector	56937
+Continous Light Module - green	205314
+40A 690V 22x58 fuse+annunciator	5014206.40
+SWITCH - PROXIMITY	84010
+FAN HEAD FOR MOTOR MDFKABS 100-22(R2E175) non sap	13058127
+"PANEL FAN -RITTAL-SMALL"	3322027
+TOOTH BELT	52797
+TOOTH BELT	52797
+HOLDER F. TERMINAL BOX right side non sap	214408
+Distance Disk (Pusher Arm Circle Lift)	164765
+Wheelholder	170162
+CIRCLE LIFT PUSH-ARM (Arm ONLY)	164757
+Ball Socket KH 1026	31001040
+BEARING SEAT non sap	82317440
+Limit Switch	AZD1004
+V3-GM-5M-PUR cable socket	24772
+Confirm Button	WKS-9673
+PICK LIGHT PLUS BUTTON	WKS-9912
+PICK LIGHT MINUS BUTTON	WKS-9910
+Sensor WL9-2P130S01	1019326
+"ONE WAY LIGHT BARRIER(PAIR) non sap"	00213701
+WT18-2P430 photoelectric proximity switc	1012897
+CIRCUIT BREAKER	100803
+90 PLUG non sap	117133
+FKT-Module 82C Standard	E82ZAFSC100/S
+PLVScanP48-2280-48-2791/32 light curtain	129307
+Push Button UP-KP Witron USB-Keyboard	KYBD 0054.01
+Retaining Clips F. Roller	41623
+Roller 30 L=820 60RS-30STI-A10IGM6	80978
+SNAPPER ARM / KOOK LEVER  (RIGHT SIDE)	3882/4009 G 14 R
+Jack cpl. 6x75x110	3882/4009 G 19
+Snapper Arm stopper/bracket	3882G15
+snapper locking prong  non sap	3882G14a-4
+CONTROL DESK EMERGENCY STOP	RKUV4O
+Green Push Button	900609
+GUIDE GLIDE CHAIN ENDS	152816
+"SAFTETY STRAP PURPLE non sap 1000 KILO."	69055
+Shaft 1 C/Z Conveyor	91064
+Slipprotector Tape Safety-Walk-B2	00163442_
+SNAPPER ARM/ KOOK LEVER    (LEFT SIDE)	3882/4009 G 14 L
+Compensol  2006 Vitamol ZH - M-5000GR	187948
+Wheel 350x100	90563
+Turnaround Wheel D25	168664
+Circle Lifter Push Arm Roller Bearing	361203-2RS
+Omega Drive Toothed Wave Drive Pulley for TCart	231957
+"Axle D=15 2xM8 L=185 PH L1=170,1"	78084
+Retaining Ring 15 x 1	14633
+"122 Pulley with Axel
+Omega Drive for Tcart"	245674
+Brush L=45	98815
+SOLINOID TOTE ERECTOR non sap	3882.J.01-1
+DPS Mustang Drive and Lift Motor	13146147
+MPS PICK LIGHT non sap	MP969
+"Terminal PL2, V2, Touch, complete"	240-00120-0100
+3 pos. switch (non sap)	216873
+9322 CSV003 Controller	EVS9322-CSV003
+Drive fixture - Mustang Bottom -D270x110	375227
+BLOCKING DEVICE MOTOR ROTARY DRIVE	135016
+BLOCKING DEVICE SOLENOID E-96-BOR 20/20N-24V	131782
+Thrust Washer for Snapper Arm	32908
+Snapper Arm Clasp (Set)	3882/4009 G 19
+CIRCLE LIFT PUSH ARM COMPLETE	257486
+Tote Stacker TOOTH BELT WELDED 3130mm	32A T10-3130 V NFTB
+Roller D=70 B=44	205838
+M8 x 25 bolt	103717
+PLVScanT24-1116-48-2791/32 light curtain	129514
+Central unit 6ES7 313-5BF03-0AB0	15433
+Axle with springs cpl.-&gt;Mustang/Strat	294934
+Tightener Mustang/Stratus AP	294938
+Axle with pressure springs cpl.-&gt;Magn	294924
+Carrier	164947
+Gear motor GKR03-2M HAR071C42	15090238
+"CBU 420
+With Rubber"	320554
+Gearbox mustang teleforks/belt conveyor	190053
+SL-F100 stand foot with tube 100mm	205345
+Solenoid valve    CPE14-M1BH-5/3G-QS-8	196904
+Bearing holder p. 80x70x10 Maindrive w B	840-00055-0000
+Bearing LoGopak	310-00160-0000
+Tote Erector Prox Flag Left	4009.G.22_L
+Tote Erector Prox Flag Right	4009.G.22_R
+PEM Cylinder	44252_CYL
+"Drive fixture D270x60 Single Pin"	209058
+LOGOPAK print engine cleaning set	315-00000-0000
+Crank with square	TOER K 02
+FESTO Repack Table Proximity Switch non sap	193689
+Roller 60 KPL	67536
+Precision steel tube 12x1x12	TOER G 10 4
+"Bushing Ø10/12x12, Type: 1012 DU"	1012 DU
+Precision steel pipe ø 10 x 1 ... 25	TOER G 13 2
+Cam KRV 26 PP	KRV 26 PP
+270X110 DRIVE WHEEL	212115
+Covering Cap old System	WKS-9041 Belt tensioner	148275
+Circuit Board for CBU	319217
+"Anti-Pendulum Drive Fixture Double pin"	119019
+Magnus and Mustang Drive Fixture (Lower End) Double pin	119021
+Crane Buffer 100 X 150	20449
+Common Couple-Plate  5 Liter	103814
+external commutator for servo regulator	WI-VUO190-16NO7
+CPU-PL2-Board	231-00150-00001
+270X60 AP DRIVE WHEEL DPS MUSTANG	329492
+PICK LIGHT CONFIRM BUTTON	WKS-8949
+SECHSKANT SW17 H9 L=185	00168726
+Tooth. Belt Pulley AL T10/32-2	34414
+AUXILIARY CONTACTOR	277377
+DILM12-10 (24VDC) Contactor	276845
+Plain Bearing Bushing	31000060
+Drive Shaft	82100005
+Distance Roller	82102110
+Safety Housing	70006187
+Sensor WL9-3P3430	1049066
+WL27-3P3431 light barrier	1029081
+"Tension spring D1.2 x 12.3 , n=24 winding"	TOER G 02 3
+FLAT BELT WHITE	TCF-50H
+AK-PKZ0 lockable handle	30851
+Puncture pin collar cpl.	76525+
+"Plate cpl., HS-length 2100"	177840
+Locking grip M24-LH	73025115
+strapper threaded shaft.	73025116
+Electro-magnetic clutch cpl. Complete w bearings.	71050025
+Bolt connection	71060952
+Welded Base Bolt	71057329
+Driving Pinion w/ Flange	71057331
+Ball Bearing 6006-2rsl din 625	30174894
+"Retaining Ring 55x2, DIN472-Zn"	72003665
+"Retaining RIng 30x1, 5 DIN471"	10821989
+Pressure Spring	71019870
+Collector Arm Complete Ground	152276
+"Eccentric Bolt Collar for Guide Wheels"	94376
+Pressure Spring	71054787
+Prox Clamp for Tote Erector snapper.	TOER-G22 1+2
+Toothed Belt 100ATL10 NT	58176
+Tooth Belt 75ATL10 NT	52797
+Steute Foot Switch (2 pedal)	87173003
+Collector Arm Complete Phase	152273
+115V Rittal Cabinet Fan	SK3239.110
+"MPS Magnus Telefork Chain Mounting Complete Kit"	20710_00058
+MPS Magnus Telefork Chain Mounting Complete Kit	20710_00059
+Panel Head Drive Mustang	260652
+Magnus Lift Belt Pulley	113519
+"Diagonal Chain Pusher Block (Orange Cover, no mount)"	157844
+Square Chain Pusher Block  (Orange Cover ONLY)	145204
+Tote Conveyor Guide Rail Flexible Coupler (TGW)	74583
+Cabinet Key	2531000
+"DPS Crane-Input Conveyor Blocking Device"	134411
+Incremental encoder iTD21 A4 Y82 512H Ni KR1 E14 iP54 21	10530_00104
+Sensormodul LS LI C PW-V11	420922
+Sensormodul LS RE C PW-C11	420924
+Rubber accentric adjust. for Blocking Device.	100233
+Console for anti-pendulum AP motor mount cpl. Magnus	21810_00033
+Counter disc CP 21226	71033618
+Combined needles roller bearing RAX 712	71033617
