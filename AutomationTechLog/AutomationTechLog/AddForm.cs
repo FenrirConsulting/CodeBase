@@ -201,6 +201,7 @@ namespace AutomationTechLog
                     {
                         case DialogResult.Yes:
                             createRecord();
+
                             MessageBox.Show("Added Record Succesfully.");
                             Close();
                             break;
@@ -236,9 +237,11 @@ namespace AutomationTechLog
             string tl_gendate = formmatedTime;
             string tl_moduser = globalUser.globalUsername;
             string tl_moddate = formmatedTime;
+            string tl_partsconfirmed = "No";
 
             DBConn.addTechlogRecord(tl_ref, tl_state, tl_wotype, tl_woasset, tl_wocomplaint, tl_worootcause, tl_wocorrection, tl_genuser, tl_gendate, tl_moduser, tl_moddate);
             DBConn.addTechlogUserRecord(tlu_ref, tl_ref, tlu_shift, tlu_time, tlu_date, tlu_name);
+            DBConn.confirmPartsRecord(tl_ref, tl_partsconfirmed);
 
 
         }

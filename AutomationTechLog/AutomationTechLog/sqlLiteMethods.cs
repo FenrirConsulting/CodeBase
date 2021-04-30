@@ -304,6 +304,33 @@ namespace AutomationTechLog
             }
         }
 
+        public int confirmPartsQuantity(string tlinv_partnumber, int passedQuantity)
+        {
+            ConnectToDatabase();
+            string passQty = passedQuantity.ToString();
+
+            try
+            {
+                string strCommand = "Update TECHLOG_PARTSINVENTORY Set tlinv_qty=tlinv_qty - @var2 WHERE tlinv_partnumber=@tlinv_partnumber";
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@tlinv_partnumber", tlinv_partnumber);
+                cmdUpdate.Parameters.AddWithValue("@var2", passedQuantity);
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+        }
+
         public int updateMatchingLocationRecords(string table, string updateValue, string matchingValue)
         {
             ConnectToDatabase();

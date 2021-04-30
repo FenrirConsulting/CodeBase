@@ -132,7 +132,11 @@ namespace AutomationTechLog
 
             string confirmCheck = selectedRow["tl_partsconfirmed"].ToString();
 
-            if (confirmCheck == "Yes") { confirmButton.Visible = false; }
+            if (confirmCheck == "Yes") { 
+                confirmButton.Visible = false; 
+                addPartButton.Visible = false;
+                partsGrid.ReadOnly = true;
+            }
 
             if (stateComboBox.Text == "Completed")
             {
@@ -821,15 +825,40 @@ namespace AutomationTechLog
             switch (dr)
             {
                 case DialogResult.Yes:
-                    string confirm = "Yes";
-                    int tl_ref = Int32.Parse(globalUser.chosenRecord);
-                    DBConn.confirmPartsRecord(tl_ref, confirm);
+                    confirmParts();
                     refreshTable();
                     break;
                 case DialogResult.No:
                     break;
 
             }
+        }
+
+
+        private void confirmParts() {
+
+
+
+            foreach (DataGridViewRow currentRow in partsGrid.Rows)
+            {
+
+                if (currentRow.Index <= partsCount)
+                {
+                    if (currentRow.Cells["tlp_ref"].Value != null)
+                    {
+                        string tlinv_partnumber = currentRow.Cells["tlp_partnumber"].Value.ToString();
+                        int tlinv_qty = (int)currentRow.Cells["tlp_qnty"].Value;
+
+                        DBConn.confirmPartsQuantity(tlinv_partnumber, tlinv_qty);
+                    }
+                }
+
+            }
+
+            string confirm = "Yes";
+            int tl_ref = Int32.Parse(globalUser.chosenRecord);
+            DBConn.confirmPartsRecord(tl_ref, confirm);
+
         }
     }
 }
