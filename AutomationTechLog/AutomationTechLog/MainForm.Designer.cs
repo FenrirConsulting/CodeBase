@@ -37,6 +37,7 @@
             this.resizeButton = new System.Windows.Forms.PictureBox();
             this.minimizeButton = new System.Windows.Forms.PictureBox();
             this.buttonPanel = new System.Windows.Forms.Panel();
+            this.changesButton = new System.Windows.Forms.Button();
             this.partsButton = new System.Windows.Forms.Button();
             this.olderDateBox = new System.Windows.Forms.Label();
             this.legendLabel4 = new System.Windows.Forms.Label();
@@ -62,7 +63,6 @@
             this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripClearButton = new System.Windows.Forms.ToolStripButton();
             this.datagridOverview = new System.Windows.Forms.DataGridView();
-            this.changesButton = new System.Windows.Forms.Button();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).BeginInit();
@@ -84,7 +84,7 @@
             this.titlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titlePanel.Location = new System.Drawing.Point(0, 0);
             this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(1196, 37);
+            this.titlePanel.Size = new System.Drawing.Size(1200, 37);
             this.titlePanel.TabIndex = 0;
             this.titlePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.titlePanel_Paint);
             this.titlePanel.DoubleClick += new System.EventHandler(this.titlePanel_DoubleClick);
@@ -96,7 +96,7 @@
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.titleLabel.Location = new System.Drawing.Point(476, 5);
+            this.titleLabel.Location = new System.Drawing.Point(478, 5);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(245, 26);
             this.titleLabel.TabIndex = 46;
@@ -128,7 +128,7 @@
             // 
             this.closeButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.closeButton.Image = global::AutomationTechLog.Properties.Resources.exit;
-            this.closeButton.Location = new System.Drawing.Point(1112, 0);
+            this.closeButton.Location = new System.Drawing.Point(1116, 0);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(28, 37);
             this.closeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -140,7 +140,7 @@
             // 
             this.resizeButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.resizeButton.Image = global::AutomationTechLog.Properties.Resources.resizeIcon;
-            this.resizeButton.Location = new System.Drawing.Point(1140, 0);
+            this.resizeButton.Location = new System.Drawing.Point(1144, 0);
             this.resizeButton.Name = "resizeButton";
             this.resizeButton.Size = new System.Drawing.Size(28, 37);
             this.resizeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -152,7 +152,7 @@
             // 
             this.minimizeButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.minimizeButton.Image = global::AutomationTechLog.Properties.Resources.minimizeIcon;
-            this.minimizeButton.Location = new System.Drawing.Point(1168, 0);
+            this.minimizeButton.Location = new System.Drawing.Point(1172, 0);
             this.minimizeButton.Name = "minimizeButton";
             this.minimizeButton.Size = new System.Drawing.Size(28, 37);
             this.minimizeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -180,8 +180,22 @@
             this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonPanel.Location = new System.Drawing.Point(0, 37);
             this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(1196, 51);
+            this.buttonPanel.Size = new System.Drawing.Size(1200, 51);
             this.buttonPanel.TabIndex = 1;
+            // 
+            // changesButton
+            // 
+            this.changesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.changesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.changesButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changesButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.changesButton.Location = new System.Drawing.Point(1087, 14);
+            this.changesButton.Name = "changesButton";
+            this.changesButton.Size = new System.Drawing.Size(97, 25);
+            this.changesButton.TabIndex = 48;
+            this.changesButton.Text = "Patch Changes";
+            this.changesButton.UseVisualStyleBackColor = false;
+            this.changesButton.Click += new System.EventHandler(this.changesButton_Click);
             // 
             // partsButton
             // 
@@ -365,7 +379,7 @@
             this.toolStripClearButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 88);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1196, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1200, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -429,7 +443,6 @@
             // 
             this.toolStripSearchTextBox.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.toolStripSearchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.toolStripSearchTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripSearchTextBox.Margin = new System.Windows.Forms.Padding(10, 0, 1, 0);
             this.toolStripSearchTextBox.Name = "toolStripSearchTextBox";
             this.toolStripSearchTextBox.Size = new System.Drawing.Size(150, 25);
@@ -478,33 +491,19 @@
             this.datagridOverview.Location = new System.Drawing.Point(0, 113);
             this.datagridOverview.Name = "datagridOverview";
             this.datagridOverview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridOverview.Size = new System.Drawing.Size(1196, 558);
+            this.datagridOverview.Size = new System.Drawing.Size(1200, 587);
             this.datagridOverview.TabIndex = 3;
             this.datagridOverview.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagridOverview_CellDoubleClick);
             this.datagridOverview.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.datagridOverview_CellFormatting);
             this.datagridOverview.SelectionChanged += new System.EventHandler(this.datagridOverview_SelectionChanged);
             this.datagridOverview.Paint += new System.Windows.Forms.PaintEventHandler(this.datagridOverview_Paint);
             // 
-            // changesButton
-            // 
-            this.changesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
-            this.changesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.changesButton.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changesButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.changesButton.Location = new System.Drawing.Point(1087, 14);
-            this.changesButton.Name = "changesButton";
-            this.changesButton.Size = new System.Drawing.Size(97, 25);
-            this.changesButton.TabIndex = 48;
-            this.changesButton.Text = "Patch Changes";
-            this.changesButton.UseVisualStyleBackColor = false;
-            this.changesButton.Click += new System.EventHandler(this.changesButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
-            this.ClientSize = new System.Drawing.Size(1196, 671);
+            this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.datagridOverview);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.buttonPanel);

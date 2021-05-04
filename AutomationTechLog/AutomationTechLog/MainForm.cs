@@ -70,6 +70,7 @@ namespace AutomationTechLog
             {
                 olderRecordsCheckbox.Enabled = true;
                 partsButton.Visible = true;
+                reportsButton.Visible = true;
             }
 
             DataTable searchedTable = buildOverviewDataTable();
@@ -489,7 +490,8 @@ namespace AutomationTechLog
 
         private void reportsButton_Click(object sender, EventArgs e)
         {
-
+            var reportForm = new ReportForm(globalUser);
+            reportForm.Show();
         }
 
         private void datagridOverview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

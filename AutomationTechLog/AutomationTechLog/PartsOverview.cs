@@ -11,8 +11,9 @@ namespace AutomationTechLog
     public partial class PartsOverview : Form
     {
         sqlLiteMethods DBConn = new sqlLiteMethods();
-        DataTable TECHLOGInventoryTable = new DataTable();
         GlobalUser globalUser;
+        DataTable TECHLOGInventoryTable = new DataTable();
+       
         int selectedRecord;
         string selectedLocation;
         public PartsOverview(GlobalUser passedUser)
