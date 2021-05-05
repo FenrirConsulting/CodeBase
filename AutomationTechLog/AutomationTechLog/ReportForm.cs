@@ -7,6 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Microsoft.Reporting.WinForms;
+
+/*
+SELECT  TECHLOG_USER.tlu_name, TECHLOG_PARTS.tlp_partnumber, TECHLOG_PARTS.tlp_description, TECHLOG_PARTS.tlp_qnty, TECHLOG_USER.tlu_date
+FROM TECHLOG 
+INNER JOIN TECHLOG_PARTS  ON TECHLOG.tl_ref = TECHLOG_PARTS.tl_ref
+INNER JOIN TECHLOG_USER  ON TECHLOG.tl_ref = TECHLOG_USER.tl_ref
+WHERE TECHLOG.tl_partsConfirmed = 'Yes'
+ * 
+ */
 
 namespace AutomationTechLog
 {
@@ -18,11 +28,22 @@ namespace AutomationTechLog
         {
             globalUser = passedUser;
             InitializeComponent();
+            buildReport();
         }
 
         private void closeButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void buildReport() {
+
+            reportViewer1.LocalReport.ReportPath = string.Concat(Application.StartupPath, "\\Reports\\Parts.rdlc");
+            DataTable passedTable = DBConn.getTable("TECHLOG");
+            ReportDataSource reportSource = new ReportDataSource();
+            reportSource.Value = passedTable;
+            reportViewer1.LocalReport.DataSources.Add(reportSource);
+            reportViewer1.RefreshReport();
         }
 
         // Buttons and functions general to forms in applications. 
@@ -64,10 +85,6 @@ namespace AutomationTechLog
             //ControlPaint.DrawBorder(e.Graphics, this.titlePanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
         }
 
-        private void bodyPanel_Paint(object sender, PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(e.Graphics, this.bodyPanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
-        }
 
         private void resizeButton_Click(object sender, EventArgs e)
         {
@@ -78,6 +95,11 @@ namespace AutomationTechLog
             else this.WindowState = FormWindowState.Maximized;
 
             bodyPanel.Refresh();
+        }
+
+        private void bodyPanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.bodyPanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
         }
     }
 }

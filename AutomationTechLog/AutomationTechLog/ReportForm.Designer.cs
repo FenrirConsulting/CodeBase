@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.titlePanel = new System.Windows.Forms.Panel();
+            this.resizeButton = new System.Windows.Forms.PictureBox();
             this.partsTitle = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.bodyPanel = new System.Windows.Forms.Panel();
-            this.resizeButton = new System.Windows.Forms.PictureBox();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.titlePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -51,6 +52,18 @@
             this.titlePanel.TabIndex = 4;
             this.titlePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.titlePanel_Paint);
             this.titlePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseMove);
+            // 
+            // resizeButton
+            // 
+            this.resizeButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.resizeButton.Image = global::AutomationTechLog.Properties.Resources.resizeIcon;
+            this.resizeButton.Location = new System.Drawing.Point(1044, 0);
+            this.resizeButton.Name = "resizeButton";
+            this.resizeButton.Size = new System.Drawing.Size(28, 47);
+            this.resizeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.resizeButton.TabIndex = 50;
+            this.resizeButton.TabStop = false;
+            this.resizeButton.Click += new System.EventHandler(this.resizeButton_Click);
             // 
             // partsTitle
             // 
@@ -85,17 +98,17 @@
             this.bodyPanel.TabIndex = 5;
             this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
             // 
-            // resizeButton
+            // reportViewer1
             // 
-            this.resizeButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.resizeButton.Image = global::AutomationTechLog.Properties.Resources.resizeIcon;
-            this.resizeButton.Location = new System.Drawing.Point(1044, 0);
-            this.resizeButton.Name = "resizeButton";
-            this.resizeButton.Size = new System.Drawing.Size(28, 47);
-            this.resizeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.resizeButton.TabIndex = 50;
-            this.resizeButton.TabStop = false;
-            this.resizeButton.Click += new System.EventHandler(this.resizeButton_Click);
+            this.reportViewer1.AutoSize = true;
+            this.reportViewer1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "ReportViewer";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
+            this.reportViewer1.TabIndex = 0;
+            this.Controls.Add(this.reportViewer1);
             // 
             // ReportForm
             // 
@@ -111,8 +124,8 @@
             this.Text = "ReportForm";
             this.titlePanel.ResumeLayout(false);
             this.titlePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -124,5 +137,6 @@
         private System.Windows.Forms.PictureBox closeButton;
         private System.Windows.Forms.Panel bodyPanel;
         private System.Windows.Forms.PictureBox resizeButton;
-    }
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        }
 }
