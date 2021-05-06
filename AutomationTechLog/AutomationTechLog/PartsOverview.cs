@@ -10,12 +10,13 @@ namespace AutomationTechLog
 {
     public partial class PartsOverview : Form
     {
-        sqlLiteMethods DBConn = new sqlLiteMethods();
-        GlobalUser globalUser;
-        DataTable TECHLOGInventoryTable = new DataTable();
-       
-        int selectedRecord;
-        string selectedLocation;
+        private sqlLiteMethods DBConn = new sqlLiteMethods();
+        private GlobalUser globalUser;
+        private DataTable TECHLOGInventoryTable = new DataTable();
+
+        private int selectedRecord;
+        private string selectedLocation;
+
         public PartsOverview(GlobalUser passedUser)
         {
             globalUser = passedUser;
@@ -23,14 +24,9 @@ namespace AutomationTechLog
             buildTables();
         }
 
-
-
-
         public void buildTables()
         {
-
             TECHLOGInventoryTable = buildPartsTable();
-
 
             DataView results = new DataView(TECHLOGInventoryTable);
 
@@ -60,12 +56,10 @@ namespace AutomationTechLog
                 .Select(dr => dr.Field<string>("tlloc_locid")).ToList();
             locationList.Insert(0, "Unassigned");
             locationTextBox.DataSource = locationList;
-
         }
 
         public DataTable buildPartsTable()
         {
-
             DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY"); ;
 
             DataTable filledTable = new DataTable();
@@ -88,16 +82,17 @@ namespace AutomationTechLog
             }, false);
             query.CopyToDataTable();
 
-
             return filledTable;
         }
 
-        // Buttons and functions general to forms in applications. 
+        // Buttons and functions general to forms in applications.
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -143,7 +138,6 @@ namespace AutomationTechLog
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-
         }
 
         private void searchButton_Click_1(object sender, EventArgs e)
@@ -183,7 +177,7 @@ namespace AutomationTechLog
             addPartsForm.FormClosed += new FormClosedEventHandler(addPartsForm_Closed);
         }
 
-        void addPartsForm_Closed(object sender, FormClosedEventArgs e)
+        private void addPartsForm_Closed(object sender, FormClosedEventArgs e)
         {
             buildTables();
         }
@@ -195,7 +189,7 @@ namespace AutomationTechLog
             locationForm.FormClosed += new FormClosedEventHandler(locationForm_Closed);
         }
 
-        void locationForm_Closed(object sender, FormClosedEventArgs e)
+        private void locationForm_Closed(object sender, FormClosedEventArgs e)
         {
             buildTables();
         }
@@ -210,6 +204,7 @@ namespace AutomationTechLog
                 case DialogResult.Yes:
                     deletePartRecord();
                     break;
+
                 case DialogResult.No:
                     break;
             }
@@ -237,6 +232,7 @@ namespace AutomationTechLog
                 case DialogResult.Yes:
                     updatePartRecord();
                     break;
+
                 case DialogResult.No:
                     break;
             }
@@ -261,14 +257,11 @@ namespace AutomationTechLog
 
         private void updateLocationCount(string locationID)
         {
-
-
             string tempString;
             DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
             int numberOfRecords = TECHLOGInvTable.Select("tlloc_locid =" + "'" + locationID + "'").Length;
             tempString = numberOfRecords.ToString();
             DBConn.updateLocationCount(tempString, locationID);
-
         }
     }
 }

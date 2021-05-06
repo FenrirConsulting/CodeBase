@@ -71,7 +71,7 @@
             this.partsTitle.AutoSize = true;
             this.partsTitle.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.partsTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.partsTitle.Location = new System.Drawing.Point(514, 13);
+            this.partsTitle.Location = new System.Drawing.Point(568, 13);
             this.partsTitle.Name = "partsTitle";
             this.partsTitle.Size = new System.Drawing.Size(73, 23);
             this.partsTitle.TabIndex = 49;
@@ -103,12 +103,11 @@
             this.reportViewer1.AutoSize = true;
             this.reportViewer1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 47);
             this.reportViewer1.Name = "ReportViewer";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(396, 246);
+            this.reportViewer1.Size = new System.Drawing.Size(1100, 553);
             this.reportViewer1.TabIndex = 0;
-            this.Controls.Add(this.reportViewer1);
             // 
             // ReportForm
             // 
@@ -116,6 +115,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1100, 600);
+            this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.bodyPanel);
             this.Controls.Add(this.titlePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -127,6 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

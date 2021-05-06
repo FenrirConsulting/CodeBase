@@ -1,9 +1,8 @@
 ﻿/*
-    Written by Christopher Olson 
+    Written by Christopher Olson
     For CVS Health
     February 12th, 2021
 */
-
 
 using System;
 using System.Data;
@@ -17,15 +16,13 @@ namespace AutomationTechLog
 {
     public partial class MainForm : Form
     {
-        sqlLiteMethods DBConn = new sqlLiteMethods();
-        int rowCount = 0;
-        int selectedRow = 0;
+        public const int HT_CAPTION = 0x2;
+        // The below code allows moving around the window by holding left click on the title panel.
+        public const int WM_NCLBUTTONDOWN = 0xA1;
 
-        GlobalUser globalUser = new GlobalUser();
-
-        string patchTitle = "Patch Notes : 04/26/2021";
-
-        string patchChanges =
+        private sqlLiteMethods DBConn = new sqlLiteMethods();
+        private GlobalUser globalUser = new GlobalUser();
+        private string patchChanges =
         "Note : All software changes come from input of AST Leads. " + Environment.NewLine +
          Environment.NewLine +
          "- Adjusted default Hide Records to 7 days past. " + Environment.NewLine +
@@ -36,6 +33,9 @@ namespace AutomationTechLog
          Environment.NewLine +
          "- Once a record is set as Completed it can no longer be set back to Entered. " + Environment.NewLine;
 
+        private string patchTitle = "Patch Notes : 04/26/2021";
+        private int rowCount = 0;
+        private int selectedRow = 0;
         public MainForm(DataRow passedRow)
         {
             InitializeComponent();
@@ -47,7 +47,6 @@ namespace AutomationTechLog
             weekNumberLabel.Text = "Week Number: " + weekNumber.ToString();
             if (passedRow != null)
             {
-
                 globalUser.globalUsername = passedRow["tlt_name"].ToString(); nameTitleLabel.Text = globalUser.globalUsername;
                 globalUser.globalEmployeeId = passedRow["tlt_auname"].ToString();
                 globalUser.globalAdmin = passedRow["tlt_isadmin"].ToString();
@@ -55,7 +54,6 @@ namespace AutomationTechLog
                 globalUser.globalPartsLead = passedRow["tlt_ispartslead"].ToString();
                 globalUser.globalActive = passedRow["tlt_isactive"].ToString();
                 globalUser.globalPassword = passedRow["tlt_pword"].ToString();
-
             }
             toolStripCSVButton.Visible = false; ;
             reportsButton.Visible = false;
@@ -78,113 +76,6 @@ namespace AutomationTechLog
             buildDataGridView(searchedTable, builtSQL);
         }
 
-        private string buildSQL()
-        {
-
-            string builtSQL = "";
-            string selectSQL = "";
-            string whereSQL = "";
-            string groupSQL = "";
-
-            builtSQL = selectSQL + whereSQL + groupSQL;
-
-            return builtSQL;
-        }
-
-        private string formatDateWithTime(DateTime passedTime)
-        {
-
-            string formattedTime = "";
-            formattedTime = passedTime.ToString("MM/dd/yyyy HH:mm:ss");
-            return formattedTime;
-
-        }
-
-        private string formatDate(DateTime passedTime)
-        {
-            string formattedDate = "";
-            formattedDate = passedTime.ToString("MM/dd/yyyy");
-            return formattedDate;
-        }
-
-        private DateTime stringToDate(string stringToParse)
-        {
-
-            var parsedDate = DateTime.Parse(stringToParse);
-
-            return parsedDate;
-        }
-
-        private DataTable buildOverviewDataTable()
-        {
-
-            DataTable TECHLOGTable = DBConn.getOverviewTable("TECHLOG");
-            //DataTable TECHLOGUserTable = DBConn.getTable("TECHLOG_USER");
-
-
-            DataTable filledTable = new DataTable();
-            filledTable.Columns.Add("tl_ref", typeof(int));
-            filledTable.Columns.Add("tl_state", typeof(string));
-            filledTable.Columns.Add("tl_wotype", typeof(string));
-            filledTable.Columns.Add("tl_woasset", typeof(string));
-            filledTable.Columns.Add("tl_wocomplaint", typeof(string));
-            filledTable.Columns.Add("tl_genuser", typeof(string));
-            filledTable.Columns.Add("tl_gendate", typeof(string));
-            filledTable.Columns.Add("tl_worootcause", typeof(string));
-            filledTable.Columns.Add("tl_wocorrection", typeof(string));
-            filledTable.Columns.Add("tl_moduser", typeof(string));
-            filledTable.Columns.Add("tl_moddate", typeof(string));
-            filledTable.Columns.Add("tlu_time", typeof(string));
-            filledTable.Columns.Add("TTime", typeof(long));
-            filledTable.Columns.Add("CountField", typeof(long));
-            filledTable.Columns.Add("PartCount", typeof(long));
-            filledTable.Columns.Add("tl_partsconfirmed", typeof(string));
-
-
-            var query =
-            from dt1 in TECHLOGTable.AsEnumerable()
-
-
-            select filledTable.LoadDataRow(new object[]
-            {
-                dt1.Field<int>("tl_ref"),
-                dt1.Field<string>("tl_state"),
-                dt1.Field<string>("tl_wotype"),
-                dt1.Field<string>("tl_woasset"),
-                dt1.Field<string>("tl_wocomplaint"),
-                dt1.Field<string>("tl_genuser"),
-                dt1.Field<string>("tl_gendate"),
-                dt1.Field<string>("tl_worootcause"),
-                dt1.Field<string>("tl_wocorrection"),
-                dt1.Field<string>("tl_moduser"),
-                dt1.Field<string>("tl_moddate"),
-                dt1.Field<string>("tlu_time"),
-                dt1.Field<long>("TTime"),
-                dt1.Field<long>("CountField"),
-                dt1.Field<long>("PartCount"),
-                dt1.Field<string>("tl_partsconfirmed")
-
-            }, false);
-
-
-            query.CopyToDataTable();
-
-
-            DataTable clonedTable = filledTable.Clone();
-            clonedTable.Columns["tl_gendate"].DataType = typeof(DateTime);
-            clonedTable.Columns["tl_moddate"].DataType = typeof(DateTime);
-
-            foreach (DataRow row in filledTable.Rows)
-            {
-                clonedTable.ImportRow(row);
-            }
-
-            return clonedTable;
-
-        }
-
-
-
         public static int GetWeekNumber(DateTime now)
         {
             CultureInfo ci = CultureInfo.CurrentCulture;
@@ -192,82 +83,11 @@ namespace AutomationTechLog
             return weekNumber;
         }
 
-        // Title panel button and click events. Moving, resizing, and closing the main window. 
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void resizeButton_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-            else this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void minimizeButton_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
-        private void titlePanel_DoubleClick(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-            else this.WindowState = FormWindowState.Maximized;
-        }
-
-        // The below code allows moving around the window by holding left click on the title panel.
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-        [DllImportAttribute("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
-        protected override void WndProc(ref Message m)
-        {
-            if (m.Msg == 0x84)
-            {
-                const int resizeArea = 10;
-                Point cursorPosition = PointToClient(new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16));
-                if (cursorPosition.X >= ClientSize.Width - resizeArea && cursorPosition.Y >= ClientSize.Height - resizeArea)
-                {
-                    m.Result = (IntPtr)17;
-                    return;
-                }
-            }
-
-            base.WndProc(ref m);
-        }
-
-        private void titlePanel_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
-        }
-
-        public void searchButton_Click(object sender, EventArgs e)
-        {
-            searchFunction();
-        }
-
-
-
-        public void searchFunction()
-        {
-            DataTable searchedTable = buildOverviewDataTable();
-            string builtSQL = buildSQL();
-            buildDataGridView(searchedTable, builtSQL);
-        }
-
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         public void buildDataGridView(DataTable passedTable, string builtSQL)
         {
@@ -275,8 +95,6 @@ namespace AutomationTechLog
             DateTime currentDate = DateTime.Today;
             DataView results = new DataView(passedTable);
             string builtFilter = "";
-
-
 
             if (olderRecordsCheckbox.Checked) { builtFilter = builtFilter + "tl_gendate >= #" + oldDate + "#" + " AND "; }
             if (enteredOrdersCheckbox.Checked == false) { builtFilter = builtFilter + "tl_state <> 'Entered'" + " AND "; }
@@ -299,7 +117,8 @@ namespace AutomationTechLog
                 {
                     builtFilter = builtFilter + " " + likeTerm + " = '" + searchTerm + "'" + " AND ";
                 }
-                else {
+                else
+                {
                     builtFilter = builtFilter + " " + likeTerm + " Like '%" + searchTerm + "%'" + " AND ";
                 }
             }
@@ -308,10 +127,6 @@ namespace AutomationTechLog
             builtFilter = builtFilter.Remove(builtFilter.Length - 5);
             results.RowFilter = builtFilter;
             results.Sort = "tl_gendate DESC";
-
-
-
-
 
             datagridOverview.DataSource = results;
             datagridOverview.Columns["tl_ref"].HeaderText = "Ref #";
@@ -334,7 +149,6 @@ namespace AutomationTechLog
             rowCount = datagridOverview.Rows.Count;
             rowCountLabel.Text = "Row " + selectedRow.ToString() + " of " + rowCount.ToString();
 
-
             datagridOverview.Columns["tl_ref"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             datagridOverview.Columns["tl_ref"].Width = 60;
             datagridOverview.Columns["tl_state"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -351,7 +165,118 @@ namespace AutomationTechLog
             datagridOverview.Columns["PartCount"].Width = 60;
             datagridOverview.Columns["TTime"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             datagridOverview.Columns["TTime"].Width = 60;
+        }
 
+        public void searchButton_Click(object sender, EventArgs e)
+        {
+            searchFunction();
+        }
+
+        public void searchFunction()
+        {
+            DataTable searchedTable = buildOverviewDataTable();
+            string builtSQL = buildSQL();
+            buildDataGridView(searchedTable, builtSQL);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x84)
+            {
+                const int resizeArea = 10;
+                Point cursorPosition = PointToClient(new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16));
+                if (cursorPosition.X >= ClientSize.Width - resizeArea && cursorPosition.Y >= ClientSize.Height - resizeArea)
+                {
+                    m.Result = (IntPtr)17;
+                    return;
+                }
+            }
+
+            base.WndProc(ref m);
+        }
+
+        private void addForm_Closed(object sender, FormClosedEventArgs e)
+        {
+            searchFunction();
+        }
+
+        private void addNewButton_Click(object sender, EventArgs e)
+        {
+            var addForm = new AddForm(globalUser);
+            addForm.Show();
+            addForm.FormClosed += new FormClosedEventHandler(addForm_Closed);
+        }
+
+        private DataTable buildOverviewDataTable()
+        {
+            DataTable TECHLOGTable = DBConn.getOverviewTable("TECHLOG");
+            //DataTable TECHLOGUserTable = DBConn.getTable("TECHLOG_USER");
+
+            DataTable filledTable = new DataTable();
+            filledTable.Columns.Add("tl_ref", typeof(int));
+            filledTable.Columns.Add("tl_state", typeof(string));
+            filledTable.Columns.Add("tl_wotype", typeof(string));
+            filledTable.Columns.Add("tl_woasset", typeof(string));
+            filledTable.Columns.Add("tl_wocomplaint", typeof(string));
+            filledTable.Columns.Add("tl_genuser", typeof(string));
+            filledTable.Columns.Add("tl_gendate", typeof(string));
+            filledTable.Columns.Add("tl_worootcause", typeof(string));
+            filledTable.Columns.Add("tl_wocorrection", typeof(string));
+            filledTable.Columns.Add("tl_moduser", typeof(string));
+            filledTable.Columns.Add("tl_moddate", typeof(string));
+            filledTable.Columns.Add("tlu_time", typeof(string));
+            filledTable.Columns.Add("TTime", typeof(long));
+            filledTable.Columns.Add("CountField", typeof(long));
+            filledTable.Columns.Add("PartCount", typeof(long));
+            filledTable.Columns.Add("tl_partsconfirmed", typeof(string));
+
+            var query =
+            from dt1 in TECHLOGTable.AsEnumerable()
+
+            select filledTable.LoadDataRow(new object[]
+            {
+                dt1.Field<int>("tl_ref"),
+                dt1.Field<string>("tl_state"),
+                dt1.Field<string>("tl_wotype"),
+                dt1.Field<string>("tl_woasset"),
+                dt1.Field<string>("tl_wocomplaint"),
+                dt1.Field<string>("tl_genuser"),
+                dt1.Field<string>("tl_gendate"),
+                dt1.Field<string>("tl_worootcause"),
+                dt1.Field<string>("tl_wocorrection"),
+                dt1.Field<string>("tl_moduser"),
+                dt1.Field<string>("tl_moddate"),
+                dt1.Field<string>("tlu_time"),
+                dt1.Field<long>("TTime"),
+                dt1.Field<long>("CountField"),
+                dt1.Field<long>("PartCount"),
+                dt1.Field<string>("tl_partsconfirmed")
+            }, false);
+
+            query.CopyToDataTable();
+
+            DataTable clonedTable = filledTable.Clone();
+            clonedTable.Columns["tl_gendate"].DataType = typeof(DateTime);
+            clonedTable.Columns["tl_moddate"].DataType = typeof(DateTime);
+
+            foreach (DataRow row in filledTable.Rows)
+            {
+                clonedTable.ImportRow(row);
+            }
+
+            return clonedTable;
+        }
+
+        private string buildSQL()
+        {
+            string builtSQL = "";
+            string selectSQL = "";
+            string whereSQL = "";
+            string groupSQL = "";
+
+            builtSQL = selectSQL + whereSQL + groupSQL;
+
+            return builtSQL;
         }
 
         private void cancelSearchButton_Click(object sender, EventArgs e)
@@ -360,13 +285,23 @@ namespace AutomationTechLog
             MessageBox.Show(showEntered.ToString());
         }
 
-        private void datagridOverview_SelectionChanged(object sender, EventArgs e)
+        private void changesButton_Click(object sender, EventArgs e)
         {
-            if (datagridOverview.CurrentCell != null)
-            {
-                selectedRow = datagridOverview.CurrentCell.RowIndex;
-                rowCountLabel.Text = "Row " + selectedRow.ToString() + " of " + rowCount.ToString();
-            }
+            MessageBox.Show(patchChanges, patchTitle);
+        }
+
+        // Title panel button and click events. Moving, resizing, and closing the main window.
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void datagridOverview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            globalUser.chosenRecord = datagridOverview.Rows[e.RowIndex].Cells[0].Value.ToString();
+            var updateForm = new UpdateForm(globalUser);
+            updateForm.Show();
+            updateForm.FormClosed += new FormClosedEventHandler(UpdateForm_Closed);
         }
 
         private void datagridOverview_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -405,7 +340,8 @@ namespace AutomationTechLog
             }
 
             string confirmedStr = "";
-            if (datagridOverview.Rows.Count != 0) {
+            if (datagridOverview.Rows.Count != 0)
+            {
                 if (datagridOverview.Rows[e.RowIndex].Cells["tl_partsconfirmed"].Value != null)
                 {
                     confirmedStr = datagridOverview.Rows[e.RowIndex].Cells["tl_partsconfirmed"].Value.ToString();
@@ -419,7 +355,6 @@ namespace AutomationTechLog
             {
                 this.datagridOverview.Rows[e.RowIndex].Cells["PartCount"].Style.BackColor = Color.Green;
             }
-
 
             string str1 = "";
             if (datagridOverview.Rows.Count != 0)
@@ -442,7 +377,6 @@ namespace AutomationTechLog
                 this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.DarkBlue;
                 this.datagridOverview.Rows[e.RowIndex].DefaultCellStyle.Font = new Font(this.Font.Name, this.Font.Size, FontStyle.Bold);
             }
-
 
             if (datagridOverview.Rows[e.RowIndex].Cells["tl_genuser"].Value != null && datagridOverview.Rows[e.RowIndex].Cells["tl_moduser"].Value != null)
             {
@@ -470,46 +404,37 @@ namespace AutomationTechLog
                     this.datagridOverview.Rows[e.RowIndex].Cells["TTime"].ToolTipText = string.Concat("Techs: ", this.datagridOverview.Rows[e.RowIndex].Cells["CountField"].Value.ToString());
                 }
             }
-
-
         }
 
-
-        private void addNewButton_Click(object sender, EventArgs e)
+        private void datagridOverview_Paint(object sender, PaintEventArgs e)
         {
-            var addForm = new AddForm(globalUser);
-            addForm.Show();
-            addForm.FormClosed += new FormClosedEventHandler(addForm_Closed);
         }
 
-        private void usersButton_Click(object sender, EventArgs e)
+        private void datagridOverview_SelectionChanged(object sender, EventArgs e)
         {
-            var userForm = new UserForm(globalUser);
-            userForm.Show();
+            if (datagridOverview.CurrentCell != null)
+            {
+                selectedRow = datagridOverview.CurrentCell.RowIndex;
+                rowCountLabel.Text = "Row " + selectedRow.ToString() + " of " + rowCount.ToString();
+            }
         }
 
-        private void reportsButton_Click(object sender, EventArgs e)
+        private string formatDate(DateTime passedTime)
         {
-            var reportForm = new ReportForm(globalUser);
-            reportForm.Show();
+            string formattedDate = "";
+            formattedDate = passedTime.ToString("MM/dd/yyyy");
+            return formattedDate;
         }
 
-        private void datagridOverview_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private string formatDateWithTime(DateTime passedTime)
         {
-            globalUser.chosenRecord = datagridOverview.Rows[e.RowIndex].Cells[0].Value.ToString();
-            var updateForm = new UpdateForm(globalUser);
-            updateForm.Show();
-            updateForm.FormClosed += new FormClosedEventHandler(UpdateForm_Closed);
+            string formattedTime = "";
+            formattedTime = passedTime.ToString("MM/dd/yyyy HH:mm:ss");
+            return formattedTime;
         }
-
-        void addForm_Closed(object sender, FormClosedEventArgs e)
+        private void minimizeButton_Click(object sender, EventArgs e)
         {
-            searchFunction();
-        }
-
-        void UpdateForm_Closed(object sender, FormClosedEventArgs e)
-        {
-            searchFunction();
+            WindowState = FormWindowState.Minimized;
         }
 
         private void partsButton_Click(object sender, EventArgs e)
@@ -518,16 +443,45 @@ namespace AutomationTechLog
             partsForm.Show();
         }
 
-
-
-        private void titlePanel_Paint(object sender, PaintEventArgs e)
+        private void reportsButton_Click(object sender, EventArgs e)
         {
-
+            var reportForm = new ReportForm(globalUser);
+            reportForm.Show();
         }
 
-        private void datagridOverview_Paint(object sender, PaintEventArgs e)
+        private void resizeButton_Click(object sender, EventArgs e)
         {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else this.WindowState = FormWindowState.Maximized;
+        }
 
+        private DateTime stringToDate(string stringToParse)
+        {
+            var parsedDate = DateTime.Parse(stringToParse);
+
+            return parsedDate;
+        }
+        private void titlePanel_DoubleClick(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else this.WindowState = FormWindowState.Maximized;
+        }
+        private void titlePanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+        private void titlePanel_Paint(object sender, PaintEventArgs e)
+        {
         }
 
         private void toolStripClearButton_Click(object sender, EventArgs e)
@@ -540,9 +494,15 @@ namespace AutomationTechLog
             searchFunction();
         }
 
-        private void changesButton_Click(object sender, EventArgs e)
+        private void UpdateForm_Closed(object sender, FormClosedEventArgs e)
         {
-            MessageBox.Show(patchChanges, patchTitle);
+            searchFunction();
+        }
+
+        private void usersButton_Click(object sender, EventArgs e)
+        {
+            var userForm = new UserForm(globalUser);
+            userForm.Show();
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿
-/*
-    Written by Christopher Olson 
+﻿/*
+    Written by Christopher Olson
     For CVS Health
     February 12th, 2021
 */
@@ -18,20 +17,21 @@ namespace AutomationTechLog
 {
     public partial class UpdateForm : Form
     {
-        sqlLiteMethods DBConn = new sqlLiteMethods();
-        DateTimePicker oDateTimePicker = new DateTimePicker();
-        DataTable TECHLOGTable = new DataTable();
-        DataTable TECHLOGUserTable = new DataTable();
-        DataTable TECHLOGPartsTable = new DataTable();
-        DataTable TECHLOGInventoryTable = new DataTable();
-        string modUser = "";
-        string modDate = "";
-        int techsCount = 0;
-        int partsCount = 0;
-        ContextMenu techContextMenu = new ContextMenu();
-        ContextMenu partsContextMenu = new ContextMenu();
+        private sqlLiteMethods DBConn = new sqlLiteMethods();
+        private DateTimePicker oDateTimePicker = new DateTimePicker();
+        private DataTable TECHLOGTable = new DataTable();
+        private DataTable TECHLOGUserTable = new DataTable();
+        private DataTable TECHLOGPartsTable = new DataTable();
+        private DataTable TECHLOGInventoryTable = new DataTable();
+        private string modUser = "";
+        private string modDate = "";
+        private int techsCount = 0;
+        private int partsCount = 0;
+        private ContextMenu techContextMenu = new ContextMenu();
+        private ContextMenu partsContextMenu = new ContextMenu();
 
-        GlobalUser globalUser;
+        private GlobalUser globalUser;
+
         public UpdateForm(GlobalUser passedUser)
         {
             globalUser = passedUser;
@@ -41,7 +41,6 @@ namespace AutomationTechLog
 
         public void buildTables()
         {
-
             string titleBar = globalUser.globalUsername + " viewing record #" + globalUser.chosenRecord;
             generatedTitle.Text = titleBar;
 
@@ -51,8 +50,6 @@ namespace AutomationTechLog
             TECHLOGTable = buildTechlogTable();
             TECHLOGUserTable = buildTechlogUserTable();
             TECHLOGPartsTable = buildTechlogPartsTable();
-
-
 
             userGrid.DataSource = TECHLOGUserTable;
             partsGrid.DataSource = TECHLOGPartsTable;
@@ -78,8 +75,6 @@ namespace AutomationTechLog
             causeTextBox.Text = selectedRow["tl_worootcause"].ToString();
             correctionTextBox.Text = selectedRow["tl_wocorrection"].ToString();
 
-
-
             DataTable UserlistTable = DBConn.getTable("TECHLOG_TECHS");
             List<String> userList = UserlistTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlt_name")).ToList();
@@ -103,14 +98,12 @@ namespace AutomationTechLog
             userGrid.Columns["tlu_time"].HeaderText = "Minutes";
             userGrid.Columns["tlu_date"].HeaderText = "Date";
 
-
             partsGrid.Columns["tlp_ref"].Visible = false;
             partsGrid.Columns["tl_ref"].Visible = false;
             partsGrid.Columns["tlp_qnty"].HeaderText = "Qnty";
             partsGrid.Columns["tlp_partnumber"].HeaderText = "Part Number";
             partsGrid.Columns["tlp_location"].HeaderText = "Location";
             partsGrid.Columns["tlp_description"].HeaderText = "Description";
-
 
             deleteButton.Enabled = false; deleteButton.Visible = false;
             userGrid.ReadOnly = true;
@@ -119,7 +112,6 @@ namespace AutomationTechLog
             string currentUserSelection = selectedRow["tl_genuser"].ToString();
             if (currentUserSelection == globalUser.globalUsername) { deleteButton.Visible = true; deleteButton.Enabled = true; }
             confirmButton.Visible = false;
-
 
             if (globalUser.globalLead == "True" || globalUser.globalPartsLead == "True" || globalUser.globalAdmin == "True")
             {
@@ -132,8 +124,9 @@ namespace AutomationTechLog
 
             string confirmCheck = selectedRow["tl_partsconfirmed"].ToString();
 
-            if (confirmCheck == "Yes") { 
-                confirmButton.Visible = false; 
+            if (confirmCheck == "Yes")
+            {
+                confirmButton.Visible = false;
                 addPartButton.Visible = false;
                 partsGrid.ReadOnly = true;
             }
@@ -153,12 +146,10 @@ namespace AutomationTechLog
             partsList.Insert(0, "Unlisted");
             addPartNumberBox.DataSource = partsList;
             addPartNumberBox.DropDownStyle = ComboBoxStyle.DropDown;
-
         }
 
         public DataTable buildTechlogTable()
         {
-
             DataTable TECHLOGTable = DBConn.getSelectedRecord("TECHLOG", globalUser.chosenRecord);
 
             DataTable filledTable = new DataTable();
@@ -192,10 +183,8 @@ namespace AutomationTechLog
                 dt1.Field<string>("tl_moduser"),
                 dt1.Field<string>("tl_moddate"),
                 dt1.Field<string>("tl_partsconfirmed")
-
             }, false);
             query.CopyToDataTable();
-
 
             DataTable clonedTable = filledTable.Clone();
             clonedTable.Columns["tl_moddate"].DataType = typeof(DateTime);
@@ -210,7 +199,6 @@ namespace AutomationTechLog
 
         public DataTable buildTechlogUserTable()
         {
-
             DataTable TECHLOGTable = DBConn.getSelectedRecord("TECHLOG_USER", globalUser.chosenRecord);
 
             DataTable filledTable = new DataTable();
@@ -221,10 +209,8 @@ namespace AutomationTechLog
             filledTable.Columns.Add("tlu_time", typeof(string));
             filledTable.Columns.Add("tlu_date", typeof(string));
 
-
             if (TECHLOGTable != null && TECHLOGTable.Rows.Count > 0)
             {
-
                 var query =
                 from dt1 in TECHLOGTable.AsEnumerable()
 
@@ -238,11 +224,7 @@ namespace AutomationTechLog
                 dt1.Field<string>("tlu_date")
                 }, false);
                 query.CopyToDataTable();
-
             }
-
-
-
 
             DataTable clonedTable = filledTable.Clone();
             clonedTable.Columns["tlu_date"].DataType = typeof(DateTime);
@@ -257,9 +239,7 @@ namespace AutomationTechLog
 
         public DataTable buildTechlogPartsTable()
         {
-
             DataTable TECHLOGTable = DBConn.getSelectedRecord("TECHLOG_PARTS", globalUser.chosenRecord);
-
 
             DataTable filledTable = new DataTable();
             filledTable.Columns.Add("tlp_ref", typeof(int));
@@ -271,7 +251,6 @@ namespace AutomationTechLog
 
             if (TECHLOGTable != null && TECHLOGTable.Rows.Count > 0)
             {
-
                 var query =
                 from dt1 in TECHLOGTable.AsEnumerable()
 
@@ -283,16 +262,12 @@ namespace AutomationTechLog
                 dt1.Field<string>("tlp_partnumber"),
                 dt1.Field<string>("tlp_location"),
                 dt1.Field<string>("tlp_description")
-
                 }, false);
                 query.CopyToDataTable();
-
             }
 
             return filledTable;
         }
-
-
 
         private void closeButton_Click(object sender, EventArgs e)
         {
@@ -301,8 +276,10 @@ namespace AutomationTechLog
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -350,45 +327,44 @@ namespace AutomationTechLog
         {
             if (e.ColumnIndex == 5)
             {
-                //Initialized a new DateTimePicker Control  
+                //Initialized a new DateTimePicker Control
 
-                //Adding DateTimePicker control into DataGridView   
+                //Adding DateTimePicker control into DataGridView
                 userGrid.Controls.Add(oDateTimePicker);
 
-                // Setting the format (i.e. 2014-10-10)  
+                // Setting the format (i.e. 2014-10-10)
                 oDateTimePicker.Format = DateTimePickerFormat.Custom;
                 oDateTimePicker.CustomFormat = "MM-dd-yyyy";
 
-                // It returns the retangular area that represents the Display area for a cell  
+                // It returns the retangular area that represents the Display area for a cell
                 Rectangle oRectangle = userGrid.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
 
-                //Setting area for DateTimePicker Control  
+                //Setting area for DateTimePicker Control
                 oDateTimePicker.Size = new Size(oRectangle.Width, oRectangle.Height);
 
-                // Setting Location  
+                // Setting Location
                 oDateTimePicker.Location = new Point(oRectangle.X, oRectangle.Y);
 
-                // An event attached to dateTimePicker Control which is fired when DateTimeControl is closed  
+                // An event attached to dateTimePicker Control which is fired when DateTimeControl is closed
                 oDateTimePicker.CloseUp += new EventHandler(oDateTimePicker_CloseUp);
 
-                // An event attached to dateTimePicker Control which is fired when any date is selected  
+                // An event attached to dateTimePicker Control which is fired when any date is selected
                 oDateTimePicker.TextChanged += new EventHandler(dateTimePicker_OnTextChange);
 
-                // Now make it visible  
+                // Now make it visible
                 oDateTimePicker.Visible = true;
             }
-
         }
 
         private void dateTimePicker_OnTextChange(object sender, EventArgs e)
         {
-            // Saving the 'Selected Date on Calendar' into DataGridView current cell  
+            // Saving the 'Selected Date on Calendar' into DataGridView current cell
             userGrid.CurrentCell.Value = oDateTimePicker.Text.ToString();
         }
 
-        void oDateTimePicker_CloseUp(object sender, EventArgs e)
+        private void oDateTimePicker_CloseUp(object sender, EventArgs e)
         {
-            // Hiding the control after use   
+            // Hiding the control after use
             oDateTimePicker.Visible = false;
         }
 
@@ -402,15 +378,14 @@ namespace AutomationTechLog
                 case DialogResult.Yes:
                     updateRecord();
                     break;
+
                 case DialogResult.No:
                     break;
-
             }
         }
 
         private void updateRecord()
         {
-
             foreach (DataRow selectedRow in TECHLOGTable.Rows)
             {
                 DateTime currentTime = DateTime.Now;
@@ -432,21 +407,13 @@ namespace AutomationTechLog
                 if (additionalCausesBox.Text != "") { tl_worootcause = tl_worootcause + Environment.NewLine + Environment.NewLine + additionalCausesBox.Text + Environment.NewLine + " - Added By: " + globalUser.globalUsername + " at " + tl_moddate; }
                 if (additionalCorrectionsBox.Text != "") { tl_wocorrection = tl_wocorrection + Environment.NewLine + Environment.NewLine + additionalCorrectionsBox.Text + Environment.NewLine + " - Added By: " + globalUser.globalUsername + " at " + tl_moddate; }
 
-
-
-
                 DBConn.techlogRecordUpdate(tl_ref, tl_state, tl_wotype, tl_woasset, tl_wocomplaint, tl_worootcause, tl_wocorrection, tl_genuser, tl_gendate, tl_moduser, tl_moddate);
-
             }
-
-
 
             foreach (DataGridViewRow currentRow in userGrid.Rows)
             {
-
                 if (currentRow.Index <= techsCount)
                 {
-
                     if (currentRow.Cells["tlu_ref"].Value != null)
                     {
                         DateTime currentTime = DateTime.Now;
@@ -462,13 +429,10 @@ namespace AutomationTechLog
                         DBConn.techlogUserRecordUpdate(tlu_ref, tl_ref, tlu_name, tlu_time, tlu_shift, tlu_date);
                     }
                 }
-
-
             }
 
             foreach (DataGridViewRow currentRow in partsGrid.Rows)
             {
-
                 if (currentRow.Index <= partsCount)
                 {
                     if (currentRow.Cells["tlp_ref"].Value != null)
@@ -483,19 +447,14 @@ namespace AutomationTechLog
                         DBConn.techlogPartsRecordUpdate(tlp_ref, tl_ref, tlp_qnty, tlp_partnumber, tlp_location, tlp_description);
                     }
                 }
-
             }
 
             updateModDate();
             refreshTable();
-
         }
-
-
 
         private void addTechButton_Click(object sender, EventArgs e)
         {
-
             DialogResult dr = MessageBox.Show("Add this tech?",
             "Confirm Add", MessageBoxButtons.YesNo);
 
@@ -504,7 +463,6 @@ namespace AutomationTechLog
                 case DialogResult.Yes:
                     if (globalUser.chosenRecord != null && addShiftBox.Text != "" && addTimeTextBox.Text != "" && addUserDateTime.Text != "" && addUserBox.Text != "")
                     {
-
                         int tlu_ref = DBConn.primaryKeyHighestValue("TECHLOG_USER", "tlu_ref") + 1;
                         int tl_ref = Int32.Parse(globalUser.chosenRecord);
                         string tlu_shift = addShiftBox.Text;
@@ -521,11 +479,10 @@ namespace AutomationTechLog
                     }
                     refreshTable();
                     break;
+
                 case DialogResult.No:
                     break;
-
             }
-
         }
 
         private void addPartButton_Click(object sender, EventArgs e)
@@ -538,7 +495,6 @@ namespace AutomationTechLog
                 case DialogResult.Yes:
                     if (globalUser.chosenRecord != null && addQuantityBox.Text != "" && addPartNumberBox.Text != "" && addLocationBox.Text != "" && addDescriptionBox.Text != "")
                     {
-
                         int tlp_ref = DBConn.primaryKeyHighestValue("TECHLOG_PARTS", "tlp_ref") + 1;
                         int tl_ref = Int32.Parse(globalUser.chosenRecord);
                         int tlp_qnty = Int32.Parse(addQuantityBox.Text);
@@ -555,9 +511,9 @@ namespace AutomationTechLog
                     }
                     refreshTable();
                     break;
+
                 case DialogResult.No:
                     break;
-
             }
         }
 
@@ -565,7 +521,6 @@ namespace AutomationTechLog
         {
             if (e.Button == MouseButtons.Right)
             {
-
                 if (globalUser.globalLead == "True" || globalUser.globalAdmin == "True" || globalUser.globalPartsLead == "True")
                 {
                     int selectedRow = (int)userGrid.Rows[e.RowIndex].Cells[0].Value;
@@ -584,7 +539,6 @@ namespace AutomationTechLog
 
         private void TechMenuItemNew_Click(Object sender, System.EventArgs e, int selectedRow)
         {
-
             DialogResult dr = MessageBox.Show("Delete this tech?",
             "Confirm Deletion", MessageBoxButtons.YesNo);
 
@@ -597,20 +551,18 @@ namespace AutomationTechLog
                     updateModDate();
                     refreshTable();
                     break;
+
                 case DialogResult.No:
                     techContextMenu.MenuItems.Clear();
                     userGrid.ClearSelection();
                     break;
-
             }
-
         }
 
         private void partsGrid_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
-
                 if (globalUser.globalLead == "True" || globalUser.globalAdmin == "True" || globalUser.globalPartsLead == "True")
                 {
                     int selectedRow = (int)partsGrid.Rows[e.RowIndex].Cells[0].Value;
@@ -628,7 +580,6 @@ namespace AutomationTechLog
 
         private void PartsMenuItemNew_Click(Object sender, System.EventArgs e, int selectedRow)
         {
-
             DialogResult dr = MessageBox.Show("Delete this part?",
             "Confirm Deletion", MessageBoxButtons.YesNo);
 
@@ -641,19 +592,16 @@ namespace AutomationTechLog
                     updateModDate();
                     refreshTable();
                     break;
+
                 case DialogResult.No:
                     partsContextMenu.MenuItems.Clear();
                     partsGrid.ClearSelection();
                     break;
-
             }
-
         }
-
 
         private void refreshTable()
         {
-
             userGrid.DataSource = null;
             userGrid.Rows.Clear();
             partsGrid.DataSource = null;
@@ -677,7 +625,7 @@ namespace AutomationTechLog
                 }
                 else
                 {
-                    // the input is numeric 
+                    // the input is numeric
                 }
             }
         }
@@ -696,7 +644,7 @@ namespace AutomationTechLog
                 }
                 else
                 {
-                    // the input is numeric 
+                    // the input is numeric
                 }
             }
             */
@@ -735,15 +683,14 @@ namespace AutomationTechLog
                     MessageBox.Show("Record Deleted");
                     Close();
                     break;
+
                 case DialogResult.No:
                     break;
-
             }
         }
 
         private void updateModDate()
         {
-
             DateTime currentTime = DateTime.Now;
             int tl_ref = Int32.Parse(globalUser.chosenRecord);
             string tl_moduser = globalUser.globalUsername;
@@ -793,28 +740,23 @@ namespace AutomationTechLog
 
         private void addPartNumberBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             string tempLocation = "Unassigned";
             string tempDescription = "No Description";
 
             foreach (DataRow row in TECHLOGInventoryTable.Rows)
             {
-
                 if (addPartNumberBox.Text == row["tlinv_partnumber"].ToString())
                 {
-
                     tempLocation = row["tlloc_locid"].ToString();
                     tempDescription = row["tlinv_desc"].ToString();
 
                     addLocationBox.Text = tempLocation;
                     addDescriptionBox.Text = tempDescription;
                 }
-
             }
 
             addLocationBox.Text = tempLocation;
             addDescriptionBox.Text = tempDescription;
-
         }
 
         private void confirmButton_Click(object sender, EventArgs e)
@@ -828,20 +770,16 @@ namespace AutomationTechLog
                     confirmParts();
                     refreshTable();
                     break;
+
                 case DialogResult.No:
                     break;
-
             }
         }
 
-
-        private void confirmParts() {
-
-
-
+        private void confirmParts()
+        {
             foreach (DataGridViewRow currentRow in partsGrid.Rows)
             {
-
                 if (currentRow.Index <= partsCount)
                 {
                     if (currentRow.Cells["tlp_ref"].Value != null)
@@ -852,13 +790,11 @@ namespace AutomationTechLog
                         DBConn.confirmPartsQuantity(tlinv_partnumber, tlinv_qty);
                     }
                 }
-
             }
 
             string confirm = "Yes";
             int tl_ref = Int32.Parse(globalUser.chosenRecord);
             DBConn.confirmPartsRecord(tl_ref, confirm);
-
         }
     }
 }

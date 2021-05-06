@@ -1,9 +1,8 @@
 ﻿/*
-    Written by Christopher Olson 
+    Written by Christopher Olson
     For CVS Health
     February 12th, 2021
 */
-
 
 using System;
 using System.Data;
@@ -15,19 +14,20 @@ namespace AutomationTechLog
 {
     public partial class AddUser : Form
     {
-        DataTable TECHLOGTechTable = new DataTable();
-        sqlLiteMethods DBConn = new sqlLiteMethods();
+        private DataTable TECHLOGTechTable = new DataTable();
+        private sqlLiteMethods DBConn = new sqlLiteMethods();
+
         public AddUser()
         {
             InitializeComponent();
         }
 
-
-
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -81,14 +81,12 @@ namespace AutomationTechLog
             }
             else
             {
-
                 if (checkID == true)
                 {
                     MessageBox.Show("Employee ID Exists, Must be Unique.");
                 }
                 else
                 {
-
                     if (passwordBox.Text != confirmPasswordBox.Text)
                     {
                         MessageBox.Show("Passwords do not match, please confirm password.");
@@ -98,14 +96,11 @@ namespace AutomationTechLog
                         createUser();
                     }
                 }
-
             }
         }
 
         private void createUser()
         {
-
-
             DialogResult dr = MessageBox.Show("Confirm Create User?",
                  "Confirm Create User", MessageBoxButtons.YesNo);
 
@@ -123,11 +118,10 @@ namespace AutomationTechLog
                     DBConn.addTechlogTechRecord(tlt_name, tlt_shift, tlt_islead, tlt_isadmin, tlt_ispartslead, tlt_isactive, tlt_pword, tlt_auname);
                     Close();
                     break;
+
                 case DialogResult.No:
                     break;
             }
-
-
         }
 
         private void userIDBox_TextChanged(object sender, EventArgs e)

@@ -1,9 +1,8 @@
 ﻿/*
-    Written by Christopher Olson 
+    Written by Christopher Olson
     For CVS Health
     February 12th, 2021
 */
-
 
 using System;
 using System.Data;
@@ -15,10 +14,10 @@ namespace AutomationTechLog
 {
     public partial class UserForm : Form
     {
+        private GlobalUser globalUser = new GlobalUser();
+        private DataTable TECHLOGTechTable = new DataTable();
+        private sqlLiteMethods DBConn = new sqlLiteMethods();
 
-        GlobalUser globalUser = new GlobalUser();
-        DataTable TECHLOGTechTable = new DataTable();
-        sqlLiteMethods DBConn = new sqlLiteMethods();
         public UserForm(GlobalUser passedUser)
         {
             InitializeComponent();
@@ -36,21 +35,19 @@ namespace AutomationTechLog
             buildTables();
         }
 
-
         public void buildTables()
         {
-
             TECHLOGTechTable = DBConn.getTable("TECHLOG_TECHS");
             userSelectBox.DataSource = TECHLOGTechTable;
             userSelectBox.DisplayMember = "tlt_name";
-
-
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -101,7 +98,6 @@ namespace AutomationTechLog
 
         private void passwordChange()
         {
-
             if (globalUser.globalEmployeeId == "Odin")
             {
                 MessageBox.Show("Secret Admin Password cannot be Changed.");
@@ -131,13 +127,12 @@ namespace AutomationTechLog
                             string newPassword = confirmResetBox.Text;
                             DBConn.resetPassword(newPassword, selectedUser);
                             break;
+
                         case DialogResult.No:
                             break;
                     }
-
                 }
             }
-
         }
 
         private void resetBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -169,10 +164,8 @@ namespace AutomationTechLog
             partsLeadCheckBox.Checked = isPartsLead;
             adminCheckBox.Checked = isAdmin;
 
-
             userIDBox.Text = drv["tlt_auname"].ToString();
             shiftBox.Text = drv["tlt_shift"].ToString();
-
         }
 
         private void adminResetButton_Click(object sender, EventArgs e)
@@ -182,8 +175,6 @@ namespace AutomationTechLog
 
         private void adminPasswordChange()
         {
-
-
             if (adminPasswordResetBox.Text == "" || adminPasswordConfirmBox.Text == "")
             {
                 MessageBox.Show("Please enter a new password.");
@@ -204,17 +195,15 @@ namespace AutomationTechLog
                         string newPassword = adminPasswordConfirmBox.Text;
                         DBConn.resetPassword(newPassword, selectedUser);
                         break;
+
                     case DialogResult.No:
                         break;
                 }
-
             }
-
         }
 
         private void updateUserButton_Click(object sender, EventArgs e)
         {
-
             DialogResult dr = MessageBox.Show("Confirm Change User?",
                  "Confirm Change User", MessageBoxButtons.YesNo);
 
@@ -231,17 +220,14 @@ namespace AutomationTechLog
                     DBConn.techlogTechsRecordUpdate(tlt_name, tlt_shift, tlt_islead, tlt_isadmin, tlt_ispartslead, tlt_isactive, tlt_auname);
                     buildTables();
                     break;
+
                 case DialogResult.No:
                     break;
             }
-
-
-
         }
 
         private void deleteUserButton_Click(object sender, EventArgs e)
         {
-
             DialogResult dr = MessageBox.Show("Confirm Delete User?",
                  "Confirm Delete User", MessageBoxButtons.YesNo);
 
@@ -254,6 +240,7 @@ namespace AutomationTechLog
                     DBConn.deleteUserRecord(table, column, userID);
                     buildTables();
                     break;
+
                 case DialogResult.No:
                     break;
             }
@@ -266,10 +253,9 @@ namespace AutomationTechLog
             addUser.FormClosed += new FormClosedEventHandler(AddUser_Closed);
         }
 
-        void AddUser_Closed(object sender, FormClosedEventArgs e)
+        private void AddUser_Closed(object sender, FormClosedEventArgs e)
         {
             buildTables();
         }
-
     }
 }

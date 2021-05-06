@@ -8,15 +8,14 @@ using System.Windows.Forms;
 
 namespace AutomationTechLog
 {
-
     public partial class LocationsOverview : Form
     {
-        sqlLiteMethods DBConn = new sqlLiteMethods();
-        DataTable TECHLOGLocationsTable = new DataTable();
-        DataTable TECHLOGPartsTable = new DataTable();
-        GlobalUser globalUser;
-        string selectedLocation = "";
-        int selectedRecord;
+        private sqlLiteMethods DBConn = new sqlLiteMethods();
+        private DataTable TECHLOGLocationsTable = new DataTable();
+        private DataTable TECHLOGPartsTable = new DataTable();
+        private GlobalUser globalUser;
+        private string selectedLocation = "";
+        private int selectedRecord;
 
         public LocationsOverview(GlobalUser passedUser)
         {
@@ -27,10 +26,8 @@ namespace AutomationTechLog
 
         public void buildTables(bool emptySwitch)
         {
-
             TECHLOGLocationsTable = buildLocationsTable();
             TECHLOGPartsTable = buildPartsTable();
-
 
             populatePartsGrid("");
 
@@ -40,9 +37,7 @@ namespace AutomationTechLog
 
             if (toolStripSearchTextBox.Text != "")
             {
-
                 builtFilter = builtFilter + " tlloc_locid Like '%" + toolStripSearchTextBox.Text + "%'" + " AND ";
-
             }
 
             if (emptySwitch == true)
@@ -66,7 +61,6 @@ namespace AutomationTechLog
 
         public DataTable buildLocationsTable()
         {
-
             DataTable TECHLOGLocTable = DBConn.getTable("TECHLOG_LOCATIONS"); ;
 
             DataTable filledTable = new DataTable();
@@ -87,13 +81,11 @@ namespace AutomationTechLog
             }, false);
             query.CopyToDataTable();
 
-
             return filledTable;
         }
 
         public DataTable buildPartsTable()
         {
-
             DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY"); ;
 
             DataTable filledTable = new DataTable();
@@ -116,16 +108,17 @@ namespace AutomationTechLog
             }, false);
             query.CopyToDataTable();
 
-
             return filledTable;
         }
 
-        // Buttons and functions general to forms in applications. 
+        // Buttons and functions general to forms in applications.
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -207,7 +200,6 @@ namespace AutomationTechLog
         {
             if (locationsGrid.SelectedRows.Count > 0)
             {
-
                 string locationNumber = locationsGrid.SelectedRows[0].Cells["tlloc_locid"].Value.ToString();
                 string locationDescription = locationsGrid.SelectedRows[0].Cells["tlloc_desc"].Value.ToString();
                 string assignedCount = locationsGrid.SelectedRows[0].Cells["tlloc_asgcount"].Value.ToString();
@@ -230,7 +222,6 @@ namespace AutomationTechLog
 
         private void populatePartsGrid(string locationNumber)
         {
-
             assignedPartsGrid.DataSource = null;
             DataTable filteredTable = DBConn.getFilteredPartsGrid(locationNumber);
 
@@ -254,10 +245,9 @@ namespace AutomationTechLog
             assignedPartsGrid.Columns["tlinv_qty"].Visible = false;
             assignedPartsGrid.Columns["tlinv_desc"].HeaderText = "Part Description";
             assignedPartsGrid.RowHeadersWidth = 10;
-
         }
 
-        void addLocationForm_Closed(object sender, FormClosedEventArgs e)
+        private void addLocationForm_Closed(object sender, FormClosedEventArgs e)
         {
             buildTables(false);
         }
@@ -272,6 +262,7 @@ namespace AutomationTechLog
                 case DialogResult.Yes:
                     deleteLocationRecord();
                     break;
+
                 case DialogResult.No:
                     break;
             }
@@ -279,7 +270,6 @@ namespace AutomationTechLog
 
         private void deleteLocationRecord()
         {
-
             DBConn.updateMatchingLocationRecords("TECHLOG_PARTSINVENTORY", "Unassigned", locationNumberTextBox.Text);
             DBConn.deleteMatchingRecords("TECHLOG_LOCATIONS", "tlloc_locid", locationNumberTextBox.Text);
             buildTables(false);
@@ -295,6 +285,7 @@ namespace AutomationTechLog
                 case DialogResult.Yes:
                     updateLocationRecord();
                     break;
+
                 case DialogResult.No:
                     break;
             }
@@ -302,34 +293,25 @@ namespace AutomationTechLog
 
         private void updateLocationRecord()
         {
-
-
-
             foreach (DataGridViewRow row in assignedPartsGrid.Rows)
             {
-
                 string tempLocation = row.Cells["Location"].Value.ToString();
                 string tlinv_partnumber = row.Cells["tlinv_partnumber"].Value.ToString();
                 DBConn.updateMatchingPartsRecords(tempLocation, tlinv_partnumber);
                 if (tempLocation != "Unassigned") { updateLocationCount(tempLocation); }
-
             }
             updateLocationCount(selectedLocation);
             DBConn.locationRecordUpdate(descriptionTextBox.Text, locationNumberTextBox.Text);
             buildTables(false);
-
         }
 
         private void updateLocationCount(string locationID)
         {
-
             string tempString;
             DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
             int numberOfRecords = TECHLOGInvTable.Select("tlloc_locid =" + "'" + locationID + "'").Length;
             tempString = numberOfRecords.ToString();
             DBConn.updateLocationCount(tempString, locationID);
-
         }
-
     }
 }

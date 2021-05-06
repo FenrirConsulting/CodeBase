@@ -1,9 +1,8 @@
 ﻿/*
-    Written by Christopher Olson 
+    Written by Christopher Olson
     For CVS Health
     February 12th, 2021
 */
-
 
 using System;
 using System.Collections.Generic;
@@ -17,8 +16,8 @@ namespace AutomationTechLog
 {
     public partial class AddPart : Form
     {
+        private sqlLiteMethods DBConn = new sqlLiteMethods();
 
-        sqlLiteMethods DBConn = new sqlLiteMethods();
         public AddPart()
         {
             InitializeComponent();
@@ -32,7 +31,6 @@ namespace AutomationTechLog
             List<String> partsList = partsListTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlinv_partnumber")).ToList();
 
-
             var data = partsList.Where(x =>
             {
                 decimal temp;
@@ -41,13 +39,14 @@ namespace AutomationTechLog
             data++;
             partNumberTextBox.Text = data.ToString();
             quantityTextBox.Text = "0";
-
         }
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -107,6 +106,7 @@ namespace AutomationTechLog
                             addPartRecord();
                             Close();
                             break;
+
                         case DialogResult.No:
                             break;
                     }
@@ -124,7 +124,6 @@ namespace AutomationTechLog
 
         private void addPartRecord()
         {
-
             int tlinv_ref = DBConn.primaryKeyHighestValue("TECHLOG_PARTSINVENTORY", "tlinv_ref") + 1;
             string tlinv_partnumber = partNumberTextBox.Text;
             string tlloc_locid = locationComboBox.Text;
@@ -137,15 +136,11 @@ namespace AutomationTechLog
 
         private void updateLocationCount(string locationID)
         {
-
-
             string tempString;
             DataTable TECHLOGInvTable = DBConn.getTable("TECHLOG_PARTSINVENTORY");
             int numberOfRecords = TECHLOGInvTable.Select("tlloc_locid =" + locationID).Length;
             tempString = numberOfRecords.ToString();
             DBConn.updateLocationCount(tempString, locationID);
-
-
         }
 
         private void titlePanel_Paint(object sender, PaintEventArgs e)

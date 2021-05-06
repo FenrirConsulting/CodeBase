@@ -1,9 +1,8 @@
 ﻿/*
-    Written by Christopher Olson 
+    Written by Christopher Olson
     For CVS Health
     February 12th, 2021
 */
-
 
 using System;
 using System.Collections.Generic;
@@ -17,17 +16,15 @@ namespace AutomationTechLog
 {
     public partial class AddLocation : Form
     {
-        sqlLiteMethods DBConn = new sqlLiteMethods();
+        private sqlLiteMethods DBConn = new sqlLiteMethods();
 
         public AddLocation()
         {
             InitializeComponent();
 
-
             DataTable locationsListTable = DBConn.getTable("TECHLOG_LOCATIONS");
             List<String> locationsList = locationsListTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlloc_locid")).ToList();
-
 
             int data = locationsList.Where(x => x.Any(Char.IsDigit))
             .Select(x => int.Parse(new string(x.Where(Char.IsDigit).ToArray())))
@@ -36,7 +33,6 @@ namespace AutomationTechLog
             data++;
             locationTextBox.Text = data.ToString();
             descriptionTextBox.Text = "";
-
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -60,6 +56,7 @@ namespace AutomationTechLog
                             addLocationRecord();
                             Close();
                             break;
+
                         case DialogResult.No:
                             break;
                     }
@@ -77,7 +74,6 @@ namespace AutomationTechLog
 
         private void addLocationRecord()
         {
-
             int tlloc_ref = DBConn.primaryKeyHighestValue("TECHLOG_LOCATIONS", "tlloc_ref") + 1;
             string tlloc_locid = locationTextBox.Text;
             string tlloc_desc = descriptionTextBox.Text;
@@ -86,11 +82,12 @@ namespace AutomationTechLog
             DBConn.addLocationsRecord(tlloc_ref, tlloc_locid, tlloc_desc, tlloc_asgcount);
         }
 
-
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -133,7 +130,5 @@ namespace AutomationTechLog
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-
-
     }
 }

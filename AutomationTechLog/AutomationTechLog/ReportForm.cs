@@ -1,29 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 
 /*
 SELECT  TECHLOG_USER.tlu_name, TECHLOG_PARTS.tlp_partnumber, TECHLOG_PARTS.tlp_description, TECHLOG_PARTS.tlp_qnty, TECHLOG_USER.tlu_date
-FROM TECHLOG 
+FROM TECHLOG
 INNER JOIN TECHLOG_PARTS  ON TECHLOG.tl_ref = TECHLOG_PARTS.tl_ref
 INNER JOIN TECHLOG_USER  ON TECHLOG.tl_ref = TECHLOG_USER.tl_ref
 WHERE TECHLOG.tl_partsConfirmed = 'Yes'
- * 
+ *
  */
 
 namespace AutomationTechLog
 {
     public partial class ReportForm : Form
     {
-        sqlLiteMethods DBConn = new sqlLiteMethods();
-        GlobalUser globalUser;
+        private sqlLiteMethods DBConn = new sqlLiteMethods();
+        private GlobalUser globalUser;
+
         public ReportForm(GlobalUser passedUser)
         {
             globalUser = passedUser;
@@ -36,8 +33,8 @@ namespace AutomationTechLog
             Close();
         }
 
-        private void buildReport() {
-
+        private void buildReport()
+        {
             reportViewer1.LocalReport.ReportPath = string.Concat(Application.StartupPath, "\\Reports\\Parts.rdlc");
             DataTable passedTable = DBConn.getTable("TECHLOG");
             ReportDataSource reportSource = new ReportDataSource();
@@ -46,12 +43,14 @@ namespace AutomationTechLog
             reportViewer1.RefreshReport();
         }
 
-        // Buttons and functions general to forms in applications. 
+        // Buttons and functions general to forms in applications.
 
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
+
         [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -84,7 +83,6 @@ namespace AutomationTechLog
         {
             //ControlPaint.DrawBorder(e.Graphics, this.titlePanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
         }
-
 
         private void resizeButton_Click(object sender, EventArgs e)
         {
