@@ -26,6 +26,21 @@ namespace AutomationTechLog
             conn = null;
         }
 
+        public string ConnectToDatabase()
+        {
+            try
+            {
+                conn = new SQLiteConnection(@"Data Source=|DataDirectory|\LocalDatabase.db;");
+                conn.Open();
+                return "Connected";
+            }
+            catch (SQLiteException e)
+            {
+                conn = null;
+                return e.Message;
+            }
+        }
+
         public int addLocationsRecord(int tlloc_ref, string tlloc_locid, string tlloc_desc, string tlloc_asgcount)
         {
             try
@@ -281,21 +296,6 @@ namespace AutomationTechLog
                 MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
                 Disconnect();
                 return -1;
-            }
-        }
-
-        public string ConnectToDatabase()
-        {
-            try
-            {
-                conn = new SQLiteConnection(@"Data Source=|DataDirectory|\LocalDatabase.db;");
-                conn.Open();
-                return "Connected";
-            }
-            catch (SQLiteException e)
-            {
-                conn = null;
-                return e.Message;
             }
         }
 
