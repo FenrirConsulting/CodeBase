@@ -1,7 +1,20 @@
 window.$ = window.jQuery = require('../resources/chart.js');
 window.$ = window.jQuery = require('../resources/d3.js');
 window.$ = window.jQuery = require('../resources/canvasJS.js'); 
-setTimeout(function(){location.href="../news/news1.html";},45 * 1000);
+
+
+const os = require('os');
+const username = os.userInfo().username;
+const hostname = os.hostname();
+
+if (username != "MPS-DISPLAY") { setTimeout(function(){location.href="../news/news1.html";},45 * 1000); }
+
+else {
+  setTimeout(function(){location.href="../charts/chart1.html";},30 * 1000);
+}
+
+
+
 const path = require('path');
 const fs = require('fs');
 const config = require('../resources/config.json');
