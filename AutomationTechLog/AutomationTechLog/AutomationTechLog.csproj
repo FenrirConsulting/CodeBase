@@ -153,6 +153,18 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckoutForm.Designer.cs">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckoutHistoryForm.Designer.cs">
+      <DependentUpon>CheckoutHistoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalUser.cs" />
     <Compile Include="LocationsOverview.cs">
       <SubType>Form</SubType>
@@ -211,6 +223,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckoutForm.resx">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckoutHistoryForm.resx">
+      <DependentUpon>CheckoutHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LocationsOverview.resx">
       <DependentUpon>LocationsOverview.cs</DependentUpon>

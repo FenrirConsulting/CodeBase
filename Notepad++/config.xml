@@ -51,7 +51,7 @@
         <GUIConfig name="ScintillaViewsSplitter">vertical</GUIConfig>
         <GUIConfig name="UserDefineDlg" position="undocked">hide</GUIConfig>
         <GUIConfig name="TabSetting" replaceBySpace="no" size="4" />
-        <GUIConfig name="AppPosition" x="314" y="210" width="1293" height="719" isMaximized="yes" />
+        <GUIConfig name="AppPosition" x="-37" y="316" width="1293" height="719" isMaximized="yes" />
         <GUIConfig name="FindWindowPosition" left="438" top="37" right="1027" bottom="401" />
         <GUIConfig name="noUpdate" intervalDays="15" nextUpdateDate="20080426">yes</GUIConfig>
         <GUIConfig name="Auto-detection">yes</GUIConfig>

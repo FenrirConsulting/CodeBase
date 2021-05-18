@@ -183,3 +183,5 @@ C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\Automati
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SQLite.Linq.dll
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\EntityFramework.xml
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.CheckoutForm.resources
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.CheckoutHistoryForm.resources

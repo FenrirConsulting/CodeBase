@@ -79,6 +79,7 @@ namespace AutomationTechLog
             List<String> userList = UserlistTable.Rows.OfType<DataRow>()
                 .Select(dr => dr.Field<string>("tlt_name")).ToList();
             addUserBox.DataSource = userList;
+
             DataGridViewComboBoxColumn userListBox = new DataGridViewComboBoxColumn();
             userListBox.DataSource = userList;
             userListBox.HeaderText = "Tech Name";

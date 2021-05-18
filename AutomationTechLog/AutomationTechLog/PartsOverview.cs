@@ -263,5 +263,11 @@ namespace AutomationTechLog
             tempString = numberOfRecords.ToString();
             DBConn.updateLocationCount(tempString, locationID);
         }
+
+        private void checkoutButton_Click(object sender, EventArgs e)
+        {
+            var checkoutHistoryForm = new CheckoutHistoryForm();
+            checkoutHistoryForm.Show();
+        }
     }
 }

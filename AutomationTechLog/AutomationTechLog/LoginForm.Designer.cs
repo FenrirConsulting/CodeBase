@@ -39,6 +39,7 @@
             this.okButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
             this.testButton = new System.Windows.Forms.Button();
+            this.checkoutButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,12 +160,27 @@
             this.testButton.UseVisualStyleBackColor = false;
             this.testButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // checkoutButton
+            // 
+            this.checkoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.checkoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.checkoutButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkoutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.checkoutButton.Location = new System.Drawing.Point(12, 12);
+            this.checkoutButton.Name = "checkoutButton";
+            this.checkoutButton.Size = new System.Drawing.Size(130, 28);
+            this.checkoutButton.TabIndex = 45;
+            this.checkoutButton.Text = "Parts Checkout";
+            this.checkoutButton.UseVisualStyleBackColor = false;
+            this.checkoutButton.Click += new System.EventHandler(this.checkoutButton_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(585, 252);
+            this.Controls.Add(this.checkoutButton);
             this.Controls.Add(this.testButton);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.cancelButton);
@@ -180,6 +196,7 @@
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ATLog";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.LoginForm_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -198,5 +215,6 @@
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.Button testButton;
+        private System.Windows.Forms.Button checkoutButton;
     }
 }

@@ -8,6 +8,7 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace AutomationTechLog
 {
@@ -27,6 +28,10 @@ namespace AutomationTechLog
             InitializeComponent();
 
             testButton.Visible = true;
+            //checkoutButton.Visible = false;
+            string hostname = System.Environment.GetEnvironmentVariable("COMPUTERNAME");
+            string username = System.Environment.UserName;
+            if (username == "PCASTSUPPLY" || hostname == "PCASTSUPPLY" || username == "COlson") { checkoutButton.Visible = true; }
         }
 
         public void loginCheck()
@@ -169,6 +174,20 @@ namespace AutomationTechLog
             {
                 loginCheck();
             }
+        }
+
+        
+        private void checkoutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var checkoutForm = new CheckoutForm();
+            checkoutForm.Closed += (s, args) => this.Show();
+            checkoutForm.Show();
+        }
+
+        private void LoginForm_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
         }
     }
 }
