@@ -153,6 +153,18 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="CheckoutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckoutForm.Designer.cs">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckoutHistoryForm.Designer.cs">
+      <DependentUpon>CheckoutHistoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalUser.cs" />
     <Compile Include="LocationsOverview.cs">
       <SubType>Form</SubType>
@@ -171,6 +183,14 @@
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartsDataSet.cs">
+      <DependentUpon>PartsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PartsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PartsDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="PartsOverview.cs">
       <SubType>Form</SubType>
@@ -212,6 +232,12 @@
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckoutForm.resx">
+      <DependentUpon>CheckoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckoutHistoryForm.resx">
+      <DependentUpon>CheckoutHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LocationsOverview.resx">
       <DependentUpon>LocationsOverview.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +263,9 @@
     <EmbeddedResource Include="ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PartsReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateForm.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -245,10 +274,41 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="LocalDatabase.db">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="PartsDataSet.xsc">
+      <DependentUpon>PartsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PartsDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PartsDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PartsDataSet.xss">
+      <DependentUpon>PartsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\AddForm.datasource" />
+    <None Include="Properties\DataSources\AddLocation.datasource" />
+    <None Include="Properties\DataSources\AddPart.datasource" />
+    <None Include="Properties\DataSources\AddUser.datasource" />
+    <None Include="Properties\DataSources\AutomationTechLog.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\AutomationTechLog.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\CheckoutForm.datasource" />
+    <None Include="Properties\DataSources\CheckoutHistoryForm.datasource" />
+    <None Include="Properties\DataSources\GlobalUser.datasource" />
+    <None Include="Properties\DataSources\LocationsOverview.datasource" />
+    <None Include="Properties\DataSources\LoginForm.datasource" />
+    <None Include="Properties\DataSources\MainForm.datasource" />
+    <None Include="Properties\DataSources\PartsOverview.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\ReportForm.datasource" />
+    <None Include="Properties\DataSources\sqlLiteMethods.datasource" />
+    <None Include="Properties\DataSources\SqlServerTypes.Utilities.datasource" />
+    <None Include="Properties\DataSources\UpdateForm.datasource" />
+    <None Include="Properties\DataSources\UserForm.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -359,9 +419,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

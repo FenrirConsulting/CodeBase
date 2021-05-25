@@ -25,7 +25,10 @@ namespace AutomationTechLog
         {
             globalUser = passedUser;
             InitializeComponent();
-            buildReport();
+
+            DateTime olderThanDate = DateTime.Now.AddDays(-60);
+            string formattedDate = olderThanDate.ToString("MM/dd/yyyy");
+            olderDateBox.Text = formattedDate;
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -35,12 +38,24 @@ namespace AutomationTechLog
 
         private void buildReport()
         {
-            reportViewer1.LocalReport.ReportPath = string.Concat(Application.StartupPath, "\\Reports\\Parts.rdlc");
-            DataTable passedTable = DBConn.getTable("TECHLOG");
-            ReportDataSource reportSource = new ReportDataSource();
-            reportSource.Value = passedTable;
-            reportViewer1.LocalReport.DataSources.Add(reportSource);
-            reportViewer1.RefreshReport();
+            if (reportSelectionBox.Text == "Parts Report") {
+
+                reportViewer1.Reset();
+                reportViewer1.LocalReport.ReportPath = string.Concat(Application.StartupPath, "\\Reports\\PartsReport.rdlc");
+                DataTable passedTable = DBConn.getPartsReportTable();
+                string builtFilter = "";
+                if (olderRecordsCheckbox.Checked) { builtFilter = builtFilter + "tl_gendate >= #" + olderDateBox.Text + "#"; }
+                DataView results = new DataView(passedTable);
+                results.RowFilter = builtFilter;
+
+                ReportDataSource reportSource = new ReportDataSource("PartsDataSet", results);
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.LocalReport.DataSources.Add(reportSource);
+                reportViewer1.RefreshReport();
+            }
+
+
+
         }
 
         // Buttons and functions general to forms in applications.
@@ -92,12 +107,18 @@ namespace AutomationTechLog
             }
             else this.WindowState = FormWindowState.Maximized;
 
-            bodyPanel.Refresh();
+            splitContainer.Refresh();
         }
 
-        private void bodyPanel_Paint(object sender, PaintEventArgs e)
+        private void splitContainer_Paint(object sender, PaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, this.bodyPanel.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
+            ControlPaint.DrawBorder(e.Graphics, this.splitContainer.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
+        }
+
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            buildReport();
         }
     }
 }

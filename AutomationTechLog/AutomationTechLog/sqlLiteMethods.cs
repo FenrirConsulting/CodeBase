@@ -195,6 +195,36 @@ namespace AutomationTechLog
             }
         }
 
+        public int addTechlogCheckoutRecord(int tlc_ref, string tlt_name, string tlt_auname, string tlinv_partnumber, string tlinv_desc, int tlc_qty, string tlc_date)
+        {
+            try
+            {
+                ConnectToDatabase();
+                string strCommand = "INSERT INTO TECHLOG_CHECKOUT (tlc_ref, tlt_name, tlt_auname, tlinv_partnumber, tlinv_desc, tlc_qty, tlc_date) VALUES (@val1,@val2,@val3,@val4,@val5,@val6,@val7)";
+                SQLiteCommand cmdUpdate = new SQLiteCommand();
+                cmdUpdate.Connection = conn;
+                cmdUpdate.CommandType = CommandType.Text;
+                cmdUpdate.CommandText = strCommand;
+                cmdUpdate.Parameters.AddWithValue("@val1", tlc_ref);
+                cmdUpdate.Parameters.AddWithValue("@val2", tlt_name);
+                cmdUpdate.Parameters.AddWithValue("@val3", tlt_auname);
+                cmdUpdate.Parameters.AddWithValue("@val4", tlinv_partnumber);
+                cmdUpdate.Parameters.AddWithValue("@val5", tlinv_desc);
+                cmdUpdate.Parameters.AddWithValue("@val6", tlc_qty);
+                cmdUpdate.Parameters.AddWithValue("@val7", tlc_date);
+                int returnValue = -1;
+                returnValue = cmdUpdate.ExecuteNonQuery();
+                Disconnect();
+                return returnValue;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return -1;
+            }
+        }
+
         public int addTechlogUserRecord(int tlu_ref, int tl_ref, string tlu_shift, string tlu_time, string tlu_date, string tlu_name)
         {
             try
@@ -436,6 +466,37 @@ namespace AutomationTechLog
                                     "FROM TECHLOG " +
                                     "LEFT JOIN TECHLOG_USER ON TECHLOG_USER.tl_ref = TECHLOG.tl_ref " +
                                     "LEFT JOIN TECHLOG_PARTS ON TECHLOG_PARTS.tl_ref = TECHLOG.tl_ref " +
+                                    "GROUP BY TECHLOG.tl_ref";
+                SQLiteCommand cmd = new SQLiteCommand(strCommand);
+                cmd.Connection = conn;
+                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                Disconnect();
+
+                return dt;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return null;
+            }
+        }
+
+
+        public DataTable getPartsReportTable()
+        {
+            try
+            {
+                ConnectToDatabase();
+
+                string strCommand = "SELECT TECHLOG.tl_genuser, TECHLOG.tl_gendate, TECHLOG_PARTS.tlp_partnumber, TECHLOG_PARTS.tlp_description, TECHLOG_PARTS.tlp_qnty " +
+                                    "FROM TECHLOG " +
+                                    "LEFT JOIN TECHLOG_PARTS ON TECHLOG_PARTS.tl_ref = TECHLOG.tl_ref " +
+                                    "WHERE TECHLOG_PARTS.tlp_partnumber IS NOT NULL " +
                                     "GROUP BY TECHLOG.tl_ref";
                 SQLiteCommand cmd = new SQLiteCommand(strCommand);
                 cmd.Connection = conn;

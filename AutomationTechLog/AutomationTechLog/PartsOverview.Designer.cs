@@ -54,6 +54,7 @@
             this.searchButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripClearButton = new System.Windows.Forms.ToolStripButton();
             this.partsGrid = new System.Windows.Forms.DataGridView();
+            this.checkoutButton = new System.Windows.Forms.Button();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
@@ -65,6 +66,7 @@
             // titlePanel
             // 
             this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(58)))), ((int)(((byte)(66)))));
+            this.titlePanel.Controls.Add(this.checkoutButton);
             this.titlePanel.Controls.Add(this.partsTitle);
             this.titlePanel.Controls.Add(this.closeButton);
             this.titlePanel.Controls.Add(this.locationsButton);
@@ -361,6 +363,20 @@
             this.partsGrid.TabIndex = 2;
             this.partsGrid.SelectionChanged += new System.EventHandler(this.partsGrid_SelectionChanged);
             // 
+            // checkoutButton
+            // 
+            this.checkoutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.checkoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.checkoutButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkoutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.checkoutButton.Location = new System.Drawing.Point(441, 8);
+            this.checkoutButton.Name = "checkoutButton";
+            this.checkoutButton.Size = new System.Drawing.Size(139, 33);
+            this.checkoutButton.TabIndex = 50;
+            this.checkoutButton.Text = "Checkout History";
+            this.checkoutButton.UseVisualStyleBackColor = false;
+            this.checkoutButton.Click += new System.EventHandler(this.checkoutButton_Click);
+            // 
             // PartsOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,5 +431,6 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.ComboBox locationTextBox;
+        private System.Windows.Forms.Button checkoutButton;
     }
 }

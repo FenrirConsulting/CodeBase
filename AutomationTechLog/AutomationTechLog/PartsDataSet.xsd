@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PartsDataSet" targetNamespace="http://tempuri.org/PartsDataSet.xsd" xmlns:mstns="http://tempuri.org/PartsDataSet.xsd" xmlns="http://tempuri.org/PartsDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PartsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PartsDataSet" msprop:Generator_UserDSName="PartsDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PartsDataTable" msprop:Generator_TableClassName="PartsDataTableDataTable" msprop:Generator_TableVarName="tablePartsDataTable" msprop:Generator_TablePropName="PartsDataTable" msprop:Generator_RowDeletingName="PartsDataTableRowDeleting" msprop:Generator_RowChangingName="PartsDataTableRowChanging" msprop:Generator_RowEvHandlerName="PartsDataTableRowChangeEventHandler" msprop:Generator_RowDeletedName="PartsDataTableRowDeleted" msprop:Generator_UserTableName="PartsDataTable" msprop:Generator_RowChangedName="PartsDataTableRowChanged" msprop:Generator_RowEvArgName="PartsDataTableRowChangeEvent" msprop:Generator_RowClassName="PartsDataTableRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tl_genuser" msprop:Generator_ColumnVarNameInTable="columntl_genuser" msprop:Generator_ColumnPropNameInRow="tl_genuser" msprop:Generator_ColumnPropNameInTable="tl_genuserColumn" msprop:Generator_UserColumnName="tl_genuser" type="xs:string" minOccurs="0" />
+              <xs:element name="tl_gendate" msprop:Generator_ColumnVarNameInTable="columntl_gendate" msprop:Generator_ColumnPropNameInRow="tl_gendate" msprop:Generator_ColumnPropNameInTable="tl_gendateColumn" msprop:Generator_UserColumnName="tl_gendate" type="xs:string" minOccurs="0" />
+              <xs:element name="tlp_partnumber" msprop:Generator_ColumnVarNameInTable="columntlp_partnumber" msprop:Generator_ColumnPropNameInRow="tlp_partnumber" msprop:Generator_ColumnPropNameInTable="tlp_partnumberColumn" msprop:Generator_UserColumnName="tlp_partnumber" type="xs:string" minOccurs="0" />
+              <xs:element name="tlp_description" msprop:Generator_ColumnVarNameInTable="columntlp_description" msprop:Generator_ColumnPropNameInRow="tlp_description" msprop:Generator_ColumnPropNameInTable="tlp_descriptionColumn" msprop:Generator_UserColumnName="tlp_description" type="xs:string" minOccurs="0" />
+              <xs:element name="tlp_qnty" msprop:Generator_ColumnVarNameInTable="columntlp_qnty" msprop:Generator_ColumnPropNameInRow="tlp_qnty" msprop:Generator_ColumnPropNameInTable="tlp_qntyColumn" msprop:Generator_UserColumnName="tlp_qnty" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
