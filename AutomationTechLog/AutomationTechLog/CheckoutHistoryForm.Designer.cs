@@ -31,11 +31,8 @@
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.historyDataGridView = new System.Windows.Forms.DataGridView();
-<<<<<<< HEAD
             this.olderDateBox = new System.Windows.Forms.Label();
             this.olderRecordsCheckbox = new System.Windows.Forms.CheckBox();
-=======
->>>>>>> b9e8015a19cc7162dd6e001a7c2c13fb0c2f5454
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.historyDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +72,6 @@
             this.historyDataGridView.Size = new System.Drawing.Size(776, 354);
             this.historyDataGridView.TabIndex = 53;
             // 
-<<<<<<< HEAD
             // olderDateBox
             // 
             this.olderDateBox.AutoSize = true;
@@ -101,19 +97,14 @@
             this.olderRecordsCheckbox.Text = "Hide Records older than";
             this.olderRecordsCheckbox.UseVisualStyleBackColor = true;
             // 
-=======
->>>>>>> b9e8015a19cc7162dd6e001a7c2c13fb0c2f5454
             // CheckoutHistoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-<<<<<<< HEAD
             this.Controls.Add(this.olderDateBox);
             this.Controls.Add(this.olderRecordsCheckbox);
-=======
->>>>>>> b9e8015a19cc7162dd6e001a7c2c13fb0c2f5454
             this.Controls.Add(this.historyDataGridView);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.closeButton);
@@ -133,10 +124,7 @@
         private System.Windows.Forms.PictureBox closeButton;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.DataGridView historyDataGridView;
-<<<<<<< HEAD
         private System.Windows.Forms.Label olderDateBox;
         private System.Windows.Forms.CheckBox olderRecordsCheckbox;
-=======
->>>>>>> b9e8015a19cc7162dd6e001a7c2c13fb0c2f5454
     }
 }

@@ -27,11 +27,12 @@ namespace AutomationTechLog
         {
             InitializeComponent();
 
-            testButton.Visible = true;
-            //checkoutButton.Visible = false;
+            testButton.Visible = false;
+            checkoutButton.Visible = false;
             string hostname = System.Environment.GetEnvironmentVariable("COMPUTERNAME");
             string username = System.Environment.UserName;
             if (username == "PCASTSUPPLY" || hostname == "PCASTSUPPLY" || username == "COlson") { checkoutButton.Visible = true; }
+            if (username == "COlson") { testButton.Visible = true; }
         }
 
         public void loginCheck()
