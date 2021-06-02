@@ -32,11 +32,21 @@
             this.resizeButton = new System.Windows.Forms.PictureBox();
             this.partsTitle = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.PictureBox();
-            this.bodyPanel = new System.Windows.Forms.Panel();
+            this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.olderDateBox = new System.Windows.Forms.Label();
+            this.olderRecordsCheckbox = new System.Windows.Forms.CheckBox();
+            this.reportSelectionBox = new System.Windows.Forms.ComboBox();
+            this.reportLabel = new System.Windows.Forms.Label();
+            this.runReportButton = new System.Windows.Forms.PictureBox();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
+            this.splitContainer.Panel1.SuspendLayout();
+            this.splitContainer.Panel2.SuspendLayout();
+            this.splitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.runReportButton)).BeginInit();
             this.SuspendLayout();
             // 
             // titlePanel
@@ -89,25 +99,98 @@
             this.closeButton.TabStop = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // bodyPanel
+            // splitContainer
             // 
-            this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bodyPanel.Location = new System.Drawing.Point(0, 47);
-            this.bodyPanel.Name = "bodyPanel";
-            this.bodyPanel.Size = new System.Drawing.Size(1100, 553);
-            this.bodyPanel.TabIndex = 5;
-            this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
+            this.splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer.Location = new System.Drawing.Point(0, 47);
+            this.splitContainer.Name = "splitContainer";
+            this.splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer.Panel1
+            // 
+            this.splitContainer.Panel1.Controls.Add(this.runReportButton);
+            this.splitContainer.Panel1.Controls.Add(this.reportLabel);
+            this.splitContainer.Panel1.Controls.Add(this.reportSelectionBox);
+            this.splitContainer.Panel1.Controls.Add(this.olderDateBox);
+            this.splitContainer.Panel1.Controls.Add(this.olderRecordsCheckbox);
+            // 
+            // splitContainer.Panel2
+            // 
+            this.splitContainer.Panel2.Controls.Add(this.reportViewer1);
+            this.splitContainer.Size = new System.Drawing.Size(1100, 553);
+            this.splitContainer.SplitterDistance = 46;
+            this.splitContainer.SplitterWidth = 1;
+            this.splitContainer.TabIndex = 5;
+            this.splitContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer_Paint);
             // 
             // reportViewer1
             // 
             this.reportViewer1.AutoSize = true;
-            this.reportViewer1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.Location = new System.Drawing.Point(0, 47);
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "ReportViewer";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1100, 553);
+            this.reportViewer1.Size = new System.Drawing.Size(1098, 504);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // olderDateBox
+            // 
+            this.olderDateBox.AutoSize = true;
+            this.olderDateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.olderDateBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.olderDateBox.Location = new System.Drawing.Point(450, 12);
+            this.olderDateBox.Name = "olderDateBox";
+            this.olderDateBox.Size = new System.Drawing.Size(101, 20);
+            this.olderDateBox.TabIndex = 48;
+            this.olderDateBox.Text = "09-12-2020";
+            // 
+            // olderRecordsCheckbox
+            // 
+            this.olderRecordsCheckbox.AutoSize = true;
+            this.olderRecordsCheckbox.Checked = true;
+            this.olderRecordsCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.olderRecordsCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.olderRecordsCheckbox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.olderRecordsCheckbox.Location = new System.Drawing.Point(221, 12);
+            this.olderRecordsCheckbox.Name = "olderRecordsCheckbox";
+            this.olderRecordsCheckbox.Size = new System.Drawing.Size(223, 24);
+            this.olderRecordsCheckbox.TabIndex = 47;
+            this.olderRecordsCheckbox.Text = "Hide Records older than";
+            this.olderRecordsCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // reportSelectionBox
+            // 
+            this.reportSelectionBox.FormattingEnabled = true;
+            this.reportSelectionBox.Items.AddRange(new object[] {
+            "Parts Report"});
+            this.reportSelectionBox.Location = new System.Drawing.Point(699, 12);
+            this.reportSelectionBox.Name = "reportSelectionBox";
+            this.reportSelectionBox.Size = new System.Drawing.Size(121, 21);
+            this.reportSelectionBox.TabIndex = 49;
+            // 
+            // reportLabel
+            // 
+            this.reportLabel.AutoSize = true;
+            this.reportLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.reportLabel.Location = new System.Drawing.Point(599, 12);
+            this.reportLabel.Name = "reportLabel";
+            this.reportLabel.Size = new System.Drawing.Size(94, 20);
+            this.reportLabel.TabIndex = 50;
+            this.reportLabel.Text = "Selection :";
+            // 
+            // runReportButton
+            // 
+            this.runReportButton.Image = global::AutomationTechLog.Properties.Resources.Report;
+            this.runReportButton.Location = new System.Drawing.Point(826, 8);
+            this.runReportButton.Name = "runReportButton";
+            this.runReportButton.Size = new System.Drawing.Size(51, 33);
+            this.runReportButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.runReportButton.TabIndex = 51;
+            this.runReportButton.TabStop = false;
+            this.runReportButton.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ReportForm
             // 
@@ -115,8 +198,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1100, 600);
-            this.Controls.Add(this.reportViewer1);
-            this.Controls.Add(this.bodyPanel);
+            this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.titlePanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReportForm";
@@ -126,8 +208,14 @@
             this.titlePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.resizeButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).EndInit();
+            this.splitContainer.Panel1.ResumeLayout(false);
+            this.splitContainer.Panel1.PerformLayout();
+            this.splitContainer.Panel2.ResumeLayout(false);
+            this.splitContainer.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
+            this.splitContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.runReportButton)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -136,8 +224,13 @@
         private System.Windows.Forms.Panel titlePanel;
         private System.Windows.Forms.Label partsTitle;
         private System.Windows.Forms.PictureBox closeButton;
-        private System.Windows.Forms.Panel bodyPanel;
         private System.Windows.Forms.PictureBox resizeButton;
+        private System.Windows.Forms.SplitContainer splitContainer;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        }
+        private System.Windows.Forms.Label olderDateBox;
+        private System.Windows.Forms.CheckBox olderRecordsCheckbox;
+        private System.Windows.Forms.ComboBox reportSelectionBox;
+        private System.Windows.Forms.Label reportLabel;
+        private System.Windows.Forms.PictureBox runReportButton;
+    }
 }

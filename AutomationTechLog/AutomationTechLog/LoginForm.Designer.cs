@@ -34,7 +34,6 @@
             this.usernameBox = new System.Windows.Forms.TextBox();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.titleLabel = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -46,7 +45,7 @@
             // passwordBox
             // 
             this.passwordBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.passwordBox.Location = new System.Drawing.Point(213, 173);
+            this.passwordBox.Location = new System.Drawing.Point(213, 142);
             this.passwordBox.Name = "passwordBox";
             this.passwordBox.PasswordChar = '*';
             this.passwordBox.Size = new System.Drawing.Size(159, 20);
@@ -56,10 +55,10 @@
             // passwordLabel
             // 
             this.passwordLabel.AutoSize = true;
-            this.passwordLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(43)))));
+            this.passwordLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.passwordLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.passwordLabel.Location = new System.Drawing.Point(83, 172);
+            this.passwordLabel.Location = new System.Drawing.Point(83, 141);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(74, 19);
             this.passwordLabel.TabIndex = 38;
@@ -68,7 +67,7 @@
             // usernameBox
             // 
             this.usernameBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.usernameBox.Location = new System.Drawing.Point(213, 130);
+            this.usernameBox.Location = new System.Drawing.Point(213, 99);
             this.usernameBox.Name = "usernameBox";
             this.usernameBox.Size = new System.Drawing.Size(159, 20);
             this.usernameBox.TabIndex = 0;
@@ -77,10 +76,10 @@
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(43)))));
+            this.usernameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(44)))), ((int)(((byte)(52)))));
             this.usernameLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(154)))), ((int)(((byte)(156)))));
-            this.usernameLabel.Location = new System.Drawing.Point(83, 131);
+            this.usernameLabel.Location = new System.Drawing.Point(83, 100);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(93, 19);
             this.usernameLabel.TabIndex = 37;
@@ -96,25 +95,13 @@
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
             // 
-            // titleLabel
-            // 
-            this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.titleLabel.Location = new System.Drawing.Point(441, 237);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(141, 13);
-            this.titleLabel.TabIndex = 40;
-            this.titleLabel.Text = "Written by Christopher Olson";
-            // 
             // cancelButton
             // 
             this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cancelButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.cancelButton.Location = new System.Drawing.Point(403, 165);
+            this.cancelButton.Location = new System.Drawing.Point(403, 134);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(98, 28);
             this.cancelButton.TabIndex = 3;
@@ -128,7 +115,7 @@
             this.okButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.okButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.okButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.okButton.Location = new System.Drawing.Point(403, 122);
+            this.okButton.Location = new System.Drawing.Point(403, 91);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(98, 28);
             this.okButton.TabIndex = 2;
@@ -166,7 +153,7 @@
             this.checkoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.checkoutButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkoutButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.checkoutButton.Location = new System.Drawing.Point(12, 12);
+            this.checkoutButton.Location = new System.Drawing.Point(443, 209);
             this.checkoutButton.Name = "checkoutButton";
             this.checkoutButton.Size = new System.Drawing.Size(130, 28);
             this.checkoutButton.TabIndex = 45;
@@ -185,7 +172,6 @@
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
-            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.passwordLabel);
@@ -210,7 +196,6 @@
         private System.Windows.Forms.TextBox usernameBox;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label nameLabel;

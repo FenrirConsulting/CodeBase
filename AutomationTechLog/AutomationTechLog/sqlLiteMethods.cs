@@ -486,6 +486,37 @@ namespace AutomationTechLog
             }
         }
 
+
+        public DataTable getPartsReportTable()
+        {
+            try
+            {
+                ConnectToDatabase();
+
+                string strCommand = "SELECT TECHLOG.tl_genuser, TECHLOG.tl_gendate, TECHLOG_PARTS.tlp_partnumber, TECHLOG_PARTS.tlp_description, TECHLOG_PARTS.tlp_qnty " +
+                                    "FROM TECHLOG " +
+                                    "LEFT JOIN TECHLOG_PARTS ON TECHLOG_PARTS.tl_ref = TECHLOG.tl_ref " +
+                                    "WHERE TECHLOG_PARTS.tlp_partnumber IS NOT NULL " +
+                                    "GROUP BY TECHLOG.tl_ref";
+                SQLiteCommand cmd = new SQLiteCommand(strCommand);
+                cmd.Connection = conn;
+                SQLiteDataAdapter da = new SQLiteDataAdapter(cmd);
+
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                Disconnect();
+
+                return dt;
+            }
+            catch (SQLiteException e)
+            {
+                MessageBox.Show(e.Source + "\n" + e.Message + "\n" + e.StackTrace);
+                Disconnect();
+                return null;
+            }
+        }
+
         public DataTable getSelectedRecord(string table, string referenceID)
         {
             ConnectToDatabase();
