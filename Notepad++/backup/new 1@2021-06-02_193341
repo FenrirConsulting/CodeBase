@@ -1,0 +1,13 @@
+      The primary reason is that classification will not require accurate probability estimates , so long
+   as the maximum probability is assigned to the correct class in this model. For this to work a number of 
+   things to need to be true : all of the attributes need have the same relevance to the classification task.
+   Attributes aught to be distinct and without reduntant attribute fields or types. Knowledge of a particular 
+   value in a given attribute can not really tell us anything about the value of another attribute. Since knowing 
+   the end value or end result of a given attribute can't predict another, than having wrong initial assumptions will
+   not make an impact on the overall effectivness of the model.
+   
+      Put another way, our ability to know the end result of individual attributes is not relevant to the 
+	  overall picture of the model being an accurate measurement tool. Seeing the forest instead of the individual
+	  trees in order to determine its shape and size. 
+	  
+	  - Data Mining: Practical Machine Learning Tools and Techniques, Third Edition. I. H. Witten, E. Frank and M. A. Hall. Morgan Kaufmann Publishers © 2011
