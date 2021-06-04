@@ -1,4 +1,5 @@
-00 B3 FF Light Blue Neon
+E3 00 D2 Neon Pink
+00 B3 FF Neon Light Blue
 01 15 ED Dark Blue Neon
 70 54 2F Jute Brown
 53 70 40 Forest Green
