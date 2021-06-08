@@ -55,7 +55,7 @@ app.on('ready', () => {
     if (username == "CasesBoard" || hostname == "CASESPERFBOARD") {
         userCheck = 3
     };
-    if (username == "CasesBoardB" || hostname == "CASESBOARDB" || username == "MPS-DISPLAY" ) {
+    if (username == "CasesBoardB" || hostname == "CASESBOARDB" || username == "MPS-DISPLAY") {
         userCheck = 4
     };
 
@@ -67,31 +67,31 @@ app.on('ready', () => {
         userCheck = 6
     };
 
-    
-    if (username =="COlson" || username == "GABenjamin" || hostname == "IBMM715MJ0622BP") {
+
+    if (username == "COlson" || username == "GABenjamin" || hostname == "IBMM715MJ0622BP") {
         userCheck = 7
     };
 
-    if ( hostname == "PCITREPORT" || username=="rfl6wmsdom\\kfrye" || username=="rfl6wmsdom\\PCITHUBCONTROL"){
+    if (hostname == "PCITREPORT" || username == "rfl6wmsdom\\kfrye" || username == "rfl6wmsdom\\PCITHUBCONTROL") {
         userCheck = 8;
     };
 
     switch (userCheck) {
 
         case 1:
-            windowLauncher(mod1AHTML);  
+            windowLauncher(mod1AHTML);
             break;
 
         case 2:
-            windowLauncher(mod1BHTML); 
+            windowLauncher(mod1BHTML);
             break;
 
         case 3:
-            windowLauncher(mod2AHTML);   
+            windowLauncher(mod2AHTML);
             break;
 
         case 4:
-            windowLauncher(chart1HTML); 
+            windowLauncher(chart1HTML);
             break;
 
         case 5:
@@ -99,7 +99,7 @@ app.on('ready', () => {
             break;
 
         case 6:
-            windowLauncher(mod3BHTML); 
+            windowLauncher(mod3BHTML);
             //windowLauncher(news1HTML);
             //windowLauncher(chart1HTML);
             break;
@@ -121,18 +121,18 @@ app.on('ready', () => {
             //windowLauncher(tempHTML);
             //windowLauncher(jsonHTML);
             //windowLauncher(dashHTML);
-            dashLauncher(dashHTML); 
+            dashLauncher(dashHTML);
             break;
 
-        case 8 :
+        case 8:
             windowLauncher(chart1HTML);
-            break; 
+            break;
 
         default:
-            dashLauncher(dashHTML); 
+            dashLauncher(dashHTML);
     }
 
-    function dashLauncher(fileName){
+    function dashLauncher(fileName) {
 
         dashWindow = new BrowserWindow({
             webPreferences: {
@@ -142,16 +142,16 @@ app.on('ready', () => {
             fullscreen: false,
             frame: false,
             devTools: true,
-            maximize : true,
+            maximize: true,
         });
 
         dashWindow.loadFile(fileName);
         dashWindow.maximize();
     }
 
-    function windowLauncher(fileName){
+    function windowLauncher(fileName) {
 
-        if (username != "MPS-DISPLAY"){
+        if (username != "MPS-DISPLAY") {
 
             mainWindow = new BrowserWindow({
                 webPreferences: {
@@ -161,18 +161,16 @@ app.on('ready', () => {
                 fullscreen: false,
                 frame: false,
                 devTools: true,
-                maximize : true,
+                maximize: true,
             });
-            
+
             mainWindow.loadFile(fileName);
             mainWindow.maximize();
-        }
-
-        else {
+        } else {
             secondMonitor(fileName);
         }
-    
-        
+
+
     }
 
     function secondMonitor(fileName) {
@@ -183,7 +181,7 @@ app.on('ready', () => {
             if (displays[i].bounds.x != 0 || displays[i].bounds.y != 0) {
                 externalDisplay = displays[i];
 
-                if (fileName == chart1HTML ){
+                if (fileName == chart1HTML) {
 
                     secondWindow = new BrowserWindow({
                         webPreferences: {
@@ -195,25 +193,25 @@ app.on('ready', () => {
                         fullscreen: false,
                         frame: false,
                         devTools: true,
-                        maximize : true,
+                        maximize: true,
                     });
 
                     if (externalDisplay) {
 
                         if (fileName == chart1HTML) {
                             secondWindow.loadFile(chart1HTML);
-                        } 
+                        }
                         if (fileName == mod2AHTML) {
                             secondWindow.loadFile(mod2BHTML);
-                        }    
+                        }
                         if (fileName == mod3AHTML) { //casesHTML
                             secondWindow.loadFile(mod3BHTML);
                         }
-                        if (fileName == news1HTML){
+                        if (fileName == news1HTML) {
                             secondWindow.loadFile(news2HTML);
                         }
                         secondWindow.maximize();
-            
+
                     };
 
                 }
