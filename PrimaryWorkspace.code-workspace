@@ -10,5 +10,7 @@
 			"path": "..\\AmyBrooksWebsite"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "AmyBrooksWebsite"
+	}
 }
