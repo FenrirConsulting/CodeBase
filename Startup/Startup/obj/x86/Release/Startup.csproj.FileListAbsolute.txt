@@ -13,7 +13,6 @@ D:\CodeBase\Startup\Startup\obj\x86\Release\Startup.exe
 D:\CodeBase\Startup\Startup\obj\x86\Release\Startup.pdb
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\Startup\Startup\bin\Release\Startup.exe
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\Startup\Startup\bin\Release\Startup.pdb
-C:\Users\COlson\Documents\Visual Studio 2019\Projects\Startup\Startup\obj\x86\Release\Startup.csprojAssemblyReference.cache
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\Startup\Startup\obj\x86\Release\Startup.CredentialsForm.resources
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\Startup\Startup\obj\x86\Release\Startup.Properties.Resources.resources
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\Startup\Startup\obj\x86\Release\Startup.csproj.GenerateResource.cache

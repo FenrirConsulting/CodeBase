@@ -123,8 +123,9 @@ namespace Startup
             if (currentUser.PCO == true) { menuList.Add("PCO"); }
 
             var menuArray = menuList.ToArray();
+            string key = "#CVS2575";
 
-
+            /*
             FileStream file = File.Create(passedPath); file.Dispose();
 
             using (StreamWriter writetext = new StreamWriter(passedPath))
@@ -135,8 +136,24 @@ namespace Startup
                     writetext.WriteLine(s);
             }
             file.Close();
-            string key = "#CVS2575";
-            EncryptFile(passedPath, key);
+            */
+
+            //EncryptFile(passedPath, key);
+
+
+            string username = System.Environment.UserName;
+            string serverFile = "\\\\RFL6LBSAPW1V\\WMS-USER\\" + username + "\\info.txt";
+            FileStream file2 = File.Create(serverFile); file2.Dispose();
+
+            using (StreamWriter writetext = new StreamWriter(serverFile))
+            {
+                writetext.WriteLine(currentUser.user);
+                writetext.WriteLine(currentUser.pass);
+                foreach (string s in menuArray)
+                    writetext.WriteLine(s);
+            }
+            file2.Close();
+            EncryptFile(serverFile, key);
         }
 
         static void EncryptFile(string path, string key)

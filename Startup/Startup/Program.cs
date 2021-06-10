@@ -120,9 +120,14 @@ namespace Startup {
             Console.WriteLine("Checking for existing user settings.");
             string documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string path = documents + @"\info.txt";
+            string username = System.Environment.UserName;
+            string serverFile = "\\\\RFL6LBSAPW1V\\WMS-USER\\" + username + "\\info.txt";
+            if (File.Exists(path)) { File.Delete(path); }
             // Checks for the credentials file in User\Documents, creates a new one if not present
-            if (File.Exists(path) == false)
+            if (File.Exists(serverFile) == false)
             {
+
+                
 
                 Application.EnableVisualStyles();
 
@@ -133,14 +138,18 @@ namespace Startup {
 
             }
 
-            if (File.Exists(path) == false)
+            if (File.Exists(serverFile) == false)
             {
 
                 Environment.Exit(0);
             }
 
             // Reads in credentials from the file created in User\Documents
-            readFile(currentUser, path);
+
+            if (File.Exists(serverFile)) { readFile(currentUser, serverFile); }
+            
+            
+            
             programLauncher(currentUser, automation);
 
         }
