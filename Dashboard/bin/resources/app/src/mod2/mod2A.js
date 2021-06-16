@@ -125,6 +125,7 @@ function readData1() {
         var preweek = table[3];
         var title = pretitle.replace(/\|.*/, '');;
         var date = predate.replace(/\|.*/, '');;
+        var date2 = date
         var week = preweek.replace(/\|.*/, '');;
         console.log(title);
         console.log(date);
@@ -202,7 +203,9 @@ function readData1() {
         }
 
         document.getElementById("Title1").innerHTML = title;
-        document.getElementById("Date1").innerHTML = date;
+        document.getElementById("Date1").innerHTML = "Performance for : " + date;
+        document.getElementById("Date1").style.whiteSpace = "nowrap";
+        document.getElementById("Date1").style.fontSize = "1vw";
         document.getElementById("Week1").innerHTML = week;
 
     });
@@ -306,7 +309,8 @@ function readData2() {
         }
 
         document.getElementById("Title2").innerHTML = mpstitle;
-        document.getElementById("Date2").innerHTML = mpsdate;
+        document.getElementById("Date2").innerHTML = "Performance for : " + date2;
+        document.getElementById("Date2").style.whiteSpace = "nowrap";
         document.getElementById("Week2").innerHTML = mpsweek;
 
     });

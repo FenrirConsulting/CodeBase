@@ -188,7 +188,9 @@ function readData() {
 
 
         document.getElementById("Title").innerHTML = title;
-        document.getElementById("Date").innerHTML = date;
+        document.getElementById("Date").innerHTML = "Performance for : " + date;
+        document.getElementById("Date").style.whiteSpace = "nowrap";
+        document.getElementById("Date").style.fontSize = "2vw";
         document.getElementById("Week").innerHTML = week;
 
     });

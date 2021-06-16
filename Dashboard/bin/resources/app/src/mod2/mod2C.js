@@ -203,7 +203,7 @@ function readData1() {
         }
 
         document.getElementById("Title1").innerHTML = title;
-        document.getElementById("Date1").innerHTML = date;
+        //document.getElementById("Date1").innerHTML = date;
         document.getElementById("Week1").innerHTML = week;
 
     });

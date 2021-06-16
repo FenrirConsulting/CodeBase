@@ -9,6 +9,17 @@ const hostname = os.hostname();
 
 if (username != "MPS-DISPLAY") { setTimeout(function(){location.href="../news/news1.html";},45 * 1000); }
 
+
+
+if (username == "MPS-DISPLAY") { 
+
+    document.getElementById('chart_wrapper1').style.display = "none";
+    document.getElementById('chart_wrapper3').style.display = "none";
+    document.getElementById('chart_wrapper4').style.display = "none";
+    document.getElementById('body_wrapper').style.gridTemplateRows = "100%";
+}
+
+
 else {
   setTimeout(function(){location.href="../charts/chart1.html";},30 * 1000);
 }

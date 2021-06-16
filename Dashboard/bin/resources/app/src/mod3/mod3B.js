@@ -193,7 +193,8 @@ function readData() { // Builds table
         }
 
         document.getElementById("Title").innerHTML = title;
-        document.getElementById("Date").innerHTML = date;
+        document.getElementById("Date").innerHTML = "Performance for : " + date;
+        document.getElementById("Date").style.whiteSpace = "nowrap";
         document.getElementById("Week").innerHTML = week;
 
     });
