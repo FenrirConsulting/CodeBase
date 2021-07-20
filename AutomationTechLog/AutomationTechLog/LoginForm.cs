@@ -9,6 +9,8 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 
 namespace AutomationTechLog
 {
@@ -33,6 +35,7 @@ namespace AutomationTechLog
             string username = System.Environment.UserName;
             if (username == "PCASTSUPPLY" || hostname == "PCASTSUPPLY" || username == "COlson") { checkoutButton.Visible = true; }
             if (username == "COlson") { testButton.Visible = true; }
+
         }
 
         public void loginCheck()
@@ -175,20 +178,19 @@ namespace AutomationTechLog
             {
                 loginCheck();
             }
+        }   
+
+        private void LoginForm_Paint(object sender, PaintEventArgs e)
+        {
+            //ControlPaint.DrawBorder3D(e.Graphics, this.ClientRectangle,  Border3DStyle.Sunken);
         }
 
-        
         private void checkoutButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             var checkoutForm = new CheckoutForm();
             checkoutForm.Closed += (s, args) => this.Show();
             checkoutForm.Show();
-        }
-
-        private void LoginForm_Paint(object sender, PaintEventArgs e)
-        {
-            ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, Color.Black, ButtonBorderStyle.Outset);
         }
     }
 }

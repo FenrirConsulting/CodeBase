@@ -45,7 +45,7 @@ namespace AutomationTechLog
                 .Select(dr => dr.Field<string>("tlt_name")).ToList();
             addUserBox.DataSource = userList;
 
-            stateComboBox.Text = "Entered";
+            stateComboBox.Text = "Started";
             typeComboBox.Text = "Unplanned";
             assetTextBox.Text = "Enter Asset";
             complaintTextBox.Text = "";

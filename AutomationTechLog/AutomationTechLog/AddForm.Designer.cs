@@ -346,8 +346,10 @@ namespace AutomationTechLog
             // 
             this.stateComboBox.FormattingEnabled = true;
             this.stateComboBox.Items.AddRange(new object[] {
-            "Completed",
-            "Entered"});
+            "Started",
+            "Memo",
+            "Entered",
+            "Completed"});
             this.stateComboBox.Location = new System.Drawing.Point(78, 9);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(102, 21);

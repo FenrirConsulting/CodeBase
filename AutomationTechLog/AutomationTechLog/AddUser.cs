@@ -115,7 +115,8 @@ namespace AutomationTechLog
                     string tlt_isactive = activeCheck.Checked.ToString();
                     string tlt_pword = confirmPasswordBox.Text;
                     string tlt_auname = userIDBox.Text;
-                    DBConn.addTechlogTechRecord(tlt_name, tlt_shift, tlt_islead, tlt_isadmin, tlt_ispartslead, tlt_isactive, tlt_pword, tlt_auname);
+                    string tlt_badgeid = badgeBox.Text;
+                    DBConn.addTechlogTechRecord(tlt_name, tlt_shift, tlt_islead, tlt_isadmin, tlt_ispartslead, tlt_isactive, tlt_pword, tlt_auname, tlt_badgeid);
                     Close();
                     break;
 

@@ -30,6 +30,7 @@ namespace AutomationTechLog
         string userNumber;
         string userName;
         string currentPartNumber;
+        string badgeNumber;
         DataTable checkoutTable = new DataTable();
         int countdown = 5;
         string formattedTime = "";
@@ -102,14 +103,12 @@ namespace AutomationTechLog
 
         private void splitUserBarcode() {
 
-            string[] str_split;
 
-            if (userBox.Text.Contains(",") && userBox.Text.Length > 10) {
+            if (userBox.Text != "" && userBox.Text.Length > 8) {
 
                 try
                 {
-                    str_split = userBox.Text.Split(",".ToCharArray());
-                    userNumber = str_split[0];
+                    badgeNumber = userBox.Text;
                     findName();
                 }
 
@@ -128,26 +127,12 @@ namespace AutomationTechLog
         private void splitPartsBarcode() {
 
             string[] str_split;
-            string checkName = "";
-            if (partsBox.Text.Contains(",") && partsBox.Text.Length > 10)
+            string checkName = partsBox.Text;
+            if (partsBox.Text != "" && partsBox.Text.Length > 8)
             {
-                try
-                {
-                    str_split = partsBox.Text.Split(",".ToCharArray());
-                    checkName = str_split[0];
-                }
-                catch
-                {
-                    partsBox.Text = "";
-                    return;
-                }
-                if (checkName == userNumber)
+                if (checkName == badgeNumber)
                 {
                     closingSession();
-                }
-                else
-                {
-                    partsBox.Text = "";
                 }
             }
             else {
@@ -254,14 +239,16 @@ namespace AutomationTechLog
             nameTable = DBConn.getTable("TECHLOG_TECHS");
             string tempName = "";
             string tempId = "";
+            string tempBadge = "";
             bool foundFlag = false;
 
             foreach (DataRow row in nameTable.Rows)
             {
-                if (userNumber == row["tlt_auname"].ToString())
+                if (badgeNumber == row["tlt_badgeid"].ToString())
                 {
                     tempName = row["tlt_name"].ToString();
                     tempId = row["tlt_auname"].ToString();
+                    tempBadge = row["tlt_badgeid"].ToString();
                     foundFlag = true;
                 }
             }
@@ -274,6 +261,7 @@ namespace AutomationTechLog
                 userName = tempName;
                 swipeNameLabel.Visible = false;
                 userBox.Visible = false;
+                badgeNumber = tempBadge;
                 foundUserLabel.Visible = true;
                 foundUserLabel.Text = "Checking out parts for : " +userName;
                 partsBox.Focus();

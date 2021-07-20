@@ -166,6 +166,7 @@ namespace AutomationTechLog
 
             userIDBox.Text = drv["tlt_auname"].ToString();
             shiftBox.Text = drv["tlt_shift"].ToString();
+            badgeBox.Text = drv["tlt_badgeid"].ToString();
         }
 
         private void adminResetButton_Click(object sender, EventArgs e)
@@ -217,7 +218,8 @@ namespace AutomationTechLog
                     string tlt_ispartslead = partsLeadCheckBox.Checked.ToString();
                     string tlt_isactive = activeCheck.Checked.ToString();
                     string tlt_auname = userIDBox.Text;
-                    DBConn.techlogTechsRecordUpdate(tlt_name, tlt_shift, tlt_islead, tlt_isadmin, tlt_ispartslead, tlt_isactive, tlt_auname);
+                    string tlt_badgeid = badgeBox.Text;
+                    DBConn.techlogTechsRecordUpdate(tlt_name, tlt_shift, tlt_islead, tlt_isadmin, tlt_ispartslead, tlt_isactive, tlt_auname, tlt_badgeid);
                     buildTables();
                     break;
 

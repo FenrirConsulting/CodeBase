@@ -165,6 +165,9 @@
     <Compile Include="CheckoutHistoryForm.Designer.cs">
       <DependentUpon>CheckoutHistoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EllipseControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="GlobalUser.cs" />
     <Compile Include="LocationsOverview.cs">
       <SubType>Form</SubType>
@@ -205,6 +208,9 @@
     </Compile>
     <Compile Include="ReportForm.Designer.cs">
       <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoundButton.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="sqlLiteMethods.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />

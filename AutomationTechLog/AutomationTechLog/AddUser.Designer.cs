@@ -48,6 +48,8 @@ namespace AutomationTechLog
             this.confirmPasswordBox = new System.Windows.Forms.TextBox();
             this.createUserButton = new System.Windows.Forms.Button();
             this.usernameBox = new System.Windows.Forms.TextBox();
+            this.badgeBox = new System.Windows.Forms.TextBox();
+            this.BadgeLabel = new System.Windows.Forms.Label();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.SuspendLayout();
@@ -249,12 +251,33 @@ namespace AutomationTechLog
             this.usernameBox.Size = new System.Drawing.Size(119, 20);
             this.usernameBox.TabIndex = 0;
             // 
+            // badgeBox
+            // 
+            this.badgeBox.Location = new System.Drawing.Point(334, 95);
+            this.badgeBox.Name = "badgeBox";
+            this.badgeBox.Size = new System.Drawing.Size(119, 20);
+            this.badgeBox.TabIndex = 109;
+            // 
+            // BadgeLabel
+            // 
+            this.BadgeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BadgeLabel.AutoSize = true;
+            this.BadgeLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BadgeLabel.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BadgeLabel.Location = new System.Drawing.Point(330, 73);
+            this.BadgeLabel.Name = "BadgeLabel";
+            this.BadgeLabel.Size = new System.Drawing.Size(63, 19);
+            this.BadgeLabel.TabIndex = 110;
+            this.BadgeLabel.Text = "Badge #";
+            // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(461, 269);
+            this.Controls.Add(this.BadgeLabel);
+            this.Controls.Add(this.badgeBox);
             this.Controls.Add(this.usernameBox);
             this.Controls.Add(this.createUserButton);
             this.Controls.Add(this.confirmPasswordBox);
@@ -304,5 +327,7 @@ namespace AutomationTechLog
         private System.Windows.Forms.TextBox confirmPasswordBox;
         private System.Windows.Forms.Button createUserButton;
         private System.Windows.Forms.TextBox usernameBox;
+        private System.Windows.Forms.TextBox badgeBox;
+        private System.Windows.Forms.Label BadgeLabel;
     }
 }

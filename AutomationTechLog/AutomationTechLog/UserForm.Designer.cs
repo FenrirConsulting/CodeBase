@@ -62,6 +62,8 @@ namespace AutomationTechLog
             this.titlePanel = new System.Windows.Forms.Panel();
             this.generatedTitle = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.PictureBox();
+            this.badgeBox = new System.Windows.Forms.TextBox();
+            this.badgeLabel = new System.Windows.Forms.Label();
             this.bodyPanel.SuspendLayout();
             this.leadPanel.SuspendLayout();
             this.adminPanel.SuspendLayout();
@@ -84,6 +86,8 @@ namespace AutomationTechLog
             // leadPanel
             // 
             this.leadPanel.BackColor = System.Drawing.SystemColors.Info;
+            this.leadPanel.Controls.Add(this.badgeLabel);
+            this.leadPanel.Controls.Add(this.badgeBox);
             this.leadPanel.Controls.Add(this.updateUserButton);
             this.leadPanel.Controls.Add(this.managementLabel);
             this.leadPanel.Controls.Add(this.adminPanel);
@@ -108,7 +112,7 @@ namespace AutomationTechLog
             this.updateUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.updateUserButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateUserButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.updateUserButton.Location = new System.Drawing.Point(346, 78);
+            this.updateUserButton.Location = new System.Drawing.Point(402, 79);
             this.updateUserButton.Name = "updateUserButton";
             this.updateUserButton.Size = new System.Drawing.Size(100, 24);
             this.updateUserButton.TabIndex = 2;
@@ -244,7 +248,7 @@ namespace AutomationTechLog
             this.shiftLabel.AutoSize = true;
             this.shiftLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shiftLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.shiftLabel.Location = new System.Drawing.Point(271, 57);
+            this.shiftLabel.Location = new System.Drawing.Point(242, 57);
             this.shiftLabel.Name = "shiftLabel";
             this.shiftLabel.Size = new System.Drawing.Size(40, 19);
             this.shiftLabel.TabIndex = 95;
@@ -256,7 +260,7 @@ namespace AutomationTechLog
             this.employeeIDLabel.AutoSize = true;
             this.employeeIDLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employeeIDLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.employeeIDLabel.Location = new System.Drawing.Point(147, 57);
+            this.employeeIDLabel.Location = new System.Drawing.Point(142, 57);
             this.employeeIDLabel.Name = "employeeIDLabel";
             this.employeeIDLabel.Size = new System.Drawing.Size(94, 19);
             this.employeeIDLabel.TabIndex = 94;
@@ -281,7 +285,7 @@ namespace AutomationTechLog
             "1",
             "2",
             "3"});
-            this.shiftBox.Location = new System.Drawing.Point(259, 79);
+            this.shiftBox.Location = new System.Drawing.Point(242, 79);
             this.shiftBox.Name = "shiftBox";
             this.shiftBox.Size = new System.Drawing.Size(52, 21);
             this.shiftBox.TabIndex = 93;
@@ -307,7 +311,7 @@ namespace AutomationTechLog
             // 
             // userIDBox
             // 
-            this.userIDBox.Location = new System.Drawing.Point(146, 79);
+            this.userIDBox.Location = new System.Drawing.Point(141, 79);
             this.userIDBox.Name = "userIDBox";
             this.userIDBox.ReadOnly = true;
             this.userIDBox.Size = new System.Drawing.Size(95, 20);
@@ -462,6 +466,25 @@ namespace AutomationTechLog
             this.closeButton.TabStop = false;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
+            // badgeBox
+            // 
+            this.badgeBox.Location = new System.Drawing.Point(300, 79);
+            this.badgeBox.Name = "badgeBox";
+            this.badgeBox.Size = new System.Drawing.Size(95, 20);
+            this.badgeBox.TabIndex = 86;
+            // 
+            // badgeLabel
+            // 
+            this.badgeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.badgeLabel.AutoSize = true;
+            this.badgeLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.badgeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.badgeLabel.Location = new System.Drawing.Point(301, 57);
+            this.badgeLabel.Name = "badgeLabel";
+            this.badgeLabel.Size = new System.Drawing.Size(63, 19);
+            this.badgeLabel.TabIndex = 96;
+            this.badgeLabel.Text = "Badge #";
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -523,5 +546,7 @@ namespace AutomationTechLog
         private System.Windows.Forms.Button createUserButton;
         private System.Windows.Forms.Label managementLabel;
         private System.Windows.Forms.Button updateUserButton;
+        private System.Windows.Forms.Label badgeLabel;
+        private System.Windows.Forms.TextBox badgeBox;
     }
 }

@@ -34,6 +34,7 @@ namespace AutomationTechLog
             this.closeButton = new System.Windows.Forms.PictureBox();
             this.generatedTitle = new System.Windows.Forms.Label();
             this.bodyPanel = new System.Windows.Forms.Panel();
+            this.confirmButton = new System.Windows.Forms.Button();
             this.addPartNumberBox = new System.Windows.Forms.ComboBox();
             this.additionalComplaintsLabel = new System.Windows.Forms.Label();
             this.additionalComplaintsBox = new System.Windows.Forms.TextBox();
@@ -70,7 +71,6 @@ namespace AutomationTechLog
             this.modifiedLabel = new System.Windows.Forms.Label();
             this.partsGrid = new System.Windows.Forms.DataGridView();
             this.userGrid = new System.Windows.Forms.DataGridView();
-            this.confirmButton = new System.Windows.Forms.Button();
             this.titlePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeButton)).BeginInit();
             this.bodyPanel.SuspendLayout();
@@ -160,6 +160,20 @@ namespace AutomationTechLog
             this.bodyPanel.Size = new System.Drawing.Size(548, 875);
             this.bodyPanel.TabIndex = 0;
             this.bodyPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.bodyPanel_Paint);
+            // 
+            // confirmButton
+            // 
+            this.confirmButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
+            this.confirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.confirmButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
+            this.confirmButton.Location = new System.Drawing.Point(368, 808);
+            this.confirmButton.Name = "confirmButton";
+            this.confirmButton.Size = new System.Drawing.Size(111, 24);
+            this.confirmButton.TabIndex = 88;
+            this.confirmButton.Text = "Confirm Parts";
+            this.confirmButton.UseVisualStyleBackColor = false;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
             // addPartNumberBox
             // 
@@ -336,8 +350,10 @@ namespace AutomationTechLog
             // 
             this.stateComboBox.FormattingEnabled = true;
             this.stateComboBox.Items.AddRange(new object[] {
-            "Completed",
-            "Entered"});
+            "Started",
+            "Memo",
+            "Entered",
+            "Completed"});
             this.stateComboBox.Location = new System.Drawing.Point(60, 6);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(121, 21);
@@ -593,20 +609,6 @@ namespace AutomationTechLog
             this.userGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userGrid_CellClick);
             this.userGrid.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.userGrid_CellMouseClick);
             this.userGrid.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.userGrid_CellValidating);
-            // 
-            // confirmButton
-            // 
-            this.confirmButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(12)))), ((int)(((byte)(13)))));
-            this.confirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.confirmButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(75)))), ((int)(((byte)(53)))));
-            this.confirmButton.Location = new System.Drawing.Point(368, 808);
-            this.confirmButton.Name = "confirmButton";
-            this.confirmButton.Size = new System.Drawing.Size(111, 24);
-            this.confirmButton.TabIndex = 88;
-            this.confirmButton.Text = "Confirm Parts";
-            this.confirmButton.UseVisualStyleBackColor = false;
-            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
             // UpdateForm
             // 
