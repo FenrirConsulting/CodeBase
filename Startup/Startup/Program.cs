@@ -350,7 +350,7 @@ namespace Startup {
                 string username = currentUser.user;
                 string password = currentUser.pass;
 
-                cpsForm = automation.setParentElement("Log on cps");
+                cpsForm = automation.setParentElement("Log on CPS");
 
                 if (cpsForm != null)
                 {
