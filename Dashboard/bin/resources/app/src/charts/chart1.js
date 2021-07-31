@@ -11,7 +11,7 @@ if (username != "MPS-DISPLAY") { setTimeout(function(){location.href="../news/ne
 
 
 
-if (username == "MPS-DISPLAY") { 
+if (username == "MPS-DISPLAY" || username == "MPS-Display") { 
 
     document.getElementById('chart_wrapper1').style.display = "none";
     document.getElementById('chart_wrapper3').style.display = "none";

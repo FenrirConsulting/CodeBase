@@ -287,6 +287,8 @@ namespace AutomationTechLog {
             
             private global::System.Data.DataColumn columntlp_description;
             
+            private global::System.Data.DataColumn columntl_ref;
+            
             private global::System.Data.DataColumn columntlp_qnty;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -356,6 +358,14 @@ namespace AutomationTechLog {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tl_refColumn {
+                get {
+                    return this.columntl_ref;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn tlp_qntyColumn {
                 get {
                     return this.columntlp_qnty;
@@ -399,13 +409,14 @@ namespace AutomationTechLog {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PartsDataTableRow AddPartsDataTableRow(string tl_genuser, string tl_gendate, string tlp_partnumber, string tlp_description, string tlp_qnty) {
+            public PartsDataTableRow AddPartsDataTableRow(string tl_genuser, string tl_gendate, string tlp_partnumber, string tlp_description, string tl_ref, string tlp_qnty) {
                 PartsDataTableRow rowPartsDataTableRow = ((PartsDataTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         tl_genuser,
                         tl_gendate,
                         tlp_partnumber,
                         tlp_description,
+                        tl_ref,
                         tlp_qnty};
                 rowPartsDataTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPartsDataTableRow);
@@ -433,6 +444,7 @@ namespace AutomationTechLog {
                 this.columntl_gendate = base.Columns["tl_gendate"];
                 this.columntlp_partnumber = base.Columns["tlp_partnumber"];
                 this.columntlp_description = base.Columns["tlp_description"];
+                this.columntl_ref = base.Columns["tl_ref"];
                 this.columntlp_qnty = base.Columns["tlp_qnty"];
             }
             
@@ -447,6 +459,8 @@ namespace AutomationTechLog {
                 base.Columns.Add(this.columntlp_partnumber);
                 this.columntlp_description = new global::System.Data.DataColumn("tlp_description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntlp_description);
+                this.columntl_ref = new global::System.Data.DataColumn("tl_ref", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntl_ref);
                 this.columntlp_qnty = new global::System.Data.DataColumn("tlp_qnty", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntlp_qnty);
             }
@@ -655,6 +669,22 @@ namespace AutomationTechLog {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string tl_ref {
+                get {
+                    try {
+                        return ((string)(this[this.tablePartsDataTable.tl_refColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tl_ref\' in table \'PartsDataTable\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePartsDataTable.tl_refColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string tlp_qnty {
                 get {
                     try {
@@ -715,6 +745,18 @@ namespace AutomationTechLog {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Settlp_descriptionNull() {
                 this[this.tablePartsDataTable.tlp_descriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool Istl_refNull() {
+                return this.IsNull(this.tablePartsDataTable.tl_refColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void Settl_refNull() {
+                this[this.tablePartsDataTable.tl_refColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

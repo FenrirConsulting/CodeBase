@@ -273,7 +273,6 @@ C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\pt\Micr
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojAssemblyReference.cache
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.exe.config
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddForm.resources
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddLocation.resources
@@ -294,3 +293,5 @@ C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\Aut
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CopyComplete
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.exe
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.pdb
+C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\RdlCompile.cache
+C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\RdlCompile.compiled
