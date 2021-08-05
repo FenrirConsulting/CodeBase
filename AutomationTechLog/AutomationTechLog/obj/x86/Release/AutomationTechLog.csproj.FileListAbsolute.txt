@@ -188,12 +188,15 @@ C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\Automati
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CopyComplete
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.exe
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.pdb
+C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojAssemblyReference.cache
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\SqlServerTypes\x64\msvcr120.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\SqlServerTypes\x86\msvcr120.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\SqlServerTypes\x86\SqlServerSpatial140.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SQLite.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.Entity.dll
+C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\x64\SQLite.Interop.dll
+C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\x86\SQLite.Interop.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\Microsoft.Office.Interop.Outlook.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlceca35.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlcecompact35.dll
@@ -205,8 +208,6 @@ C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependa
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\sqlite3.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\System.Data.SQLite.xml
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\System.Data.SqlServerCe.dll
-C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\x64\SQLite.Interop.dll
-C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\x86\SQLite.Interop.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\LocalDatabase.db
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Dependancies\SQLite.Interop.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\Reports\PartsReport.rdlc
@@ -273,6 +274,7 @@ C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\pt\Micr
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\bin\Release\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csprojAssemblyReference.cache
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.exe.config
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddForm.resources
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.AddLocation.resources
@@ -289,9 +291,9 @@ C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\Aut
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UpdateForm.resources
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.UserForm.resources
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.GenerateResource.cache
+C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\RdlCompile.cache
+C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\RdlCompile.compiled
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CoreCompileInputs.cache
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\AutomationTechLog.csproj.CopyComplete
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.exe
 C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\ATLog.pdb
-C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\RdlCompile.cache
-C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\obj\x86\Release\RdlCompile.compiled

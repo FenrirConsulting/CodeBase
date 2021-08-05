@@ -287,7 +287,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox2">
+                    <Textbox Name="tl_ref">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -306,7 +306,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <rd:DefaultName>tl_ref</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -575,18 +575,18 @@
           <DataField>tlp_description</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="tl_ref">
-          <DataField>tl_ref</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="tlp_qnty">
           <DataField>tlp_qnty</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="tl_ref">
+          <DataField>tl_ref</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>PartsDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Repositories\CodeBase\AutomationTechLog\AutomationTechLog\PartsDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\COlson\Documents\Visual Studio 2019\Projects\AutomationTechLog\AutomationTechLog\PartsDataSet.xsd</rd:SchemaPath>
         <rd:TableName>PartsDataTable</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />

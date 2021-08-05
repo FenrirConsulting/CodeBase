@@ -68,7 +68,7 @@ app.on('ready', () => {
     };
 
 
-    if (username == "COlson" || username == "GABenjamin" || hostname == "IBMM715MJ0622BP") {
+    if (username == "COlson" || hostname == "HP8305CG04242QH") {
         userCheck = 7
     };
 
@@ -129,7 +129,7 @@ app.on('ready', () => {
             break;
 
         default:
-            dashLauncher(dashHTML);
+            windowLauncher(chart1HTML);
     }
 
     function dashLauncher(fileName) {
