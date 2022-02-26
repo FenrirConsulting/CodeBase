@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-03 5B FF Amys Blue Color
-6F 3B 1E
-53 2C 17
-E7 C7 A2 Viking Color Inspiration Light Brown
-=======
 53 70 40 Forest Green
-E7 C7 A2 Viking Color Inspiration Light Brown; VikingLighterBrown
->>>>>>> 0b5c568f24c80a9469064404c9e2fb26a3a0d697
+E7 C7 A2 Viking Color Inspiration Light Brown; VikingLighterBrown; Viking Color Inspiration Light Brown; VikingLighterBrown
 AB 6C 39 Viking Color Inspiration Brown
 5D 4A 3C Viking Color Inspiration Dark Brown
-A7 CC A4 Viking Inspiration Color Pallet Green; VikingGreenLighterColor
+A7 CC A4 Viking Inspiration Color Pallet Green; VikingGreenLighterColor; Viking Inspiration Color Pallet Green; VikingGreenLighterColor
 42 46 61 Viking Inspiration Color Pallete Gray
 00 B3 FF Neon Light Blue
 01 15 ED Dark Blue Neon
@@ -41,8 +34,8 @@ F3 DA 3F Viking Yellow
 FD 33 1F Viking Red
 FE 57 06 VikingOrange
 71 84 5D VikingGreenDarkerColor
-A7 CC A4 Viking Inspiration Color Pallet Green; VikingGreenLighterColor
-E7 C7 A2 Viking Color Inspiration Light Brown; VikingLighterBrown
+A7 CC A4 Viking Inspiration Color Pallet Green; VikingGreenLighterColor; Viking Inspiration Color Pallet Green; VikingGreenLighterColor
+E7 C7 A2 Viking Color Inspiration Light Brown; VikingLighterBrown; Viking Color Inspiration Light Brown; VikingLighterBrown
 6F 3B 1E JuteBrownLighterColor
 53 2C 17 JuteBrownDarkerColor
 03 5B FF NeonBlueAlt
