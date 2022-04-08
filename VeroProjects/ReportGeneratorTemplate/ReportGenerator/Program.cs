@@ -36,6 +36,7 @@ namespace ReportGenerator
                 Directory.CreateDirectory(reportPath);
             }
           
+            // Path to BMIS that server targets. 
             string clientPath = "X:\\abl\\runtime\\bin\\";
             string serverPath = "R:\\abl\\runtime\\bin\\";
             //string absolutePath = "\\\\rfl6dpsapw1v\\WMS-CLIENT\\abl\\runtime\\bin\\";
@@ -88,7 +89,7 @@ namespace ReportGenerator
                 loginOkButton,
                 loginPassElement;
 
-
+            // Set Service Account Here
             string username = "20031";
             string password = "1337";
             loginFormElement = automation.setParentElement("Log on BMIS");

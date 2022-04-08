@@ -55,6 +55,8 @@ app.on('ready', () => {
     if (username == "CasesBoard" || hostname == "CASESPERFBOARD") {
         userCheck = 3
     };
+
+
     if (username == "CasesBoardB" || hostname == "CASESBOARDB" || username == "MPS-DISPLAY") {
         userCheck = 4
     };
@@ -68,11 +70,11 @@ app.on('ready', () => {
     };
 
 
-    if (username == "COlson" || hostname == "HP8305CG04242QH") {
+    if (username == "COlson" || hostname == "") {
         userCheck = 7
     };
 
-    if (hostname == "PCITREPORT" || username == "rfl6wmsdom\\kfrye" || username == "rfl6wmsdom\\PCITHUBCONTROL") {
+    if (hostname == "PCITREPORT" || username == "rfl6wmsdom\\PCITHUBCONTROL") {
         userCheck = 8;
     };
 
