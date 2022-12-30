@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.32804.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HeimdallCloud", "HeimdallCloud\HeimdallCloud.csproj", "{3F5341B0-0A05-46D9-B3B8-FE0FE24EB546}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		DEV|Any CPU = DEV|Any CPU
+		PROD|Any CPU = PROD|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F5341B0-0A05-46D9-B3B8-FE0FE24EB546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F5341B0-0A05-46D9-B3B8-FE0FE24EB546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F5341B0-0A05-46D9-B3B8-FE0FE24EB546}.DEV|Any CPU.ActiveCfg = DEV|Any CPU
+		{3F5341B0-0A05-46D9-B3B8-FE0FE24EB546}.DEV|Any CPU.Build.0 = DEV|Any CPU
+		{3F5341B0-0A05-46D9-B3B8-FE0FE24EB546}.PROD|Any CPU.ActiveCfg = PROD|Any CPU
+		{3F5341B0-0A05-46D9-B3B8-FE0FE24EB546}.PROD|Any CPU.Build.0 = PROD|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F796ADB-152A-4A02-8C93-6D54BF87EE4E}
+	EndGlobalSection
+EndGlobal
