@@ -19,3 +19,11 @@ C:\Users\COlson\Documents\Visual Studio 2019\Projects\Startup\Startup\obj\x86\Re
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\Startup\Startup\obj\x86\Release\Startup.csproj.CoreCompileInputs.cache
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\Startup\Startup\obj\x86\Release\Startup.exe
 C:\Users\COlson\Documents\Visual Studio 2019\Projects\Startup\Startup\obj\x86\Release\Startup.pdb
+C:\Users\COlson\Documents\Startup\Startup\bin\Release\Startup.exe
+C:\Users\COlson\Documents\Startup\Startup\bin\Release\Startup.pdb
+C:\Users\COlson\Documents\Startup\Startup\obj\x86\Release\Startup.CredentialsForm.resources
+C:\Users\COlson\Documents\Startup\Startup\obj\x86\Release\Startup.Properties.Resources.resources
+C:\Users\COlson\Documents\Startup\Startup\obj\x86\Release\Startup.csproj.GenerateResource.cache
+C:\Users\COlson\Documents\Startup\Startup\obj\x86\Release\Startup.csproj.CoreCompileInputs.cache
+C:\Users\COlson\Documents\Startup\Startup\obj\x86\Release\Startup.exe
+C:\Users\COlson\Documents\Startup\Startup\obj\x86\Release\Startup.pdb

@@ -31,14 +31,15 @@ namespace Startup
             {
                 elementParent = AutomationElement.RootElement.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.NameProperty, elementString));
                 ct++;
-                Thread.Sleep(100);
+                Thread.Sleep(1000);
 
             }
-            while (elementParent == null && ct < 70);
+            while (elementParent == null && ct < 15);
 
-            if (elementParent == null && ct == 70)
+            if (elementParent == null && ct == 15)
             {
-                MessageBox.Show("EmptyElement");
+                MessageBox.Show("Error Launching Programs. Closing Out");
+                Environment.Exit(0);
             }
 
             return elementParent;
@@ -58,14 +59,15 @@ namespace Startup
             {
                 elementParent = AutomationElement.RootElement.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.AutomationIdProperty, elementString));
                 ct++;
-                Thread.Sleep(100);
+                Thread.Sleep(1000);
 
             }
-            while (elementParent == null && ct < 20);
+            while (elementParent == null && ct < 15);
 
-            if (elementParent == null && ct == 20)
+            if (elementParent == null && ct == 15)
             {
-                MessageBox.Show("EmptyElement");
+                MessageBox.Show("Error Launching Programs. Closing Out");
+                Environment.Exit(0);
             }
 
             Thread.Sleep(500);
