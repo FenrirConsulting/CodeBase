@@ -1,0 +1,35 @@
+﻿using HeimdallCloud.Shared.Models;
+using HeimdallCloud.Shared.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HeimdallCloud.Shared.Services
+{
+    public class AuthorizationSettingsHostedService : IHostedService
+    {
+        private readonly IAuthorizationSettingsService _authorizationSettingsService;
+
+        public AuthorizationSettingsHostedService(IAuthorizationSettingsService authorizationSettingsService)
+        {
+            _authorizationSettingsService = authorizationSettingsService;
+        }
+
+        public async Task StartAsync(CancellationToken cancellationToken)
+        {
+            await _authorizationSettingsService.LoadAuthorizationSettingsFromDatabase();
+        }
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            return Task.CompletedTask;
+        }
+    }
+}

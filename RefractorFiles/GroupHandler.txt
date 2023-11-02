@@ -1,0 +1,41 @@
+﻿using HeimdallCloud.Shared.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HeimdallCloud.Shared.Services
+{
+    public class GroupHandler : AuthorizationHandler<GroupRequirement>
+    {
+        private readonly ITokenService _TokenService;
+
+        public GroupHandler(ITokenService tokenService)
+        {
+            _TokenService = tokenService;
+        }
+
+        protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, GroupRequirement requirement)
+        {
+            foreach (var group in requirement.GroupNames)
+            {
+                if (_TokenService.IsUserInGroup(group))
+                {
+                    context.Succeed(requirement);
+                }
+            }
+
+            foreach (var group in requirement.GroupDisplayNames)
+            {
+                if (_TokenService.UserDisplayNameIs(group))
+                {
+                    context.Succeed(requirement);
+                }
+            }
+
+            return Task.CompletedTask;
+        }
+    }
+}

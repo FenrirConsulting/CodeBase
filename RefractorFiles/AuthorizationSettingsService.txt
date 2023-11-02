@@ -1,0 +1,29 @@
+﻿using HeimdallCloud.Infrastructure.Shared.DataAccess.Data;
+using HeimdallCloud.Shared.Models;
+using HeimdallCloud.Shared.Services.IServices;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HeimdallCloud.Shared.Services
+{
+    public class AuthorizationSettingsService : IAuthorizationSettingsService
+    {
+        private readonly ApplicationDbContext dbContext;
+
+        public AuthorizationSettingsService(ApplicationDbContext dbContext)
+        {
+            this.dbContext = dbContext;
+        }
+
+        public async Task<AuthorizationSettings> LoadAuthorizationSettingsFromDatabase()
+        {
+            // Load the authorization settings from the database and populate the AuthorizationSettings object
+            var settings = await dbContext.IAMHAuthorizationSettings.ToListAsync();
+            return new AuthorizationSettings(settings);
+        }
+    }
+}
