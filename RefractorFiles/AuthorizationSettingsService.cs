@@ -13,17 +13,19 @@ namespace HeimdallCloud.Shared.Services
     public class AuthorizationSettingsService : IAuthorizationSettingsService
     {
         private readonly ApplicationDbContext dbContext;
+        private readonly AuthorizationSettings _authorizationSettings;
 
-        public AuthorizationSettingsService(ApplicationDbContext dbContext)
+        public AuthorizationSettingsService(ApplicationDbContext dbContext, AuthorizationSettings authorizationSettings)
         {
             this.dbContext = dbContext;
+            _authorizationSettings = authorizationSettings;
         }
 
-        public async Task<AuthorizationSettings> LoadAuthorizationSettingsFromDatabase()
+        public async Task LoadAuthorizationSettingsFromDatabase()
         {
             // Load the authorization settings from the database and populate the AuthorizationSettings object
             var settings = await dbContext.IAMHAuthorizationSettings.ToListAsync();
-            return new AuthorizationSettings(settings);
+            _authorizationSettings.PopulateSettings(settings);
         }
     }
 }

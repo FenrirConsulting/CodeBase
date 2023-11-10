@@ -10,18 +10,18 @@ namespace HeimdallCloud.Shared.Services
 {
     public class GroupHandler : AuthorizationHandler<GroupRequirement>
     {
-        private readonly ITokenService _TokenService;
+        private readonly IUserGroupService _userGroupService;
 
-        public GroupHandler(ITokenService tokenService)
+        public GroupHandler(IUserGroupService userGroupService)
         {
-            _TokenService = tokenService;
+            _userGroupService = userGroupService;
         }
 
-        protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, GroupRequirement requirement)
+        protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, GroupRequirement requirement)
         {
             foreach (var group in requirement.GroupNames)
             {
-                if (_TokenService.IsUserInGroup(group))
+                if (await _userGroupService.IsUserInGroupAsync(group))
                 {
                     context.Succeed(requirement);
                 }
@@ -29,13 +29,11 @@ namespace HeimdallCloud.Shared.Services
 
             foreach (var group in requirement.GroupDisplayNames)
             {
-                if (_TokenService.UserDisplayNameIs(group))
+                if (await _userGroupService.IsUserDisplayName(group))
                 {
                     context.Succeed(requirement);
                 }
             }
-
-            return Task.CompletedTask;
         }
     }
 }
