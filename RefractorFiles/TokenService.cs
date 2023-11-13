@@ -17,14 +17,15 @@ namespace HeimdallCloud.Shared.Services
 {
     public class TokenService : ITokenService
     {
-        // Services
+        #region Services
         private readonly ITokenAcquisition _tokenAcquisition;
         private readonly IConfiguration _configuration;
         private readonly IOptions<AzureAd> _azureAd;
         private readonly IGraphServiceAPI _graphServiceApi;
         private readonly IUserSessionService _userSessionService;
+        #endregion
 
-        // Properties
+        #region Properties
         public string? CurrentGraphToken { get; set; }
         public string? CurrentPowerBiToken { get; set; }
         public string? CurrentPowerBiServicePrincipalToken { get; set; }
@@ -42,6 +43,9 @@ namespace HeimdallCloud.Shared.Services
             set => _userSessionService.CurrentUserDisplayName = value!;
         }
 
+        private HashSet<string> _userGroupNamesCache = new HashSet<string>();
+        private DateTime _lastGroupFetchTime;
+        private const int GroupCacheDurationMinutes = 30;
         public List<string>? UserGroupNames
         {
             get => _userSessionService.UserGroupNames;
@@ -53,11 +57,12 @@ namespace HeimdallCloud.Shared.Services
             get => _userSessionService.AuthorizedPolicies;
             set => _userSessionService.AuthorizedPolicies = value!;
         }
+        #endregion
 
-        // Constructor
-        public TokenService(ITokenAcquisition tokenAcquisition, IConfiguration configuration, IOptions<AzureAd> azureAd, 
-            IGraphServiceAPI graphServiceApi, IUserSessionService userSessionService
-            )
+        #region Methods
+        public TokenService(ITokenAcquisition tokenAcquisition, IConfiguration configuration, IOptions<AzureAd> azureAd,
+           IGraphServiceAPI graphServiceApi, IUserSessionService userSessionService
+           )
         {
             _tokenAcquisition = tokenAcquisition;
             _configuration = configuration;
@@ -65,19 +70,9 @@ namespace HeimdallCloud.Shared.Services
             _graphServiceApi = graphServiceApi;
             _userSessionService = userSessionService;
         }
+        #endregion
 
-        // Bool Check on if UserGroupNames contains a Name
-        public bool IsUserInGroup(string groupName)
-        {
-            return UserGroupNames?.Contains(groupName) ?? false;
-        }
-
-        public bool UserDisplayNameIs(string displayName)
-        {
-            if (CurrentUserDisplayName == displayName) return true;
-            else return false;
-        }
-
+        #region Functions
         // Set Current Display Name using current UID and Graph API
         public async Task<bool> SetCurrentUserDisplayName()
         {
@@ -242,6 +237,6 @@ namespace HeimdallCloud.Shared.Services
                 throw new CustomInteractiveSignInRequiredException("SP Token Retrieval Failed.");
             }
         }
-
+        #endregion
     }
 }

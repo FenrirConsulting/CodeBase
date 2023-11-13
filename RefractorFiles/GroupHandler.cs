@@ -10,13 +10,19 @@ namespace HeimdallCloud.Shared.Services
 {
     public class GroupHandler : AuthorizationHandler<GroupRequirement>
     {
+        #region Services
         private readonly IUserGroupService _userGroupService;
+        #endregion
 
+        #region Methods
         public GroupHandler(IUserGroupService userGroupService)
         {
             _userGroupService = userGroupService;
         }
+        #endregion
 
+        #region Functions
+        // Checks against if current user User Groups contains a passed group, or if the CUrrent Uesr matches a Current User ID.
         protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, GroupRequirement requirement)
         {
             foreach (var group in requirement.GroupNames)
@@ -35,5 +41,6 @@ namespace HeimdallCloud.Shared.Services
                 }
             }
         }
+        #endregion
     }
 }

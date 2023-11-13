@@ -1,5 +1,6 @@
 ﻿using HeimdallCloud.Shared.Services.IServices;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 using Microsoft.Graph.Models.CallRecords;
 using Newtonsoft.Json;
 using System;
@@ -12,29 +13,30 @@ namespace HeimdallCloud.Shared.Services
 {
     public class UserSessionService : IUserSessionService
     {
+        #region Services
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private ISession? Session
-        {
-            get
-            {
-                return _httpContextAccessor.HttpContext?.Session;
-            }
-        }
+        private readonly ILogger<UserSessionService> _logger;
 
-        public UserSessionService(IHttpContextAccessor httpContextAccessor)
-        {
-            _httpContextAccessor = httpContextAccessor;
-        }
+        private ISession? Session => _httpContextAccessor.HttpContext?.Session;
+        #endregion
 
+        #region Properties
+        private const string CurrentUIDKey = "CurrentUID";
+        private const string CurrentUserDisplayNameKey = "CurrentUserDisplayName";
+        private const string UserGroupNamesKey = "UserGroupNames";
+        private const string AuthorizedPoliciesKey = "AuthorizedPolicies";
+        #endregion
+
+        #region Properties
         // Current Session UID
         public string? CurrentUID
         {
-            get => Session?.GetString("CurrentUID")!;
+            get => Session?.GetString(CurrentUIDKey)!;
             set
             {
                 if (Session != null)
                 {
-                    Session.SetString("CurrentUID", value!);
+                    Session.SetString(CurrentUIDKey, value!);
                 }
             }
         }
@@ -42,12 +44,12 @@ namespace HeimdallCloud.Shared.Services
         // Current Session User DisplayName
         public string? CurrentUserDisplayName
         {
-            get => Session?.GetString("CurrentUserDisplayName");
+            get => Session?.GetString(CurrentUserDisplayNameKey);
             set
             {
                 if (Session != null)
                 {
-                    Session.SetString("CurrentUserDisplayName", value!);
+                    Session.SetString(CurrentUserDisplayNameKey, value!);
                 }
             }
         }
@@ -55,26 +57,53 @@ namespace HeimdallCloud.Shared.Services
         // Current Session User Group Names
         public List<string>? UserGroupNames
         {
-            get => GetSessionValue<List<string>>("UserGroupNames");
-            set => SetSessionValue("UserGroupNames", value);
+            get => GetSessionValue<List<string>>(UserGroupNamesKey);
+            set => SetSessionValue(UserGroupNamesKey, value);
         }
 
         // CUrrent Session Authorized Policies
         public List<string>? AuthorizedPolicies
         {
-            get => GetSessionValue<List<string>>("AuthorizedPolicies");
-            set => SetSessionValue("AuthorizedPolicies", value);
+            get => GetSessionValue<List<string>>(AuthorizedPoliciesKey);
+            set => SetSessionValue(AuthorizedPoliciesKey, value);
         }
+        #endregion
 
+        #region Methods
+        public UserSessionService(IHttpContextAccessor httpContextAccessor, ILogger<UserSessionService> logger)
+        {
+            _httpContextAccessor = httpContextAccessor;
+            _logger = logger;
+        }
+        #endregion
+
+        #region Functions
         private T? GetSessionValue<T>(String key)
         {
-            var value = Session!.GetString(key);
-            return value != null ? JsonConvert.DeserializeObject<T>(value) : default;
+            try
+            {
+                var value = Session!.GetString(key);
+                return value != null ? JsonConvert.DeserializeObject<T>(value) : default;
+            }
+            catch (JsonException ex)
+            {
+                _logger.LogError(ex, "Error deserializing session value for key {Key}", key);
+                return default;
+            }
         }
 
         private void SetSessionValue<T>(String key, T value)
         {
-            Session!.SetString(key, JsonConvert.SerializeObject(value));
+            try
+            {
+                Session!.SetString(key, JsonConvert.SerializeObject(value));
+            }
+            catch (JsonException ex)
+            {
+                _logger.LogError(ex, "Error serializing session value for key {Key}", key);
+            }
         }
+        #endregion
+
     }
 }

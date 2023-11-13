@@ -65,7 +65,7 @@ namespace HeimdallCloud
             services.AddScoped<IIAMHAuthroizationSettingsRepository, IAMHAuthorizationSettingsRepository>();
             #endregion
 
-            #region Authentication & Authorization Services
+            #region Authentication Services
             // OpenId Connect , Microsoft Identity Login. Loads in API Scopes
             services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
               .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"))
@@ -87,10 +87,20 @@ namespace HeimdallCloud
             services.AddControllersWithViews()
                 .AddMicrosoftIdentityUI();
 
+            services.AddControllersWithViews(options =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .Build();
+                options.Filters.Add(new AuthorizeFilter(policy));
+            });
+            #endregion
+
+            #region Authorization Services
             // Load Azure AD Options
             services.Configure<AzureAd>(Configuration.GetSection("AzureAd"));
-            
-            // User Session Service, Set Current DisplayName and UID
+
+            // User Session Service, Set Current DisplayName, UID, & Group Names
             services.AddScoped<IUserSessionService, UserSessionService>();
 
             // Token Access Service
@@ -101,15 +111,8 @@ namespace HeimdallCloud
             // Authentication Provider Service
             services.AddScoped<IAccessTokenProvider, AuthenticationProvider>();
 
-            // Microsoft Graph API Service
-            services.AddScoped<IGraphServiceAPI, GraphServiceAPI>();
-
-            // PowerBi API Service
-            services.AddScoped<IPowerBiServiceAPI, PowerBiServiceAPI>();
-
             // Load Authorization Settings
             services.AddSingleton<AuthorizationSettings>(AuthorizationSettings.GetInstance());
-
             services.AddScoped<IAuthorizationSettingsService, AuthorizationSettingsService>();
             services.AddHostedService<AuthorizationSettingsHostedService>();
 
@@ -120,14 +123,14 @@ namespace HeimdallCloud
                 options.FallbackPolicy = options.DefaultPolicy;
 
             }).AddScoped<IAuthorizationHandler, GroupHandler>();
+            #endregion
 
-            services.AddControllersWithViews(options =>
-            {
-                var policy = new AuthorizationPolicyBuilder()
-                    .RequireAuthenticatedUser()
-                    .Build();
-                options.Filters.Add(new AuthorizeFilter(policy));
-            });
+            #region API Services
+            // Microsoft Graph API Service
+            services.AddScoped<IGraphServiceAPI, GraphServiceAPI>();
+
+            // PowerBi API Service
+            services.AddScoped<IPowerBiServiceAPI, PowerBiServiceAPI>();
             #endregion
         }
 
