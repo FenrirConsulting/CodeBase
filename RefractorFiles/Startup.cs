@@ -20,14 +20,9 @@ using HeimdallCloud.Infrastructure.Shared.DataAccess;
 
 namespace HeimdallCloud
 {
-    public class Startup
+    public class Startup(IConfiguration configuration)
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; } = configuration;
 
         // Creates Services for Application
         public void ConfigureServices(IServiceCollection services)
@@ -36,11 +31,8 @@ namespace HeimdallCloud
             services.AddRazorPages()
                 .AddMicrosoftIdentityUI();
 
-            services.AddServerSideBlazor()
-               .AddMicrosoftIdentityConsentHandler();
-
-            services.AddServerSideBlazor()
-               .AddCircuitOptions(options => { options.DetailedErrors = true; });
+            services.AddRazorComponents()
+            .AddInteractiveServerComponents();
 
             services.AddSession();
             services.AddDistributedMemoryCache();
@@ -150,6 +142,8 @@ namespace HeimdallCloud
 
             app.UseAuthorization();
 
+            app.UseAntiforgery();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -164,8 +158,7 @@ namespace HeimdallCloud
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapBlazorHub();
-                endpoints.MapFallbackToPage("/_Host");
+                endpoints.MapRazorComponents<App>().AddInteractiveServerRenderMode();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

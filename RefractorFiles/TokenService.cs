@@ -15,14 +15,16 @@ using Microsoft.AspNetCore.Components;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class TokenService : ITokenService
+    public class TokenService(ITokenAcquisition tokenAcquisition, IConfiguration configuration, IOptions<AzureAd> azureAd,
+       IGraphServiceAPI graphServiceApi, IUserSessionService userSessionService
+           ) : ITokenService
     {
         #region Services
-        private readonly ITokenAcquisition _tokenAcquisition;
-        private readonly IConfiguration _configuration;
-        private readonly IOptions<AzureAd> _azureAd;
-        private readonly IGraphServiceAPI _graphServiceApi;
-        private readonly IUserSessionService _userSessionService;
+        private readonly ITokenAcquisition _tokenAcquisition = tokenAcquisition;
+        private readonly IConfiguration _configuration = configuration;
+        private readonly IOptions<AzureAd> _azureAd = azureAd;
+        private readonly IGraphServiceAPI _graphServiceApi = graphServiceApi;
+        private readonly IUserSessionService _userSessionService = userSessionService;
         #endregion
 
         #region Properties
@@ -43,9 +45,6 @@ namespace HeimdallCloud.Shared.Services
             set => _userSessionService.CurrentUserDisplayName = value!;
         }
 
-        private HashSet<string> _userGroupNamesCache = new HashSet<string>();
-        private DateTime _lastGroupFetchTime;
-        private const int GroupCacheDurationMinutes = 30;
         public List<string>? UserGroupNames
         {
             get => _userSessionService.UserGroupNames;
@@ -57,19 +56,7 @@ namespace HeimdallCloud.Shared.Services
             get => _userSessionService.AuthorizedPolicies;
             set => _userSessionService.AuthorizedPolicies = value!;
         }
-        #endregion
 
-        #region Methods
-        public TokenService(ITokenAcquisition tokenAcquisition, IConfiguration configuration, IOptions<AzureAd> azureAd,
-           IGraphServiceAPI graphServiceApi, IUserSessionService userSessionService
-           )
-        {
-            _tokenAcquisition = tokenAcquisition;
-            _configuration = configuration;
-            _azureAd = azureAd;
-            _graphServiceApi = graphServiceApi;
-            _userSessionService = userSessionService;
-        }
         #endregion
 
         #region Functions
@@ -92,7 +79,7 @@ namespace HeimdallCloud.Shared.Services
             if (user.Identity!.IsAuthenticated)
             {
                 var userId = user.FindFirst("uid")?.Value;
-                if (!string.IsNullOrEmpty(userId) && (UserGroupNames == null || !UserGroupNames.Any()))
+                if (!string.IsNullOrEmpty(userId) && (UserGroupNames == null || UserGroupNames.Count == 0))
                 {
                     CurrentUID = userId;
                     Microsoft.Graph.Models.User Me = await _graphServiceApi!.GetUserInformation(CurrentUID!);

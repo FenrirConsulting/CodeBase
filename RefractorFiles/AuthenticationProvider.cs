@@ -10,21 +10,15 @@ using System.Threading.Tasks;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class AuthenticationProvider : IAccessTokenProvider
+    public class AuthenticationProvider(IOptions<AzureAd> azureAd) : IAccessTokenProvider
     {
         #region Services
-        private readonly IOptions<AzureAd>? _azureAd;
+        private readonly IOptions<AzureAd>? _azureAd = azureAd;
         private IConfidentialClientApplication? _app;
         public AllowedHostsValidator AllowedHostsValidator { get; }
-        #endregion
 
+        #endregion
         #region Methods
-        public AuthenticationProvider(IOptions<AzureAd> azureAd, 
-            AllowedHostsValidator allowedHostsValidator)
-        {
-            _azureAd = azureAd;
-            AllowedHostsValidator = allowedHostsValidator;
-        }
         #endregion
 
         #region Functions
@@ -46,7 +40,7 @@ namespace HeimdallCloud.Shared.Services
         public async Task<string> GetAccessTokenAsync()
         {
             IConfidentialClientApplication app = BuildApp();
-            string[] scopes = new string[] { "https://graph.microsoft.com/.default" };
+            string[] scopes = ["https://graph.microsoft.com/.default"];
 
             AuthenticationResult result = await app.AcquireTokenForClient(scopes).ExecuteAsync();
             return result.AccessToken;

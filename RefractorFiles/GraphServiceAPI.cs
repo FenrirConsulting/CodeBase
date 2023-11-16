@@ -3,32 +3,22 @@ using HeimdallCloud.Shared.Services.IServices;
 using Microsoft.Extensions.Options;
 using Microsoft.Graph;
 using Microsoft.Graph.Models;
-using Microsoft.Identity.Client;
 using Microsoft.Kiota.Abstractions.Authentication;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class GraphServiceAPI : IGraphServiceAPI
+    public class GraphServiceAPI(IOptions<AzureAd> azureAd, IAccessTokenProvider authenticationProvider) : IGraphServiceAPI
     {
         #region Services & Delegates
         private const string GraphEndpoint = "https://graph.microsoft.com/v1.0/";
-        private string[] scopes = new[] { "https://graph.microsoft.com/.default" };
+        private readonly string[] scopes = ["https://graph.microsoft.com/.default"];
 
-        private readonly IOptions<AzureAd> _azureAd;
-        private IConfidentialClientApplication? _app;
-        private readonly IAccessTokenProvider _authenticationProvider;
+        private readonly IOptions<AzureAd> _azureAd = azureAd;
+        private readonly IAccessTokenProvider _authenticationProvider = authenticationProvider;
         #endregion
 
         #region Properties
-        public List<string> UserGroups { get; private set; } = new();
-        #endregion
-
-        #region Methods
-        public GraphServiceAPI(IOptions<AzureAd> azureAd, IAccessTokenProvider authenticationProvider)
-        {
-            _azureAd = azureAd;
-            _authenticationProvider = authenticationProvider;
-        }
+        public List<string> UserGroups { get; private set; } = [];
         #endregion
 
         #region Functions
