@@ -7,7 +7,8 @@ using Microsoft.Kiota.Abstractions.Authentication;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class GraphServiceAPI(IOptions<AzureAd> azureAd, IAccessTokenProvider authenticationProvider) : IGraphServiceAPI
+    public class GraphServiceAPI
+        (IOptions<AzureAd> azureAd, IAccessTokenProvider authenticationProvider) : IGraphServiceAPI
     {
         #region Services & Delegates
         private const string GraphEndpoint = "https://graph.microsoft.com/v1.0/";

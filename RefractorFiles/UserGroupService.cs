@@ -7,17 +7,11 @@ using System.Threading.Tasks;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class UserGroupService : IUserGroupService
+    public class UserGroupService
+        (IUserSessionService userSessionService) : IUserGroupService
     {
         #region Services
-        private readonly IUserSessionService _userSessionService;
-        #endregion
-
-        #region Methods
-        public UserGroupService(IUserSessionService userSessionService)
-        {
-            _userSessionService = userSessionService;
-        }
+        private readonly IUserSessionService _userSessionService = userSessionService;
         #endregion
 
         #region Functions
@@ -32,6 +26,11 @@ namespace HeimdallCloud.Shared.Services
         {
             bool isMatch = string.Equals(displayName, _userSessionService.CurrentUserDisplayName, StringComparison.OrdinalIgnoreCase);
             return Task.FromResult(isMatch);
+        }
+
+        public void UpdateUserGroups(List<string> groups)
+        {
+            _userSessionService.UserGroupNames = groups;
         }
         #endregion
     }

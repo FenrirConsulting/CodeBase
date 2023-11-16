@@ -8,17 +8,11 @@ using System.Threading.Tasks;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class GroupHandler : AuthorizationHandler<GroupRequirement>
+    public class GroupHandler
+        (IUserGroupService userGroupService) : AuthorizationHandler<GroupRequirement>
     {
         #region Services
-        private readonly IUserGroupService _userGroupService;
-        #endregion
-
-        #region Methods
-        public GroupHandler(IUserGroupService userGroupService)
-        {
-            _userGroupService = userGroupService;
-        }
+        private readonly IUserGroupService _userGroupService = userGroupService;
         #endregion
 
         #region Functions

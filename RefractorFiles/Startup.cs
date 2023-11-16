@@ -94,11 +94,10 @@ namespace HeimdallCloud
 
             // User Session Service, Set Current DisplayName, UID, & Group Names
             services.AddScoped<IUserSessionService, UserSessionService>();
+            services.AddScoped<IUserGroupService, UserGroupService>();
 
             // Token Access Service
             services.AddScoped<ITokenService, TokenService>();
-
-            services.AddScoped<IUserGroupService, UserGroupService>();
 
             // Authentication Provider Service
             services.AddScoped<IAccessTokenProvider, AuthenticationProvider>();

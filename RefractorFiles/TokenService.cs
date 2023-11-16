@@ -16,7 +16,7 @@ using Microsoft.AspNetCore.Components;
 namespace HeimdallCloud.Shared.Services
 {
     public class TokenService(ITokenAcquisition tokenAcquisition, IConfiguration configuration, IOptions<AzureAd> azureAd,
-       IGraphServiceAPI graphServiceApi, IUserSessionService userSessionService
+       IGraphServiceAPI graphServiceApi, IUserSessionService userSessionService, IUserGroupService userGroupService
            ) : ITokenService
     {
         #region Services
@@ -25,6 +25,7 @@ namespace HeimdallCloud.Shared.Services
         private readonly IOptions<AzureAd> _azureAd = azureAd;
         private readonly IGraphServiceAPI _graphServiceApi = graphServiceApi;
         private readonly IUserSessionService _userSessionService = userSessionService;
+        private readonly IUserGroupService _userGroupService = userGroupService;
         #endregion
 
         #region Properties
@@ -84,26 +85,23 @@ namespace HeimdallCloud.Shared.Services
                     CurrentUID = userId;
                     Microsoft.Graph.Models.User Me = await _graphServiceApi!.GetUserInformation(CurrentUID!);
                     CurrentUserDisplayName = Me.DisplayName;
-                    await RetrieveAndStoreGroupIds(userId);
+
+                    DirectoryObjectCollectionResponse groupObjects = await _graphServiceApi.GetUserGroupMemberships(userId);
+                    var groupNames = new List<string>();
+
+                    foreach (DirectoryObject directoryObject in groupObjects!.Value!)
+                    {
+                        if (directoryObject is Group group)
+                        {
+                            groupNames!.Add(group!.DisplayName!);
+                        }
+                    }
+                    
+                    _userGroupService.UpdateUserGroups(groupNames);
+
+                    UserGroupNames = groupNames;
                 }
             }
-        }
-
-        // Load the UserGroupNames list from all Group Id's Authenticated User is a Direct Member Of
-        public async Task RetrieveAndStoreGroupIds(string userId)
-        {
-            DirectoryObjectCollectionResponse groupObjects = await _graphServiceApi.GetUserGroupMemberships(userId);
-            var groupNames = new List<string>();
-
-            foreach (DirectoryObject directoryObject in groupObjects!.Value!)
-            {
-                if (directoryObject is Group group)
-                {
-                    groupNames!.Add(group!.DisplayName!);
-                }
-            }
-
-            UserGroupNames = groupNames;
         }
 
         // Current User Token with Default Scopes

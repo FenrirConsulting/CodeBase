@@ -11,11 +11,12 @@ using System.Threading.Tasks;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class UserSessionService : IUserSessionService
+    public class UserSessionService
+        (IHttpContextAccessor httpContextAccessor, ILogger<UserSessionService> logger) : IUserSessionService
     {
         #region Services
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly ILogger<UserSessionService> _logger;
+        private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
+        private readonly ILogger<UserSessionService> _logger = logger;
 
         private ISession? Session => _httpContextAccessor.HttpContext?.Session;
         #endregion
@@ -25,19 +26,14 @@ namespace HeimdallCloud.Shared.Services
         private const string CurrentUserDisplayNameKey = "CurrentUserDisplayName";
         private const string UserGroupNamesKey = "UserGroupNames";
         private const string AuthorizedPoliciesKey = "AuthorizedPolicies";
-        #endregion
 
-        #region Properties
         // Current Session UID
         public string? CurrentUID
         {
             get => Session?.GetString(CurrentUIDKey)!;
             set
             {
-                if (Session != null)
-                {
-                    Session.SetString(CurrentUIDKey, value!);
-                }
+                Session?.SetString(CurrentUIDKey, value!);
             }
         }
 
@@ -47,10 +43,7 @@ namespace HeimdallCloud.Shared.Services
             get => Session?.GetString(CurrentUserDisplayNameKey);
             set
             {
-                if (Session != null)
-                {
-                    Session.SetString(CurrentUserDisplayNameKey, value!);
-                }
+                Session?.SetString(CurrentUserDisplayNameKey, value!);
             }
         }
 
@@ -66,14 +59,6 @@ namespace HeimdallCloud.Shared.Services
         {
             get => GetSessionValue<List<string>>(AuthorizedPoliciesKey);
             set => SetSessionValue(AuthorizedPoliciesKey, value);
-        }
-        #endregion
-
-        #region Methods
-        public UserSessionService(IHttpContextAccessor httpContextAccessor, ILogger<UserSessionService> logger)
-        {
-            _httpContextAccessor = httpContextAccessor;
-            _logger = logger;
         }
         #endregion
 
