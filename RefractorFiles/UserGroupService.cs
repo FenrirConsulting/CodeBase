@@ -28,9 +28,24 @@ namespace HeimdallCloud.Shared.Services
             return Task.FromResult(isMatch);
         }
 
+        public void UpdateUserUID(string uid)
+        {
+            _userSessionService.CurrentUID = uid;
+        }
+
+        public void UpdateUserName(string username)
+        {
+            _userSessionService.CurrentUserDisplayName = username;
+        }
+
         public void UpdateUserGroups(List<string> groups)
         {
             _userSessionService.UserGroupNames = groups;
+        }
+
+        public void UpdateUserPolicies (List<string> policies)
+        {
+            _userSessionService.AuthorizedPolicies = policies;
         }
         #endregion
     }

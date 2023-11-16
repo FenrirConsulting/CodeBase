@@ -16,7 +16,8 @@ using Microsoft.AspNetCore.Components;
 namespace HeimdallCloud.Shared.Services
 {
     public class TokenService(ITokenAcquisition tokenAcquisition, IConfiguration configuration, IOptions<AzureAd> azureAd,
-       IGraphServiceAPI graphServiceApi, IUserSessionService userSessionService, IUserGroupService userGroupService
+       IGraphServiceAPI graphServiceApi, IUserSessionService userSessionService, IUserGroupService userGroupService,
+       IHttpContextAccessor httpContextAccessor
            ) : ITokenService
     {
         #region Services
@@ -26,6 +27,7 @@ namespace HeimdallCloud.Shared.Services
         private readonly IGraphServiceAPI _graphServiceApi = graphServiceApi;
         private readonly IUserSessionService _userSessionService = userSessionService;
         private readonly IUserGroupService _userGroupService = userGroupService;
+        private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
         #endregion
 
         #region Properties
@@ -57,10 +59,10 @@ namespace HeimdallCloud.Shared.Services
             get => _userSessionService.AuthorizedPolicies;
             set => _userSessionService.AuthorizedPolicies = value!;
         }
-
         #endregion
 
         #region Functions
+
         // Set Current Display Name using current UID and Graph API
         public async Task<bool> SetCurrentUserDisplayName()
         {
@@ -68,7 +70,8 @@ namespace HeimdallCloud.Shared.Services
             Microsoft.Graph.Models.User Me = await _graphServiceApi!.GetUserInformation(CurrentUID!);
             if (Me.DisplayName != null)
             {
-                CurrentUserDisplayName = Me.DisplayName;
+                _userGroupService.UpdateUserName(Me.DisplayName);
+
                 nameCheck = true;
             }
             return nameCheck;
@@ -82,9 +85,9 @@ namespace HeimdallCloud.Shared.Services
                 var userId = user.FindFirst("uid")?.Value;
                 if (!string.IsNullOrEmpty(userId) && (UserGroupNames == null || UserGroupNames.Count == 0))
                 {
-                    CurrentUID = userId;
+                    _userGroupService.UpdateUserUID(userId); 
                     Microsoft.Graph.Models.User Me = await _graphServiceApi!.GetUserInformation(CurrentUID!);
-                    CurrentUserDisplayName = Me.DisplayName;
+                    _userGroupService.UpdateUserName(Me.DisplayName!);
 
                     DirectoryObjectCollectionResponse groupObjects = await _graphServiceApi.GetUserGroupMemberships(userId);
                     var groupNames = new List<string>();
@@ -98,8 +101,6 @@ namespace HeimdallCloud.Shared.Services
                     }
                     
                     _userGroupService.UpdateUserGroups(groupNames);
-
-                    UserGroupNames = groupNames;
                 }
             }
         }
@@ -129,7 +130,8 @@ namespace HeimdallCloud.Shared.Services
             {
                 string[] graphScopes = _configuration.GetValue<string>("GraphAPI:Scopes")?.Split(' ')!;
                 CurrentGraphToken = await _tokenAcquisition.GetAccessTokenForUserAsync(graphScopes);
-                CurrentUID = UserId;
+                _userGroupService.UpdateUserUID(UserId);
+
                 return CurrentGraphToken;
             }
             catch (MsalUiRequiredException)
