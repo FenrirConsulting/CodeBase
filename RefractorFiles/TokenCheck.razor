@@ -5,17 +5,18 @@
     private Task<AuthenticationState>? AuthenticationState { get; set; }
 
     [Inject]
-    private ITokenService? _TokenService { get; set; }
+    private ITokenService? TokenService { get; set; }
 
     [Inject]
     private NavigationManager? _NavigationManager { get; set; }
 
     [Inject]
-    private IGraphServiceAPI? _GraphService { get; set; }
+    private IUserGroupService? _UserGroupService { get; set; }
 
 
     protected override async Task OnInitializedAsync()
     {
+
         var authState = await AuthenticationState!;
         if (authState != null && authState.User.Identity!.IsAuthenticated)
         {
@@ -23,12 +24,12 @@
             {
                 var User = authState.User;
                 string UserId = User.FindFirst("uid")?.Value.ToString()!;
-                var graphAccessToken = await _TokenService!.AcquireGraphTokenAsync(UserId);
-                bool setName = await _TokenService.SetCurrentUserDisplayName();
+                var graphAccessToken = await TokenService!.AcquireGraphTokenAsync(UserId);
+                bool setName = await _UserGroupService!.SetCurrentUserDisplayName();
 
-                if(_TokenService.UserGroupNames == null)
+                if (TokenService.UserGroupNames == null)
                 {
-                    await _TokenService.InitializeUserGroups(User);
+                    _UserGroupService.SetUserGroupNames(await _UserGroupService.GetGraphApiGroupNames(UserId));
                 }
             }
             catch (CustomInteractiveSignInRequiredException)

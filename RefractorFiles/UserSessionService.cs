@@ -11,13 +11,11 @@ using System.Threading.Tasks;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class UserSessionService
-        (IHttpContextAccessor httpContextAccessor, ILogger<UserSessionService> logger) : IUserSessionService
+    public class UserSessionService(IHttpContextAccessor httpContextAccessor, ILogger<UserSessionService> logger) : IUserSessionService
     {
         #region Services
         private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
         private readonly ILogger<UserSessionService> _logger = logger;
-
         private ISession? Session => _httpContextAccessor.HttpContext?.Session;
         #endregion
 
@@ -26,14 +24,23 @@ namespace HeimdallCloud.Shared.Services
         private const string CurrentUserDisplayNameKey = "CurrentUserDisplayName";
         private const string UserGroupNamesKey = "UserGroupNames";
         private const string AuthorizedPoliciesKey = "AuthorizedPolicies";
+        private const string CurrentTokenKey = "CurrentToken";
+        private const string CurrentGraphTokenKey = "CurrentGraphToken";
+        private const string CurrentPowerBiTokenKey = "CurrentPowerBiToken";
+        private const string CurrentPowerBiServicePrincipalTokenKey = "CUrrentPowerBiServicePrincipalToken";
+        #endregion
 
-        // Current Session UID
+        #region Properties
+        //CurrentTokenKey
         public string? CurrentUID
         {
             get => Session?.GetString(CurrentUIDKey)!;
             set
             {
-                Session?.SetString(CurrentUIDKey, value!);
+                if (Session != null)
+                {
+                    Session.SetString(CurrentUIDKey, value!);
+                }
             }
         }
 
@@ -43,7 +50,10 @@ namespace HeimdallCloud.Shared.Services
             get => Session?.GetString(CurrentUserDisplayNameKey);
             set
             {
-                Session?.SetString(CurrentUserDisplayNameKey, value!);
+                if (Session != null)
+                {
+                    Session.SetString(CurrentUserDisplayNameKey, value!);
+                }
             }
         }
 
@@ -59,6 +69,58 @@ namespace HeimdallCloud.Shared.Services
         {
             get => GetSessionValue<List<string>>(AuthorizedPoliciesKey);
             set => SetSessionValue(AuthorizedPoliciesKey, value);
+        }
+
+        // Current Session Access Token
+        public string? CurrentToken
+        {
+            get => Session?.GetString(CurrentTokenKey)!;
+            set
+            {
+                if (Session != null)
+                {
+                    Session.SetString(CurrentTokenKey, value!);
+                }
+            }
+        }
+
+        // Current Session Access Graph Token
+        public string? CurrentGraphToken
+        {
+            get => Session?.GetString(CurrentGraphTokenKey)!;
+            set
+            {
+                if (Session != null)
+                {
+                    Session.SetString(CurrentGraphTokenKey, value!);
+                }
+            }
+        }
+
+        // Current Session Access PowerBi Token
+        public string? CurrentPowerBiToken
+        {
+            get => Session?.GetString(CurrentPowerBiTokenKey)!;
+            set
+            {
+                if (Session != null)
+                {
+                    Session.SetString(CurrentPowerBiTokenKey, value!);
+                }
+            }
+        }
+
+        // Current Session Access PowerBi Service Principal Token
+        public string? CurrentPowerBiServicePrincipalToken
+        {
+            get => Session?.GetString(CurrentPowerBiServicePrincipalTokenKey)!;
+            set
+            {
+                if (Session != null)
+                {
+                    Session.SetString(CurrentPowerBiServicePrincipalTokenKey, value!);
+                }
+            }
         }
         #endregion
 

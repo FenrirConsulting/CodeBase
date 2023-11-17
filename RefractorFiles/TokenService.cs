@@ -12,12 +12,12 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace HeimdallCloud.Shared.Services
 {
     public class TokenService(ITokenAcquisition tokenAcquisition, IConfiguration configuration, IOptions<AzureAd> azureAd,
-       IGraphServiceAPI graphServiceApi, IUserSessionService userSessionService, IUserGroupService userGroupService,
-       IHttpContextAccessor httpContextAccessor
+       IGraphServiceAPI graphServiceApi, IUserSessionService userSessionService, IUserGroupService userGroupService
            ) : ITokenService
     {
         #region Services
@@ -27,15 +27,13 @@ namespace HeimdallCloud.Shared.Services
         private readonly IGraphServiceAPI _graphServiceApi = graphServiceApi;
         private readonly IUserSessionService _userSessionService = userSessionService;
         private readonly IUserGroupService _userGroupService = userGroupService;
-        private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
         #endregion
 
         #region Properties
-        public string? CurrentGraphToken { get; set; }
-        public string? CurrentPowerBiToken { get; set; }
-        public string? CurrentPowerBiServicePrincipalToken { get; set; }
-        public string? CurrentToken { get; set; }
+        [CascadingParameter]
+        private Task<AuthenticationState>? AuthenticationState { get; set; }
 
+        // Properties set to User Session Service Values
         public string? CurrentUID
         {
             get => _userSessionService.CurrentUID;
@@ -59,25 +57,35 @@ namespace HeimdallCloud.Shared.Services
             get => _userSessionService.AuthorizedPolicies;
             set => _userSessionService.AuthorizedPolicies = value!;
         }
+
+        public string? CurrentToken
+        {
+            get => _userSessionService.CurrentToken;
+            set => _userSessionService.CurrentToken = value!;
+        }
+
+        public string? CurrentGraphToken
+        {
+            get => _userSessionService.CurrentGraphToken;
+            set => _userSessionService.CurrentGraphToken = value!;
+        }
+
+        public string? CurrentPowerBiToken
+        {
+            get => _userSessionService.CurrentPowerBiToken;
+            set => _userSessionService.CurrentPowerBiToken = value!;
+        }
+
+        public string? CurrentPowerBiServicePrincipalToken
+        {
+            get => _userSessionService.CurrentPowerBiServicePrincipalToken;
+            set => _userSessionService.CurrentPowerBiServicePrincipalToken = value!;
+        }
         #endregion
 
         #region Functions
 
-        // Set Current Display Name using current UID and Graph API
-        public async Task<bool> SetCurrentUserDisplayName()
-        {
-            bool nameCheck = false;
-            Microsoft.Graph.Models.User Me = await _graphServiceApi!.GetUserInformation(CurrentUID!);
-            if (Me.DisplayName != null)
-            {
-                _userGroupService.UpdateUserName(Me.DisplayName);
-
-                nameCheck = true;
-            }
-            return nameCheck;
-        }
-
-        // Initial Load of Security Groups, Called after Succesful Token Validation. Initializes Authorization Settings Dictionary as Well
+        // Initial Load of Security Groups, Called after Succesful Token Validation, Initializes Groups, User Settings, & Authorized Policies
         public async Task InitializeUserGroups(ClaimsPrincipal user)
         {
             if (user.Identity!.IsAuthenticated)
@@ -85,24 +93,33 @@ namespace HeimdallCloud.Shared.Services
                 var userId = user.FindFirst("uid")?.Value;
                 if (!string.IsNullOrEmpty(userId) && (UserGroupNames == null || UserGroupNames.Count == 0))
                 {
-                    _userGroupService.UpdateUserUID(userId); 
-                    Microsoft.Graph.Models.User Me = await _graphServiceApi!.GetUserInformation(CurrentUID!);
-                    _userGroupService.UpdateUserName(Me.DisplayName!);
-
-                    DirectoryObjectCollectionResponse groupObjects = await _graphServiceApi.GetUserGroupMemberships(userId);
-                    var groupNames = new List<string>();
-
-                    foreach (DirectoryObject directoryObject in groupObjects!.Value!)
-                    {
-                        if (directoryObject is Group group)
-                        {
-                            groupNames!.Add(group!.DisplayName!);
-                        }
-                    }
-                    
-                    _userGroupService.UpdateUserGroups(groupNames);
+                    _userGroupService.SetUserUID(userId);
+                    Microsoft.Graph.Models.User Me = await _graphServiceApi!.GetUserInformation(userId);
+                    _userGroupService.SetUserDisplayName(Me.DisplayName!);
+                    _userGroupService.SetUserGroupNames(await _userGroupService.GetGraphApiGroupNames(userId));
+                    _userGroupService.SetUserAuthorizedPolicies(await _userGroupService.GetAuthorizedPoliciesAsync(user));
                 }
             }
+        }
+
+        // Refresh Token, Assigned Groups, & Assigned Policies
+        public async Task RefreshToken()
+        {
+            // Get Logic to Refresh Async Token Here
+            var authState = await AuthenticationState!;
+            if(authState != null)
+            {
+                var user = await GetCurrentAuthenticatedUserClaimsPrincipal();
+                await InitializeUserGroups(user);
+            }
+        }
+
+        // Get the Current Claims Principal Authenticated User
+        public async Task<ClaimsPrincipal> GetCurrentAuthenticatedUserClaimsPrincipal()
+        {
+            var authState = await AuthenticationState!;
+            var User = authState.User;
+            return User;
         }
 
         // Current User Token with Default Scopes
@@ -110,14 +127,12 @@ namespace HeimdallCloud.Shared.Services
         {
             try
             {
-                CurrentToken = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
-                return CurrentToken;
+                var token = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
+                _userGroupService.SetCurentToken(token);
+
+                return CurrentToken!;
             }
             catch (MsalUiRequiredException)
-            {
-                throw new CustomInteractiveSignInRequiredException("Interactive Sign-In Required");
-            }
-            catch (MicrosoftIdentityWebChallengeUserException)
             {
                 throw new CustomInteractiveSignInRequiredException("Interactive Sign-In Required");
             }
@@ -129,16 +144,12 @@ namespace HeimdallCloud.Shared.Services
             try
             {
                 string[] graphScopes = _configuration.GetValue<string>("GraphAPI:Scopes")?.Split(' ')!;
-                CurrentGraphToken = await _tokenAcquisition.GetAccessTokenForUserAsync(graphScopes);
-                _userGroupService.UpdateUserUID(UserId);
-
-                return CurrentGraphToken;
+                var token = await _tokenAcquisition.GetAccessTokenForUserAsync(graphScopes);
+                _userGroupService.SetCurentGraphToken(token);
+                _userGroupService.SetUserUID(UserId);
+                return CurrentGraphToken!;
             }
             catch (MsalUiRequiredException)
-            {
-                throw new CustomInteractiveSignInRequiredException("Interactive Sign-In Required");
-            }
-            catch (MicrosoftIdentityWebChallengeUserException)
             {
                 throw new CustomInteractiveSignInRequiredException("Interactive Sign-In Required");
             }
@@ -152,14 +163,12 @@ namespace HeimdallCloud.Shared.Services
                 var readWriteScope = _configuration["PowerBiAPI:PowerBIScopes:WorkspaceReadWrite"];
                 var readScope = _configuration["PowerBiAPI:PowerBIScopes:WorkspaceRead"];
 
-                CurrentPowerBiToken = await _tokenAcquisition.GetAccessTokenForUserAsync(new[] { readWriteScope, readScope }!);
-                return CurrentPowerBiToken;
+                var token = await _tokenAcquisition.GetAccessTokenForUserAsync(new[] { readWriteScope, readScope }!);
+                _userGroupService.SetCurrentPowerBiToken(token);
+
+                return CurrentPowerBiToken!;
             }
             catch (MsalUiRequiredException)
-            {
-                throw new CustomInteractiveSignInRequiredException("Interactive Sign-In Required");
-            }
-            catch (MicrosoftIdentityWebChallengeUserException)
             {
                 throw new CustomInteractiveSignInRequiredException("Interactive Sign-In Required");
             }
@@ -189,10 +198,6 @@ namespace HeimdallCloud.Shared.Services
             {
                 throw new CustomInteractiveSignInRequiredException("SP Token Retrieval Failed.");
             }
-            catch (MicrosoftIdentityWebChallengeUserException)
-            {
-                throw new CustomInteractiveSignInRequiredException("SP Token Retrieval Failed.");
-            }
         }
 
         // Service Principal User Token for PowerBi API Scopes Non-Async
@@ -216,10 +221,6 @@ namespace HeimdallCloud.Shared.Services
                 return authenticationResult.AccessToken;
             }
             catch (MsalUiRequiredException)
-            {
-                throw new CustomInteractiveSignInRequiredException("SP Token Retrieval Failed.");
-            }
-            catch (MicrosoftIdentityWebChallengeUserException)
             {
                 throw new CustomInteractiveSignInRequiredException("SP Token Retrieval Failed.");
             }

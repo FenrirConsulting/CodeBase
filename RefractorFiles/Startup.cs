@@ -92,8 +92,10 @@ namespace HeimdallCloud
             // Load Azure AD Options
             services.Configure<AzureAd>(Configuration.GetSection("AzureAd"));
 
-            // User Session Service, Set Current DisplayName, UID, & Group Names
+            // User Session Service, Set Session Properties
             services.AddScoped<IUserSessionService, UserSessionService>();
+
+            // User Group and Properties Service
             services.AddScoped<IUserGroupService, UserGroupService>();
 
             // Token Access Service

@@ -1,51 +1,107 @@
-﻿using HeimdallCloud.Shared.Services.IServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HeimdallCloud.Shared.Models;
+using HeimdallCloud.Shared.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class UserGroupService
-        (IUserSessionService userSessionService) : IUserGroupService
+    public class UserGroupService(IUserSessionService userSessionService, IGraphServiceAPI graphServiceApi, 
+        IAuthorizationService authorizationService, AuthorizationSettings authorizationSettings) : IUserGroupService
     {
         #region Services
         private readonly IUserSessionService _userSessionService = userSessionService;
+        private readonly IGraphServiceAPI _graphServiceApi = graphServiceApi;
+        private readonly IAuthorizationService _authorizationService = authorizationService;
+        private readonly AuthorizationSettings _authorizationSettings = authorizationSettings;
         #endregion
 
         #region Functions
-        //Both functions service to check passed in Group Name or Display Name for a match to return back to the Group Handler.
-        public Task<bool> IsUserInGroupAsync(string groupName)
+        // Set Current Display Name using current UID and Graph API
+        public async Task<bool> SetCurrentUserDisplayName()
         {
-            var userGroups = _userSessionService.UserGroupNames;
-            return Task.FromResult(userGroups!.Contains(groupName));
+            bool nameCheck = false;
+            Microsoft.Graph.Models.User Me = await _graphServiceApi!.GetUserInformation(_userSessionService.CurrentUID!);
+            if (Me.DisplayName != null)
+            {
+                SetUserDisplayName(Me.DisplayName);
+                nameCheck = true;
+            }
+            return nameCheck;
         }
 
-        public Task<bool> IsUserDisplayName(string displayName)
+        // Load the UserGroupNames list from all Group Id's Authenticated User is a Direct Member Of
+        public async Task<List<string>> GetGraphApiGroupNames(string userId)
         {
-            bool isMatch = string.Equals(displayName, _userSessionService.CurrentUserDisplayName, StringComparison.OrdinalIgnoreCase);
-            return Task.FromResult(isMatch);
+            var groupNames = await _graphServiceApi.GetUserGroupMemberships(userId);
+            return groupNames;
         }
 
-        public void UpdateUserUID(string uid)
+        // Set List of Authorized policies the User Belongs to
+        public async Task<List<string>> GetAuthorizedPoliciesAsync(ClaimsPrincipal user)
         {
-            _userSessionService.CurrentUID = uid;
+            var policyNames = new List<string>();
+
+            foreach (var policy in _authorizationSettings.Policies!.Keys)
+            {
+                var authorizationResult = await _authorizationService!.AuthorizeAsync(user, null, policy);
+                if (authorizationResult.Succeeded)
+                {
+                    policyNames.Add(policy);
+                }
+            }
+
+            foreach (var role in _authorizationSettings.Roles!.Keys)
+            {
+                var authorizationResult = await _authorizationService!.AuthorizeAsync(user, null, role);
+                if (authorizationResult.Succeeded)
+                {
+                    policyNames.Add(role);
+                }
+            }
+
+            return policyNames;
+        }
+        #endregion
+
+        #region Set User Session Scoped Properties
+        public void SetUserUID(string UserId)
+        {
+            _userSessionService.CurrentUID = UserId;
         }
 
-        public void UpdateUserName(string username)
+        public void SetUserDisplayName(string UserDisplayName)
         {
-            _userSessionService.CurrentUserDisplayName = username;
+            _userSessionService.CurrentUserDisplayName = UserDisplayName;
         }
 
-        public void UpdateUserGroups(List<string> groups)
+        public void SetUserGroupNames(List<string> UserGroups)
         {
-            _userSessionService.UserGroupNames = groups;
+            _userSessionService.UserGroupNames = UserGroups;
         }
 
-        public void UpdateUserPolicies (List<string> policies)
+        public void SetUserAuthorizedPolicies(List<string> AuthorizedPolicies)
         {
-            _userSessionService.AuthorizedPolicies = policies;
+            _userSessionService.AuthorizedPolicies = AuthorizedPolicies;
+        }
+
+        public void SetCurentToken(string CurrentToken)
+        {
+            _userSessionService.CurrentToken = CurrentToken;
+        }
+
+        public void SetCurentGraphToken(string CurrentGraphToken)
+        {
+            _userSessionService.CurrentGraphToken = CurrentGraphToken;
+        }
+
+        public void SetCurrentPowerBiToken(string CurrentPowerBiToken)
+        {
+            _userSessionService.CurrentPowerBiToken = CurrentPowerBiToken;
+        }
+
+        public void SetCurrentPowerBiServicePrincipalToken(string CurrentPowerBiServicePrincipalToken)
+        {
+            _userSessionService.CurrentPowerBiServicePrincipalToken = CurrentPowerBiServicePrincipalToken;
         }
         #endregion
     }

@@ -7,8 +7,7 @@ using Microsoft.Kiota.Abstractions.Authentication;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class GraphServiceAPI
-        (IOptions<AzureAd> azureAd, IAccessTokenProvider authenticationProvider) : IGraphServiceAPI
+    public class GraphServiceAPI(IOptions<AzureAd> azureAd, IAccessTokenProvider authenticationProvider) : IGraphServiceAPI
     {
         #region Services & Delegates
         private const string GraphEndpoint = "https://graph.microsoft.com/v1.0/";
@@ -30,6 +29,7 @@ namespace HeimdallCloud.Shared.Services
             return graphServiceClient;
         }
 
+        // Return Me object of passed UserId
         public async Task<User> GetUserInformation(string userId)
         {
             GraphServiceClient graphClient = await CreateGraphClient();
@@ -37,11 +37,22 @@ namespace HeimdallCloud.Shared.Services
             return me!;
         }
 
-        public async Task<DirectoryObjectCollectionResponse> GetUserGroupMemberships(string userId)
+        // Return List of Groups User ID Belongs To
+        public async Task<List<string>> GetUserGroupMemberships(string userId)
         {
             GraphServiceClient graphClient = await CreateGraphClient();
             var groupObjects = await graphClient.Users[userId].MemberOf.GetAsync();
-            return groupObjects!;
+            var groupNames = new List<string>();
+
+            foreach (DirectoryObject directoryObject in groupObjects!.Value!)
+            {
+                if (directoryObject is Group group)
+                {
+                    groupNames!.Add(group!.DisplayName!);
+                }
+            }
+
+            return groupNames;
         }
         #endregion
     }
