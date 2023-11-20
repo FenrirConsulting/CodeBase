@@ -27,7 +27,9 @@
     {
         try
         {
-            await TokenService!.RefreshToken();
+            var authState = await AuthenticationState!;
+            var user = authState.User;
+            await TokenService!.RefreshToken(user);
 
         }
         catch (CustomInteractiveSignInRequiredException)

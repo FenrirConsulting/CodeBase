@@ -103,11 +103,11 @@ namespace HeimdallCloud.Shared.Services
         }
 
         // Task Called from Startup to Check on Expired Tokens
-        public async Task<bool> IsTokenValid()
+        public async Task<bool> IsTokenValid(ClaimsPrincipal user)
         {
             try
             {
-                await RefreshToken();
+                await RefreshToken(user);
                 return true;
             }
             catch (CustomInteractiveSignInRequiredException)
@@ -117,29 +117,27 @@ namespace HeimdallCloud.Shared.Services
         }
 
         // Refresh Token, Groups, Policies on Expiry
-        public async Task RefreshToken()
+        public async Task RefreshToken(ClaimsPrincipal user)
         {
-            var authState = await AuthenticationState!;
-            if(authState != null)
+            if (user.Identity!.IsAuthenticated && IsTokenNearExpiry())
             {
-                var user = await GetCurrentAuthenticatedUserClaimsPrincipal();
-                if (user.Identity!.IsAuthenticated && IsTokenNearExpiry())
+                try
                 {
-                    try
-                    {
-                        string[] scopes = _configuration.GetValue<string>("GraphAPI:Scopes")?.Split(' ')!;
-                        var newToken = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
-                        _userGroupService.SetCurentToken(newToken);
+                    string[] scopes = _configuration.GetValue<string>("GraphAPI:Scopes")?.Split(' ')!;
+                    var newToken = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
+                    _userGroupService.SetCurentToken(newToken);
 
-                    }
-                    catch (MsalUiRequiredException)
-                    {
-                        throw new CustomInteractiveSignInRequiredException("Interactive Sign-In Required");
-                    }
                 }
+                catch (MsalUiRequiredException)
+                {
+                    throw new CustomInteractiveSignInRequiredException("Interactive Sign-In Required");
+                }
+
+                // Refresh Groups List
                 await InitializeUserGroups(user);
+                // Refresh Graph API Token
                 var userId = user.FindFirst("uid")?.Value;
-                await AcquireGraphTokenAsync(userId!);
+                await AcquireGraphTokenAsync(userId!); 
             }
         }
 

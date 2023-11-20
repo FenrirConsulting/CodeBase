@@ -1,0 +1,107 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (118ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [i].[Id], [i].[ReportsAssignmentGroup], [i].[Rule], [i].[Type], [i].[Value]
+      FROM [IAMHAuthorizationSettings] AS [i]
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: https://localhost:7024
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5167
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: C:\Source\repos\CVS.iammetrics.heimdallclouddev\src\Server
+info: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z] [Internal cache] Total number of cache partitions found while getting refresh tokens: 0
+info: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z - 8430f245-bafc-4073-acf8-29da5b84d443] [Region discovery] Not using a regional authority.
+info: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z] Found 0 cache accounts and 0 broker accounts
+info: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z] Returning 0 accounts
+info: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z - 2632e767-1d2a-4832-b988-67331dc923f4] MSAL MSAL.NetCore with assembly version '4.57.0.0'. CorrelationId(2632e767-1d2a-4832-b988-67331dc923f4)
+info: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z - 2632e767-1d2a-4832-b988-67331dc923f4] === AcquireTokenSilent Parameters ===
+info: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z - 2632e767-1d2a-4832-b988-67331dc923f4] LoginHint provided: False
+info: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z - 2632e767-1d2a-4832-b988-67331dc923f4] Account provided: False
+info: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z - 2632e767-1d2a-4832-b988-67331dc923f4] ForceRefresh: False
+info: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z - 2632e767-1d2a-4832-b988-67331dc923f4]
+      === Request Data ===
+      Authority Provided? - True
+      Scopes - GroupMember.Read.All Group.Read.All
+      Extra Query Params Keys (space separated) -
+      ApiId - AcquireTokenSilent
+      IsConfidentialClient - True
+      SendX5C - False
+      LoginHint ? False
+      IsBrokerConfigured - False
+      HomeAccountId - False
+      CorrelationId - 2632e767-1d2a-4832-b988-67331dc923f4
+      UserAssertion set: False
+      LongRunningOboCacheKey set: False
+      Region configured:
+
+info: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z - 2632e767-1d2a-4832-b988-67331dc923f4] === Token Acquisition (SilentRequest) started:
+         Scopes: GroupMember.Read.All Group.Read.All
+        Authority Host: login.microsoftonline.com
+warn: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z - 2632e767-1d2a-4832-b988-67331dc923f4] Only in-memory caching is used. The cache is not persisted and will be lost if the machine is restarted. It also does not scale for a web app or web API, where the number of users can grow large. In production, web apps and web APIs should use distributed caching like Redis. See https://aka.ms/msal-net-cca-token-cache-serialization
+fail: Microsoft.Identity.Web.TokenAcquisition[0]
+      False MSAL 4.57.0.0 MSAL.NetCore .NET 8.0.0 Microsoft Windows 10.0.19045 [2023-11-20 20:44:52Z - 2632e767-1d2a-4832-b988-67331dc923f4] Exception type: Microsoft.Identity.Client.MsalUiRequiredException
+      , ErrorCode: user_null
+      HTTP StatusCode 0
+      CorrelationId
+
+         at Microsoft.Identity.Client.Internal.Requests.Silent.SilentRequest.ExecuteAsync(CancellationToken cancellationToken)
+         at Microsoft.Identity.Client.Internal.Requests.RequestBase.RunAsync(CancellationToken cancellationToken)
+info: Microsoft.Identity.Web.TokenAcquisition[300]
+      [MsIdWeb] An error occured during token acquisition: No account or login hint was passed to the AcquireTokenSilent call.
+      MSAL.NetCore.4.57.0.0.MsalUiRequiredException:
+        ErrorCode: user_null
+Microsoft.Identity.Client.MsalUiRequiredException: No account or login hint was passed to the AcquireTokenSilent call.
+         at Microsoft.Identity.Client.Internal.Requests.Silent.SilentRequest.ExecuteAsync(CancellationToken cancellationToken)
+         at Microsoft.Identity.Client.Internal.Requests.RequestBase.RunAsync(CancellationToken cancellationToken)
+         at Microsoft.Identity.Client.ApiConfig.Executors.ClientApplicationBaseExecutor.ExecuteAsync(AcquireTokenCommonParameters commonParameters, AcquireTokenSilentParameters silentParameters, CancellationToken cancellationToken)
+         at Microsoft.Identity.Web.TokenAcquisition.GetAuthenticationResultForWebAppWithAccountFromCacheAsync(IConfidentialClientApplication application, ClaimsPrincipal claimsPrincipal, IEnumerable`1 scopes, String tenantId, MergedOptions mergedOptions, String userFlow, TokenAcquisitionOptions tokenAcquisitionOptions)
+         at Microsoft.Identity.Web.TokenAcquisition.GetAuthenticationResultForUserAsync(IEnumerable`1 scopes, String authenticationScheme, String tenantId, String userFlow, ClaimsPrincipal user, TokenAcquisitionOptions tokenAcquisitionOptions)
+        StatusCode: 0
+        ResponseBody:
+        Headers:
+fail: Microsoft.AspNetCore.Server.Kestrel[13]
+      Connection id "0HMVA1649VUKP", Request id "0HMVA1649VUKP:00000001": An unhandled exception was thrown by the application.
+      Microsoft.Identity.Web.MicrosoftIdentityWebChallengeUserException: IDW10502: An MsalUiRequiredException was thrown due to a challenge for the user. See https://aka.ms/ms-id-web/ca_incremental-consent.
+       ---> MSAL.NetCore.4.57.0.0.MsalUiRequiredException:
+        ErrorCode: user_null
+Microsoft.Identity.Client.MsalUiRequiredException: No account or login hint was passed to the AcquireTokenSilent call.
+         at Microsoft.Identity.Client.Internal.Requests.Silent.SilentRequest.ExecuteAsync(CancellationToken cancellationToken)
+         at Microsoft.Identity.Client.Internal.Requests.RequestBase.RunAsync(CancellationToken cancellationToken)
+         at Microsoft.Identity.Client.ApiConfig.Executors.ClientApplicationBaseExecutor.ExecuteAsync(AcquireTokenCommonParameters commonParameters, AcquireTokenSilentParameters silentParameters, CancellationToken cancellationToken)
+         at Microsoft.Identity.Web.TokenAcquisition.GetAuthenticationResultForWebAppWithAccountFromCacheAsync(IConfidentialClientApplication application, ClaimsPrincipal claimsPrincipal, IEnumerable`1 scopes, String tenantId, MergedOptions mergedOptions, String userFlow, TokenAcquisitionOptions tokenAcquisitionOptions)
+         at Microsoft.Identity.Web.TokenAcquisition.GetAuthenticationResultForUserAsync(IEnumerable`1 scopes, String authenticationScheme, String tenantId, String userFlow, ClaimsPrincipal user, TokenAcquisitionOptions tokenAcquisitionOptions)
+        StatusCode: 0
+        ResponseBody:
+        Headers:
+         --- End of inner exception stack trace ---
+         at Microsoft.Identity.Web.TokenAcquisition.GetAuthenticationResultForUserAsync(IEnumerable`1 scopes, String authenticationScheme, String tenantId, String userFlow, ClaimsPrincipal user, TokenAcquisitionOptions tokenAcquisitionOptions)
+         at Microsoft.Identity.Web.TokenAcquisition.GetAccessTokenForUserAsync(IEnumerable`1 scopes, String authenticationScheme, String tenantId, String userFlow, ClaimsPrincipal user, TokenAcquisitionOptions tokenAcquisitionOptions)
+         at HeimdallCloud.Shared.Services.TokenService.RefreshToken(ClaimsPrincipal user) in C:\Source\repos\CVS.iammetrics.heimdallclouddev\src\Shared\Services\TokenService.cs:line 127
+         at HeimdallCloud.Startup.<>c.<<Configure>b__5_0>d.MoveNext() in C:\Source\repos\CVS.iammetrics.heimdallclouddev\src\Server\Startup.cs:line 152
+      --- End of stack trace from previous location ---
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+         at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)
+         at Microsoft.WebTools.BrowserLink.Net.BrowserLinkMiddleware.InvokeAsync(HttpContext context)
+         at Microsoft.AspNetCore.Watch.BrowserRefresh.BrowserRefreshMiddleware.InvokeAsync(HttpContext context)
+         at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http.HttpProtocol.ProcessRequests[TContext](IHttpApplication`1 application)
+
+C:\Source\repos\CVS.iammetrics.heimdallclouddev\src\Server\bin\DEV\net8.0\HeimdallCloud.exe (process 15820) exited with code -1.
+To automatically close the console when debugging stops, enable Tools->Options->Debugging->Automatically close the console when debugging stops.
+Press any key to close this window . . .

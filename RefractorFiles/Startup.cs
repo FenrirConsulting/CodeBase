@@ -147,8 +147,10 @@ namespace HeimdallCloud
 
             app.Use(async (context, next) =>
             {
+                var user = context.User;
                 var tokenService = context.RequestServices.GetRequiredService<ITokenService>();
-                if (await tokenService.IsTokenValid())
+
+                if (await tokenService.IsTokenValid(user))
                 {
                     await next.Invoke();
                 }
