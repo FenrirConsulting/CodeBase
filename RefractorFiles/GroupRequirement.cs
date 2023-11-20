@@ -7,15 +7,24 @@ using System.Threading.Tasks;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class GroupRequirement(string groups) : IAuthorizationRequirement
+    public class GroupRequirement : IAuthorizationRequirement
     {
         #region Properties
-        public List<string> GroupNames { get; } = groups.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+        public List<string> GroupNames { get; }
+        public List<string> GroupDisplayNames { get; }
+        #endregion
+
+        #region Methods
+        public GroupRequirement(string groups)
+        {
+            GroupNames = groups.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(g => g.Trim())
                         .ToList();
-        public List<string> GroupDisplayNames { get; } = groups.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries)
+
+            GroupDisplayNames = groups.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries)
                         .Select(g => g.Trim())
                         .ToList();
+        }
         #endregion
     }
 }

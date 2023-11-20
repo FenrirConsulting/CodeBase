@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class GroupHandler
-        (IUserGroupService userGroupService) : AuthorizationHandler<GroupRequirement>
+    public class GroupHandler(IUserSessionService userSessionService) : AuthorizationHandler<GroupRequirement>
     {
         #region Services
-        private readonly IUserGroupService _userGroupService = userGroupService;
+        private readonly IUserSessionService _userSessionService = userSessionService;
         #endregion
 
         #region Functions
@@ -21,7 +20,7 @@ namespace HeimdallCloud.Shared.Services
         {
             foreach (var group in requirement.GroupNames)
             {
-                if (await _userGroupService.IsUserInGroupAsync(group))
+                if (await IsUserInGroupAsync(group))
                 {
                     context.Succeed(requirement);
                 }
@@ -29,11 +28,25 @@ namespace HeimdallCloud.Shared.Services
 
             foreach (var group in requirement.GroupDisplayNames)
             {
-                if (await _userGroupService.IsUserDisplayName(group))
+                if (await IsUserDisplayName(group))
                 {
                     context.Succeed(requirement);
                 }
             }
+        }
+
+        //Check passed in Group Name for a match to return back to the Group Handler.
+        public Task<bool> IsUserInGroupAsync(string groupName)
+        {
+            var userGroups = _userSessionService.UserGroupNames;
+            return Task.FromResult(userGroups!.Contains(groupName));
+        }
+
+        // Check Passed in Display Name for a match to return back to the Group Handler.
+        public Task<bool> IsUserDisplayName(string displayName)
+        {
+            bool isMatch = string.Equals(displayName, _userSessionService.CurrentUserDisplayName, StringComparison.OrdinalIgnoreCase);
+            return Task.FromResult(isMatch);
         }
         #endregion
     }

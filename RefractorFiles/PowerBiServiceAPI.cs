@@ -9,21 +9,30 @@ using Microsoft.Rest;
 
 namespace HeimdallCloud.Shared.Services
 {
-    public class PowerBiServiceAPI
-        (IConfiguration configuration, ITokenService tokenService, ILogger<PowerBiServiceAPI> logger) : IPowerBiServiceAPI
+    public class PowerBiServiceAPI : IPowerBiServiceAPI
     {
         #region Services
         [Inject]
-        private ITokenService? _TokenService { get; set; } = tokenService;
+        private ITokenService? _TokenService { get; set; }
 
-        private readonly ILogger _logger = logger;
+        private readonly ILogger _logger;
         #endregion
 
         #region Properties
-        private readonly string? _workspaceId = configuration["PowerBiAPI:WorkspaceId"];
-        private string urlPowerBiServiceApiRoot { get; set; } = configuration["PowerBiAPI:ServiceRootUrl"]!;
+        private readonly string? _workspaceId;
+        private string urlPowerBiServiceApiRoot { get; set; }
         public string? CurrentPowerBiToken { get; set; }
         public EmbeddedReportViewModel EmbeddedReportViewModel { get; set; } = new();
+        #endregion
+
+        #region Methods
+        public PowerBiServiceAPI(IConfiguration configuration, ITokenService tokenService, ILogger<PowerBiServiceAPI> logger)
+        {
+            _workspaceId = configuration["PowerBiAPI:WorkspaceId"];
+            urlPowerBiServiceApiRoot = configuration["PowerBiAPI:ServiceRootUrl"]!;
+            _TokenService = tokenService;
+            _logger = logger;
+        }
         #endregion
 
         #region Functions

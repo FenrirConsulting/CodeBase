@@ -16,9 +16,6 @@ namespace HeimdallCloud.Shared.Services
         private readonly IOptions<AzureAd>? _azureAd = azureAd;
         private IConfidentialClientApplication? _app;
         public AllowedHostsValidator AllowedHostsValidator { get; }
-
-        #endregion
-        #region Methods
         #endregion
 
         #region Functions
