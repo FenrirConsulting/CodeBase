@@ -11,31 +11,39 @@
     private NavigationManager? _NavigationManager { get; set; }
 
     [Inject]
-    private IUserGroupService? _UserGroupService { get; set; }
+    private ILogger<TokenCheck>? _logger { get; set; }
+
+    private Timer? _tokenRefreshTimer;
 
 
     protected override async Task OnInitializedAsync()
     {
+        // Initialize the timer to check the token status every 5 minutes.
+        _tokenRefreshTimer = new Timer(CheckAndRefreshToken, null, TimeSpan.Zero, TimeSpan.FromMinutes(5));
 
-        var authState = await AuthenticationState!;
-        if (authState != null && authState.User.Identity!.IsAuthenticated)
+    }
+
+    private async void CheckAndRefreshToken(object? state)
+    {
+        try
         {
-            try
-            {
-                var User = authState.User;
-                string UserId = User.FindFirst("uid")?.Value.ToString()!;
-                var graphAccessToken = await TokenService!.AcquireGraphTokenAsync(UserId);
-                bool setName = await _UserGroupService!.SetCurrentUserDisplayName();
+            await TokenService!.RefreshToken();
 
-                if (TokenService.UserGroupNames == null)
-                {
-                    _UserGroupService.SetUserGroupNames(await _UserGroupService.GetGraphApiGroupNames(UserId));
-                }
-            }
-            catch (CustomInteractiveSignInRequiredException)
-            {
-                _NavigationManager!.NavigateTo("/authentication/login");
-            }
+        }
+        catch (CustomInteractiveSignInRequiredException)
+        {
+            _NavigationManager!.NavigateTo("/authentication/login", forceLoad: true);
+        }
+        catch(Exception ex)
+        {
+            _logger!.LogError(ex, "Error serializing session value for key {Key}");
         }
     }
+
+    // Dispose timer on Component Disposed to clean up resources
+    public void Dispose()
+    {
+        _tokenRefreshTimer?.Dispose();
+    }
+
 }

@@ -145,6 +145,20 @@ namespace HeimdallCloud
 
             app.UseAntiforgery();
 
+            app.Use(async (context, next) =>
+            {
+                var tokenService = context.RequestServices.GetRequiredService<ITokenService>();
+                if (await tokenService.IsTokenValid())
+                {
+                    await next.Invoke();
+                }
+                else
+                {
+                    context.Response.Redirect("/authentication/login");
+                }
+
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

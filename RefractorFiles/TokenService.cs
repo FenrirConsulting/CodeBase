@@ -102,16 +102,62 @@ namespace HeimdallCloud.Shared.Services
             }
         }
 
-        // Refresh Token, Assigned Groups, & Assigned Policies
+        // Task Called from Startup to Check on Expired Tokens
+        public async Task<bool> IsTokenValid()
+        {
+            try
+            {
+                await RefreshToken();
+                return true;
+            }
+            catch (CustomInteractiveSignInRequiredException)
+            {
+                return false;
+            }
+        }
+
+        // Refresh Token, Groups, Policies on Expiry
         public async Task RefreshToken()
         {
-            // Get Logic to Refresh Async Token Here
             var authState = await AuthenticationState!;
             if(authState != null)
             {
                 var user = await GetCurrentAuthenticatedUserClaimsPrincipal();
+                if (user.Identity!.IsAuthenticated && IsTokenNearExpiry())
+                {
+                    try
+                    {
+                        string[] scopes = _configuration.GetValue<string>("GraphAPI:Scopes")?.Split(' ')!;
+                        var newToken = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
+                        _userGroupService.SetCurentToken(newToken);
+
+                    }
+                    catch (MsalUiRequiredException)
+                    {
+                        throw new CustomInteractiveSignInRequiredException("Interactive Sign-In Required");
+                    }
+                }
                 await InitializeUserGroups(user);
+                var userId = user.FindFirst("uid")?.Value;
+                await AcquireGraphTokenAsync(userId!);
             }
+        }
+
+        // Bool check for Token Expiration Time
+        public bool IsTokenNearExpiry()
+        {
+            // Returns True if the String is Empty
+            if (string.IsNullOrEmpty(CurrentToken))
+            {
+                return true;
+            }
+
+            var tokenHandler = new System.IdentityModel.Tokens.Jwt.JwtSecurityTokenHandler();
+            var jwtToken = tokenHandler.ReadToken(CurrentToken) as System.IdentityModel.Tokens.Jwt.JwtSecurityToken;
+            var expiryDate = jwtToken!.ValidTo;
+
+            // Returns True if Expiry Time is less than 5 Minutes away
+            return (expiryDate - DateTime.UtcNow).TotalMinutes < 5;
         }
 
         // Get the Current Claims Principal Authenticated User
