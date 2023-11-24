@@ -102,20 +102,6 @@ namespace HeimdallCloud.Shared.Services
             }
         }
 
-        // Task Called from Startup to Check on Expired Tokens
-        public async Task<bool> IsTokenValid(ClaimsPrincipal user)
-        {
-            try
-            {
-                await RefreshToken(user);
-                return true;
-            }
-            catch (CustomInteractiveSignInRequiredException)
-            {
-                return false;
-            }
-        }
-
         // Refresh Token, Groups, Policies on Expiry
         public async Task RefreshToken(ClaimsPrincipal user)
         {
@@ -124,6 +110,7 @@ namespace HeimdallCloud.Shared.Services
                 try
                 {
                     string[] scopes = _configuration.GetValue<string>("GraphAPI:Scopes")?.Split(' ')!;
+
                     var newToken = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
                     _userGroupService.SetCurentToken(newToken);
 

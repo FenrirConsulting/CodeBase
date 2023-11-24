@@ -17,6 +17,7 @@ using HeimdallCloud.Shared.Services.IServices;
 using HeimdallCloud.Shared.Services;
 using HeimdallCloud.Shared.Models;
 using HeimdallCloud.Infrastructure.Shared.DataAccess;
+using HeimdallCloud.Shared.Common;
 
 namespace HeimdallCloud
 {
@@ -33,6 +34,7 @@ namespace HeimdallCloud
 
             services.AddRazorComponents()
             .AddInteractiveServerComponents();
+
 
             services.AddSession();
             services.AddDistributedMemoryCache();
@@ -150,11 +152,12 @@ namespace HeimdallCloud
                 var user = context.User;
                 var tokenService = context.RequestServices.GetRequiredService<ITokenService>();
 
-                if (await tokenService.IsTokenValid(user))
+                try
                 {
+                    await tokenService.RefreshToken(user);
                     await next.Invoke();
                 }
-                else
+                catch (CustomInteractiveSignInRequiredException)
                 {
                     context.Response.Redirect("/authentication/login");
                 }
