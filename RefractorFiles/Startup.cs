@@ -154,7 +154,10 @@ namespace HeimdallCloud
 
                 try
                 {
-                    await tokenService.RefreshToken(user);
+                    if(context.User.Identity!.IsAuthenticated)
+                    {
+                        await tokenService.RefreshToken(user);
+                    }
                     await next.Invoke();
                 }
                 catch (CustomInteractiveSignInRequiredException)

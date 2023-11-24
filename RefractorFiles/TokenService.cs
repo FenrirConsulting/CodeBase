@@ -105,26 +105,25 @@ namespace HeimdallCloud.Shared.Services
         // Refresh Token, Groups, Policies on Expiry
         public async Task RefreshToken(ClaimsPrincipal user)
         {
-            if (user.Identity!.IsAuthenticated && IsTokenNearExpiry())
+            if (user.Identity!.IsAuthenticated && (IsTokenNearExpiry() || (UserGroupNames == null || UserGroupNames.Count == 0)))
             {
                 try
                 {
                     string[] scopes = _configuration.GetValue<string>("GraphAPI:Scopes")?.Split(' ')!;
+                    var newToken = await AcquireTokenAsync(scopes, user);
 
-                    var newToken = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
-                    _userGroupService.SetCurentToken(newToken);
+                    // Refresh Graph API Token
+                    var userId = user.FindFirst("uid")?.Value;
+                    await AcquireGraphTokenAsync(userId!);
 
+                    // Refresh Groups List
+                    await InitializeUserGroups(user);
                 }
                 catch (MsalUiRequiredException)
                 {
                     throw new CustomInteractiveSignInRequiredException("Interactive Sign-In Required");
                 }
 
-                // Refresh Groups List
-                await InitializeUserGroups(user);
-                // Refresh Graph API Token
-                var userId = user.FindFirst("uid")?.Value;
-                await AcquireGraphTokenAsync(userId!); 
             }
         }
 
@@ -154,11 +153,11 @@ namespace HeimdallCloud.Shared.Services
         }
 
         // Current User Token with Default Scopes
-        public async Task<string> AcquireTokenAsync(string[] scopes)
+        public async Task<string> AcquireTokenAsync(string[] scopes, ClaimsPrincipal user)
         {
             try
             {
-                var token = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes);
+                var token = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes, user: user);
                 _userGroupService.SetCurentToken(token);
 
                 return CurrentToken!;

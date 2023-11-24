@@ -20,7 +20,6 @@
     {
         // Initialize the timer to check the token status every 5 minutes.
         _tokenRefreshTimer = new Timer(CheckAndRefreshToken, null, TimeSpan.Zero, TimeSpan.FromMinutes(5));
-
     }
 
     private async void CheckAndRefreshToken(object? state)
@@ -30,7 +29,6 @@
             var authState = await AuthenticationState!;
             var user = authState.User;
             await TokenService!.RefreshToken(user);
-
         }
         catch (CustomInteractiveSignInRequiredException)
         {
