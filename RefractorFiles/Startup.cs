@@ -18,6 +18,7 @@ using HeimdallCloud.Shared.Services;
 using HeimdallCloud.Shared.Models;
 using HeimdallCloud.Infrastructure.Shared.DataAccess;
 using HeimdallCloud.Shared.Common;
+using System.Security.Claims;
 
 namespace HeimdallCloud
 {
@@ -74,7 +75,7 @@ namespace HeimdallCloud
                 options.Events.OnTokenValidated += async context =>
                 {
                     var tokenService = context.HttpContext.RequestServices.GetRequiredService<ITokenService>();
-                    await tokenService.InitializeUserGroups(context.Principal!);
+                    await tokenService.RefreshToken(context.Principal!);
                 };
             });
 
@@ -150,13 +151,16 @@ namespace HeimdallCloud
             app.Use(async (context, next) =>
             {
                 var user = context.User;
-                var tokenService = context.RequestServices.GetRequiredService<ITokenService>();
-
                 try
                 {
-                    if(context.User.Identity!.IsAuthenticated)
+                    if (context.User.Identity!.IsAuthenticated)
                     {
-                        await tokenService.RefreshToken(user);
+                        var tokenService = context.RequestServices.GetRequiredService<ITokenService>();
+
+                        if (user.HasClaim(c => c.Type == ClaimTypes.NameIdentifier))
+                        {
+                            await tokenService.RefreshToken(user);
+                        }
                     }
                     await next.Invoke();
                 }

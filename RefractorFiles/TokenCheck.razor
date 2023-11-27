@@ -13,6 +13,9 @@
     [Inject]
     private ILogger<TokenCheck>? _logger { get; set; }
 
+    [Inject]
+    public IConfiguration? Configuration { get; set; }
+
     private Timer? _tokenRefreshTimer;
 
 
@@ -29,6 +32,10 @@
             var authState = await AuthenticationState!;
             var user = authState.User;
             await TokenService!.RefreshToken(user);
+
+            string[] scopes = Configuration!.GetValue<string>("GraphAPI:Scopes")?.Split(' ')!;
+            var token = await TokenService.AcquireTokenAsync(scopes, user);
+            Console.WriteLine(token);
         }
         catch (CustomInteractiveSignInRequiredException)
         {
