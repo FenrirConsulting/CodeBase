@@ -39,7 +39,11 @@ namespace HeimdallCloud.Shared.Services
         public Task<bool> IsUserInGroupAsync(string groupName)
         {
             var userGroups = _userSessionService.UserGroupNames;
-            return Task.FromResult(userGroups!.Contains(groupName));
+            if (userGroups == null)
+            {
+                return Task.FromResult(false);
+            }
+            return Task.FromResult(userGroups.Contains(groupName));
         }
 
         // Check Passed in Display Name for a match to return back to the Group Handler.

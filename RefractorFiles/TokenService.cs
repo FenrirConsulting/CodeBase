@@ -114,7 +114,7 @@ namespace HeimdallCloud.Shared.Services
 
                     // Refresh Graph API Token
                     var userId = user.FindFirst("uid")?.Value;
-                    await AcquireGraphTokenAsync(userId!);
+                    //await AcquireGraphTokenAsync(userId!);
 
                     // Refresh Groups List
                     await InitializeUserGroups(user);
@@ -155,6 +155,7 @@ namespace HeimdallCloud.Shared.Services
         // Current User Token with Default Scopes
         public async Task<string> AcquireTokenAsync(string[] scopes, ClaimsPrincipal user)
         {
+
             try
             {
                 var token = await _tokenAcquisition.GetAccessTokenForUserAsync(scopes, user: user);

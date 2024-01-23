@@ -19,6 +19,7 @@ using HeimdallCloud.Shared.Models;
 using HeimdallCloud.Infrastructure.Shared.DataAccess;
 using HeimdallCloud.Shared.Common;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace HeimdallCloud
 {
@@ -34,8 +35,8 @@ namespace HeimdallCloud
                 .AddMicrosoftIdentityUI();
 
             services.AddRazorComponents()
-            .AddInteractiveServerComponents();
-
+            .AddInteractiveServerComponents()
+            .AddMicrosoftIdentityConsentHandler();
 
             services.AddSession();
             services.AddDistributedMemoryCache();
@@ -66,11 +67,15 @@ namespace HeimdallCloud
               .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAd"))
               .EnableTokenAcquisitionToCallDownstreamApi()
               .AddMicrosoftGraph(Configuration.GetSection("GraphAPI"))
-              .AddInMemoryTokenCaches();
+              .AddDistributedTokenCaches();
 
             // Trigger Intial Security Group Load on Token Validation
             services.Configure<MicrosoftIdentityOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
             {
+                options.SaveTokens = true;
+
+                options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+
                 options.Events ??= new OpenIdConnectEvents();
                 options.Events.OnTokenValidated += async context =>
                 {
