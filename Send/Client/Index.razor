@@ -1,0 +1,19 @@
+@page "/"
+@layout MainLayout
+
+<div>
+
+    @if (OperatingSystem.IsBrowser())
+    {
+        <div>Render mode: WASM</div>
+            <div>API Base URL : @AppConfiguration!.ApiBaseUrl</div>
+        <div>Test Property : @AppConfiguration!.TestProperty</div>
+        <div>Client Setting : @AppConfiguration!.ClientSetting</div>
+    }
+    else
+    {
+        <div> Render mode: Server</div>
+        <div>API Base URL : @AppConfiguration!.ApiBaseUrl</div>
+        <div>Test Property : @AppConfiguration!.TestProperty</div>
+    }
+</div>

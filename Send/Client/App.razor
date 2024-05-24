@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <meta name="Description" content="Blazor Boilerplate"/>
+        <title>Blazor Boilerplate</title>
+        <base href="/"/>
+        <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Components/fonts/Roboto.css" rel="stylesheet" />
+        <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Components/fonts/Lato.css" rel="stylesheet">
+        <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Components/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+        <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Components/css/fontawesome/all.css" rel="stylesheet" />
+        <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Components/css/bootstrap/bootstrap-icons.css" rel="stylesheet" />
+        <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Components/favicon.png" rel="icon" type="image/png" />
+        <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Components/css/global.css" rel="stylesheet" />
+        <link href="_content/Microsoft.FluentUI.AspNetCore.Components/css/reboot.css" rel="stylesheet" />
+        <HeadOutlet />
+    </head>
+    <body>
+        <AppRouter @rendermode="new InteractiveAutoRenderMode(prerender: false)" />
+
+        <div id="blazor-error-ui">
+            An unhandled error has occurred.
+            <a href="" class="reload">Reload</a>
+            <a class="dismiss">x</a>
+        </div>
+
+        <script src="_framework/blazor.web.js"></script>
+        <script src="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Components/ts/helpers.js"></script>
+        <script src="_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js" type="module" async></script>
+    </body>
+</html>
