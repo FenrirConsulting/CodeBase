@@ -1,6 +1,9 @@
 ﻿using Microsoft.FluentUI.AspNetCore.Components;
-using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Common.Interfaces;
+using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Interfaces;
 using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Common.Configuration;
+using Microsoft.Extensions.Options;
+using Microsoft.Extensions.FileProviders;
+using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.UIComponents;
 
 namespace CVSHealth.IAM.IAPF.Test.BlazorAppTest
 {
@@ -17,8 +20,7 @@ namespace CVSHealth.IAM.IAPF.Test.BlazorAppTest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorComponents()
-            .AddInteractiveServerComponents()
-            .AddInteractiveWebAssemblyComponents();
+            .AddInteractiveServerComponents();
 
             services.AddFluentUIComponents();
             services.AddControllers();
@@ -31,22 +33,24 @@ namespace CVSHealth.IAM.IAPF.Test.BlazorAppTest
         }
 
         // Setup App Configuration Items
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IAppConfiguration appConfig)
         {
+            // Middleware to set Path Base off BaseUrl in appsettings.json Configuration
+            var baseUrl = appConfig.BaseUrl;
+            app.UsePathBase(baseUrl);
+
             // Configure the HTTP request pipeline.
-            if (env.IsDevelopment()) 
+            if (env.IsDevelopment())
             {
-                app.UseWebAssemblyDebugging();
+                app.UseDeveloperExceptionPage();
             }
-            else 
+            else
             {
                 app.UseExceptionHandler("/Error", createScopeForErrors: true);
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
+
             app.UseRouting();
             app.UseAntiforgery();
             app.UseAuthentication();
@@ -55,12 +59,9 @@ namespace CVSHealth.IAM.IAPF.Test.BlazorAppTest
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapRazorComponents<CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Components.App>()
-                    .AddAdditionalAssemblies(typeof(Program).Assembly)
-                    .AddInteractiveServerRenderMode()
-                    .AddInteractiveWebAssemblyRenderMode();
+                endpoints.MapRazorComponents<App>()
+                    .AddInteractiveServerRenderMode();
             });
         }
-
     }
 }

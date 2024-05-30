@@ -14,6 +14,7 @@ namespace CVSHealth.IAM.IAPF.Test.BlazorAppTest
             Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
             {
+                webBuilder.UseStaticWebAssets();
                 webBuilder.UseStartup<Startup>();
             });
     }
