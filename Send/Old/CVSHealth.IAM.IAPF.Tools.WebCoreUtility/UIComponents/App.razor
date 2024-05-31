@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Description" content="@AppConfiguration!.ApplicationName" />
+    <title>@AppConfiguration!.ApplicationName</title>
+    <base href="@AppConfiguration!.BaseUrl" />
+    <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/app.css" rel="stylesheet" />
+    <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/favicon.ico" rel="icon" type="image/png" />
+    <HeadOutlet @rendermode="InteractiveServer" />
+</head>
+<body>
+    <!-- Theme Rules to Govern Application -->
+    <FluentDesignTheme Mode="DesignThemeModes.Dark"
+                       OfficeColor="OfficeColor.Teams"
+                       StorageName="DarkTheme" />
+    <script src="_content/Microsoft.FluentUI.AspNetCore.Components/js/loading-theme.js" type="text/javascript"></script>
+    <loading-theme storage-name="DarkTheme"></loading-theme>
+
+    <Routes @rendermode="InteractiveServer" />
+
+    <div id="blazor-error-ui">
+        <environment include="QA,PROD">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            An unhandled exception has occurred. See browser dev tools for details.
+        </environment>
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.web.js"></script>
+    <script src="_content/Microsoft.FluentUI.AspNetCore.Components/Microsoft.FluentUI.AspNetCore.Components.lib.module.js" type="module" async></script>
+</body>
+</html>

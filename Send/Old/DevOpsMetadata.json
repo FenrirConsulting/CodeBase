@@ -1,0 +1,8 @@
+{
+    "Application Acronym": "IAMART",
+    "common": {
+                      "DeveloperEmail": "IAPF_DevOps_Developer@CVSHealth.com",
+                      "ProductionApprovalEmail":"IAPF_DevOps_Approver@CVSHealth.com"                
+              }
+                
+}

@@ -1,0 +1,25 @@
+@page "/Index"
+
+<PageTitle>Home</PageTitle>
+
+<FluentDesignTheme @bind-Mode="@Mode"
+                   OfficeColor="@Color"
+                    StorageName="DarkTheme" />
+
+<div>
+    <FluentCard>
+        <div>@AppConfiguration!.ApplicationName</div>
+        <div>Base URL : @AppConfiguration!.BaseUrl</div>
+
+        <FluentSelect Label="Theme"
+                      Items="@(Enum.GetValues<DesignThemeModes>())"
+                      @bind-SelectedOption="@Mode" />
+        <br/>
+        <FluentSelect Label="Color"
+                      Items="@(Enum.GetValues<OfficeColor>())"
+                      Height="200px"
+                      @bind-SelectedOption="@Color" />
+    </FluentCard>
+</div>
+
+
