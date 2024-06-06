@@ -1,0 +1,252 @@
+$Global:devServers = @()
+$Global:qaServers = @()
+$Global:prodServers = @()
+$Global:registryKeys = @()
+$Global:location = ""
+
+function Main {
+    Set-Location $($PSScriptRoot)
+    $Global:location = Get-Location
+    $SN = $MyInvocation.MyCommand.Name
+    $Global:SN = $SN.Replace(".ps1", "")
+    $keepassLibPath = Join-Path -Path $PSScriptRoot -ChildPath "bin\KeePassLib.dll"
+    $dbPath = Join-Path -Path $PSScriptRoot -ChildPath "IAPF_Credentials.kdbx"
+
+    Set-Environment
+
+    # Load KeepPass Library
+    Add-Type -Path $keepassLibPath
+
+    # Loads password from Registry to unlock KeePass
+    $encryptedPassword = [Convert]::FromBase64String($Global:appcfg.config.pw)
+    $key = [Convert]::FromBase64String($Global:appcfg.config.key)
+    $iv = [Convert]::FromBase64String($Global:appcfg.config.iv)
+
+    Write-Host $encryptedPassword
+    Write-Host $key
+    Write-Host $iv
+
+    $aes =[System.Security.Cryptography.Aes]::Create()
+    $aes.Key = $key
+    $aes.IV = $iv
+
+    $decryptor = $aes.CreateDecryptor($aes.Key, $aes.IV)
+
+    # Create memory stream and crypto stream for decryption
+    $memoryStream = New-Object System.IO.MemoryStream($encryptedPassword)
+    $cryptoStream = New-Object System.Security.Cryptography.CryptoStream($memoryStream, $decryptor, [System.Security.Cryptography.CryptoStreamMode]::Read)
+
+    # Decrypt the password
+    $decryptedPasswordBytes = New-Object byte[] $encryptedPassword.Length
+    $decryptedPasswordLength = $cryptoStream.Read($decryptedPasswordBytes, 0, $decryptedPasswordBytes.Length)
+
+    # Convert the decrypted password back to a string
+    $masterPassword = [System.Text.Encoding]::UTF8.GetString($decryptedPasswordBytes, 0, $decryptedPasswordLength)
+
+    # Create a new IOConnectionInfo object
+    $ioConnInfo = New-Object KeePassLib.Serialization.IOConnectionInfo
+    $ioConnInfo.Path = $dbPath
+
+    # Create a new CompositeKey object
+    $compositeKey = New-Object KeePassLib.Keys.CompositeKey
+
+    # Add the KcpPassword to the CompositeKey
+    $kcpPassword = New-Object KeePassLib.Keys.KcpPassword -ArgumentList $masterPassword
+    $compositeKey.AddUserKey($kcpPassword)
+
+    # Create a new PwDatabase object
+    $db = New-Object KeePassLib.PwDatabase
+
+    # Open the database
+    $db.Open($ioConnInfo, $compositeKey, $null)
+
+    # Get all entries
+    $group = $db.RootGroup.Groups | Where-Object { $_.Name -eq "RegistryKeys" }
+    $entries = $group.GetEntries($true)
+
+    # Fill Registry Key Objects from Kee Pass Registry Keys
+    $Global:registryKeys = $entries | ForEach-Object {
+        @{ Path = $_.Strings.ReadSafe("Title"); Value = $_.Strings.ReadSafe("Password") }
+    }
+
+    # Ask the user to select a server group
+    Write-Host "Select a server group:"
+    Write-Host "1. DEV"
+    Write-Host "2. QA"
+    Write-Host "3. PROD"
+    Write-Host "4. ALL"
+    Write-Host "5. LOCAL ONLY"
+    $selection = Read-Host "Enter your selection"
+
+    # Determine the selected server group
+    $servers = switch ($selection) {
+        "1" { $Global:devServers }
+        "2" { $Global:qaServers }
+        "3" { $Global:prodServers }
+        "4" { $Global:devServers + $Global:qaServers + $Global:prodServers }
+        "5" { @{ Name = [System.Net.Dns]::GetHostByName(($env:COMPUTERNAME)).HostName; Environment = "LOCAL" } }
+        default { Write-Host "Invalid selection"; exit }
+    }
+
+    # Get the local machine's FQDN
+    $localFQDN = [System.Net.Dns]::GetHostByName(($env:COMPUTERNAME)).HostName
+
+    # Define the script block
+    $scriptBlock = {
+        param($registryKeys)
+
+        foreach ($registryKey in $registryKeys) {
+            try {
+                # Check if the registry key exists
+                if (!(Test-Path -Path $registryKey.Path)) {
+                    # Create the registry key
+                    New-Item -Path $registryKey.Path -Force | Out-Null
+                }
+
+                # Set the registry key value
+                Set-ItemProperty -Path $registryKey.Path -Name "(default)" -Value $registryKey.Value
+
+                Write-Host "Successfully set $($registryKey.Path) on $env:COMPUTERNAME"
+            } catch {
+                Write-Error "Failed to set $($registryKey.Path) on $env:COMPUTERNAME: $_"
+            }
+        }
+    }
+
+    # Initialize an array to hold the results
+    $results = @()
+
+    # Run the script block on each server in the selected group
+    foreach ($server in $servers) {
+        try {
+            if ($server.Name -eq $localFQDN) {
+                # Run the commands directly
+                & $scriptBlock $Global:registryKeys
+            } else {
+                # Create a new PSSession
+                $session = New-PSSession -ComputerName $server.Name
+
+                # Invoke the script block on the remote machine
+                Invoke-Command -Session $session -ScriptBlock $scriptBlock -ArgumentList (, $Global:registryKeys)
+
+                # Remove the PSSession
+                Remove-PSSession -Session $session
+            }
+
+            # Add the results to the array
+            foreach ($registryKey in $Global:registryKeys) {
+                $results += New-Object PSObject -Property @{
+                    Environment = $server.Environment
+                    Server = $server.Name
+                    Path = $registryKey.Path
+                }
+            }
+        } catch {
+            Write-Error "Failed to process server $($server.Name): $_"
+        }
+    }
+
+    ## Sort the results by Environment and display them in a grid view
+    $results | Sort-Object Environment | Out-GridView
+}
+
+# set up global environment with shared values - constructor method
+function Set-Environment() {
+    # get app.config.xml
+    $appcfgFile = "$($PSScriptRoot)\app.config.txt"
+    $Global:appcfg = [xml] ( Get-Content -Path $appcfgFile -ErrorAction Stop)
+
+    # Parse the server names and their environments
+    $Global:devServers = $Global:appcfg.config.remotehosts.DEV.server | ForEach-Object {
+        @{ Name = $_; Environment = "DEV" }
+    }
+    $Global:qaServers = $Global:appcfg.config.remotehosts.QA.server | ForEach-Object {
+        @{ Name = $_; Environment = "QA" }
+    }
+    $Global:prodServers = $Global:appcfg.config.remotehosts.PROD.server | ForEach-Object {
+        @{ Name = $_; Environment = "PROD" }
+    }
+}
+
+# Call the main function
+Main
+
+<config>
+
+    <!-- List of remote hosts by environment.-->
+     <remotehosts>
+            <DEV>
+                <server>eac2iamwdw10v.corp.cvscaremark.com</server>
+ 		        <server>eac2iamwdw11v.corp.cvscaremark.com</server>
+            </DEV>
+            <QA>
+                <server>eac2iamwqw12v.corp.cvscaremark.com</server>
+                <server>eac2iamwpw13v.corp.cvscaremark.com</server>
+                <server>eac2iamwqw14v.corp.cvscaremark.com</server>
+            </QA>
+            <PROD>
+                <server>eac2iamwpw11v.corp.cvscaremark.com</server>
+                <server>eac2iamwqw13v.corp.cvscaremark.com</server>
+                <server>eac2iamwpw14v.corp.cvscaremark.com</server>
+                <server>eac2iamwpw16v.corp.cvscaremark.com</server>
+                <server>eac2iamwpw12v.corp.cvscaremark.com</server>
+                <server>eac2iamwpw15v.corp.cvscaremark.com</server>
+            </PROD>
+    </remotehosts>
+    <key>lA1M2H/cDVJaGkH45dC1p2MKkTFE98sod+/qzwiGGoo=</key>
+    <iv>9fqSJyqlWDnaxRzVFC+ZXg==</iv>
+    <pw>ybSDpkzjvB0ejwcruKnaZA==</pw>
+</config>
+
+
+New-Object : Cannot find an overload for "MemoryStream" and the argument count: "16".
+At C:\Source\PowershellWork\IAM\SCRIPT\SCHEDULED\SetRegistryValuesRemotely\SetRegistryEntries
+Remotely.ps1:36 char:21
++ ... $memoryStream = New-Object System.IO.MemoryStream($encryptedPassword)
++                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [New-Object], MethodException
+    + FullyQualifiedErrorId : ConstructorInvokedThrowException,Microsoft.PowerShell.Commands 
+   .NewObjectCommand
+ 
+New-Object : Exception calling ".ctor" with "3" argument(s): "Object reference not set to an 
+instance of an object."
+At C:\Source\PowershellWork\IAM\SCRIPT\SCHEDULED\SetRegistryValuesRemotely\SetRegistryEntries
+Remotely.ps1:37 char:21
++ ... ptoStream = New-Object System.Security.Cryptography.CryptoStream($mem ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [New-Object], MethodInvocationException
+    + FullyQualifiedErrorId : ConstructorInvokedThrowException,Microsoft.PowerShell.Commands 
+   .NewObjectCommand
+ 
+You cannot call a method on a null-valued expression.
+At C:\Source\PowershellWork\IAM\SCRIPT\SCHEDULED\SetRegistryValuesRemotely\SetRegistryEntries
+Remotely.ps1:41 char:5
++     $decryptedPasswordLength = $cryptoStream.Read($decryptedPasswordB ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
+ 
+Exception calling "Open" with "3" argument(s): "The master key is invalid!
+Make sure that the master key is correct and try it again."
+At C:\Source\PowershellWork\IAM\SCRIPT\SCHEDULED\SetRegistryValuesRemotely\SetRegistryEntries
+Remotely.ps1:61 char:5
++     $db.Open($ioConnInfo, $compositeKey, $null)
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : InvalidCompositeKeyException
+ 
+You cannot call a method on a null-valued expression.
+At C:\Source\PowershellWork\IAM\SCRIPT\SCHEDULED\SetRegistryValuesRemotely\SetRegistryEntries
+Remotely.ps1:65 char:5
++     $entries = $group.GetEntries($true)
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
+ 
+You cannot call a method on a null-valued expression.
+At C:\Source\PowershellWork\IAM\SCRIPT\SCHEDULED\SetRegistryValuesRemotely\SetRegistryEntries
+Remotely.ps1:69 char:9
++         @{ Path = $_.Strings.ReadSafe("Title"); Value = $_.Strings.Re ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [], RuntimeException
+    + FullyQualifiedErrorId : InvokeMethodOnNull
