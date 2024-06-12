@@ -1,8 +1,11 @@
+@page "/Account/Login"
+@attribute [AllowAnonymous]
+@layout PublicLayout
+
 <h1>Login</h1>
 <div class="row">
     <div class="col-md-4">
         <section>
-            <StatusMessage Message="@errorMessage" />
             <EditForm Model="loginModel" method="post" OnValidSubmit="HandleLogin" FormName="form">
                 <DataAnnotationsValidator />
                 <h2>Select Domain and Login</h2>
@@ -39,13 +42,6 @@
             </div>
         </section>
     </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use another service to log in.</h3>
-            <hr />
-            <ExternalLoginPicker />
-        </section>
-    </div>
 </div>
 
 @if (showErrorMessage)
@@ -54,3 +50,175 @@
         @errorMessage
     </div>
 }
+
+
+
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
+using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Application.Models;
+using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Services;
+using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Authentication.Interfaces;
+using Microsoft.AspNetCore.Authentication;
+using System.ComponentModel.DataAnnotations;
+
+namespace CVSHealth.IAM.IAPF.Tools.ApplicationShell.Components.Account.Pages
+{
+    public partial class Login : ComponentBase
+    {
+        [CascadingParameter]
+        private HttpContext? HttpContext { get; set; }
+
+        [Inject] LdapAuthenticationService? LdapAuthenticationService { get; set; }
+        [Inject] LdapServerList? LdapServerList { get; set; }
+        [Inject] NavigationManager? NavigationManager { get; set; }
+        [Inject] ICustomAuthenticationStateProvider? AuthenticationStateProvider { get; set; }
+
+        private LoginModel loginModel = new LoginModel();
+        private bool showErrorMessage = false;
+        private string errorMessage = "";
+
+        protected override async Task OnInitializedAsync()
+        {
+            StateHasChanged();
+        }
+
+        protected override void OnParametersSet()
+        {
+            if (HttpContext is null)
+            {
+                // If this code runs, we're currently rendering in interactive mode, so there is no HttpContext.
+                // The identity pages need to set cookies, so they require an HttpContext. To achieve this we
+                // must transition back from interactive mode to a server-rendered page.
+                NavigationManager!.Refresh(forceReload: true);
+            }
+        }
+
+        private async Task HandleLogin()
+        {
+            var selectedServer = LdapServerList?.Servers.FirstOrDefault(s => s.Server == loginModel.SelectedServer);
+
+            if (selectedServer != null && LdapAuthenticationService != null)
+            {
+                try
+                {
+                    var (isAuthenticated, roles) = await LdapAuthenticationService.ValidateCredentialsAndFetchRolesAsync(
+                        selectedServer.Name!,
+                        selectedServer.Server!,
+                        selectedServer.Port,
+                        selectedServer.SearchBase!,
+                        loginModel.Username,
+                        loginModel.Password
+                    );
+
+                    if (isAuthenticated)
+                    {
+                        if (roles.Any())
+                        {
+                            var claims = new List<Claim>
+                        {
+                            new Claim(ClaimTypes.Name, loginModel.Username)
+                        };
+                            claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
+
+                            var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                            var principal = new ClaimsPrincipal(identity);
+
+                            await HttpContext!.SignInAsync(
+                            CookieAuthenticationDefaults.AuthenticationScheme,
+                            principal,
+                            new AuthenticationProperties { IsPersistent = true });
+
+                            NavigationManager?.NavigateTo("/");
+                        }
+                        else
+                        {
+                            NavigationManager?.NavigateTo("/Account/AccessDenied");
+                        }
+                    }
+                    else
+                    {
+                        showErrorMessage = true;
+                        errorMessage = "Invalid username or password. Please try again.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    showErrorMessage = true;
+                    errorMessage = ex.Message.Contains("Failed to connec") ? "Invalid Server Name" : ex.Message;
+                }
+            }
+            else
+            {
+                showErrorMessage = true;
+                errorMessage = "Select a Domain for Login.";
+            }
+        }
+    }
+}
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Application.Models
+{
+    public class LoginModel
+    {
+        public string SelectedServer { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+
+        public LoginModel()
+        {
+            SelectedServer = string.Empty;
+            Username = string.Empty;
+            Password = string.Empty;
+        }
+    }
+}
+
+using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Application.Models;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Services
+{
+    public class LdapServerList
+    {
+        public List<LdapServer> Servers { get; private set; }
+
+        public LdapServerList(IConfiguration configuration)
+        {
+            Servers = configuration.GetSection("LdapServers").Get<List<LdapServer>>()!;
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Application.Models
+{
+    public class LdapServer
+    {
+        public string? Name { get; set; }
+        public string? Server { get; set; }
+        public int Port { get; set; }
+        public string? SearchBase { get; set; }
+    }
+}
+
+
