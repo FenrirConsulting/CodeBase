@@ -18,6 +18,9 @@ using Microsoft.IdentityModel.Tokens;
 using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Application.Interfaces;
 using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
+using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Common;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CVSHealth.IAM.IAPF.Tools.ApplicationShell
 {
@@ -28,9 +31,14 @@ namespace CVSHealth.IAM.IAPF.Tools.ApplicationShell
         {
 
             #region  Application Services
+            services.AddControllers();
             services.AddRazorComponents()
                 .AddInteractiveServerComponents();
             services.AddHttpContextAccessor();
+
+            // Distributed Cache Services
+            services.AddScoped<IDistributedCacheRepository, DistributedCacheRepository>();
+            services.AddSingleton<IDistributedCache>(sp => new CustomDistributedCache(sp));
 
             // NLog Services
             services.AddTransient<ILogService, LogService>();
@@ -41,9 +49,6 @@ namespace CVSHealth.IAM.IAPF.Tools.ApplicationShell
             services.AddMudBlazorSnackbar();
             services.AddMudServicesWithExtensions();
             services.AddScoped<ThemeService>();
-
-            // Add Controller Services
-            services.AddControllers();
 
             // Additional Services
             services.AddHttpClient();
@@ -69,12 +74,25 @@ namespace CVSHealth.IAM.IAPF.Tools.ApplicationShell
             services.AddScoped<IUserPreferencesService, UserPreferencesService>();
             #endregion
 
+            #region Database Services
+            // Add DbContext with connection string from appConfiguration
+            var appConfiguration = services.BuildServiceProvider().GetRequiredService<IAppConfiguration>();
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(appConfiguration.ConnectionString);
+            });
+
+            // Table Repository Services
+            services.AddScoped<IUserSettingsRepository, UserSettingsRepository>();
+            services.AddScoped<IDistributedCacheRepository, DistributedCacheRepository>();
+            #endregion
+
             #region Authentication Services
+            services.AddScoped<IDomainUserGroupService, DomainUserGroupService>();
+            services.AddScoped<IClaimsTransformation, CustomClaimsTransform>();
             services.AddCascadingAuthenticationState();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddScoped<ILdapAuthenticationService, LdapAuthenticationService>();
-            services.AddScoped<IDomainUserGroupService, DomainUserGroupService>();
-            services.AddScoped<IClaimsTransformation, CustomClaimsTransform>();
             services.AddScoped<RoleUpdateRequest>();
 
             // Cookies stored key ring
@@ -99,6 +117,12 @@ namespace CVSHealth.IAM.IAPF.Tools.ApplicationShell
             services.AddTransient<CookieHandler>();
             services.AddHttpClient(config["CookieName"]!)
                     .AddHttpMessageHandler<CookieHandler>();
+
+            services.AddHttpClient("AuthenticationAPI", c =>
+            {
+                c.BaseAddress = new Uri(config["AuthenticationAPIURL"]!);
+            })
+            .AddHttpMessageHandler<CookieHandler>();
             #endregion
 
             #region Authorization Services
@@ -110,20 +134,14 @@ namespace CVSHealth.IAM.IAPF.Tools.ApplicationShell
                 {
                     options.AddPolicy(key, policy => policy.RequireRole(key));
                 }
+
+                options.DefaultPolicy = new AuthorizationPolicyBuilder()
+                    .RequireAuthenticatedUser()
+                    .RequireRole(ldapRoleMappingConfig.LdapRoleMappings.Keys.ToArray())
+                    .Build();
+
                 options.FallbackPolicy = options.DefaultPolicy;
             });
-            #endregion
-
-            #region Database Services
-            // Add DbContext with connection string from appConfiguration
-            var appConfiguration = services.BuildServiceProvider().GetRequiredService<IAppConfiguration>();
-            services.AddDbContext<AppDbContext>(options =>
-            {
-                options.UseSqlServer(appConfiguration.ConnectionString);
-            });
-
-            // Table Repository Services
-            services.AddScoped<IUserSettingsRepository, UserSettingsRepository>();
             #endregion
 
             return services;
@@ -156,6 +174,7 @@ namespace CVSHealth.IAM.IAPF.Tools.ApplicationShell
             app.UseAntiforgery();
 
             app.MapControllers();
+
             app.MapRazorComponents<App>()
                 .AddInteractiveServerRenderMode()
                 .AddAdditionalAssemblies(typeof(WebCoreUtility._Imports).Assembly);

@@ -1,0 +1,11 @@
+﻿@page "/Account/AccessDenied"
+@attribute [AllowAnonymous]
+
+<MudContainer>
+    <MudPaper Elevation="2" Class="pa-4">
+        <MudText Typo="Typo.h3">Access Denied</MudText>
+        <MudText Typo="Typo.body1">You do not have permission to access these tools.</MudText>
+        <MudButton OnClick="Login" Color="MudBlazor.Color.Info">Login</MudButton>
+    </MudPaper>
+</MudContainer>
+

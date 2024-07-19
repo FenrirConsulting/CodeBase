@@ -1,0 +1,42 @@
+﻿@attribute [AllowAnonymous]
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="@AppConfiguration!.BaseUrl" />
+    
+    <!-- Font Library Imports -->
+    <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/fonts/Roboto.css" rel="stylesheet" />
+    <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/fonts/Lato.css" rel="stylesheet" />
+
+    <!-- CSS Library Imports  -->
+    <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/css/global.css" rel="stylesheet" />
+    <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/css/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
+    <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/css/material/MaterialIcons.css" rel="stylesheet" />
+    <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/css/fontawesome/all.css" rel="stylesheet" />
+    <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/css/bootstrap/bootstrap-icons.css" rel="stylesheet" />
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
+    <link href="_content/MudBlazor.Extensions/mudBlazorExtensions.min.css" rel="stylesheet" id="mudex-styles">
+    <link href="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/img/CVSLogoTransparent.ico" rel="icon" type="image/x-icon" />
+    <HeadOutlet />
+</head>
+<body>
+    <CascadingAuthenticationState>
+        <Routes @rendermode="InteractiveServer" />
+    </CascadingAuthenticationState>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <!-- JS Library Imports  -->
+    <script src="_framework/blazor.web.js"></script>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
+    <script src="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
