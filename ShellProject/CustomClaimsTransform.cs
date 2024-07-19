@@ -1,91 +1,77 @@
-﻿using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Authentication.Interfaces;
-using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Common.Configuration;
+﻿using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Application.Common.Configuration.Interfaces;
 using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.NLog.LogService.Interface;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Caching.Distributed;
 using System.Security.Claims;
+using System.Text;
+using System.Text.Json;
 
-public class CustomClaimsTransform : IClaimsTransformation
+namespace CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Authentication
 {
-    private readonly IHttpContextAccessor _httpContextAccessor;
-    private readonly IDomainUserGroupService _domainUserGroupService;
-    private readonly ILogger<CustomClaimsTransform> _logger;
-    private readonly LdapRoleMappingConfig _ldapRoleMappingConfig;
-    private readonly ILogHelper _LogHelper;
-
-    public CustomClaimsTransform(IDomainUserGroupService domainUserGroupService, IHttpContextAccessor httpContextAccessor,
-        ILogger<CustomClaimsTransform> logger, LdapRoleMappingConfig ldapRoleMappingConfig, ILogHelper LogHelper)
+    public class CustomClaimsTransform : IClaimsTransformation
     {
-        _httpContextAccessor = httpContextAccessor;
-        _domainUserGroupService = domainUserGroupService;
-        _logger = logger;
-        _ldapRoleMappingConfig = ldapRoleMappingConfig;
-        _LogHelper = LogHelper;
-    }
+        private readonly ILogHelper _logHelper;
+        private readonly IDistributedCache _cache;
+        private readonly IAppConfiguration _appConfiguration;
 
-    public Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
-    {
-        try
+        public CustomClaimsTransform(ILogHelper logHelper, IDistributedCache cache, IAppConfiguration appConfiguration)
         {
-            if (principal.Identity!.IsAuthenticated)
+            _logHelper = logHelper;
+            _cache = cache;
+            _appConfiguration = appConfiguration;
+        }
+
+        public async Task<ClaimsPrincipal> TransformAsync(ClaimsPrincipal principal)
+        {
+            if (!principal.Identity?.IsAuthenticated ?? true)
             {
-                string username = principal.Identity.Name!;
+                return principal;
+            }
 
-                // Get roles from the cache
-                List<string> cachedRoles = UserGroupsCache.GetUserRoles(username);
+            string username = principal.Identity!.Name!;
 
-                // If cache is empty, populate it from existing claims
-                if (!cachedRoles.Any())
-                {
-                    var existingRoles = principal.Claims
-                        .Where(claim => claim.Type == ClaimTypes.Role)
-                        .Select(claim => claim.Value)
-                        .ToList();
+            try
+            {
+                var cachedRoles = await GetCachedRolesAsync(username);
+                var currentRoles = principal.FindAll(ClaimTypes.Role).Select(c => c.Value).ToHashSet();
 
-                    UserGroupsCache.AddUserRoles(username, existingRoles);
-                    cachedRoles = UserGroupsCache.GetUserRoles(username);
-                }
+                var allRoles = currentRoles.Union(cachedRoles).ToHashSet();
 
-                // Get additional roles from the AdditionalRoles claim
-                var additionalRolesClaim = principal.FindFirst("AdditionalRoles");
-                if (additionalRolesClaim != null)
-                {
-                    var additionalRoles = additionalRolesClaim.Value.Split(',', StringSplitOptions.RemoveEmptyEntries).ToList();
-                    cachedRoles.AddRange(additionalRoles);
-                    cachedRoles = cachedRoles.Distinct().ToList();
-
-                    UserGroupsCache.AddUserRoles(username, additionalRoles);
-                }
-
-                // Create a new identity with all roles
                 var newIdentity = new ClaimsIdentity(principal.Identity);
+                UpdateRoleClaims(newIdentity, allRoles);
 
-                // Remove existing role claims
-                var existingRoleClaims = newIdentity.Claims.Where(c => c.Type == ClaimTypes.Role).ToList();
-                foreach (var claim in existingRoleClaims)
-                {
-                    newIdentity.RemoveClaim(claim);
-                }
-
-                // Add all roles as claims
-                foreach (var role in cachedRoles)
-                {
-                    newIdentity.AddClaim(new Claim(ClaimTypes.Role, role));
-                }
-
-                // Create a new principal with the updated identity
-                var newPrincipal = new ClaimsPrincipal(newIdentity);
-
-                return Task.FromResult(newPrincipal);
+                return new ClaimsPrincipal(newIdentity);
+            }
+            catch (Exception ex)
+            {
+                _logHelper.LogError($"Error transforming claims for user {username}: {ex.Message}", ex);
+                return principal;
             }
         }
-        catch (Exception ex)
+
+        private async Task<HashSet<string>> GetCachedRolesAsync(string username)
         {
-            _LogHelper.LogError(ex.Message, ex);
+            byte[]? cachedRolesBytes = await _cache.GetAsync($"user_roles_{username}");
+            if (cachedRolesBytes != null)
+            {
+                string serializedRoles = Encoding.UTF8.GetString(cachedRolesBytes);
+                return JsonSerializer.Deserialize<HashSet<string>>(serializedRoles) ?? new HashSet<string>();
+            }
+            return new HashSet<string>();
         }
 
-        return Task.FromResult(principal);
+        private void UpdateRoleClaims(ClaimsIdentity identity, HashSet<string> roles)
+        {
+            var existingRoleClaims = identity.FindAll(ClaimTypes.Role).ToList();
+            foreach (var claim in existingRoleClaims)
+            {
+                identity.RemoveClaim(claim);
+            }
+
+            foreach (var role in roles)
+            {
+                identity.AddClaim(new Claim(ClaimTypes.Role, role));
+            }
+        }
     }
 }

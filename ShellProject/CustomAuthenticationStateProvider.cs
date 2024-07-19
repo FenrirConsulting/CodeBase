@@ -6,56 +6,54 @@ using Microsoft.AspNetCore.Components.Server;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System.Data;
 using System.Diagnostics;
 using System.Security.Claims;
+using System.Text.Json;
 
 namespace CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Authentication
 {
-    // Authentication State Provider to keep Application up to date on Authentication State Changes
     public sealed class CustomAuthenticationStateProvider : RevalidatingServerAuthenticationStateProvider, ICustomAuthenticationStateProvider
     {
-        #region Private Fields
-
         private readonly IServiceScopeFactory _scopeFactory;
         private readonly PersistentComponentState _state;
         private readonly IdentityOptions _options;
         private readonly PersistingComponentStateSubscription _subscription;
+        private readonly IDistributedCache _cache;
         private Task<AuthenticationState>? _authenticationStateTask;
-        protected override TimeSpan RevalidationInterval => TimeSpan.FromMinutes(30);
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private ClaimsPrincipal _currentUser;
 
-        #endregion
-
-        #region Constructor
+        protected override TimeSpan RevalidationInterval => TimeSpan.FromMinutes(30);
 
         public CustomAuthenticationStateProvider(
             PersistentComponentState persistentComponentState,
             ILoggerFactory loggerFactory,
             IServiceScopeFactory serviceScopeFactory,
-            IOptions<IdentityOptions> optionsAccessor)
+            IOptions<IdentityOptions> optionsAccessor,
+            IDistributedCache cache,
+            IHttpContextAccessor httpContextAccessor)
             : base(loggerFactory)
         {
             _scopeFactory = serviceScopeFactory;
             _state = persistentComponentState;
             _options = optionsAccessor.Value;
+            _cache = cache;
+            _httpContextAccessor = httpContextAccessor;
             _currentUser = new ClaimsPrincipal(new ClaimsIdentity());
 
             AuthenticationStateChanged += OnAuthenticationStateChanged;
             _subscription = _state.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveWebAssembly);
         }
 
-        #endregion
-
-        #region Event Handlers
-
         private void OnAuthenticationStateChanged(Task<AuthenticationState> task)
         {
             _authenticationStateTask = task;
         }
+
 
         private async Task OnPersistingAsync()
         {
@@ -76,13 +74,22 @@ namespace CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Authentication
 
                 if (userRoles != null)
                 {
+                    var roles = userRoles.Select(r => r.Value).ToList();
                     _state.PersistAsJson(nameof(ApplicationUser), new ApplicationUser
                     {
                         UserId = userId,
                         UserName = name,
                         Email = email,
-                        Roles = userRoles.Select(r => r.Value).ToList()
+                        Roles = roles
                     });
+
+                    // Update distributed cache
+                    await _cache.SetStringAsync($"user_roles_{userId}",
+                        JsonSerializer.Serialize(roles),
+                        new DistributedCacheEntryOptions
+                        {
+                            AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1)
+                        });
                 }
             }
         }
@@ -96,6 +103,37 @@ namespace CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Authentication
 
         protected override async Task<bool> ValidateAuthenticationStateAsync(AuthenticationState authenticationState, CancellationToken cancellationToken)
         {
+            var user = authenticationState.User;
+            if (user.Identity?.IsAuthenticated != true)
+            {
+                return false;
+            }
+
+            var userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userId))
+            {
+                return false;
+            }
+
+            var cachedRolesJson = await _cache.GetStringAsync($"user_roles_{userId}", cancellationToken);
+            if (!string.IsNullOrEmpty(cachedRolesJson))
+            {
+                var cachedRoles = JsonSerializer.Deserialize<List<string>>(cachedRolesJson);
+                var identity = new ClaimsIdentity(user.Claims.ToList(), user.Identity.AuthenticationType);
+
+                foreach (var role in cachedRoles!)
+                {
+                    if (!identity.HasClaim(ClaimTypes.Role, role))
+                    {
+                        identity.AddClaim(new Claim(ClaimTypes.Role, role));
+                    }
+                }
+
+                // Update the principal with new claims
+                authenticationState = new AuthenticationState(new ClaimsPrincipal(identity));
+            }
+
+            // Proceed with existing validation
             await using var scope = _scopeFactory.CreateAsyncScope();
             var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
             return await ValidateSecurityStampAsync(userManager, authenticationState.User);
@@ -120,6 +158,10 @@ namespace CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Authentication
             }
         }
 
-        #endregion
+        public async Task RefreshAuthenticationState()
+        {
+            var authenticationState = await GetAuthenticationStateAsync();
+            NotifyAuthenticationStateChanged(Task.FromResult(authenticationState));
+        }
     }
 }
