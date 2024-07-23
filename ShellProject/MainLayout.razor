@@ -1,0 +1,19 @@
+﻿@inherits LayoutComponentBase
+
+<MudLayout>
+
+    <AppBar OnSidebarToggled="ToggleSidebar" OnThemeToggled="ToggleTheme" />
+
+    <NavMenu SideBarOpen="_sideBarOpen"></NavMenu>
+
+    <MudMainContent Class="row content mudblazor-main-content flex-grow-1 d-flex" Style="height: 100%;">
+        @Body
+    </MudMainContent>
+</MudLayout>
+
+<MudThemeProvider Theme="@(ThemeService?.CurrentTheme)" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+
+

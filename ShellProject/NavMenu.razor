@@ -1,0 +1,64 @@
+﻿<MudDrawer @bind-Open="SideBarOpen" Clipped="true" Width="200px">
+    <MudDrawerHeader>
+        <MudText Typo="Typo.h6"><div hidden="@(!SideBarOpen)">@AppConfiguration!.AppName</div></MudText>
+    </MudDrawerHeader>
+
+    <MudNavMenu>
+
+        @* Render Links with no Role *@
+        @foreach (var link in Links!.Links.Where(l => l.Position != "Last" && string.IsNullOrEmpty(l.Role)))
+        {
+            @if (link.IconType == "MudBlazor")
+            {
+                <MudNavLink Href="@link.Href" Icon="@(typeof(Icons.Material.Filled).GetField(link.Icon!)?.GetValue(null) as string)">@link.Text</MudNavLink>
+            }
+            else
+            {
+                <MudNavLink Href="@link.Href" Icon="@link.Icon">@link.Text</MudNavLink>
+            }
+        }
+
+        @* Render Links with Roles *@
+        @foreach (var link in Links!.Links.Where(l => l.Position != "Last" && !string.IsNullOrEmpty(l.Role)))
+        {
+            <AuthorizeView Roles="@link.Role">
+                <Authorized>
+                    @if (link.IconType == "MudBlazor")
+                    {
+                        <MudNavLink Href="@link.Href" Icon="@(typeof(Icons.Material.Filled).GetField(link.Icon!)?.GetValue(null) as string)">@link.Text</MudNavLink>
+                    }
+                    else
+                    {
+                        <MudNavLink Href="@link.Href" Icon="@link.Icon">@link.Text</MudNavLink>
+                    }
+                </Authorized>
+            </AuthorizeView>
+        }
+
+        @* Render Links Always Last on the List (Login usually) *@
+        @foreach (var link in Links!.Links.Where(l => l.Position == "Last"))
+        {
+            @if (link.IconType == "MudBlazor")
+            {
+                <MudNavLink Href="@link.Href" Icon="@(typeof(Icons.Material.Filled).GetField(link.Icon!)?.GetValue(null) as string)">@link.Text</MudNavLink>
+            }
+            else
+            {
+                <MudNavLink Href="@link.Href" Icon="@link.Icon">@link.Text</MudNavLink>
+            }
+        }
+    </MudNavMenu>
+
+    <MudSpacer />
+
+    <MudContainer Class="d-flex justify-content-center">
+        @if (_ThemeService!.IsLightMode)
+        {
+            <MudImage Src="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/img/CVSLogoTransparent.png" Width="160" Class="mb-2"/>
+        }
+        else
+        {
+            <MudImage Src="_content/CVSHealth.IAM.IAPF.Tools.WebCoreUtility/img/CVSLogoWhiteTransparent.png" Width="160" Class="mb-2"/>
+        }
+   </MudContainer>
+</MudDrawer>

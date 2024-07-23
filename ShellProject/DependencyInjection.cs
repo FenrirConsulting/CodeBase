@@ -21,6 +21,8 @@ using Microsoft.EntityFrameworkCore;
 using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Common;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.AspNetCore.Authorization;
+using CVSHealth.IAM.IAPF.Tools.WebCoreUtility.Infrastructure.Authorization;
+using Microsoft.Extensions.FileProviders;
 
 namespace CVSHealth.IAM.IAPF.Tools.ApplicationShell
 {
@@ -139,8 +141,6 @@ namespace CVSHealth.IAM.IAPF.Tools.ApplicationShell
                     .RequireAuthenticatedUser()
                     .RequireRole(ldapRoleMappingConfig.LdapRoleMappings.Keys.ToArray())
                     .Build();
-
-                options.FallbackPolicy = options.DefaultPolicy;
             });
             #endregion
 
@@ -166,6 +166,7 @@ namespace CVSHealth.IAM.IAPF.Tools.ApplicationShell
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
             app.UseRouting();
 

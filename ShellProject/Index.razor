@@ -1,0 +1,29 @@
+@page "/"
+<PageTitle>Home</PageTitle>
+<MudContainer Class="d-flex flex-column" MaxWidth="MaxWidth.Medium">
+
+
+    <MudPaper Class="mb-5" Style="padding: 20px">
+        <MudText Align="Align.Center" Typo="Typo.h3">@AppConfiguration!.AppName</MudText>
+    </MudPaper>
+
+    <MudElement>
+        <MudText Align="Align.Center" Typo="Typo.h6">Applied Roles</MudText>
+        <hr />
+        <hr />
+        @foreach (var role in userRoles!)
+        {
+            <MudText Align="Align.Center">@role</MudText>
+        }
+        <MudText Align="Align.Center" Typo="Typo.h6">LDAP Role Mappings</MudText>
+        <hr />
+        <hr />
+        @foreach (var role in ldapRoleMappings!)
+        {
+            <MudText Align="Align.Center">@role</MudText>
+        }
+        <AuthorizeView Policy="Approver">
+            Test Approver Content
+        </AuthorizeView>
+    </MudElement>
+</MudContainer>
