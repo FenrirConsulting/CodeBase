@@ -1,0 +1,176 @@
+Southwest Grasslands -
+
+Type 				Quality			Base		Max
+
+Iron 				8 Impure		240			2400
+
+Copper				2 Normal		120		    1200
+
+Limestone			2 Impure		60			600
+					1 Pure          120			1200
+									180			1800
+
+Caterium			2 Pure          240 		2400
+
+Coal				1 Pure 			1200		1200
+
+
+How to Use :
+
+Caterium Shipped to Computers & Circuit Boards at SW Coast
+
+Coal to Diamons, Ship by Drones to Dune Desert End Game
+
+Limestone to Concrete to Cloud Storage
+
+Stitched Reinforced Plates from Iron & Copper, ship to Heavy Modual Frames (Coal Lake)
+
+Remaining Copper to wire and cable , sink into cloud storage. Sink backup
+
+
+_____________________________________________________________
+
+South Central Grasslands - 
+
+Type 				Quality			Base		Max
+
+Iron 				2 Impure		60			600
+					2 Normal		120 		1200
+									180         1800
+
+Copper				1 Normal		60		    600
+
+Limestone			2 Impure		60			600
+					1 Normal        60			600
+									120			1200
+
+How to Use :
+_____________________________________________________________
+
+Central Grasslands - 
+
+Type 				Quality			Base		Max
+
+Iron 				8 Impure		240			2400
+					3 Normal		180 		1800
+									420         4200
+
+Copper				2 Normal		120		    1200
+
+Limestone			2 Impure		60			600
+					1 Normal        60			600
+					1 Pure			120			1200
+									2400		2400
+
+How to Use : 
+
+_____________________________________________________________
+
+Coal Lake -
+
+Type 				Quality			Base		Max
+
+Iron 				6 Impure		180			1800
+					1 Pure		    120 		1200
+									300         3000
+
+Copper				1 Impure		30 			300
+					1 Normal		60		    600
+									90			900
+
+Limestone			1 Normal        60			600
+					1 Pure			120			1200
+									1800		1800
+
+Coal				4 Normal		240 		2400
+
+SAM					1 Pure 			120 		1200
+
+
+How to Use : 
+
+_____________________________________________________________
+
+Northern Grass Forest - 
+
+Type 				Quality			Base		Max
+
+Copper				2 Impure		60 			600
+
+Limestone			2 Normal        120			1200
+					1 Pure			120			1200
+									2400		2400
+
+Coal				1 Impure		30 			300
+					1 Pure 			120 		1200
+									150			1500
+
+Caterium 			1 Pure 			120 		1200
+
+Quartz				2 Pure 			240 		2400
+
+Sulfur 				1 Normal		60 			600
+
+SAM					1 Normal 		60  		600
+
+How to Use : 
+
+_____________________________________________________________
+
+Coast -
+
+Oil					2 Normal		120 		1200
+					2 Pure 			240 		2400
+
+Bauxite 			2 Pure 			240 		2400
+
+How to Use : 
+
+_____________________________________________________________
+
+Void Crater -
+
+Copper 				3 Normal		180 		1800
+
+Limestone 			1 Normal		60 			600
+
+Quartz				1 Impure		30 			300
+					2 Normal		120 		1200
+					2 Pure  		240 		2400
+									390 		3900
+
+How to Use : 
+
+_____________________________________________________________
+
+Southwest Coast - 
+
+Iron 				3 Pure 			360 		3600
+
+Copper 				1 Pure 			120 		1200
+
+Limestone 			2 Pure 			240 		2400
+
+Sulfur 				1 Pure 			120 		1200
+
+How to Use : 
+
+_____________________________________________________________
+
+Southeast Grasslands - 
+
+Iron 				4 Normal 		240 		2400
+
+Copper 				1 Normal 		60 			600
+
+Limestone 			4 Normal 		240 		2400
+
+Sulfur 				1 Impure 		30 			300
+
+Caol 				1 Pure 			120 		1200
+
+SAM 				1 Normal 		60 			600
+
+How to Use : 
+
+_____________________________________________________________

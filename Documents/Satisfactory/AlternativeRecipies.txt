@@ -1,0 +1,137 @@
+AlternativeRecipies
+
+Adhered Iron Plate : 11.25 Iron Plate 3.75 Rubber : 3.75 Reinforced Iron Plate
+
+Alclad Casin 	   : 150 Aluminum Ingot, 75 Copper Ingot : 112.5 Aluminum Casing
+
+Aluminum Beam      : 22.5 Aluminum Ingot : 22.5 Steel Beam
+
+Aluminum Rod       : 7.5 Aluminum Ingot : 52.5 Iron Rod
+
+Automated Miner    : 4 Steel Pipe, 4 Iron Plate : 1 Portable Miner
+
+Automated Speed Wiring : 3.75 Stator, 75 Wire, 1.875 High-Speed Connector : 7.5 Automated Wiring
+
+Basic Iron Ingot	: 25 Iron Ore, 40 Limestone : 50 Iron Ingot 
+
+Bolted Frame 		: 7.5 Reinforced Iron Plate, 140 Screws : 5 Modular Frames
+
+Cast Screws			: 12.5 Iron Ingot	: 50 Screw
+
+Caterium Circuit Board : 12.5 Plastic, 37.5 Quickwire : 8.75 Circuit Board
+
+Caterium Computer   : 15 Circuit Board, 52.5 Quickwire, 22.5 Rubber : 3.75 Computer
+
+Caterium Wire       : 15 Caterium Ingot : 120 Wire
+
+Cheap Silica        : 22.5 Quartz, 37.5 Limestone : 52.5 Silica
+
+Classic Battery     : 45 Sulfur, 52.5 Alclad Aluminum Sheet, 60 Plastic, 90 Wire : 30 Battery
+
+Cloudy Diamonds     : 240 Coal, 480 Limestone : 20 Diamond
+
+Coated Cable        : 37.5 Wire, 15 Heavy Oil Residue : 67.5 Cable
+
+Coated Iron Canister : 30 Iron Plate, 15 Copper Sheet : 60 Empty Canister
+
+Coated Iron Plate   : 37.5 Iron Ingot, 7.5 Plastic, 75 Iron Plate
+
+Coke Steel Ingot    : 75 Iron ore, 75 Petroleum Coke, 100 Steel Ingot
+
+Compacted Coal      : 25 Coal, 25 Sulfur : 25 Compacted Coal
+
+Compacted Steel Ingot : 5 Iron Ore, 2.5 Compacted Coal : 10 Steel Ingot
+
+Cooling Device      : 10 Heat ASink, 2.5 Motor, 60 Nitrogen Gas : 5 Cooling System
+
+Copper Alloy Ingot  : 50 Copper ore, 50 Iron Ore : 100 Copper Ingot
+
+Copper Rotor        : 22.5 Copper Sheet, 195 Screws : 11.25 Rotor
+
+Crystal Computer    : 5 Circuit Board, 1.66667 Crystal Oscillator : 3.33333 Computer
+
+Dark Matter Crystalization : 200 Dark Matter Residue : 20 Dark Matter Crystals
+
+Dark Matter Trap    : 30 Time Crystal, 150 Dark Matter Residue : 60 Dark Matter Crystals
+
+Dark-Ion Fuel       : 240 ROcket Fuel, 80 Dark Matter Crystals : 200 Ionized Fuel, 40 Compacted Coal
+
+Diluted Fuel        : 50 Heavy Oil Residue, 100 Water          : 100 Fuel
+
+Diluted Packaged Fuel : 30 Heavy Oil Residue, 60 Packaged Water : 60 Packaged Fuel
+
+Distilled Silica : 12- Dissolved Silica, 50 Limestone, 100 Water : 270 Silica & 80 Water
+
+Electrode Aluminum Scrap : 180 Aluminia Solution, 60 Petroleum Coke : 300 Aluminum Scrap, 105 Water
+
+Electrode Circuit Board : 20 RUbber, 40 Petroleum Coke : 5 Circuit Board
+
+Electromagnetic Connection Rod : 8 Stator, 4 High-Speed Conenctor : 8 Electromagnetic Rod
+
+Encased Industrial Pipe : 24 Steel Pipe, 20 Concrete : 4 Encased Industrial Beam
+
+Fertile Uranium : 25 Uranium, 25 Uranium Waste, 15 Nitric Acid, 25 Sulfuric Acid : 100 Non-Fissle Uranium, 40 Water
+
+Fine Concrete   : 15 Silica, 60 Limestone : 50 Concrete
+
+Flexible Framework : 3.75 Modular Frame, 22.5 Steel Beam, 30 Rubber : 7.5 Versitile Framework
+
+Fused Quartz Crystal : 75 Quartz, 36 Coal : 54 Quartz Crystal
+
+Fused Quickwire : 7.5 Caterium Ingot, 37.5 Copper Ingot : 90 Quickwire
+
+Fused Wire      : 12 Copper Ingot, 3 Caterium Ingot : 90 Wire
+
+Heat Exchanger  : 30 Aluminum Casing, 30 RUbber : 10 Heat Sink
+
+Heat Fused Frame : 3 Heavy Modular Frame, 150 Aluminum Ingot, 24 Nitric Acid, 30 Fuel : 3 Fused Modular Frame
+
+Heavy Encased Frame : 7.5 Modular Frame , 9.375 Encased Industrial Beam, 33.75 Steel Pipe, 20.625 Concrete : 2.8125 Heavy Module Frame
+
+Iron Alloy Ingot : 40 Iron Ore, 10 Copper Ore : 75 Iron Ingot
+
+Leached Iron Ingot : 50 Iron Ore, 10 Sulfuric Acid : 100 Iron Ingot
+
+Molded Beam : 120 Steel Ingot, 80 Concrete : 45 Steel Beam
+
+Molded Steel Pipe : 50 Steel Ingot , 30 Concrete : 50 Steel Pipe
+
+Oil-Based Diamonds : 200 Oil : 40 Diamonds
+
+Petroleum Diamonds : 720 Coke Coal : 30 Diamonds
+
+Pink Diamonds : 120 Coal, 45 Quartz Crystal : 15 Diamonds
+
+Pure Copper Ingot : 15 Copper Ore, 10 Water : 37.5 Iron Ingot
+
+Pure Iron Ingot : 35 Iron Ore , 20 Water : 65 Iron Ingot
+
+Pure Quartz Crystal : 67.5 Quartz, 37.5 Water : 52.5 Quartz Crystal
+
+Quartz Purification : 120 Quartz, 10 Nitric Acid : 75 Quartz Crystal, 60 Si (?)
+
+Quickwire Cable : 7.5 Cable, 5 Rubber : 27.5 Cable
+
+Rubber Concrete : 100 Limestone, 20 Rubber : 90 Concrete
+
+Solid Steel Ingot : 40 Iron Ingot, 40 Coal : 60 Steel Ingot
+
+Steam Copper Sheet : 22.5 Copper Ingot, 22.5 Water : 22.5 Copper Sheet
+
+Steel Cast Plate : 15 Iron Ingot, 15 Steel Ingot : 45 Iron Plate
+
+Steel Rod : 12 Steel Ingot : 48 Iron Rod
+
+Steel Screw : 5 Steel Beam : 260 Screws
+
+Stitched Iron Plate : 18.75 Iron Plate, 37.5 Wire : 5.625 Iron Plate
+
+Turbo Diamonds : 600 Coal, 40 Turbofuel : 60 Diamonds
+
+Wet Concrete : 120 Limestone, 100 Water : 80 Concrete
+
+
+
+
+
+

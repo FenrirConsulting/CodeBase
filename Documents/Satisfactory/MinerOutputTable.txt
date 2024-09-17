@@ -1,0 +1,37 @@
+Miner Outputs
+
+Mk1     Base	Overclocked (2.5)
+  
+Impure  30		75
+
+Normal  60		150
+
+Pure    120		300
+
+
+Mk 2
+
+Impure  60		150
+	
+Normal  120		300
+
+Pure    240		600
+
+
+Mk 3
+
+Impure  120		300
+
+Normal  240		600
+		
+Pure    480		1200
+
+
+Belt Speeds:
+
+Mk1 - 
+Mk2 -
+Mk3 - 
+Mk4 - 
+Mk5 - 780 /s
+Mk6 - 1200/s

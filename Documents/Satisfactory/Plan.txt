@@ -1,0 +1,32 @@
+SAM:
+
+Bauxite (Caterium)
+Copper Ore (Sulfur)
+Ficsite Ingot (Aluminum)
+Dark Matter Residue
+
+
+Compacted Steel Ingot
+Iron Wire
+Iron Pipe => Stators, Rotors, Motor, Encased
+Iron => Can get H. Frames w/ Concrete
+
+Almost all copper = Copper Sheets
+
+
+
+Almost all Coal = Diamonds
+
+inital base = solid steel 
+
+later game, somewhere around a lot of iron = Iron Recipies for Steel
+
+
+Pure Caterium
+(Some excess Sulfuric Acid = Caterium ? = Boards and Computers)
+
+Caterium Circuit Board
+Caterium Computer
+
+
+Oil => Heavy Residue

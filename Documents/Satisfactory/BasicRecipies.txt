@@ -1,0 +1,283 @@
+Iron : 
+______
+
+Iron Ingot - 30 Iron Ore : 30 Ingots
+
+Iron Plate - 30 Iron Ingot : 20 Plates
+
+Iron Rod - 15 Iron Ingot : 15 Rods
+
+Screws - 10 Iron Rods : 40 Screws
+
+Reinforced Iron Plates - 30 Iron Plates, 60 Scres : 5 Reinforced Plates
+
+
+Copper : 
+________
+
+Copper Ingot - 30 Copper Ore : 30 Ingots
+
+Wire         - 15 Ingots : 30 Wire
+
+Cable 		 - 60 Wire : 30 Cable
+
+Copper Sheets - 20 Ingots : 10 Sheets
+
+
+Limestone :
+___________
+
+Concrete -   45 Limestone : 15 Concrete
+
+
+Caterium :
+__________
+
+Caterium Ingot - 45 Caterium Ore : 15 Caterium Ingot
+
+Quickwire      - 12 Caterium Ingot : 60 Quickwire
+
+
+Quarts :
+________
+
+Quartz Crystal - 37.5 Quartz  : 22.5 Quartz Crystal
+
+Silia          - 22.5 Quartz  : 37.5 Silica
+
+  
+Steel :
+_______
+
+Steel Ingot - 45 Iron Ore, 45 Coal : 45 Steel Ingot
+
+Steel Pipes - 30 Steel Ingot       : 20 Steel Pipe
+ 
+Steel Beams - 60 Steel Ingot       : 15 Steel Beam
+ 
+Encased Industrial Beam - 3 Steel Beam, 6 Concrete : 6 Encased Industrial Beam
+
+
+Frames : 
+________
+
+Modular Frames - 3 Reinforced Iron Plates, 12 Iron Rods : 2 Modular Frames
+
+Heavy Frame    - 5 Modular Frames, 5 Encased , 20 Steel Pipe, 120 Screws
+
+Fused Frames   - 1.5 Heavy Modular Frames , 75 Aluminum Casing, 37.5 Nitrogen Gas
+
+Pressurized Cube - 1 Fused Frame, 2 Radio
+
+
+Motors : 
+________
+
+Rotors  - 20 Iron Rods, 100 Screws : 4 Rotors
+
+Stators - 15 Steel Pipe, 40 Wire   : 5 Stators
+
+Motors  - 10 Rotors, 10 Stators    : 5 Motors
+
+Turbo Motor - 7.5 Motors, 7.5 Cooling System, 3.75 Radio, 45 Rubber : 1.875 Turbo Motors
+
+
+
+Computers : 
+___________
+
+Circuit Boards - 15 Copper Sheet, 30 Plastic : 7.5 Circuit Board
+
+AI Limiter     - 25 Copper Sheet, 100 Quickwire : 5 AI Limiter
+
+Crystal Oscillators - 18 Cystal Quartz, 14 Cable, 2.5 Reinforced Iron Plate : 1 Crystal Oscillators
+
+Computers - 4 Circuit Board, 8 Cable, 16 Plastic, 130 Screws : 2.5 Computers
+
+High-Speed Connectors - 3.75 Circuit Board, 210 Quickwire, 37.5 Cable : 3.75 High-Speed Connectors
+
+Radio - 1.25 Computers, 1.25 Crystal Oscillators, 40 Aluminum Casing : 2.5 Radio
+
+Supercomputers - 3.75 Computers, 5.625 High Speed Connectors, 3.75 AI Limiters, 52.5 Plastic : 1.875 Supercomputer
+
+
+
+Oil :
+_____
+
+Fuel - 60 Oil : 40 Fuel & 30 Polyester Resin
+
+Heavy Oil Residue - 30 Oil : 40 Heavy Oil Residue & 20 Polyester Resin
+
+Turbofuel - 22.5 Fuel, 15 Compacted Coal : 18.75 Turbofuel
+
+Petroleum Coke - 40 Heavy Oil Residue : 120 Petroleum oke
+
+Plastic - 30 Oil : 20 Plastic & 10 Heavy Oil Residue
+
+Rubber- 30 Oil   : 20 Rubber & 20 Heavy Oil Residue
+
+
+
+Aluminum :
+__________
+
+Alumina Solution - 120 Bauxite , 180 Water : 120 Alumina Solution & 50 Silica
+
+Aluminum Scrap   - 240 Alumina Solution , 120 Coal : 360 Aluminum Scrapm & 120 Water
+
+Aluminum Ingot   - 90 Aluminum Scrap , 75 Silica : 60 Aluminum Ingot
+
+Aluminum Casing  - 90 Aluminum Ingot : 60 Aluminum Casing
+
+Alclard Aluminum Sheets - 30 Aluminum Ingot, 10 Copper Ingot : 30 Alclard Aluminum Sheets
+
+Heat Sinks       - 37.5 Alclard Aluminum Sheets, 22.5 Copper Sheets : 7.5 Heat Sinks
+
+Cooling System   - 12 Heat Sinks , 120 Nitrogen Gas, 12 Rubber, 30 Water : 6 Cooling System
+
+Batteries        - 20 Aluminum Casing, 40 Aluminium Solution, 50 Sulfuric Acid : 20 Batteries & 30 Water
+
+
+SAM : 
+_____
+
+Reanimated SAM : 120 SAM : 30 Reanimated SAM
+
+SAM Flucuator : 60 Reanimated SAM , 50 Wire, 30 Steel Pipe : 10 SAM Fluctuator
+
+Alien Power Matrix : 12.5 SAM Fluctuator, 7.5 Power Shard, 7.5 Singularity Oscillator, 60 Photonic Matter : 2.5 Alien Power Matrix
+
+
+Ficsite :
+__________
+
+Ficsite Ingot : 240 Iron Ingot, 40 Reanimated Sam : 10 Ficsite
+
+Ficsite Ingot : 60 Caterium Ingot, 45 Reanimated Sam : 15 Ficsite
+
+Ficsite Ingot : 120 Aluminum Ingot, 60 Reanimated Sam : 30 Ficsite
+
+Ficsite Trigone : 10 Ficsite Ingot : 30 Ficsite Trigone
+
+Quantum Items : 
+_______________
+
+Photonic Matter : ??? : 200 Photonic Matter
+
+Dark Matter Residue : 50 Reanimated SAM : 100 Dark Matter Residue
+
+Time Crystal : 12 Diamonds : 6 Time Crystals
+
+Dark Matter Crystals : 30 Diamonds, 150 Dark Matter Residue : 30 Dark Matter Crystals
+
+Singularity Cell : 1 Nuclear Pasta , 20 Dark Matter Crystals, 100 Iron Plate, 200 Concrete :  10 Singularity Cell
+
+Superposition Oscillator : 30 Dark Matter Crystal, 5 Crystall Oscillators, 45 Alclad Aluminum Sheet, 125 Photonic Matter : 5 Superposition Oscillator & 125 Dark Matter
+
+Power Shard : 10 Dark Matter Crystal , 10 Time Crystal, 60 Quartz Crystal, 60 Photonic Matter : 5 Power Shard & 60 Dark Matter Residue
+
+Neural-Quantum Processor : 3 Supercomputer, 15 Time Crystal, 45 Ficsite Trigone, 75 Photonic Matter : 3 NeuralM Quantum Processor
+
+
+Nuclear Items :
+_______________
+
+Sulfuric Acid    - 50 Sulfur, 50 Water : 50 Sulfuric Acid
+
+Nitric Acid      - 120 Nitrogen Gas, 30 Water, 10 Iron Plates : 30 Nitric Acid
+
+Electromagnetic Rods = 6 Stators, 4 AI Limiters - 4 Electromagnetic Rods
+
+Encased Uranium Cell - 50 Uranium, 15 Concrete, 40 Sulfuric Acid : 25 Encased Uranium Cell & 10 Sulfuric ACid
+
+Uranium Fuel Rod     - 20 Encased Uranium Cell, 2 Electromagnetic Rods, 1.2 Encased Industrial Beams : 0.4 Uranium Fuel Rod
+
+Non-Fissle Uranium - 37.5 Uranium Waste, 15 Sulfuric Acid, 15 Nitric Acid, 25 Silica : 50 Non-Fissle Uranium & 15 Water
+
+Plutonium Pellets  - 100 Non-Fissle Uranium, 25 Uranium Waste : 5 Plutonium Pellets
+
+Plutonium Fuel Rods - 7.5 Plutonium Pellets, 1.5 Electromagnetic Rods, 4.5 Steel Beams, 2.5 Heat Sinks : 0.25 Plutonium Fuel Rods
+
+Ficsonium           - 10 Singularity Cell, 10 Plutonium waste, 200 Dark Matter Residue : 10 Ficsonium
+
+Ficsonium Fuel Rod  - 5 Ficsonium, 5 Electromagnetic Rods, 100 Ficsite Trigone, 50 Photonic Residue : 2.5 Ficosnium Fuel Rod & 50 dark Matter Residue
+
+
+Package / Unpackage Speeds ( Package to Unpackage) Speeds : 
+___________________________________________________________
+
+Alumina Solution : 120 to 120
+
+Crude Oil : 30 to 60
+
+Fuel : 40 to 60
+
+Heavy Oil Residue : 30 to 20
+
+Sulfuric Acid : 40 to 60
+
+Turbofuel : 20 to 20
+
+Water : 60 to 120
+
+Empty Canister - 30 Plastic : 60 Empty Canister
+
+Empty Fluid Tank - 60 Aluminum Ingot : 60 Empty Fluid Tank
+
+
+Ore Conversions (Converter)
+
+Iron Ore     : 240 Limestone, 10 Reanimated SAM : 120 Iron Ore
+
+Limestone    : 20 Sulfur, 10 Reanimated SAM : 120 Limestone
+
+Copper Ore   : 100 Limestone OR 120 Sulfur, 10 Reanimated SAM : 120 Copper Ore
+
+Coal         : 240 Limestone, 10 Reanimated SAM : 120 Iron Ore
+
+Caterium Ore : 240 Limestone, 10 Reanimated SAM : 120 Iron Ore
+
+Bauxite Ore  : 240 Limestone, 10 Reanimated SAM : 120 Iron Ore
+
+Sulfur       : 240 Limestone, 10 Reanimated SAM : 120 Iron Ore
+
+Quartz       : 240 Limestone, 10 Reanimated SAM : 120 Iron Ore
+
+Uranium Ore  : 240 Limestone, 10 Reanimated SAM : 120 Iron Ore
+
+Nitrogen Gas : 240 Limestone, 10 Reanimated SAM : 120 Iron Ore
+
+
+Space Elevator : 
+________________
+
+Smart Plating : 2 Rotors, 2 Reinforce Iron Plates : 2 Smart Plating
+
+Automated Wiring : 2.5 Stator, 50 Cable : 2.5 Automated Wiring
+
+Versitle Framework : 2.5 Modular Frames, 30 Steel Beam : 5 Versitle Framework
+
+Modular Engine     : 2 Smart Plating, 2 Motors, 15 Rubber : 1 Modular Engine
+
+Adaptive Control Unit : 7.5 Automated Wiring, 5 Circuit Board, 1 Heavy Modular Frame , 1 Computer : 1 Adaptive Control Unit
+
+Assembly Director System : 1.5 Adaptive Control Unit, 0.75 Supercomputer : 0.75 Assembly Director System
+
+Magnetic Field Generator : 5 Versitle Framework, 2 Electromagnetic Rod : 1 Magnetic Field Generator
+
+Nuclear Pasta : 0.5 Pressurized Cube, 100 Copper Dust : 0.5 Nuclear Pasta
+
+Thermal Propulsion System : 2.5 Modular Engine, 3 Cooling System, 1 Fused Frame, 1 Turbo Motor : 1 Thermal Propulsion System
+
+AI Expansion Server : 4 Superposition Oscillators, 4 Neural-Quantam Processor, 4 Magnetic Field Generators, 100 Photonic Matter : 4 AI Expansion Server
+
+Biochemical Sculptor : 0.5 Assembly Director System, 40 Ficsite Trigone, 10 Water : 2 Biochemical Sculptor
+
+Ballistic Warp Drive : 1 Thermal Propulsion Rocket, 2 Superposition Oscialltors, 5 Singularity Cell, 40 Dark Matter Crystal : 1 Ballistic warp Drive
+
+
+
+
+Satisfactory Tools Proposed Recipies:
+
