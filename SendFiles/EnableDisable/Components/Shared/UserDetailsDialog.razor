@@ -1,0 +1,52 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudTabs>
+            <MudTabPanel Text="User Info">
+                @if (UserDetails.Response?.Users != null && UserDetails.Response.Users.Any())
+                {
+                    @foreach (var user in UserDetails.Response.Users)
+                    {
+                        <MudExpansionPanel Text ="@($"Domain: {user.Domain}")">
+                            <MudTable Items="@GetUserProperties(user)" Dense="true" Hover="true" Bordered="true" Striped="true">
+                                <HeaderContent>
+                                    <MudTh>Property</MudTh>
+                                    <MudTh>Value</MudTh>
+                                </HeaderContent>
+                                <RowTemplate>
+                                    <MudTd DataLabel="Property">@context.Key</MudTd>
+                                    <MudTd DataLabel="Value">@context.Value</MudTd>
+                                </RowTemplate>
+                            </MudTable>
+                        </MudExpansionPanel>
+                    }
+                }
+                else
+                {
+                    <MudText>No user details available</MudText>
+                }
+            </MudTabPanel>
+            <MudTabPanel Text="Manager Info">
+                @if (UserDetails.Response?.Manager != null)
+                {
+                    <MudTable Items="@GetUserProperties(UserDetails.Response.Manager)" Dense="true" Hover="true" Bordered="true" Striped="true">
+                        <HeaderContent>
+                            <MudTh>Property</MudTh>
+                            <MudTh>Value</MudTh>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd DataLabel="Property">@context.Key</MudTd>
+                            <MudTd DataLabel="Value">@context.Value</MudTd>
+                        </RowTemplate>
+                    </MudTable>
+                }
+                else
+                {
+                    <MudText>No manager details available</MudText>
+                }
+            </MudTabPanel>
+        </MudTabs>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Close">Close</MudButton>
+    </DialogActions>
+</MudDialog>
